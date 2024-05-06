@@ -1,0 +1,17 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(212, 0, 42);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+  --bg1: rgb(100, 100, 100);
+  --bg2: rgb(175, 175, 175);
+}

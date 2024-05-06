@@ -1,0 +1,53 @@
+MVA
+Registration Number
+Car Group
+Make / Model
+Current Location Mne
+Current Status
+Location Due Mne
+Rental Agreement Num
+Checkout Datetime
+Checkin Datetime
+Fleet Owner
+Trunk Key
+Vehicle Mileage
+Last Movement
+Fleet Owner Code
+Current Location
+Checkout Location
+Checkout Location Mne
+Location Due
+Status2
+STATUS3
+VIN
+Body Type
+Colour
+Accessory 01
+Accessory 02
+Accessory 03
+Accessory 04
+Accessory 05
+Accessory 06
+Accessory 07
+Accessory 08
+Accessory 09
+Fuel
+Delivery Date
+Registration Date
+Inspection Date
+Disposal Date
+Updated Date
+District
+Checkin District
+Ignition Key
+Vehicle Use Code
+Turnback KM
+Checkout Rate Code
+Creditclub Code
+Country Code
+Company Name
+Tank Capacity
+Vehicle Make Code
+Model Description
+Km Liter
+Ref Number
