@@ -79,6 +79,7 @@ table {
 }
 
 .bottom-area {
+  flex: 1;
   overflow-y: scroll;
   overflow-x: scroll;
 }
@@ -95,11 +96,6 @@ table {
 
 .table-head-row {
   border-bottom: 2px solid rgb(212, 0, 42);
-}
-
-.table-summary-row {
-  padding: 0.5rem;
-  border-top: 2px solid rgb(212, 0, 42);
 }
 
 .table-head-row th {
@@ -134,11 +130,11 @@ table {
 }
 
 .table-body-row:nth-child(odd) {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(210, 210, 210);
 }
 
 .table-body-row:nth-child(even) {
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(230, 230, 230);
 }
 
 .table-body-row, .table-head-row {
@@ -147,8 +143,8 @@ table {
 
 .table-head-row th:first-child, 
 .table-body-row td:first-child {
-  min-width: 80px;
-  max-width: 80px;
+  min-width: 70px;
+  max-width: 70px;
 }
 
 .table-head-row th:nth-child(3),
@@ -181,12 +177,16 @@ table {
 .table-body-row td:nth-child(9),
 .table-head-row th:nth-child(10),
 .table-body-row td:nth-child(10),
-.table-head-row th:nth-child(14),
-.table-body-row td:nth-child(14),
 .table-head-row th:nth-child(15),
 .table-body-row td:nth-child(15) {
   min-width: 130px;
   max-width: 130px;
+}
+
+.table-head-row th:nth-child(14),
+.table-body-row td:nth-child(14) {
+  min-width: 140px;
+  max-width: 140px;
 }
 
 .table-head-row th:nth-child(11),
@@ -216,11 +216,18 @@ select {
 .table-summary {
   position: sticky;
   bottom: 0;
-  left: 0;
   padding: 0.5em;
   font-size: 1.2rem;
 }
 
 .table-summary-row {
+  border-top: 2px solid rgb(212, 0, 42);
   display: flex;
+}
+
+.table-summary-row td {
+  height: 100%;
+  font-weight: 500;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-right: 1px solid var(--bg2);
 }

@@ -127,6 +127,28 @@ export default function App() {
     sortCars(cars);
   }
 
+  function get_overdue_RA() {
+    let cars = [];
+
+    for (let i = 0; i < data.length; i++) {
+      let car = data[i]
+
+      // FIX 36 TIMER FØR OVERDUE!
+
+      if (length !== "NaN") { 
+        let curDate = new Date().toUTCString().substring(5, 25);
+        console.log(curDate + " - " + car["Checkin Datetime"].toUTCString().substring(5, 25))
+        if (car["Rental Agreement Num"].length === 10 && car["Checkin Datetime"] < curDate) {
+          cars.push(data[i]);
+        } else if (car["Rental Agreement Num"].length === 9 && car["Checkin Datetime"] < curDate) {
+          cars.push(data[i]);
+        }
+      }
+    }
+
+    sortCars(cars);
+  }
+
   function get_buy_back() {
     let cars = [];
 
@@ -292,9 +314,9 @@ export default function App() {
         <section className="top-area">
           <Selection title="All"                func={get_all} />
           <Selection title="Overdue Kilometers" func={get_overdue_kilometers} />
+          <Selection title="Overdue RA/VTC"     func={get_overdue_RA} />
           <Selection title="Buy Back"           func={get_buy_back} />
           <Selection title="Registration"       func={get_registration} />
-          <Selection title="Inspection"         func={get_inspection} />
           <Selection title="Disposal"           func={get_disposal} />
           <Selection title="Status"             func={get_status} />
           <Selection title="Tyres"              func={get_tyres} />
@@ -368,7 +390,7 @@ function Table_Body({ cars, normalize_date, fix_duplicate_status }) {
           <td>{car["Car Group"]}</td>
           <td>{car["Vehicle Mileage"]}</td>
           <td>{car["Ignition Key"]}</td>
-          <td>{car["Rental Agreement Num"]}</td>
+          <td>{car["Rental Agreement Num"].substring(1)}</td>
           <td>{car["Trunk Key"]}</td>
           <td>{normalize_date(car["Registration Date"])}</td>
           <td>{normalize_date(car["Inspection Date"])}</td>
@@ -381,10 +403,71 @@ function Table_Body({ cars, normalize_date, fix_duplicate_status }) {
 }
 
 function Table_Summary({ cars }) {
+
+  function get_num_of_RA(cars) {
+    let num_of_RA = 0;
+
+    for (let i = 0; i < cars.length; i++) {
+      if (cars[i]["Rental Agreement Num"].length === 10) {
+        num_of_RA += 1;
+      }
+    }
+    return num_of_RA;
+  }
+
+  function get_num_of_VTC(cars) {
+    let num_of_VTC = 0;
+
+    for (let i = 0; i < cars.length; i++) {
+      if (cars[i]["Rental Agreement Num"].length === 9) {
+        num_of_VTC += 1;
+      }
+    }
+    return num_of_VTC;
+  }
+
+  function get_num_of_summer_tyres(cars) {
+    let num_of_summer_tyres = 0;
+
+    for (let i = 0; i < cars.length; i++) {
+      if (cars[i]["Trunk Key"].substring(0, 1) === "S") {
+        num_of_summer_tyres += 1;
+      }
+    }
+    return num_of_summer_tyres;
+  }
+
+  function get_num_of_winter_tyres(cars) {
+    let num_of_winter_tyres = 0;
+
+    for (let i = 0; i < cars.length; i++) {
+      if (cars[i]["Trunk Key"].substring(0, 1) === "P") {
+        num_of_winter_tyres += 1;
+      }
+    }
+    return num_of_winter_tyres;
+  }
+
+  function get_num_of_spike_free_tyres(cars) {
+    let num_of_spike_free_tyres = 0;
+
+    for (let i = 0; i < cars.length; i++) {
+      if (cars[i]["Trunk Key"].substring(0, 1) === "V") {
+        num_of_spike_free_tyres += 1;
+      }
+    }
+    return num_of_spike_free_tyres;
+  }
+
   return (
     <tfoot className="table-summary">
       <tr className="table-summary-row">
         <td>Cars: {cars.length}</td>
+        <td>RA: {get_num_of_RA(cars)}</td>
+        <td>VTC: {get_num_of_VTC(cars)}</td>
+        <td>Summer Tyres: {get_num_of_summer_tyres(cars)}</td>
+        <td>Winter Tyres: {get_num_of_winter_tyres(cars)}</td>
+        <td>Spike free Tyres: {get_num_of_spike_free_tyres(cars)}</td>
       </tr>
     </tfoot>
   )
@@ -405,7 +488,6 @@ function Selection({ title, func }) {
           <option value="CA">CA</option>
           <option value="AV">AV</option>
           <option value="S/">S/</option>
-          <option value="NaN">OTHER</option>
         </select>
         <SearchButton func={func} param={param} />
       </div>
@@ -424,7 +506,6 @@ function Selection({ title, func }) {
           <option value="IQ">USB INNGANG</option>
           <option value="PH">BLUETOOTH</option>
           <option value="XM">4X4</option>
-          <option value="NaN">OTHER</option>
         </select>
         <SearchButton func={func} param={param} />  
       </div>
@@ -440,7 +521,6 @@ function Selection({ title, func }) {
           <option value="P">VINTER</option>
           <option value="V">PIGGFRITT</option>
           <option value="S">SOMMER</option>
-          <option value="NaN">OTHER</option>
         </select>
         <SearchButton func={func} param={param} />
       </div>
@@ -455,7 +535,7 @@ function Selection({ title, func }) {
         <select className='RA-selection' onChange={(e) => setParam(e.target.value)}>
           <option value="10">RA</option>
           <option value="9">VTC</option>
-          <option value="NaN">OTHER</option>
+          <option value="NaN">NONE</option>
         </select>
         <SearchButton func={func} param={param} />
       </div>
