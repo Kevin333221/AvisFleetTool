@@ -135,12 +135,17 @@ export default function App() {
 
       // FIX 36 TIMER FØR OVERDUE!
 
-      if (length !== "NaN") { 
-        let curDate = new Date().toUTCString().substring(5, 25);
-        console.log(curDate + " - " + car["Checkin Datetime"].toUTCString().substring(5, 25))
-        if (car["Rental Agreement Num"].length === 10 && car["Checkin Datetime"] < curDate) {
-          cars.push(data[i]);
-        } else if (car["Rental Agreement Num"].length === 9 && car["Checkin Datetime"] < curDate) {
+      // if (length !== "NaN") { 
+      //   let curDate = new Date().toUTCString().substring(5, 25);
+      //   console.log(curDate + " - " + car["Checkin Datetime"].toUTCString().substring(5, 25))
+      //   if (car["Rental Agreement Num"].length === 10 && car["Checkin Datetime"] < curDate) {
+      //     cars.push(data[i]);
+      //   } else if (car["Rental Agreement Num"].length === 9 && car["Checkin Datetime"] < curDate) {
+      //     cars.push(data[i]);
+      //   }
+      // }
+      if (length !== "NaN") {
+        if (car["Rental Agreement Num"].length === 10 && car["Checkin Datetime"] < new Date() || car["Rental Agreement Num"].length === 9 && car["Checkin Datetime"] < new Date()) {
           cars.push(data[i]);
         }
       }
