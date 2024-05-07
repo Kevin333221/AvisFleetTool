@@ -115,7 +115,7 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      const current_mileage = Number(car["Vehicle Mileage"]) + 1000;
+      const current_mileage = Number(car["Vehicle Mileage"]) + 700;
       const key_mileage = Number(car["Ignition Key"].substring(3, 8));
 
       if (current_mileage > key_mileage) {
@@ -215,7 +215,21 @@ export default function App() {
     sortCars(cars);
   }
 
-  function get_all() {
+  function get_all(station) {
+
+    let cars = [];
+
+    for (let i = 0; i < data.length; i++) {
+      let car = data[i]
+      if (station === "NaN") {
+        cars.push(data[i]);
+      } else {
+        if (car["Current Location Mne"] === station) {
+          cars.push(data[i]);
+        }
+      }
+    }
+
     sortCars(data);
   }
 
@@ -539,6 +553,25 @@ function Selection({ title, func }) {
           <option value="10">RA</option>
           <option value="9">VTC</option>
           <option value="NaN">NONE</option>
+        </select>
+        <SearchButton func={func} param={param} />
+      </div>
+    )
+  } else if (title === "All") {
+    const [param, setParam] = useState("TR7");
+    return (
+      <div className="selection">
+        <p>{title}</p>
+        <select className='station-selection' onChange={(e) => setParam(e.target.value)}>
+          <option value="TOS">TOS</option>
+          <option value="TR7">TR7</option>
+          <option value="TO0">TO0</option>
+          <option value="TO7">TO7</option>
+          <option value="T1Y">T1Y</option>
+          <option value="T6O">T6O</option>
+          <option value="R4S">R4S</option>
+          <option value="E9Z">E9Z</option>
+          <option value="NaN">ALL</option>
         </select>
         <SearchButton func={func} param={param} />
       </div>
