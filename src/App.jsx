@@ -318,11 +318,9 @@ export default function App() {
 
         <section className="top-area">
           <Selection title="All"                func={get_all} />
-          <Selection title="Overdue Kilometers" func={get_overdue_kilometers} />
+          <Selection title="Service"            func={get_overdue_kilometers} />
           <Selection title="Overdue RA/VTC"     func={get_overdue_RA} />
           <Selection title="Buy Back"           func={get_buy_back} />
-          <Selection title="Registration"       func={get_registration} />
-          <Selection title="Disposal"           func={get_disposal} />
           <Selection title="Status"             func={get_status} />
           <Selection title="Tyres"              func={get_tyres} />
           <Selection title="Accessory"          func={get_accessory} />
