@@ -314,7 +314,7 @@ export default function App() {
         <section className="top-area">
           <Selection title="All"                func={get_all} />
           <Selection title="Overdue Kilometers" func={get_overdue_kilometers} />
-          <Selection title="Overdue RA/VTC"     func={get_overdue_RA} />
+          {/* <Selection title="Overdue RA/VTC"     func={get_overdue_RA} /> */}
           <Selection title="Buy Back"           func={get_buy_back} />
           <Selection title="Registration"       func={get_registration} />
           <Selection title="Disposal"           func={get_disposal} />
@@ -507,7 +507,7 @@ function Selection({ title, func }) {
           <option value="PH">BLUETOOTH</option>
           <option value="XM">4X4</option>
         </select>
-        <SearchButton func={func} param={param} />  
+        <SearchButton func={func} param={param} />
       </div>
     )
   } else if (func.name === "get_tyres") {
@@ -540,6 +540,8 @@ function Selection({ title, func }) {
         <SearchButton func={func} param={param} />
       </div>
     )
+  } else {
+    console.log(func.name)
   }
 
   return (
