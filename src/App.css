@@ -15,10 +15,61 @@ table {
   width: 100%;
 }
 
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo {
   width: 100px;
   object-fit: cover;
   object-position: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.search-bar {
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid var(--bg2);
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.search-button {
+  padding: 0.5em 1em;
+  background-color: rgb(230, 230, 230);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: rgb(180, 180, 180);
 }
 
 .main-container {
@@ -92,6 +143,7 @@ table {
 .table-head {
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 
 .table-head-row {
@@ -117,16 +169,21 @@ table {
 }
 
 .table-head-row:not(:first-child) th, .table-body-row td {
-  min-width: 175px;
-  max-width: 175px;
   max-height: 55px;
   padding: 0.5em 0 0.5em 0.5em;
-  border-top: 1px solid var(--bg2);
   font-size: 1rem;
 }
 
 .table-head-row, .table-body-row, .table-summary-row {
   background-color: rgb(230, 230, 230);
+}
+
+.table-body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  z-index: 1;
 }
 
 .table-body-row:nth-child(odd) {
@@ -195,16 +252,12 @@ table {
 
 .table-head-row th:nth-child(2),
 .table-body-row td:nth-child(2),
-.table-head-row th:nth-child(15),
-.table-body-row td:nth-child(15),
 .table-head-row th:nth-child(13),
 .table-body-row td:nth-child(13) {
   min-width: 130px;
   max-width: 130px;
 }
 
-.table-head-row th:nth-child(14),
-.table-body-row td:nth-child(14),
 .table-head-row th:nth-child(12),
 .table-body-row td:nth-child(12) {
   min-width: 140px;
@@ -218,7 +271,7 @@ table {
 }
 
 .table-body-row:hover {
-  background-color: rgb(200, 200, 200);
+  filter: brightness(0.8);
 }
 
 .table-body-row td {
