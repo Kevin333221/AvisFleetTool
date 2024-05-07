@@ -113,9 +113,16 @@ export default function App() {
 
     let cars = [];
 
+    const Service_offset = 700;
+
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      const current_mileage = Number(car["Vehicle Mileage"]) + 700;
+
+      if (car["Registration Number"] === "BT28627") {
+        continue;
+      }
+
+      const current_mileage = Number(car["Vehicle Mileage"]) + Service_offset;
       const key_mileage = Number(car["Ignition Key"].substring(3, 8));
 
       if (current_mileage > key_mileage) {
@@ -157,10 +164,12 @@ export default function App() {
   function get_buy_back() {
     let cars = [];
 
+    const BB_number_offset = 5000;
+
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && car["Vehicle Mileage"] >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString())) {
+      if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && car["Vehicle Mileage"] + BB_number_offset >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString())) {
         cars.push(data[i]);
       }
     }
@@ -224,13 +233,12 @@ export default function App() {
       if (station === "NaN") {
         cars.push(data[i]);
       } else {
-        if (car["Current Location Mne"] === station) {
+        if (car["Location Due Mne"] === station || car["Current Location Mne"] === station) {
           cars.push(data[i]);
         }
       }
     }
-
-    sortCars(data);
+    sortCars(cars);
   }
 
   function get_tyres(tyre) {
@@ -335,7 +343,6 @@ export default function App() {
           <Selection title="Service"            func={get_overdue_kilometers} />
           <Selection title="Overdue RA/VTC"     func={get_overdue_RA} />
           <Selection title="Buy Back"           func={get_buy_back} />
-          <Selection title="Status"             func={get_status} />
           <Selection title="Tyres"              func={get_tyres} />
           <Selection title="Accessory"          func={get_accessory} />
           <Selection title="Credentials"        func={get_payment_method}/>
@@ -366,14 +373,12 @@ function Table_Head({ cars, sortCars }) {
         <th onClick={() => sortCars(cars, "Current Status")}>STATUS</th>
         <th onClick={() => sortCars(cars, "Current Location Mne")}>CUR STA</th>
         <th onClick={() => sortCars(cars, "Location Due Mne")}>IN STA</th>
+        <th onClick={() => sortCars(cars, "Checkin Datetime")}>CHECKIN</th>
         <th onClick={() => sortCars(cars, "Car Group")}>GROUP</th>
-        <th onClick={() => sortCars(cars, "Vehicle Mileage")}>KILOMETER</th>
+        <th onClick={() => sortCars(cars, "Vehicle Mileage")}>KM</th>
         <th onClick={() => sortCars(cars, "Ignition Key")}>IGNIT KEY</th>
         <th onClick={() => sortCars(cars, "Rental Agreement Num")}>MOVEMENT</th>
         <th onClick={() => sortCars(cars, "Trunk Key")}>TRUNK KEY</th>
-        <th onClick={() => sortCars(cars, "Registration Date")}>REGISTRATION</th>
-        <th onClick={() => sortCars(cars, "Inspection Date")}>INSPECTION</th>
-        <th onClick={() => sortCars(cars, "Disposal Date")}>DISPOSAL</th>
         <th onClick={() => sortCars(cars, "STATUS3")}>STATUS</th>
       </tr>
     </thead>
@@ -390,6 +395,53 @@ function Table_Body({ cars, normalize_date, fix_duplicate_status }) {
     }
   }
 
+  function format_time(time) {
+
+    let month = time.substring(3, 6);
+  
+    if (month === "Jan") {
+      month = "01";
+    } else if (month === "Feb") {
+      month = "02";
+    }  else if (month === "Mar") {
+      month = "03";
+    } else if (month === "Apr") {
+      month = "04";
+    } else if (month === "May") {
+      month = "05";
+    } else if (month === "Jun") {
+      month = "06";
+    } else if (month === "Jul") {
+      month = "07";
+    } else if (month === "Aug") {
+      month = "08";
+    } else if (month === "Sep") {
+      month = "09";
+    } else if (month === "Oct") {
+      month = "10";
+    } else if (month === "Nov") {
+      month = "11";
+    } else if (month === "Dec") {
+      month = "12";
+    }
+    
+    let day = time.substring(0, 2);
+    let year = time.substring(7, 11);
+
+    return `${day}/${month}/${year}`;
+
+  }
+
+  const Colors = {
+    "ON HAND": "rgb(220, 220, 220)",
+    "ON RENT": "rgb(0, 200, 0)",
+    "ON MOVE": "rgb(0, 150, 0)",
+    "ON RENT,OVDU": "rgb(200, 0, 0)",
+    "UNAVAILABLE": "rgb(180, 100, 0)",
+    "OVERDUE": "rgb(250, 250, 0)",
+    "": "white"
+  }
+
   return (
     <tbody className="table-body">
       {cars.map((car, index) => (
@@ -401,17 +453,19 @@ function Table_Body({ cars, normalize_date, fix_duplicate_status }) {
           <td>{car["Make / Model"]}</td>
           <td>{car["MVA"]}</td>
           <td>{car["Registration Number"]}</td>
-          <td>{car["Current Status"]}</td>
+          <td
+          style={{
+            backgroundColor: Colors[car["Current Status"]]
+          }}
+          >{car["Current Status"]}</td>
           <td>{car["Current Location Mne"]}</td>
           <td>{displayLoc(car)}</td>
+          <td>{format_time(car["Checkin Datetime"].toUTCString().substring(5, 22))}</td>
           <td>{car["Car Group"]}</td>
           <td>{car["Vehicle Mileage"]}</td>
           <td>{car["Ignition Key"]}</td>
           <td>{car["Rental Agreement Num"].substring(1)}</td>
           <td>{car["Trunk Key"]}</td>
-          <td>{normalize_date(car["Registration Date"])}</td>
-          <td>{normalize_date(car["Inspection Date"])}</td>
-          <td>{normalize_date(car["Disposal Date"])}</td>
           <td>{fix_duplicate_status(car["STATUS3"])}</td>
         </tr>
       ))}
@@ -522,6 +576,7 @@ function Selection({ title, func }) {
           <option value="CR">CRUISE CONTROL</option>
           <option value="IQ">USB INNGANG</option>
           <option value="PH">BLUETOOTH</option>
+          <option value="SR">SKISTATIV</option>
           <option value="XM">4X4</option>
         </select>
         <SearchButton func={func} param={param} />
