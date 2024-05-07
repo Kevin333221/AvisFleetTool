@@ -475,7 +475,7 @@ function Table_Summary({ cars }) {
 
 function Selection({ title, func }) {
 
-  if (func.name === "get_payment_method") {
+  if (title === "Credentials") {
 
     const [param, setParam] = useState("CX");
 
@@ -492,7 +492,7 @@ function Selection({ title, func }) {
         <SearchButton func={func} param={param} />
       </div>
     )
-  } else if (func.name === "get_accessory") {
+  } else if (title === "Accessory") {
       
     const [param, setParam] = useState("NV");
 
@@ -510,7 +510,7 @@ function Selection({ title, func }) {
         <SearchButton func={func} param={param} />
       </div>
     )
-  } else if (func.name === "get_tyres") {
+  } else if (title === "Tyres") {
     
     const [param, setParam] = useState("P");
 
@@ -525,7 +525,7 @@ function Selection({ title, func }) {
         <SearchButton func={func} param={param} />
       </div>
     )
-  } else if (func.name === "get_RA") {
+  } else if (title === "RA/VTC") {
 
     const [param, setParam] = useState("10");
 
