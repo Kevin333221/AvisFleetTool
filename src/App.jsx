@@ -8,20 +8,35 @@ export default function App() {
   const [data, setData] = useState([]);
   const [cars, setCars] = useState([]);
 
-  function sortCars(cars, sortingType="Car Group") {
+  function sortCars(cars, sortDirection, sortingType="Car Group") {
     const sortedCars = [...cars]; // Create a new array
 
-    sortedCars.sort((a, b) => {
-      if (a[sortingType] < b[sortingType]) {
-        return -1;
-      }
-      if (a[sortingType] > b[sortingType]) {
-        return 1;
-      }
-      if (a[sortingType] === b[sortingType]) {
-        return 0;
-      }
-    });
+    if (sortDirection === "ASC") {
+
+      sortedCars.sort((a, b) => {
+        if (a[sortingType] < b[sortingType]) {
+          return -1;
+        }
+        if (a[sortingType] > b[sortingType]) {
+          return 1;
+        }
+        if (a[sortingType] === b[sortingType]) {
+          return 0;
+        }
+      });
+    } else if (sortDirection === "DESC") {
+      sortedCars.sort((a, b) => {
+        if (a[sortingType] > b[sortingType]) {
+          return -1;
+        }
+        if (a[sortingType] < b[sortingType]) {
+          return 1;
+        }
+        if (a[sortingType] === b[sortingType]) {
+          return 0;
+        }
+      });
+    }
     setCars(sortedCars);
   }
 
@@ -140,22 +155,29 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      // FIX 36 TIMER FØR OVERDUE!
+      // FIX 36 TIMER FØR OVERDUE
 
-      // if (length !== "NaN") { 
-      //   let curDate = new Date().toUTCString().substring(5, 25);
-      //   console.log(curDate + " - " + car["Checkin Datetime"].toUTCString().substring(5, 25))
-      //   if (car["Rental Agreement Num"].length === 10 && car["Checkin Datetime"] < curDate) {
-      //     cars.push(data[i]);
-      //   } else if (car["Rental Agreement Num"].length === 9 && car["Checkin Datetime"] < curDate) {
+      if (length !== "NaN") {
+
+        let curDate = new Date().getDate();
+        let curMonth = new Date().getMonth();
+        let curYear = new Date().getFullYear();
+
+        let checkinDate = car["Checkin Datetime"].getDate();
+        let checkinMonth = car["Checkin Datetime"].getMonth();
+        let checkinYear = car["Checkin Datetime"].getFullYear();
+
+        if (car["Rental Agreement Num"].length === 10 && curYear >= checkinYear && curMonth >= checkinMonth && curDate >= checkinDate + 2) {
+          cars.push(data[i]);
+        }
+
+      }
+
+      // if (length !== "NaN") {
+      //   if (car["Rental Agreement Num"].length === 10 && car["Checkin Datetime"] < new Date() || car["Rental Agreement Num"].length === 9 && car["Checkin Datetime"] < new Date()) {
       //     cars.push(data[i]);
       //   }
       // }
-      if (length !== "NaN") {
-        if (car["Rental Agreement Num"].length === 10 && car["Checkin Datetime"] < new Date() || car["Rental Agreement Num"].length === 9 && car["Checkin Datetime"] < new Date()) {
-          cars.push(data[i]);
-        }
-      }
     }
 
     sortCars(cars);
@@ -363,23 +385,26 @@ export default function App() {
 }
 
 function Table_Head({ cars, sortCars }) {
+
+  const [sortDirection, setSortDirection] = useState("ASC");
+
   return (
     <thead className="table-head">
       <tr className="table-head-row">
-        <th onClick={() => sortCars(cars, "Body Type")}>TYPE</th>
-        <th onClick={() => sortCars(cars, "Make / Model")}>MODEL</th>
-        <th onClick={() => sortCars(cars, "MVA")}>MVA</th>
-        <th onClick={() => sortCars(cars, "Registration Number")}>REG</th>
-        <th onClick={() => sortCars(cars, "Current Status")}>STATUS</th>
-        <th onClick={() => sortCars(cars, "Current Location Mne")}>CUR STA</th>
-        <th onClick={() => sortCars(cars, "Location Due Mne")}>IN STA</th>
-        <th onClick={() => sortCars(cars, "Checkin Datetime")}>CHECKIN</th>
-        <th onClick={() => sortCars(cars, "Car Group")}>GROUP</th>
-        <th onClick={() => sortCars(cars, "Vehicle Mileage")}>KM</th>
-        <th onClick={() => sortCars(cars, "Ignition Key")}>IGNIT KEY</th>
-        <th onClick={() => sortCars(cars, "Rental Agreement Num")}>MOVEMENT</th>
-        <th onClick={() => sortCars(cars, "Trunk Key")}>TRUNK KEY</th>
-        <th onClick={() => sortCars(cars, "STATUS3")}>STATUS</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Body Type"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>BODY</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Make / Model"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MODEL</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "MVA"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MVA</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Registration Number"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>REG</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Current Status"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>STATUS</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Current Location Mne"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>CUR STA</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Location Due Mne"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>IN STA</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Checkin Datetime"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>CHECKIN</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Car Group"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>GROUP</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Vehicle Mileage"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>KM</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Ignition Key"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>IGNIT KEY</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Rental Agreement Num"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MOVEMENT</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Trunk Key"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>TRUNK KEY</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "STATUS3"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>STATUS</th>
       </tr>
     </thead>
   )
@@ -448,6 +473,7 @@ function Table_Body({ cars, normalize_date, fix_duplicate_status }) {
         <tr
           className="table-body-row"
           key={index}
+          col={Colors[car["Current Status"]]}
         >
           <td>{car["Body Type"]}</td>
           <td>{car["Make / Model"]}</td>
