@@ -1,6 +1,6 @@
 import './App.css'
 import * as XLSX from 'xlsx/xlsx.mjs';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import logo from "../public/Avis.png"
 
 export default function App() {
@@ -8,6 +8,12 @@ export default function App() {
   const [data, setData] = useState([]);
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
+  const [owner, setOwner] = useState("All");
+  const [stations, setStations] = useState(["All"]);
+
+  useEffect(() => {
+    get_stations();
+  }, [owner]);
 
   function sortCars(cars, sortDirection, sortingType) {
     const sortedCars = [...cars]; // Create a new array
@@ -57,7 +63,9 @@ export default function App() {
       const workbook = XLSX.read(data, { cellDates: true });
 
       const sheet_name_list = workbook.SheetNames;
-      const xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
+      const xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]])
+
+      xlData.pop(); // Remove the last row in the sheet
 
       setData(xlData);
 
@@ -65,10 +73,42 @@ export default function App() {
       for (let i = 0; i < xlData.length; i++) {
         cars.push(xlData[i]);
       }
+
       setCars(cars);
+      sortCars(cars, "ASC", "Car Group");
     }
 
     reader.readAsArrayBuffer(file);
+  }
+
+  function check_owner(car, owner) {
+    return car["Fleet Owner Code"] === owner || owner === "All" || owner === "";
+  }
+
+  function get_stations() {
+    let stations = [];
+
+    for (let i = 0; i < data.length; i++) {
+      let car = data[i]
+
+      if (car["Fleet Owner Code"] === owner) {
+        if (stations.indexOf(car["Location Due Mne"]) === -1) {
+          stations.push(car["Location Due Mne"]);
+        }
+        if (stations.indexOf(car["Current Location Mne"]) === -1) {
+          stations.push(car["Current Location Mne"]);
+        }
+      }
+    }
+
+    stations.sort();
+
+    {/* If station is "Unknow" delete it */}
+    if (stations.indexOf("Unknow") !== -1) {
+      stations.splice(stations.indexOf("Unknow"), 1);
+    }
+
+    setStations(stations);
   }
 
   function fix_duplicate_status(status) {
@@ -87,7 +127,7 @@ export default function App() {
       return status;
   }
 
-  function get_overdue_kilometers() {
+  function get_serivce() {
 
     let cars = [];
 
@@ -104,8 +144,10 @@ export default function App() {
       const key_mileage = Number(car["Ignition Key"].substring(3, 8));
 
       if (current_mileage > key_mileage) {
-        if (car["STATUS3"].indexOf("BB") === -1 && car["Checkout Location Mne"] !== "E9Z" && car["Checkout Location Mne"] !== "R4S") {
-          cars.push(data[i]);
+        if (car["Fleet Owner Code"] === owner) {
+          if (car["STATUS3"].indexOf("BB") === -1 && car["Checkout Location Mne"] !== "E9Z" && car["Checkout Location Mne"] !== "R4S") {
+            cars.push(data[i]);
+          }
         }
       }
     }
@@ -124,12 +166,18 @@ export default function App() {
         let curMonth = new Date().getMonth();
         let curYear = new Date().getFullYear();
 
+        if (car["Checkin Datetime"] === undefined) {
+          continue;
+        }
+
         let checkinDate = car["Checkin Datetime"].getDate();
         let checkinMonth = car["Checkin Datetime"].getMonth();
         let checkinYear = car["Checkin Datetime"].getFullYear();
-
-        if (car["Rental Agreement Num"].length === 10 && curYear >= checkinYear && curMonth >= checkinMonth && curDate >= checkinDate + 2) {
-          cars.push(data[i]);
+        
+        if (car["Fleet Owner Code"] === owner) {
+          if (car["Rental Agreement Num"].length === 10 && curYear >= checkinYear && curMonth >= checkinMonth && curDate >= checkinDate + 2) {
+            cars.push(data[i]);
+          }
         }
       }
     }
@@ -144,8 +192,10 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && car["Vehicle Mileage"] + BB_number_offset >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString())) {
-        cars.push(data[i]);
+      if (car["Fleet Owner Code"] === owner) {
+        if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && car["Vehicle Mileage"] + BB_number_offset >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString())) {
+          cars.push(data[i]);
+        }
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -157,12 +207,34 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (station === "NaN") {
-        cars.push(data[i]);
-      } else {
-        if (car["Location Due Mne"] === station || car["Current Location Mne"] === station) {
+
+      if (owner.toUpperCase() === "ALL" || owner === "") {
+        if (station === "All") {
           cars.push(data[i]);
         }
+      } else if (car["Fleet Owner Code"] === owner) {
+        if (station === "All") {
+            cars.push(data[i]);
+        } else {
+          if (car["Location Due Mne"] === station || car["Current Location Mne"] === station) {
+            cars.push(data[i]);
+          }
+        }
+      }
+    }
+    sortCars(cars, "ASC", "Car Group");
+  }
+
+  function get_owner(owner) {
+    let cars = [];
+
+    for (let i = 0; i < data.length; i++) {
+      let car = data[i]
+
+      if (owner.toUpperCase() === "ALL" || owner === "") {
+        cars.push(data[i]);
+      } else if (car["Fleet Owner Code"] === owner) {
+        cars.push(data[i]);
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -173,8 +245,10 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (car["Trunk Key"].substring(0, 1) === tyre) {
-        cars.push(data[i]);
+      if (check_owner(car, owner)) {
+        if (car["Trunk Key"].substring(0, 1) === tyre) {
+          cars.push(data[i]);
+        }
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -186,10 +260,13 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
       let found = false;
-      for (let j = 1; j < 10; j++) {
-        if (car["Accessory 0" + j.toString()] === accessory && !found) {
-          cars.push(data[i]);
-          found = true;
+      
+      if (check_owner(car, owner)) {
+        for (let j = 1; j < 10; j++) {
+          if (car["Accessory 0" + j.toString()] === accessory && !found) {
+            cars.push(data[i]);
+            found = true;
+          }
         }
       }
     }
@@ -201,8 +278,10 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (car["Creditclub Code"] === Method && (car["Current Status"] !== "ON HAND" && car["Current Status"] !== "UNAVAILABLE")) {
-        cars.push(data[i]);
+      if (car["Fleet Owner Code"] === owner) {
+        if (car["Creditclub Code"] === Method && (car["Current Status"] !== "ON HAND" && car["Current Status"] !== "UNAVAILABLE")) {
+          cars.push(data[i]);
+        }
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -214,15 +293,16 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      
-      if (length === "NaN") {
-        if (car["Rental Agreement Num"].length !== 10 && car["Rental Agreement Num"].length !== 9) {
-          cars.push(data[i]);
-        }
-      } else {
-        if (car["Rental Agreement Num"].length === Number(length)) {
-          cars.push(data[i]);
-        }
+      if (car["Fleet Owner Code"] === owner) {
+        if (length === "NaN") {
+          if (car["Rental Agreement Num"].length !== 10 && car["Rental Agreement Num"].length !== 9) {
+            cars.push(data[i]);
+          }
+        } else {
+          if (car["Rental Agreement Num"].length === Number(length)) {
+            cars.push(data[i]);
+          }
+        } 
       } 
     }
     sortCars(cars);
@@ -233,47 +313,85 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (car["Location Due Mne"] !== "TOS" && 
-          car["Location Due Mne"] !== "TO0" && 
-          car["Location Due Mne"] !== "T1Y" && 
-          car["Location Due Mne"] !== "T6O" && 
-          car["Location Due Mne"] !== "TR7" && 
-          car["Location Due Mne"] !== "TO7" && 
-          car["Location Due Mne"] !== "E9Z" &&
-          car["Location Due Mne"] !== "R4S") 
+      
+      if (car["Fleet Owner Code"] === owner) {
+        if (car["Location Due Mne"] !== "TOS" && 
+            car["Location Due Mne"] !== "TO0" && 
+            car["Location Due Mne"] !== "T1Y" && 
+            car["Location Due Mne"] !== "T6O" && 
+            car["Location Due Mne"] !== "TR7" && 
+            car["Location Due Mne"] !== "TO7" && 
+            car["Location Due Mne"] !== "E9Z" &&
+            car["Location Due Mne"] !== "R4S") 
         {
           cars.push(data[i]);
         }
+      }
     }
     sortCars(cars, "ASC", "Car Group");
   }
 
   function handleSearch() {
     let cars = [];
-
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (car["Registration Number"].includes(search.toUpperCase())) {
-        cars.push(data[i]);
+
+      if (car["Fleet Owner Code"] === owner || owner === "All" || owner === "") {
+        if (search.length === 1) {
+          if (car["Car Group"].includes(search.toUpperCase())) {
+            cars.push(data[i]);
+          }
+        } else if (search.includes(",")) {
+          
+          let search_array = search.split(",");
+
+          {/* Sort the array from the longest to the shortest */}
+          search_array.sort((a, b) => b.length - a.length);
+
+          {/* If the first element is a body type, then check if the car group is in the array */}
+          if (search_array[0].length > 1) {
+            let bodyType = search_array[0].toUpperCase();
+            
+            if (bodyType === "VAN") {
+              for (let j = 1; j < search_array.length; j++) {
+                if (car["Body Type"].includes(bodyType) && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                  cars.push(data[i]);
+                }
+              }
+            } else {
+              for (let j = 1; j < search_array.length; j++) {
+                if (car["Car Group"].includes(search_array[j].toUpperCase()) && car["Body Type"] !== "VAN") {
+                  cars.push(data[i]);
+                }
+              }
+            }
+            
+          } else {
+            for (let j = 0; j < search_array.length; j++) {
+              if (car["Car Group"].includes(search_array[j].toUpperCase())) {
+                cars.push(data[i]);
+              }
+            }
+          }
+        } else if (car["Registration Number"].includes(search.toUpperCase()) ||
+              car["MVA"].includes(search.toUpperCase()) ||
+              car["Current Status"].includes(search.toUpperCase()) ||
+              car["Rental Agreement Num"].includes(search.toUpperCase()) ||
+              car["Body Type"].includes(search.toUpperCase()) ||
+              car["Make / Model"].includes(search.toUpperCase()))
+        {
+          cars.push(data[i]);
+        }
       }
-      else if (car["MVA"].includes(search.toUpperCase())) {
-        cars.push(data[i]);
-      }
-      else if (car["Car Group"].includes(search.toUpperCase())) {
-        cars.push(data[i]);
-      }
-      else if (car["Current Status"].includes(search.toUpperCase())) {
-        cars.push(data[i]);
-      }
-      else if (car["Rental Agreement Num"].includes(search.toUpperCase())) {
-        cars.push(data[i]);
-      }
-    }
+      
     sortCars(cars, "ASC", "Car Group");
+    }
   }
 
   return (
     <>
+
+      {/* Before giving file */}
       {data.length === 0 && 
       <div className='start'>
         <label htmlFor="file-input" className='file-label'>Choose a file</label>
@@ -289,6 +407,7 @@ export default function App() {
       </div>
       }
 
+      {/* Header */}
       {data.length > 0 &&
       <div className="header">
         <div className="logo-container">
@@ -304,7 +423,6 @@ export default function App() {
             <input
               type="text"
               placeholder="Search"
-              value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="search-bar"
             />
@@ -313,18 +431,21 @@ export default function App() {
         </div>
       </div>
       }
+
+      {/* Main Area */}
       {data.length > 0 &&
         <div className="main-container">
           <section className="top-area">
-            <Selection title="All"                func={get_all} />
-            <Selection title="Service"            func={get_overdue_kilometers} />
-            <Selection title="Overdue RA/VTC"     func={get_overdue_RA} />
-            <Selection title="Buy Back"           func={get_buy_back} />
-            <Selection title="Tyres"              func={get_tyres} />
-            <Selection title="Accessory"          func={get_accessory} />
-            <Selection title="Credentials"        func={get_payment_method}/>
-            <Selection title="RA/VTC"             func={get_RA}/>
-            <Selection title="Out of Town"        func={get_out_of_town_cars}/>
+            <Selection title="Owner"              func={get_owner} owner={owner} setOwner={setOwner}/>
+            <Selection title="Station"            func={get_all} owner={owner} setOwner={setOwner} stations={stations}/>
+            <Selection title="Service"            func={get_serivce} owner={owner} setOwner={setOwner}/>
+            <Selection title="Overdue RA/VTC"     func={get_overdue_RA} owner={owner} setOwner={setOwner}/>
+            <Selection title="Buy Back"           func={get_buy_back} owner={owner} setOwner={setOwner}/>
+            <Selection title="Tyres"              func={get_tyres} owner={owner} setOwner={setOwner}/>
+            <Selection title="Accessory"          func={get_accessory} owner={owner} setOwner={setOwner}/>
+            <Selection title="Credentials"        func={get_payment_method} owner={owner} setOwner={setOwner}/>
+            <Selection title="RA/VTC"             func={get_RA} owner={owner} setOwner={setOwner}/>
+            <Selection title="Out of Town"        func={get_out_of_town_cars} owner={owner} setOwner={setOwner}/>
           </section>
 
           <section className="bottom-area">
@@ -378,7 +499,15 @@ function Table_Body({ cars, fix_duplicate_status }) {
 
   function format_time(time) {
 
-    let month = time.substring(3, 6);
+    if (time === undefined) {
+      return "";
+    }
+
+    // Fix formating of time
+    // let formated_time = new Date(time);
+
+    let newTime = time.toUTCString().substring(5, 22);
+    let month = newTime.substring(3, 6);
   
     if (month === "Jan") {
       month = "01";
@@ -406,8 +535,8 @@ function Table_Body({ cars, fix_duplicate_status }) {
       month = "12";
     }
     
-    let day = time.substring(0, 2);
-    let year = time.substring(7, 11);
+    let day = newTime.substring(0, 2);
+    let year = newTime.substring(7, 11);
 
     return `${day}/${month}/${year}`;
 
@@ -440,7 +569,7 @@ function Table_Body({ cars, fix_duplicate_status }) {
           </td>
           <td>{car["Current Location Mne"]}</td>
           <td>{displayLoc(car)}</td>
-          <td>{format_time(car["Checkin Datetime"].toUTCString().substring(5, 22))}</td>
+          <td>{format_time(car["Checkin Datetime"])}</td>
           <td>{car["Car Group"]}</td>
           <td>{car["Vehicle Mileage"]}</td>
           <td>{car["Ignition Key"]}</td>
@@ -462,6 +591,43 @@ function Table_Body({ cars, fix_duplicate_status }) {
 }
 
 function Table_Summary({ cars }) {
+  
+  const [showCarTypes, setShowCarTypes] = useState(false);
+
+  function get_dict_of_car_types(cars) {
+
+    let car_numbers = {
+      "Person": {},
+      "Vans": {},
+      "Car_Types": {}
+    };
+
+    for (let i = 0; i < cars.length; i++) {
+
+      let carGroup = cars[i]["Car Group"];
+
+      if (car_numbers["Car_Types"][carGroup] === undefined) {
+        car_numbers["Car_Types"][carGroup] = carGroup;
+      }
+
+      let carType = cars[i]["Body Type"];
+      
+      if (carType === "VAN") {
+        if (car_numbers["Vans"][carGroup] === undefined) {
+          car_numbers["Vans"][carGroup] = 1;
+        } else {
+          car_numbers["Vans"][carGroup] += 1;
+        }
+      } else {
+        if (car_numbers["Person"][carGroup] === undefined) {
+          car_numbers["Person"][carGroup] = 1;
+        } else {
+          car_numbers["Person"][carGroup] += 1;
+        }
+      }
+    }
+    return car_numbers;
+  }
 
   function get_num_of_RA(cars) {
     let num_of_RA = 0;
@@ -540,14 +706,53 @@ function Table_Summary({ cars }) {
     return num_of_spike_free_tyres;
   }
 
+  let car_types = get_dict_of_car_types(cars);
+
   return (
     <tfoot className="table-summary">
       <tr className="table-summary-row">
-        <td>Cars: {cars.length}</td>
+        <td
+          onClick={() => {setShowCarTypes(!showCarTypes)}}
+          onMouseLeave={() => setShowCarTypes(false)}
+        >Cars: {cars.length}
+        
+        {showCarTypes &&
+        <div className='cartypes-section'>
+          <div className='cartypes'>
+            <p>Car Types</p>
+            {Object.entries(car_types["Car_Types"]).map((car, index) => (
+              <p key={index}>{car[0]}</p>
+            ))}
+          </div>
+
+          <div className='cartypes'>
+            <p>Person</p>
+            {Object.entries(car_types["Car_Types"]).map((type, _) => (
+              car_types["Person"][type[0]] !== undefined 
+                ? 
+              <p key={type[0]}>{car_types["Person"][type[0]]}</p> 
+                : 
+              <p style={{height: "100%"}}></p>
+            ))}
+          </div>
+
+          <div className='cartypes'>
+            <p>Vans</p>
+            {Object.entries(car_types["Car_Types"]).map((type, _) => (
+              car_types["Vans"][type[0]] !== undefined 
+                ? 
+              <p key={type[0]}>{car_types["Vans"][type[0]]}</p> 
+                : 
+              <p style={{height: "100%"}}></p>
+            ))}
+          </div> 
+        </div>}
+        
+        </td>
         <td>RA: {get_num_of_RA(cars)}</td>
         <td>VTC: {get_num_of_VTC(cars)}</td>
-        <td>Avis Rentals: {get_num_of_avis_rentals(cars)}</td>
-        <td>Budget Rentals: {get_num_of_budget_rentals(cars)}</td>
+        <td>Avis Cars: {get_num_of_avis_rentals(cars)}</td>
+        <td>Budget Cars: {get_num_of_budget_rentals(cars)}</td>
         <td>Summer Tyres: {get_num_of_summer_tyres(cars)}</td>
         <td>Winter Tyres: {get_num_of_winter_tyres(cars)}</td>
         <td>Spike free Tyres: {get_num_of_spike_free_tyres(cars)}</td>
@@ -556,7 +761,7 @@ function Table_Summary({ cars }) {
   )
 }
 
-function Selection({ title, func }) {
+function Selection({ title, func, owner, setOwner, stations}) {
 
   if (title === "Credentials") {
 
@@ -624,25 +829,42 @@ function Selection({ title, func }) {
         <SearchButton func={func} param={param} />
       </div>
     )
-  } else if (title === "All") {
+  } else if (title === "Station") {
 
-    const [param, setParam] = useState("TR7");
+    const [param, setParam] = useState("All");
+    
+    return (
+      <div className="selection">
+        <p>{title}</p>
+        <select className='station-selection' onChange={(e) => setParam(e.target.value)} defaultValue={param}>
+          <option value="All">All</option>
+          {stations.map((station, index) => (
+            <option key={index} value={station}>{station}</option>
+          ))}
+        </select>
+        <SearchButton func={func} param={param} />
+      </div>
+    )
+  } else if (title === "Owner") {
 
     return (
       <div className="selection">
         <p>{title}</p>
-        <select className='station-selection' onChange={(e) => setParam(e.target.value)}>
-          <option value="TOS">TOS</option>
-          <option value="TR7">TR7</option>
-          <option value="TO0">TO0</option>
-          <option value="TO7">TO7</option>
-          <option value="T1Y">T1Y</option>
-          <option value="T6O">T6O</option>
-          <option value="R4S">R4S</option>
-          <option value="E9Z">E9Z</option>
-          <option value="NaN">ALL</option>
-        </select>
-        <SearchButton func={func} param={param} />
+        
+        <form className="owner-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setOwner(e.target.value);
+          }}
+        >
+          <input
+            type="text"
+            placeholder="Owner"
+            onBlur={(e) => setOwner(e.target.value)}
+            className="owner-bar"
+          />
+        </form>
+        <SearchButton func={func} param={owner} />
       </div>
     )
   }
@@ -661,7 +883,7 @@ function SearchButton({func, param}) {
   if (param) {
     return (
       <button
-        onClick={() => func(param)}  
+        onClick={() => func(param)}
       >
         Search
       </button>
