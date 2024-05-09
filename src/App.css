@@ -114,6 +114,16 @@ table {
   height: 120px;
 }
 
+.selection input {
+  width: 100%;
+  padding-left: 0.5em;
+  border: 1px solid var(--bg1);
+}
+
+.selection:first-child {
+  width: 100px;
+}
+
 .selection p {
   font-size: 1.2rem;
 }

@@ -246,7 +246,7 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
       if (check_owner(car, owner)) {
-        if (car["Trunk Key"].substring(0, 1) === tyre) {
+        if (car["Trunk Key"].substring(0, 1) === tyre || tyre === "All") {
           cars.push(data[i]);
         }
       }
@@ -263,7 +263,7 @@ export default function App() {
       
       if (check_owner(car, owner)) {
         for (let j = 1; j < 10; j++) {
-          if (car["Accessory 0" + j.toString()] === accessory && !found) {
+          if ((car["Accessory 0" + j.toString()] === accessory || accessory === "All") && !found) {
             cars.push(data[i]);
             found = true;
           }
@@ -279,7 +279,9 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
       if (car["Fleet Owner Code"] === owner) {
-        if (car["Creditclub Code"] === Method && (car["Current Status"] !== "ON HAND" && car["Current Status"] !== "UNAVAILABLE")) {
+        if (Method === "All") {
+          cars.push(data[i]);
+        } else if (car["Creditclub Code"] === Method && (car["Current Status"] !== "ON HAND" && car["Current Status"] !== "UNAVAILABLE")) {
           cars.push(data[i]);
         }
       }
@@ -294,7 +296,9 @@ export default function App() {
       let car = data[i]
 
       if (car["Fleet Owner Code"] === owner) {
-        if (length === "NaN") {
+        if (length === "All") {
+          cars.push(data[i]);
+        } else if (length === "NaN") {
           if (car["Rental Agreement Num"].length !== 10 && car["Rental Agreement Num"].length !== 9) {
             cars.push(data[i]);
           }
@@ -305,7 +309,7 @@ export default function App() {
         } 
       } 
     }
-    sortCars(cars);
+    sortCars(cars, "ASC", "Car Group");
   }
 
   function get_out_of_town_cars() {
@@ -324,6 +328,21 @@ export default function App() {
             car["Location Due Mne"] !== "E9Z" &&
             car["Location Due Mne"] !== "R4S") 
         {
+          cars.push(data[i]);
+        }
+      }
+    }
+    sortCars(cars, "ASC", "Car Group");
+  }
+
+  function get_hold_cards() {
+    let cars = [];
+
+    for (let i = 0; i < data.length; i++) {
+      let car = data[i]
+
+      if (car["Fleet Owner Code"] === owner) {
+        if (car["STATUS3"].length > 0) {
           cars.push(data[i]);
         }
       }
@@ -358,6 +377,12 @@ export default function App() {
                   cars.push(data[i]);
                 }
               }
+            } else if (bodyType === "EL") {
+              for (let j = 1; j < search_array.length; j++) {
+                if (car["Fuel"] === "E" && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                  cars.push(data[i]);
+                }
+              }
             } else {
               for (let j = 1; j < search_array.length; j++) {
                 if (car["Car Group"].includes(search_array[j].toUpperCase()) && car["Body Type"] !== "VAN") {
@@ -378,7 +403,7 @@ export default function App() {
               car["Current Status"].includes(search.toUpperCase()) ||
               car["Rental Agreement Num"].includes(search.toUpperCase()) ||
               car["Body Type"].includes(search.toUpperCase()) ||
-              car["Make / Model"].includes(search.toUpperCase()))
+              (search.toLocaleUpperCase() === "EL" && car["Fuel"] === "E"))
         {
           cars.push(data[i]);
         }
@@ -445,6 +470,7 @@ export default function App() {
             <Selection title="Accessory"          func={get_accessory} owner={owner} setOwner={setOwner}/>
             <Selection title="Credentials"        func={get_payment_method} owner={owner} setOwner={setOwner}/>
             <Selection title="RA/VTC"             func={get_RA} owner={owner} setOwner={setOwner}/>
+            <Selection title="In Hold"            func={get_hold_cards} owner={owner} setOwner={setOwner}/>
             <Selection title="Out of Town"        func={get_out_of_town_cars} owner={owner} setOwner={setOwner}/>
           </section>
 
@@ -765,12 +791,13 @@ function Selection({ title, func, owner, setOwner, stations}) {
 
   if (title === "Credentials") {
 
-    const [param, setParam] = useState("CX");
+    const [param, setParam] = useState("All");
 
     return (
       <div className="selection">
         <p>{title}</p>
         <select onChange={(e) => setParam(e.target.value)}>
+          <option value="All">-</option>
           <option value="CX">CX</option>
           <option value="CM">CM</option>
           <option value="CA">CA</option>
@@ -782,12 +809,13 @@ function Selection({ title, func, owner, setOwner, stations}) {
     )
   } else if (title === "Accessory") {
       
-    const [param, setParam] = useState("NV");
+    const [param, setParam] = useState("All");
 
     return (
       <div className="selection">
         <p>{title}</p>
         <select className='accessory-selection' onChange={(e) => setParam(e.target.value)}>
+          <option value="All">-</option>
           <option value="NV">GPS</option>
           <option value="DL">HENGEFESTE</option>
           <option value="CR">CRUISE CONTROL</option>
@@ -801,12 +829,13 @@ function Selection({ title, func, owner, setOwner, stations}) {
     )
   } else if (title === "Tyres") {
     
-    const [param, setParam] = useState("P");
+    const [param, setParam] = useState("All");
 
     return (
       <div className="selection">
         <p>{title}</p>
         <select className='tyre-selection' onChange={(e) => setParam(e.target.value)}>
+          <option value="All">-</option>
           <option value="P">VINTER</option>
           <option value="V">PIGGFRITT</option>
           <option value="S">SOMMER</option>
@@ -816,12 +845,13 @@ function Selection({ title, func, owner, setOwner, stations}) {
     )
   } else if (title === "RA/VTC") {
 
-    const [param, setParam] = useState("10");
+    const [param, setParam] = useState("All");
 
     return (
       <div className="selection">
         <p>{title}</p>
         <select className='RA-selection' onChange={(e) => setParam(e.target.value)}>
+          <option value="All">-</option>
           <option value="10">RA</option>
           <option value="9">VTC</option>
           <option value="NaN">NONE</option>
