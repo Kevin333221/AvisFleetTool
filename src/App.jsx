@@ -8,12 +8,12 @@ export default function App() {
   const [data, setData] = useState([]);
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
-  const [owner, setOwner] = useState("All");
-  const [stations, setStations] = useState(["All"]);
+  const [owner, setOwner] = useState("64442");
+  const [stations, setStations] = useState([]);
 
   useEffect(() => {
     get_stations();
-  }, [owner]);
+  }, [owner, data]);
 
   function sortCars(cars, sortDirection, sortingType) {
     const sortedCars = [...cars]; // Create a new array
@@ -76,6 +76,7 @@ export default function App() {
 
       setCars(cars);
       sortCars(cars, "ASC", "Car Group");
+      get_stations()
     }
 
     reader.readAsArrayBuffer(file);
@@ -91,7 +92,7 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (car["Fleet Owner Code"] === owner) {
+      if (check_owner(car, owner)) {
         if (stations.indexOf(car["Location Due Mne"]) === -1) {
           stations.push(car["Location Due Mne"]);
         }
@@ -136,15 +137,11 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (car["Registration Number"] === "BT28627") {
-        continue;
-      }
-
       const current_mileage = Number(car["Vehicle Mileage"]) + Service_offset;
       const key_mileage = Number(car["Ignition Key"].substring(3, 8));
 
       if (current_mileage > key_mileage) {
-        if (car["Fleet Owner Code"] === owner) {
+        if (check_owner(car, owner)) {
           if (car["STATUS3"].indexOf("BB") === -1 && car["Checkout Location Mne"] !== "E9Z" && car["Checkout Location Mne"] !== "R4S") {
             cars.push(data[i]);
           }
@@ -175,7 +172,7 @@ export default function App() {
         let checkinYear = car["Checkin Datetime"].getFullYear();
         
         if (car["Fleet Owner Code"] === owner) {
-          if (car["Rental Agreement Num"].length === 10 && curYear >= checkinYear && curMonth >= checkinMonth && curDate >= checkinDate + 2) {
+          if ((car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) && curYear >= checkinYear && curMonth >= checkinMonth && curDate >= checkinDate + 2) {
             cars.push(data[i]);
           }
         }
@@ -228,13 +225,19 @@ export default function App() {
   function get_owner(owner) {
     let cars = [];
 
+    // If owner is not defined, then set it to "None"
+    if (owner === undefined) {
+      owner = "None";
+    }
+
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-
       if (owner.toUpperCase() === "ALL" || owner === "") {
         cars.push(data[i]);
       } else if (car["Fleet Owner Code"] === owner) {
         cars.push(data[i]);
+      } else {
+        continue;
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -787,7 +790,7 @@ function Table_Summary({ cars }) {
   )
 }
 
-function Selection({ title, func, owner, setOwner, stations}) {
+function Selection({ title, func, owner, setOwner, stations }) {
 
   if (title === "Credentials") {
 
@@ -890,7 +893,8 @@ function Selection({ title, func, owner, setOwner, stations}) {
           <input
             type="text"
             placeholder="Owner"
-            onBlur={(e) => setOwner(e.target.value)}
+            value={owner}
+            onChange={(e) => setOwner(e.target.value)}
             className="owner-bar"
           />
         </form>
