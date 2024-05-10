@@ -16,7 +16,7 @@ export default function App() {
   }, [owner, data]);
 
   function dateToExcelSerialNumber(date) {
-    const excelEpoch = new Date(Date.UTC(1900, 0, 1)); // January 1, 1900
+    const excelEpoch = new Date(Date.UTC(1900, 1, 1)); // January 1, 1900
     const millisecondsPerDay = 24 * 60 * 60 * 1000;
 
     // Calculate the difference in milliseconds between the target date and Excel epoch
@@ -27,7 +27,7 @@ export default function App() {
 
     // Add 1 because Excel's epoch starts on January 0, 1900 (Excel considers January 0, 1900, as January 1, 1900)
     // Round up
-    return Math.ceil(daysDifference) + 2;
+    return Math.ceil(daysDifference) + 1;
   }
 
   function sortCars(cars, sortDirection, sortingType) {
@@ -63,7 +63,7 @@ export default function App() {
   }
 
   function fetch_data() {
-    const baseDate = new Date(1900, 1, 1);
+    const baseDate = new Date(1900, 0, 0);
     const input = document.getElementById('file-input'); // Assuming your input element has id="file-input"
   
     if (!input.files || input.files.length === 0) {
@@ -89,7 +89,7 @@ export default function App() {
       for (let i = 0; i < xlData.length; i++) {
 
         // Check if the json has the "Checkin Datetime" key
-        if (xlData[i]["Checkin Datetime"] !== undefined && xlData[i].hasOwnProperty("Checkin Datetime") && typeof xlData[i]["Checkin Datetime"] === "number") {
+        if (xlData[i]["Checkin Datetime"] !== undefined && xlData[i].hasOwnProperty("Checkin Datetime") && typeof xlData[i]["Checkin Datetime"] === "number") {          
           let newDate = new Date(baseDate);
           newDate.setDate(baseDate.getDate() + xlData[i]["Checkin Datetime"]);
           xlData[i]["Checkin Datetime"] = newDate;
