@@ -177,7 +177,7 @@ table {
 }
 
 .table-head-row th:active {
-  background-color: red;
+  background-color: rgb(212, 0, 42);
 }
 
 .table-head-row:not(:first-child) th, .table-body-row td {
@@ -286,12 +286,18 @@ table {
   filter: brightness(0.8);
 }
 
-.table-body-row:active {
-  filter: brightness(0.6);
+.table-body-row td:nth-child(4):not(:empty):hover {
+  background-color: var(--bg2);
+  cursor: pointer;
+}
+
+.table-body-row td:nth-child(4):not(:empty):active {
+  background-color: rgb(212, 0, 42);
 }
 
 .table-body-row td {
   text-align: left;
+  position: relative;
 }
 
 .table-body-row td:last-child {

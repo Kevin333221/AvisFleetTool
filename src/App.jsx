@@ -336,9 +336,31 @@ export default function App() {
           if (car["Rental Agreement Num"].length !== 10 && car["Rental Agreement Num"].length !== 9) {
             cars.push(data[i]);
           }
-        } else {
-          if (car["Rental Agreement Num"].length === Number(length)) {
+        } else if (length === "Forsikringsleie") {
+          
+          if (car["Rental Agreement Num"].length === 10 && (car["Checkout Rate Code"] === "VK" || 
+              car["Checkout Rate Code"] === "FS" || 
+              car["Checkout Rate Code"] === "VK" || 
+              car["Checkout Rate Code"] === "CZ" ||
+              car["Checkout Rate Code"] === "2J" ||
+              car["Checkout Rate Code"] === "S2" ||
+              car["Checkout Rate Code"] === "86")) 
+          {
             cars.push(data[i]);
+          }
+        } else {
+          if (length === "10A") {
+            if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "A") {
+              cars.push(data[i]);
+            }
+          } else if (length === "10B") {
+            if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "B") {
+              cars.push(data[i]);
+            }
+          } else if (length === "9") {
+            if (car["Rental Agreement Num"].length === Number(9)) {
+              cars.push(data[i]);
+            }
           }
         } 
       } 
@@ -548,6 +570,25 @@ function Table_Head({ cars, sortCars }) {
 
 function Table_Body({ cars, fix_duplicate_status }) {
 
+  const [showOwner1, setShowOwner1] = useState(false);
+  const [showOwner2, setShowOwner2] = useState(false);
+
+  const [selectedCar, setSelectedCar] = useState(null);
+
+  const owners = get_all_owners(cars);
+
+  function get_all_owners(cars) {
+    let owners = {};
+
+    for (let i = 0; i < cars.length; i++) {
+      let car = cars[i];
+      if (owners[car["Fleet Owner Code"]] === undefined) {
+        owners[car["Fleet Owner Code"]] = car["Fleet Owner"];
+      }
+    }
+    return owners;
+  }
+
   function displayLoc(car) {
 
     if (car["Rental Agreement Num"].length === 0) {
@@ -608,15 +649,6 @@ function Table_Body({ cars, fix_duplicate_status }) {
     "OVERDUE": "rgb(250, 250, 0)",
     "": "white"
   }
-  
-  function format_milage(milage) {
-    if (milage === undefined) {
-      return "";
-    }
-
-    const formated_milage = Number(dateToExcelSerialNumber(milage));
-    return formated_milage;
-  }
 
   return (
     <tbody className="table-body">
@@ -629,12 +661,17 @@ function Table_Body({ cars, fix_duplicate_status }) {
           <td>{car["Body Type"]}</td>
           <td>{car["Make / Model"]}</td>
           <td>{car["MVA"]}</td>
-          <td>{car["Registration Number"]}</td>
+          <td onClick={() => {selectedCar !== car ? setSelectedCar(car) : setSelectedCar(null)}}>
+            {selectedCar === car ? car["Fleet Owner"] : car["Registration Number"]}
+          </td>
+
           <td style={{ backgroundColor: Colors[car["Current Status"]]}}>
             {car["Current Status"]}
           </td>
+
           <td>{car["Current Location Mne"]}</td>
           <td>{displayLoc(car)}</td>
+
           <td>{format_time(car["Checkin Datetime"])}</td>
           <td>{car["Car Group"]}</td>
           <td>{car["Vehicle Mileage"]}</td>
@@ -892,7 +929,9 @@ function Selection({ title, func, owner, setOwner, stations }) {
         <p>{title}</p>
         <select className='RA-selection' onChange={(e) => setParam(e.target.value)}>
           <option value="All">-</option>
-          <option value="10">RA</option>
+          <option value="10A">RA AVIS</option>
+          <option value="10B">RA Budget</option>
+          <option value="Forsikringsleie">Forsikringsleie</option>
           <option value="9">VTC</option>
           <option value="NaN">NONE</option>
         </select>
