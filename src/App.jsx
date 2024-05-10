@@ -95,6 +95,7 @@ export default function App() {
           xlData[i]["Checkin Datetime"] = newDate;
         }
 
+        // Fix conversion of "Vehicle Mileage" to number
         if (typeof xlData[i]["Vehicle Mileage"] !== "number") {
           xlData[i]["Vehicle Mileage"] = Number(dateToExcelSerialNumber(xlData[i]["Vehicle Mileage"]));
         }
@@ -180,8 +181,6 @@ export default function App() {
 
   function get_overdue_RA() {
 
-    const baseDate = new Date(1900, 1, 1);
-
     let cars = [];
 
     for (let i = 0; i < data.length; i++) {
@@ -197,16 +196,15 @@ export default function App() {
           continue;
         }
 
-        let newDate = new Date(baseDate);
-        newDate.setDate(baseDate.getDate() + car["Checkin Datetime"]);
-
-        let checkinDate = newDate.getDate();
-        let checkinMonth = newDate.getMonth();
-        let checkinYear = newDate.getFullYear();
+        let checkinDate = car["Checkin Datetime"].getDate();
+        let checkinMonth = car["Checkin Datetime"].getMonth();
+        let checkinYear = car["Checkin Datetime"].getFullYear();
         
         if (car["Fleet Owner Code"] === owner) {
-          if ((car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) && curYear >= checkinYear && curMonth >= checkinMonth && curDate >= checkinDate + 2) {
-            cars.push(data[i]);
+          if (car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) {
+            if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
+              cars.push(data[i]);
+            }
           }
         }
       }
@@ -458,7 +456,6 @@ export default function App() {
           <label htmlFor="file-input" className='file-label'>Choose a file</label>
           <p>File must be in .xlsx format</p>
           <p>File must contain only one sheet</p>
-          <p>You have to remove the last (unnecessary) row in the sheet to see the table</p>
           <input 
             type="file" 
             id="file-input"
@@ -550,8 +547,6 @@ function Table_Head({ cars, sortCars }) {
 }
 
 function Table_Body({ cars, fix_duplicate_status }) {
-
-  const baseDate = new Date(1900, 1, 1);
 
   function displayLoc(car) {
 
