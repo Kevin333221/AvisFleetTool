@@ -324,6 +324,9 @@ export default function App() {
   }
 
   function get_RA(length) {
+
+    const forsikringsleie = ["VK", "FS", "VK", "CZ", "2J", "S2", "86"];
+
     let cars = [];
 
     for (let i = 0; i < data.length; i++) {
@@ -332,31 +335,35 @@ export default function App() {
       if (car["Fleet Owner Code"] === owner) {
         if (length === "All") {
           cars.push(data[i]);
+
+        // Check if it is not a RA or VTC
         } else if (length === "NaN") {
           if (car["Rental Agreement Num"].length !== 10 && car["Rental Agreement Num"].length !== 9) {
             cars.push(data[i]);
           }
+
+        // Check if it is a Forsikringsleie
         } else if (length === "Forsikringsleie") {
           
-          if (car["Rental Agreement Num"].length === 10 && (car["Checkout Rate Code"] === "VK" || 
-              car["Checkout Rate Code"] === "FS" || 
-              car["Checkout Rate Code"] === "VK" || 
-              car["Checkout Rate Code"] === "CZ" ||
-              car["Checkout Rate Code"] === "2J" ||
-              car["Checkout Rate Code"] === "S2" ||
-              car["Checkout Rate Code"] === "86")) 
+          if (car["Rental Agreement Num"].length === 10 && (forsikringsleie.includes(car["Checkout Rate Code"]))) 
           {
             cars.push(data[i]);
           }
         } else {
+
+          // Check if it is a AVIS rental
           if (length === "10A") {
             if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "A") {
               cars.push(data[i]);
             }
+
+          // Check if it is a Budget rental
           } else if (length === "10B") {
             if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "B") {
               cars.push(data[i]);
             }
+          
+          // Check if it is a VTC
           } else if (length === "9") {
             if (car["Rental Agreement Num"].length === Number(9)) {
               cars.push(data[i]);
