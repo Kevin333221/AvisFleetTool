@@ -446,6 +446,18 @@ export default function App() {
                   cars.push(data[i]);
                 }
               }
+            } else if (bodyType === "AVIS") {
+              for (let j = 1; j < search_array.length; j++) {
+                if (car["Checkout Location"].slice(-1) === "A" && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                  cars.push(data[i]);
+                }
+              }
+            } else if (bodyType === "BUDGET") {
+              for (let j = 1; j < search_array.length; j++) {
+                if (car["Checkout Location"].slice(-1) === "B" && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                  cars.push(data[i]);
+                }
+              }
             } else {
               for (let j = 1; j < search_array.length; j++) {
                 if (car["Car Group"].includes(search_array[j].toUpperCase()) && car["Body Type"] !== "VAN") {
@@ -460,6 +472,18 @@ export default function App() {
                 cars.push(data[i]);
               }
             }
+          }
+        } else if (search.toLocaleUpperCase() === "AVIS") {
+          if (car["Checkout Location"].slice(-1) === "A") {
+            cars.push(data[i]);
+          }
+        } else if (search.toLocaleUpperCase() === "BUDGET") {
+          if (car["Checkout Location"].slice(-1) === "B") {
+            cars.push(data[i]);
+          }
+        } else if (stations.includes(search.toUpperCase())) {
+          if (car["Current Location Mne"] === search.toLocaleUpperCase()) {
+            cars.push(data[i]);
           }
         } else if (car["Registration Number"].includes(search.toUpperCase()) ||
               car["MVA"].includes(search.toUpperCase()) ||
