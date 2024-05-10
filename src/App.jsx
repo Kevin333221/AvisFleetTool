@@ -885,8 +885,6 @@ function Table_Summary({ cars }) {
         </td>
         <td>RA: {get_num_of_RA(cars)}</td>
         <td>VTC: {get_num_of_VTC(cars)}</td>
-        <td>Avis Cars: {get_num_of_avis_rentals(cars)}</td>
-        <td>Budget Cars: {get_num_of_budget_rentals(cars)}</td>
         <td>Summer Tyres: {get_num_of_summer_tyres(cars)}</td>
         <td>Winter Tyres: {get_num_of_winter_tyres(cars)}</td>
         <td>Spike free Tyres: {get_num_of_spike_free_tyres(cars)}</td>
