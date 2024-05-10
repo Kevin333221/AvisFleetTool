@@ -198,6 +198,10 @@ table {
   z-index: 0;
 }
 
+.table-body-row {
+  z-index: 1;
+}
+
 .table-body-row:nth-child(odd) {
   background-color: rgb(210, 210, 210);
 }
@@ -284,20 +288,36 @@ table {
 
 .table-body-row:hover {
   filter: brightness(0.8);
+  z-index: 1;
 }
 
-.table-body-row td:nth-child(4):not(:empty):hover {
+.table-body-row td:nth-child(4):not(:empty):hover, .table-body-row td:nth-child(6):not(:empty):hover, .table-body-row td:nth-child(7):not(:empty):hover{
   background-color: var(--bg2);
   cursor: pointer;
 }
 
-.table-body-row td:nth-child(4):not(:empty):active {
+.table-body-row td:nth-child(4):not(:empty):active, .table-body-row td:nth-child(6):not(:empty):active, .table-body-row td:nth-child(7):not(:empty):active {
   background-color: rgb(212, 0, 42);
 }
 
 .table-body-row td {
   text-align: left;
   position: relative;
+}
+
+td p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(230, 230, 230);
+  z-index: 2;
 }
 
 .table-body-row td:last-child {

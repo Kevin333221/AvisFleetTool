@@ -1,6 +1,8 @@
 import './App.css'
 import * as XLSX from 'xlsx/xlsx.mjs';
 import { useState, useEffect } from 'react';
+import AvisFleets from '../AvisFleets.json';
+import BudgetFleets from '../BudgetFleets.json';
 import logo from "../public/Avis.png"
 
 export default function App() {
@@ -514,6 +516,7 @@ export default function App() {
             id="file-input"
             onChange={() => fetch_data()}
             className='file-input'
+            accept='.xlsx'
           />
         </div>
       }
@@ -601,23 +604,42 @@ function Table_Head({ cars, sortCars }) {
 
 function Table_Body({ cars, fix_duplicate_status }) {
 
-  const [showOwner1, setShowOwner1] = useState(false);
-  const [showOwner2, setShowOwner2] = useState(false);
-
   const [selectedCar, setSelectedCar] = useState(null);
+  const [selectedStation, setSelectedStation] = useState(null);
+  const [selectedStation2, setSelectedStation2] = useState(null);
 
-  const owners = get_all_owners(cars);
-
-  function get_all_owners(cars) {
-    let owners = {};
-
-    for (let i = 0; i < cars.length; i++) {
-      let car = cars[i];
-      if (owners[car["Fleet Owner Code"]] === undefined) {
-        owners[car["Fleet Owner Code"]] = car["Fleet Owner"];
+  function find_owner_by_station(station, racf) {
+    
+    if (racf === "A") {
+      const A_fleets = Object.keys(AvisFleets);
+      for (let i = 0; i < A_fleets.length; i++) {
+        let fleet = AvisFleets[A_fleets[i]];
+        let district = Object.keys(fleet);
+        for (let j = 0; j < district.length; j++) {
+          let stations = fleet[district[j]];
+          if (stations.includes(station)) {
+            const text = "Avis - " + A_fleets[i].split("-")[1];
+            const district_text = district[j].split("-")[0];
+            return <p><span>{text}</span><span>{district_text}</span></p>;
+          }
+        }
+      }
+    } else if (racf === "B") {
+      const B_fleets = Object.keys(BudgetFleets);
+      for (let i = 0; i < B_fleets.length; i++) {
+        let fleet = BudgetFleets[B_fleets[i]];
+        let district = Object.keys(fleet);
+        for (let j = 0; j < district.length; j++) {
+          let stations = fleet[district[j]];
+          if (stations.includes(station)) {
+            const text = "Budget - " + B_fleets[i].split("-")[1];
+            const district_text = district[j].split("-")[0];
+            return <p><span>{text}</span><span>{district_text}</span></p>;
+          }
+        }
       }
     }
-    return owners;
+    return "Utenlands";
   }
 
   function displayLoc(car) {
@@ -687,7 +709,7 @@ function Table_Body({ cars, fix_duplicate_status }) {
         <tr
           className="table-body-row"
           key={index}
-          style={{"--color": Colors[car["Current Status"]]}}
+          style={{"--color": Colors[car["Current Status"]], zIndex: selectedStation === car || selectedStation2 === car ? 1 : 0}}
         >
           <td>{car["Body Type"]}</td>
           <td>{car["Make / Model"]}</td>
@@ -700,8 +722,12 @@ function Table_Body({ cars, fix_duplicate_status }) {
             {car["Current Status"]}
           </td>
 
-          <td>{car["Current Location Mne"]}</td>
-          <td>{displayLoc(car)}</td>
+          <td onClick={() => {selectedStation !== car ? (setSelectedStation(car), setSelectedStation2(null)) : (setSelectedStation(null), setSelectedStation2(null))}}>
+            {selectedStation === car ? find_owner_by_station(car["Current Location Mne"], car["Checkout Location"].slice(-1)) : car["Current Location Mne"]}
+          </td>
+          <td onClick={() => {selectedStation2 !== car && car["Rental Agreement Num"].length !== 0 ? (setSelectedStation2(car), setSelectedStation(null)) : (setSelectedStation2(null), setSelectedStation(null))}}>
+            {selectedStation2 === car ? find_owner_by_station(car["Location Due Mne"], car["Checkout Location"].slice(-1)) : displayLoc(car)}
+          </td>
 
           <td>{format_time(car["Checkin Datetime"])}</td>
           <td>{car["Car Group"]}</td>
