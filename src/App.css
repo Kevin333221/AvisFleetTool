@@ -39,7 +39,7 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: clamp(300px, 100%, 2000px);
   padding: 1em;
 }
 

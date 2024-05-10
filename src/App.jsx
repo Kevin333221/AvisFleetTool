@@ -15,6 +15,21 @@ export default function App() {
     get_stations();
   }, [owner, data]);
 
+  function dateToExcelSerialNumber(date) {
+    const excelEpoch = new Date(Date.UTC(1900, 0, 1)); // January 1, 1900
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+
+    // Calculate the difference in milliseconds between the target date and Excel epoch
+    const millisecondsDifference = date.getTime() - excelEpoch.getTime();
+
+    // Convert milliseconds to days
+    const daysDifference = millisecondsDifference / millisecondsPerDay;
+
+    // Add 1 because Excel's epoch starts on January 0, 1900 (Excel considers January 0, 1900, as January 1, 1900)
+    // Round up
+    return Math.ceil(daysDifference) + 2;
+  }
+
   function sortCars(cars, sortDirection, sortingType) {
     const sortedCars = [...cars]; // Create a new array
 
@@ -48,6 +63,7 @@ export default function App() {
   }
 
   function fetch_data() {
+    const baseDate = new Date(1900, 1, 1);
     const input = document.getElementById('file-input'); // Assuming your input element has id="file-input"
   
     if (!input.files || input.files.length === 0) {
@@ -63,7 +79,7 @@ export default function App() {
       const workbook = XLSX.read(data, { cellDates: true });
 
       const sheet_name_list = workbook.SheetNames;
-      const xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]])
+      const xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
       xlData.pop(); // Remove the last row in the sheet
 
@@ -71,6 +87,17 @@ export default function App() {
 
       let cars = [];
       for (let i = 0; i < xlData.length; i++) {
+
+        // Check if the json has the "Checkin Datetime" key
+        if (xlData[i]["Checkin Datetime"] !== undefined && xlData[i].hasOwnProperty("Checkin Datetime") && typeof xlData[i]["Checkin Datetime"] === "number") {
+          let newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Checkin Datetime"]);
+          xlData[i]["Checkin Datetime"] = newDate;
+        }
+
+        if (typeof xlData[i]["Vehicle Mileage"] !== "number") {
+          xlData[i]["Vehicle Mileage"] = Number(dateToExcelSerialNumber(xlData[i]["Vehicle Mileage"]));
+        }
         cars.push(xlData[i]);
       }
 
@@ -152,6 +179,9 @@ export default function App() {
   }
 
   function get_overdue_RA() {
+
+    const baseDate = new Date(1900, 1, 1);
+
     let cars = [];
 
     for (let i = 0; i < data.length; i++) {
@@ -167,9 +197,12 @@ export default function App() {
           continue;
         }
 
-        let checkinDate = car["Checkin Datetime"].getDate();
-        let checkinMonth = car["Checkin Datetime"].getMonth();
-        let checkinYear = car["Checkin Datetime"].getFullYear();
+        let newDate = new Date(baseDate);
+        newDate.setDate(baseDate.getDate() + car["Checkin Datetime"]);
+
+        let checkinDate = newDate.getDate();
+        let checkinMonth = newDate.getMonth();
+        let checkinYear = newDate.getFullYear();
         
         if (car["Fleet Owner Code"] === owner) {
           if ((car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) && curYear >= checkinYear && curMonth >= checkinMonth && curDate >= checkinDate + 2) {
@@ -421,43 +454,43 @@ export default function App() {
 
       {/* Before giving file */}
       {data.length === 0 && 
-      <div className='start'>
-        <label htmlFor="file-input" className='file-label'>Choose a file</label>
-        <p>File must be in .xlsx format</p>
-        <p>File must contain only one sheet</p>
-        <p>You have to remove the last (unnecessary) row in the sheet to see the table</p>
-        <input 
-          type="file" 
-          id="file-input"
-          onChange={() => fetch_data()}
-          className='file-input'
-        />
-      </div>
+        <div className='start'>
+          <label htmlFor="file-input" className='file-label'>Choose a file</label>
+          <p>File must be in .xlsx format</p>
+          <p>File must contain only one sheet</p>
+          <p>You have to remove the last (unnecessary) row in the sheet to see the table</p>
+          <input 
+            type="file" 
+            id="file-input"
+            onChange={() => fetch_data()}
+            className='file-input'
+          />
+        </div>
       }
 
       {/* Header */}
       {data.length > 0 &&
-      <div className="header">
-        <div className="logo-container">
-          <img src={logo} alt="Avis Logo" className="logo"/>
+        <div className="header">
+          <div className="logo-container">
+            <img src={logo} alt="Avis Logo" className="logo"/>
+          </div>
+          <div className="search-container">
+            <form className="search-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSearch();
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Search"
+                onChange={(e) => setSearch(e.target.value)}
+                className="search-bar"
+              />
+            </form>
+            <button type="submit" className="search-button" onClick={() => handleSearch()}>Search</button>
+          </div>
         </div>
-        <div className="search-container">
-          <form className="search-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSearch();
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Search"
-              onChange={(e) => setSearch(e.target.value)}
-              className="search-bar"
-            />
-          </form>
-          <button type="submit" className="search-button" onClick={() => handleSearch()}>Search</button>
-        </div>
-      </div>
       }
 
       {/* Main Area */}
@@ -485,7 +518,7 @@ export default function App() {
             </table>
           </section>
         </div>
-        }
+      }
     </>
   )
 }
@@ -518,7 +551,10 @@ function Table_Head({ cars, sortCars }) {
 
 function Table_Body({ cars, fix_duplicate_status }) {
 
+  const baseDate = new Date(1900, 1, 1);
+
   function displayLoc(car) {
+
     if (car["Rental Agreement Num"].length === 0) {
       return "";
     } else {
@@ -531,17 +567,6 @@ function Table_Body({ cars, fix_duplicate_status }) {
     if (time === undefined) {
       return "";
     }
-
-    // let milliseconds = time * 24 * 3600;
-    // let startDate = new Date('1970-01-01T00:00:00Z').getTime();
-    // let date = new Date(startDate + milliseconds);
-    
-    // console.log(date);
-    // console.log(time, new Date());
-
-    // Fix formating of time
-    // let formated_time = new Date(time);
-    // console.log(time, new Date());
 
     let newTime = time.toUTCString().substring(5, 22);
     let month = newTime.substring(3, 6);
@@ -578,7 +603,7 @@ function Table_Body({ cars, fix_duplicate_status }) {
     return `${day}/${month}/${year}`;
 
   }
-
+  
   const Colors = {
     "ON HAND": "rgb(220, 220, 220)",
     "ON RENT": "rgb(0, 200, 0)",
@@ -587,6 +612,15 @@ function Table_Body({ cars, fix_duplicate_status }) {
     "UNAVAILABLE": "rgb(180, 100, 0)",
     "OVERDUE": "rgb(250, 250, 0)",
     "": "white"
+  }
+  
+  function format_milage(milage) {
+    if (milage === undefined) {
+      return "";
+    }
+
+    const formated_milage = Number(dateToExcelSerialNumber(milage));
+    return formated_milage;
   }
 
   return (
