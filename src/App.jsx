@@ -468,12 +468,12 @@ export default function App() {
             <Selection title="Station"            func={get_all} owner={owner} setOwner={setOwner} stations={stations}/>
             <Selection title="Service"            func={get_serivce} owner={owner} setOwner={setOwner}/>
             <Selection title="Overdue RA/VTC"     func={get_overdue_RA} owner={owner} setOwner={setOwner}/>
+            <Selection title="In Hold"            func={get_hold_cards} owner={owner} setOwner={setOwner}/>
             <Selection title="Buy Back"           func={get_buy_back} owner={owner} setOwner={setOwner}/>
             <Selection title="Tyres"              func={get_tyres} owner={owner} setOwner={setOwner}/>
             <Selection title="Accessory"          func={get_accessory} owner={owner} setOwner={setOwner}/>
             <Selection title="Credentials"        func={get_payment_method} owner={owner} setOwner={setOwner}/>
             <Selection title="RA/VTC"             func={get_RA} owner={owner} setOwner={setOwner}/>
-            <Selection title="In Hold"            func={get_hold_cards} owner={owner} setOwner={setOwner}/>
             <Selection title="Out of Town"        func={get_out_of_town_cars} owner={owner} setOwner={setOwner}/>
           </section>
 
@@ -532,8 +532,16 @@ function Table_Body({ cars, fix_duplicate_status }) {
       return "";
     }
 
+    // let milliseconds = time * 24 * 3600;
+    // let startDate = new Date('1970-01-01T00:00:00Z').getTime();
+    // let date = new Date(startDate + milliseconds);
+    
+    // console.log(date);
+    // console.log(time, new Date());
+
     // Fix formating of time
     // let formated_time = new Date(time);
+    // console.log(time, new Date());
 
     let newTime = time.toUTCString().substring(5, 22);
     let month = newTime.substring(3, 6);
