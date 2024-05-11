@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import AvisFleets from '../AvisFleets.json';
 import BudgetFleets from '../BudgetFleets.json';
 import logo from "../public/Avis.png"
+import { motion } from "framer-motion"
 
 export default function App() {
   
@@ -620,7 +621,7 @@ function Table_Body({ cars, fix_duplicate_status }) {
           if (stations.includes(station)) {
             const text = "Avis - " + A_fleets[i].split("-")[1];
             const district_text = district[j].split("-")[0];
-            return <p><span>{text}</span><span>{district_text}</span></p>;
+            return <div className='preview-station'><span>{text}</span><span>{district_text}</span></div>;
           }
         }
       }
@@ -634,7 +635,7 @@ function Table_Body({ cars, fix_duplicate_status }) {
           if (stations.includes(station)) {
             const text = "Budget - " + B_fleets[i].split("-")[1];
             const district_text = district[j].split("-")[0];
-            return <p><span>{text}</span><span>{district_text}</span></p>;
+            return <div className='preview-station'><span>{text}</span><span>{district_text}</span></div>;
           }
         }
       }

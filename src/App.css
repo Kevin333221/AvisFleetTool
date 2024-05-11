@@ -305,7 +305,7 @@ table {
   position: relative;
 }
 
-td p {
+td .preview-station {
   position: absolute;
   top: 50%;
   left: 50%;
