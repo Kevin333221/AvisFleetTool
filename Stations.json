@@ -1,0 +1,2961 @@
+[
+  {
+    "Wizard name": "AALESUND",
+    "CODES": {
+      "AVIS_CODE": "MZ9",
+      "AVIS_NUM": "03391",
+      "Avis Vans_CODE": "M7C",
+      "Avis Vans_NUM": "55333",
+      "Budget_CODE": "AS7",
+      "Budget_NUM": "01176",
+      "Leasing 12 months +_CODE": "O4Y",
+      "Leasing 12 months +_NUM": "57458"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "ANNETTE CHRISTENSEN",
+    "Address 1": "NEDRE STRANDGT 50",
+    "Address 2": "-",
+    "Zipcode": "6005",
+    "City": "AALESUND",
+    "Telephone": "+47 70132400"
+  },
+  {
+    "Wizard name": "AALESUND CENTRUM KARR.",
+    "CODES": {
+      "AVIS_CODE": "CK1",
+      "AVIS_NUM": "02536"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "ANNETTE CHRISTENSEN",
+    "Address 1": "BREIVIKA",
+    "Address 2": "-",
+    "Zipcode": "6018",
+    "City": "AALESUND",
+    "Telephone": "+47 70132400"
+  },
+  {
+    "Wizard name": "AALESUND INTL APT, VIGRA",
+    "CODES": {
+      "AVIS_CODE": "AES",
+      "AVIS_NUM": "01987",
+      "Avis Vans_CODE": "AU9",
+      "Avis Vans_NUM": "55358",
+      "Budget_CODE": "AES",
+      "Budget_NUM": "01175",
+      "Prestige_CODE": "K8K",
+      "Prestige_NUM": "57376"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "MERETE VANG",
+    "Address 1": "VIGRA LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "6040",
+    "City": "VIGRA",
+    "Telephone": "+47 70183800"
+  },
+  {
+    "Wizard name": "AALESUND,OEDEGAARD KARR.",
+    "CODES": {
+      "AVIS_CODE": "A2U",
+      "AVIS_NUM": "03466"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "ANNETTE CHRISTENSEN",
+    "Address 1": "PUSKHOLA",
+    "Address 2": "-",
+    "Zipcode": "6012",
+    "City": "AALESUND",
+    "Telephone": "+47 70132400"
+  },
+  {
+    "Wizard name": "AANDALSNES",
+    "CODES": {
+      "AVIS_CODE": "AA0",
+      "AVIS_NUM": "06339",
+      "Avis Vans_CODE": "A0D",
+      "Avis Vans_NUM": "55389"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "ANNETTE CHRISTENSEN",
+    "Address 1": "AANDALSNES BILVERKSTED AS",
+    "Address 2": "OERAVEGEN 15",
+    "Zipcode": "6300",
+    "City": "AANDALSNES",
+    "Telephone": "+47 93212401"
+  },
+  {
+    "Wizard name": "ALTA AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "ALF",
+      "AVIS_NUM": "04892",
+      "Avis Vans_CODE": "V2R",
+      "Avis Vans_NUM": "55392",
+      "Budget_CODE": "ALF",
+      "Budget_NUM": "50534"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "ALTAGAARDSSKOGEN 32",
+    "Address 2": "-",
+    "Zipcode": "9515",
+    "City": "ALTA",
+    "Telephone": "+47 90749000"
+  },
+  {
+    "Wizard name": "ALTA DT",
+    "CODES": {
+      "AVIS_CODE": "AL0",
+      "AVIS_NUM": "01126",
+      "Avis Vans_CODE": "V2L",
+      "Avis Vans_NUM": "55380",
+      "Budget_CODE": "AL6",
+      "Budget_NUM": "52830",
+      "Eco/GG Month_CODE": "O41",
+      "Eco/GG Month_NUM": "58289",
+      "Leasing Vans 12 months +": "AF0",
+      "Leasing Vans 12 months +_1": "55247"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "BETONGVEIEN 3",
+    "Address 2": "POB 2010",
+    "Zipcode": "9515",
+    "City": "ALTA",
+    "Telephone": "+47 90749000"
+  },
+  {
+    "Wizard name": "ALTA VEST",
+    "CODES": {
+      "AVIS_CODE": "XI1",
+      "AVIS_NUM": "58160",
+      "Avis Vans_CODE": "XO6",
+      "Avis Vans_NUM": "58479",
+      "Month_CODE": "XO5",
+      "Month_NUM": "58478",
+      "Month Van_CODE": "XO7",
+      "Month Van_NUM": "58480"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "SKIFERVEIEN 4",
+    "Address 2": "-",
+    "Zipcode": "9513",
+    "City": "ALTA",
+    "Telephone": "+47 78444050"
+  },
+  {
+    "Wizard name": "ANDENES",
+    "CODES": {
+      "AVIS_CODE": "A2N",
+      "AVIS_NUM": "01130",
+      "Avis Vans_CODE": "VF8",
+      "Avis Vans_NUM": "55426",
+      "Budget_CODE": "AX4",
+      "Budget_NUM": "06252"
+    },
+    "Fleet Name": "ANDENES BILUTLEIE AS",
+    "Fleet Code": "09460",
+    "Supervisor": "NINA T. SCHAUG",
+    "Address 1": "KONG HANS GATE 8",
+    "Address 2": "-",
+    "Zipcode": "8480",
+    "City": "ANDENES",
+    "Telephone": "+47 76141565"
+  },
+  {
+    "Wizard name": "ANDENES AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "ANX",
+      "AVIS_NUM": "05132",
+      "Avis Vans_CODE": "VF7",
+      "Avis Vans_NUM": "55397",
+      "Budget_CODE": "ANX",
+      "Budget_NUM": "50730"
+    },
+    "Fleet Name": "ANDENES BILUTLEIE AS",
+    "Fleet Code": "09460",
+    "Supervisor": "NINA T. SCHAUG",
+    "Address 1": "ANDENES LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "8480",
+    "City": "ANDENES",
+    "Telephone": "+47 76141565"
+  },
+  {
+    "Wizard name": "ARENDAL",
+    "CODES": {
+      "AVIS_CODE": "A7L",
+      "AVIS_NUM": "06340",
+      "Avis Vans_CODE": "A0W",
+      "Avis Vans_NUM": "55308"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "MYRENEVEIEN 23",
+    "Address 2": "-",
+    "Zipcode": "4847",
+    "City": "ARENDAL",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "AVIS STEINKJER",
+    "CODES": {
+      "AVIS_CODE": "EB0",
+      "AVIS_NUM": "55727",
+      "Avis Vans_CODE": "EB1",
+      "Avis Vans_NUM": "55728"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "ANDREES VAN DER LINDEN",
+    "Address 1": " NORD- AUTO AS",
+    "Address 2": "SJOEFARTSGATA 15",
+    "Zipcode": "7714",
+    "City": "STEINKJER",
+    "Telephone": "+47 74160300"
+  },
+  {
+    "Wizard name": "AVIS VERDAL",
+    "CODES": {
+      "AVIS_CODE": "EB2",
+      "AVIS_NUM": "55729",
+      "Avis Vans_CODE": "EB5",
+      "Avis Vans_NUM": "55730"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "ANDREES VAN DER LINDEN",
+    "Address 1": "NORD-AUTO AS",
+    "Address 2": "VENUSVEIEN 10 B",
+    "Zipcode": "7652",
+    "City": "VERDAL",
+    "Telephone": "+47 74160300"
+  },
+  {
+    "Wizard name": "BAERUM",
+    "CODES": {
+      "AVIS_CODE": "AOB",
+      "AVIS_NUM": "02449",
+      "Avis Vans_CODE": "AV6",
+      "Avis Vans_NUM": "55349",
+      "Eco/GG Month_CODE": "A76",
+      "Eco/GG Month_NUM": "54395"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "HAZHAR HADJI",
+    "Address 1": "RUDSLETTA 42",
+    "Address 2": "-",
+    "Zipcode": "1351",
+    "City": "RUD",
+    "Telephone": "+47 67134540"
+  },
+  {
+    "Wizard name": "BARDUFOSS",
+    "CODES": {
+      "AVIS_CODE": "B1F",
+      "AVIS_NUM": "01145",
+      "Avis Vans_CODE": "TJ9",
+      "Avis Vans_NUM": "55424",
+      "Eco/GG Month_CODE": "O42",
+      "Eco/GG Month_NUM": "58290"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "BARDUFOSS",
+    "Address 2": "POB 1291",
+    "Zipcode": "9201",
+    "City": "BARDUFOSS",
+    "Telephone": "+47 90936139"
+  },
+  {
+    "Wizard name": "BARDUFOSS DOM AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "BDU",
+      "AVIS_NUM": "01343",
+      "Avis Vans_CODE": "PJ6",
+      "Avis Vans_NUM": "55351",
+      "Budget_CODE": "BDU",
+      "Budget_NUM": "50535"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "BARDUFOSS LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "9201",
+    "City": "BARDUFOSS",
+    "Telephone": "+47 90936139"
+  },
+  {
+    "Wizard name": "BERGEN",
+    "CODES": {
+      "AVIS_CODE": "BG5",
+      "AVIS_NUM": "04896",
+      "Avis Vans_CODE": "B04",
+      "Avis Vans_NUM": "55309",
+      "Budget_CODE": "BG1",
+      "Budget_NUM": "01394",
+      "Eco/GG Month_CODE": "B37",
+      "Eco/GG Month_NUM": "54364",
+      "Month_CODE": "BM5",
+      "Month_NUM": "55112"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "DAG GJERDE",
+    "Address 1": "SOLHEIMSGATEN 15",
+    "Address 2": "-",
+    "Zipcode": "5008",
+    "City": "BERGEN",
+    "Telephone": "+47 55553955"
+  },
+  {
+    "Wizard name": "BERGEN AVD AASANE",
+    "CODES": {
+      "AVIS_CODE": "K6R",
+      "AVIS_NUM": "02520",
+      "Avis Vans_CODE": "KH3",
+      "Avis Vans_NUM": "55335"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "DAG GJERDE",
+    "Address 1": "LANGARINDEN 5",
+    "Address 2": "-",
+    "Zipcode": "5132",
+    "City": "NYBORG",
+    "Telephone": "+47 55399291"
+  },
+  {
+    "Wizard name": "BERGEN INTL APT FLESLAND",
+    "CODES": {
+      "AVIS_CODE": "BGO",
+      "AVIS_NUM": "04895",
+      "Avis Vans_CODE": "BV3",
+      "Avis Vans_NUM": "55310",
+      "Budget_CODE": "BGO",
+      "Budget_NUM": "01393",
+      "Prestige_CODE": "OY2",
+      "Prestige_NUM": "54703",
+      "Eco/GG Month_CODE": "B44",
+      "Eco/GG Month_NUM": "54365",
+      "Month_CODE": "WT6",
+      "Month_NUM": "02659"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "TOBIAS TOTLAND",
+    "Address 1": "FLESLAND LUFTHAVN",
+    "Address 2": "PO BOX 31",
+    "Zipcode": "5869",
+    "City": "BERGEN",
+    "Telephone": "+47 55116430"
+  },
+  {
+    "Wizard name": "BERGEN L REPLACEMENT",
+    "CODES": {
+      "AVIS_CODE": "BG3",
+      "AVIS_NUM": "05554"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "KENNETH SOLHEIM TUROEY",
+    "Address 1": "LOENNINGSVEGEN 2",
+    "Address 2": "-",
+    "Zipcode": "5258",
+    "City": "BLOMSTERDALEN",
+    "Telephone": "+47 90819105"
+  },
+  {
+    "Wizard name": "BILIA AVD HOENEFOSS",
+    "CODES": {
+      "AVIS_CODE": "RB5",
+      "AVIS_NUM": "50185",
+      "Avis Vans_CODE": "RD4",
+      "Avis Vans_NUM": "55393"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "STORGT 15",
+    "Address 2": "-",
+    "Zipcode": "3513",
+    "City": "HOENEFOSS",
+    "Telephone": "+47 32120300"
+  },
+  {
+    "Wizard name": "BILIA SKOEYEN (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "SG0",
+      "AVIS_NUM": "50415"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "HAZHAR HADJI",
+    "Address 1": "BILIA SKOEYEN",
+    "Address 2": "DRAMMENSVEIEN 213",
+    "Zipcode": "0212",
+    "City": "OSLO",
+    "Telephone": "+47 23239202"
+  },
+  {
+    "Wizard name": "BODOE",
+    "CODES": {
+      "AVIS_CODE": "BO6",
+      "AVIS_NUM": "04897",
+      "Avis Vans_CODE": "PI4",
+      "Avis Vans_NUM": "55340",
+      "Budget_CODE": "O0B",
+      "Budget_NUM": "51413",
+      "Prestige_CODE": "IX6",
+      "Prestige_NUM": "57267",
+      "Eco/GG Month_CODE": "K9M",
+      "Eco/GG Month_NUM": "58102",
+      "Leasing 12 months +_CODE": "B4F",
+      "Leasing 12 months +_NUM": "04678"
+    },
+    "Fleet Name": "NORD NORSK BILUTLEIE AS",
+    "Fleet Code": "07952",
+    "Supervisor": "GUNNAR PEDERSEN",
+    "Address 1": "SJOEGATA 33",
+    "Address 2": "-",
+    "Zipcode": "8006",
+    "City": "BODOE",
+    "Telephone": "+47 75541000"
+  },
+  {
+    "Wizard name": "BODOE INTL AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "BOO",
+      "AVIS_NUM": "04690",
+      "Avis Vans_CODE": "PI1",
+      "Avis Vans_NUM": "55346",
+      "Budget_CODE": "BOO",
+      "Budget_NUM": "01483",
+      "Prestige_CODE": "IX5",
+      "Prestige_NUM": "57266",
+      "Eco/GG Month_CODE": "IX1",
+      "Eco/GG Month_NUM": "57269"
+    },
+    "Fleet Name": "NORD NORSK BILUTLEIE AS",
+    "Fleet Code": "07952",
+    "Supervisor": "GUNNAR PEDERSEN",
+    "Address 1": "PAALS VEI 9",
+    "Address 2": "PO BOX 1017",
+    "Zipcode": "8005",
+    "City": "BODOE",
+    "Telephone": "+47 75541000"
+  },
+  {
+    "Wizard name": "BODOE DT",
+    "CODES": {
+      "AVIS_CODE": "O30",
+      "AVIS_NUM": "58139",
+      "Avis Vans_CODE": "K3T",
+      "Avis Vans_NUM": "58140",
+      "Budget_CODE": "LO7",
+      "Budget_NUM": "54345"
+    },
+    "Fleet Name": "NORD NORSK BILUTLEIE AS",
+    "Fleet Code": "07952",
+    "Supervisor": "GUNNAR PEDERSEN",
+    "Address 1": "BODOE LUFTHAVN",
+    "Address 2": "PO BOX 1017",
+    "Zipcode": "8001",
+    "City": "BODOE",
+    "Telephone": "+47 75541000"
+  },
+  {
+    "Wizard name": "BOS BROBEKK (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "L39",
+      "AVIS_NUM": "58164",
+      "Avis Vans_CODE": "ZR8",
+      "Avis Vans_NUM": "58494"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "MARITA HOEGSET",
+    "Address 1": "BERTEL O. STEEN BROBEKK",
+    "Address 2": "KNUD BRYNS VEI 3",
+    "Zipcode": "0851",
+    "City": "OSLO",
+    "Telephone": "+47 67255559"
+  },
+  {
+    "Wizard name": "BREKSTAD",
+    "CODES": {
+      "AVIS_CODE": "BV7",
+      "AVIS_NUM": "55279",
+      "Avis Vans_CODE": "H76",
+      "Avis Vans_NUM": "55738"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "C/O OERLAND BIL AS",
+    "Address 2": "GAMLE FJAERAVEI 21",
+    "Zipcode": "7130",
+    "City": "BREKSTAD",
+    "Telephone": "+47 72522750"
+  },
+  {
+    "Wizard name": "BRONNOYSUND",
+    "CODES": {
+      "AVIS_CODE": "B0N",
+      "AVIS_NUM": "03828",
+      "Avis Vans_CODE": "VH8",
+      "Avis Vans_NUM": "55436",
+      "Budget_CODE": "B0D",
+      "Budget_NUM": "52721"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN AS",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "INDUSTRIVN 10",
+    "Address 2": "PO BOX 103",
+    "Zipcode": "8900",
+    "City": "BRONNOYSUND",
+    "Telephone": "+47 97567585"
+  },
+  {
+    "Wizard name": "BRONNOYSUND AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "BNN",
+      "AVIS_NUM": "04898",
+      "Avis Vans_CODE": "VH9",
+      "Avis Vans_NUM": "55437",
+      "Budget_CODE": "BNN",
+      "Budget_NUM": "50665"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN AS",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "BRONNOYA LUFTHAVN",
+    "Address 2": "PO BOX 103",
+    "Zipcode": "8905",
+    "City": "BRONNOYSUND",
+    "Telephone": "+47 97567585"
+  },
+  {
+    "Wizard name": "DOMBAAS",
+    "CODES": {
+      "AVIS_CODE": "O80",
+      "AVIS_NUM": "58233",
+      "Avis Vans_CODE": "O8F",
+      "Avis Vans_NUM": "58234",
+      "Eco/GG Month_CODE": "OK5",
+      "Eco/GG Month_NUM": "58235"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "SOELVI BLINDHEIM SKJONG",
+    "Address 1": "SERVICEHALLEN DOMBAAS AS",
+    "Address 2": "GUDBRANDSDALSVEGEN 2569",
+    "Zipcode": "2660",
+    "City": "DOMBAAS",
+    "Telephone": "+47 91129544"
+  },
+  {
+    "Wizard name": "DRAMMEN",
+    "CODES": {
+      "AVIS_CODE": "J58",
+      "AVIS_NUM": "00859",
+      "Avis Vans_CODE": "J02",
+      "Avis Vans_NUM": "55312",
+      "Budget_CODE": "J5B",
+      "Budget_NUM": "52723",
+      "Eco/GG Month_CODE": "GE9",
+      "Eco/GG Month_NUM": "57968",
+      "Leasing 12 months +_CODE": "J60",
+      "Leasing 12 months +_NUM": "02919"
+    },
+    "Fleet Name": "DVT BILUTLEIE AS",
+    "Fleet Code": "64332",
+    "Supervisor": "LARS-EINAR HOEL",
+    "Address 1": "KOBBERVIKDALEN 91",
+    "Address 2": "-",
+    "Zipcode": "3036",
+    "City": "DRAMMEN",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "EIDSBERG",
+    "CODES": {
+      "AVIS_CODE": "L27",
+      "AVIS_NUM": "58170"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "INGHILD AALHOLM",
+    "Address 1": "BILSKADESENTERET OESTFOLD AS",
+    "Address 2": "MORENEVEIEN 20",
+    "Zipcode": "1859",
+    "City": "SLITU",
+    "Telephone": "-"
+  },
+  {
+    "Wizard name": "ELVERUM AGENT Konkurs - Hamar leverer bil inntil videre",
+    "CODES": {
+      "AVIS_CODE": "E01",
+      "AVIS_NUM": "04040",
+      "Avis Vans_CODE": "EL2",
+      "Avis Vans_NUM": "55348"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "C/O HAMAR",
+    "Address 2": "MIDTSTRANDA 27",
+    "Zipcode": "2321",
+    "City": "HAMAR",
+    "Telephone": "+47 98900700"
+  },
+  {
+    "Wizard name": "FAGERNES",
+    "CODES": {
+      "AVIS_CODE": "F2N",
+      "AVIS_NUM": "01153",
+      "Avis Vans_CODE": "FF1",
+      "Avis Vans_NUM": "55427",
+      "Budget_CODE": "F3S",
+      "Budget_NUM": "52725"
+    },
+    "Fleet Name": "BR BIL AS",
+    "Fleet Code": "60550",
+    "Supervisor": "BJOERN ROGER SVANHELD",
+    "Address 1": "SPIKARMOEN 1",
+    "Address 2": "-",
+    "Zipcode": "2900",
+    "City": "FAGERNES",
+    "Telephone": "+47 40410606"
+  },
+  {
+    "Wizard name": "FALCK NAF VIKERSUND",
+    "CODES": {
+      "AVIS_CODE": "V3V",
+      "AVIS_NUM": "50025",
+      "Avis Vans_CODE": "VF5",
+      "Avis Vans_NUM": "55430"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "WAHLSHAUGEN",
+    "Address 2": "-",
+    "Zipcode": "3370",
+    "City": "VIKERSUND",
+    "Telephone": "+47 99542803"
+  },
+  {
+    "Wizard name": "FAUSKE",
+    "CODES": {
+      "AVIS_CODE": "F0U",
+      "AVIS_NUM": "04782",
+      "Avis Vans_CODE": "F0Z",
+      "Avis Vans_NUM": "55408"
+    },
+    "Fleet Name": "NORD NORSK BILUTLRIR",
+    "Fleet Code": "07952",
+    "Supervisor": "GUNNAR PEDERSEN",
+    "Address 1": "BERGVERKSVEIEN 9",
+    "Address 2": "POB 463",
+    "Zipcode": "8201",
+    "City": "FAUSKE",
+    "Telephone": "+47 75646004"
+  },
+  {
+    "Wizard name": "FINNSNES",
+    "CODES": {
+      "AVIS_CODE": "U4J",
+      "AVIS_NUM": "58260",
+      "Avis Vans_CODE": "FN6",
+      "Avis Vans_NUM": "55409"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "BOTENHAAGVEIEN 31",
+    "Address 2": "-",
+    "Zipcode": "9300",
+    "City": "FINNSNES",
+    "Telephone": "+47 90945229"
+  },
+  {
+    "Wizard name": "FINNSNES DT",
+    "CODES": {
+      "AVIS_CODE": "FN0",
+      "AVIS_NUM": "6768",
+      "Budget_CODE": "O75",
+      "Budget_NUM": "55044",
+      "Eco/GG Month_CODE": "O46",
+      "Eco/GG Month_NUM": "58291"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "STRANDVEIEN 16",
+    "Address 2": "-",
+    "Zipcode": "9300",
+    "City": "FINNSNES",
+    "Telephone": "+47 90945229"
+  },
+  {
+    "Wizard name": "FLEKKEFJORD TEMP CLOSED 19.08.22",
+    "CODES": {
+      "AVIS_CODE": "F3D",
+      "AVIS_NUM": "02602",
+      "Avis Vans_CODE": "FL1",
+      "Avis Vans_NUM": "55416"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "DRANGEID 55",
+    "Address 2": "-",
+    "Zipcode": "4400",
+    "City": "FLEKKEFJORD",
+    "Telephone": "+47 38320910"
+  },
+  {
+    "Wizard name": "FLOROE",
+    "CODES": {
+      "AVIS_CODE": "F0R",
+      "AVIS_NUM": "01162",
+      "Avis Vans_CODE": "FW2",
+      "Avis Vans_NUM": "55354"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "RUTEBILSTASJONEN",
+    "Address 2": "-",
+    "Zipcode": "6900",
+    "City": "FLOROE",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "FLOROE APT",
+    "CODES": {
+      "AVIS_CODE": "FRO",
+      "AVIS_NUM": "04967",
+      "Avis Vans_CODE": "FW4",
+      "Avis Vans_NUM": "55406"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "FLOROE LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "6900",
+    "City": "FLOROE",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "FOERDE",
+    "CODES": {
+      "AVIS_CODE": "F4D",
+      "AVIS_NUM": "01168",
+      "Avis Vans_CODE": "FX3",
+      "Avis Vans_NUM": "55313",
+      "Budget_CODE": "F4E",
+      "Budget_NUM": "52726",
+      "Eco/GG Month_CODE": "YO1",
+      "Eco/GG Month_NUM": "58489",
+      "Month_CODE": "E4I",
+      "Month_NUM": "58602"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "STOREHAGEN 4",
+    "Address 2": "PO BOX 103",
+    "Zipcode": "6800",
+    "City": "FOERDE",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "FOERDE AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "FDE",
+      "AVIS_NUM": "04901",
+      "Avis Vans_CODE": "FX8",
+      "Avis Vans_NUM": "55410",
+      "Budget_CODE": "FDE",
+      "Budget_NUM": "50663"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "FOERDE LUFTHAVN-BRINGELAND",
+    "Address 2": "POB 103",
+    "Zipcode": "6801",
+    "City": "FOERDE",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "FREDRIKSTAD",
+    "CODES": {
+      "AVIS_CODE": "F16",
+      "AVIS_NUM": "02451",
+      "Avis Vans_CODE": "FK3",
+      "Avis Vans_NUM": "55364",
+      "Budget_CODE": "FD4",
+      "Budget_NUM": "03175",
+      "Eco/GG Month_CODE": "N2G",
+      "Eco/GG Month_NUM": "58211"
+    },
+    "Fleet Name": "DAHLES BILUTLEIE",
+    "Fleet Code": "09840",
+    "Supervisor": "SVENN NORD",
+    "Address 1": "STABBURVEIEN 3",
+    "Address 2": "-",
+    "Zipcode": "1617",
+    "City": "FREDRIKSTAD",
+    "Telephone": "+47 95012100"
+  },
+  {
+    "Wizard name": "GJOEVIK",
+    "CODES": {
+      "AVIS_CODE": "G01",
+      "AVIS_NUM": "04502",
+      "Avis Vans_CODE": "GJ0",
+      "Avis Vans_NUM": "55338",
+      "Budget_CODE": "GJ3",
+      "Budget_NUM": "52783",
+      "Eco/GG Month_CODE": "DY0",
+      "Eco/GG Month_NUM": "58203"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "THOMASDALEN 11",
+    "Address 2": "-",
+    "Zipcode": "2818",
+    "City": "GJOEVIK",
+    "Telephone": "+47 98900700"
+  },
+  {
+    "Wizard name": "GOL",
+    "CODES": {
+      "AVIS_CODE": "GO5",
+      "AVIS_NUM": "04243",
+      "Avis Vans_CODE": "G2W",
+      "Avis Vans_NUM": "55404",
+      "Budget_CODE": "G6L",
+      "Budget_NUM": "52727"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "SENTRUMSVEGEN 18",
+    "Address 2": "-",
+    "Zipcode": "3550",
+    "City": "GOL",
+    "Telephone": "-"
+  },
+  {
+    "Wizard name": "GOL, VIKING",
+    "CODES": {
+      "AVIS_CODE": "VG0",
+      "AVIS_NUM": "55256"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "VIKING GOL",
+    "Address 2": "HUSOEYVEGEN 1",
+    "Zipcode": "3550",
+    "City": "GOL",
+    "Telephone": "+47 32076400"
+  },
+  {
+    "Wizard name": "GRENLAND",
+    "CODES": {
+      "AVIS_CODE": "P9G",
+      "AVIS_NUM": "55076",
+      "Avis Vans_CODE": "PJ5",
+      "Avis Vans_NUM": "55342",
+      "Budget_CODE": "G2D",
+      "Budget_NUM": "52747"
+    },
+    "Fleet Name": "DVT BILUTLEIE AS",
+    "Fleet Code": "64332",
+    "Supervisor": "NICLAS JONHOLT",
+    "Address 1": "LANGMYRVEIEN 1",
+    "Address 2": "-",
+    "Zipcode": "3917",
+    "City": "PORSGRUNN",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "GRIMSTAD",
+    "CODES": {
+      "AVIS_CODE": "DQ3",
+      "AVIS_NUM": "57038"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "LEVERMYRVEIEN 30",
+    "Address 2": "-",
+    "Zipcode": "4848",
+    "City": "GRIMSTAD",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "HADELAND,LUNNER",
+    "CODES": {
+      "AVIS_CODE": "LU4",
+      "AVIS_NUM": "02780",
+      "Avis Vans_CODE": "LD7",
+      "Avis Vans_NUM": "55386"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "LUNNER AUTO AS",
+    "Address 2": "HADELANDSVEGEN 2397",
+    "Zipcode": "2730",
+    "City": "LUNNER",
+    "Telephone": "+47 61321303"
+  },
+  {
+    "Wizard name": "HALDEN",
+    "CODES": {
+      "AVIS_CODE": "H3N",
+      "AVIS_NUM": "04255",
+      "Avis Vans_CODE": "HD4",
+      "Avis Vans_NUM": "55385",
+      "Eco/GG Month_CODE": "N0P",
+      "Eco/GG Month_NUM": "58209"
+    },
+    "Fleet Name": "DAHLES BILUTLEIE",
+    "Fleet Code": "09840",
+    "Supervisor": "SVENN NORD",
+    "Address 1": "DYRENDALSVN 13",
+    "Address 2": "POB 185",
+    "Zipcode": "1778",
+    "City": "HALDEN",
+    "Telephone": "+47 95012100"
+  },
+  {
+    "Wizard name": "HAMAR",
+    "CODES": {
+      "AVIS_CODE": "H01",
+      "AVIS_NUM": "04017",
+      "Avis Vans_CODE": "H00",
+      "Avis Vans_NUM": "55322",
+      "Budget_CODE": "HA1",
+      "Budget_NUM": "52781",
+      "Eco/GG Month_CODE": "DZ2",
+      "Eco/GG Month_NUM": "58202",
+      "Leasing 12 months +_CODE": "DK1",
+      "Leasing 12 months +_NUM": "58111"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "MIDTSTRANDA 27",
+    "Address 2": "-",
+    "Zipcode": "2321",
+    "City": "HAMAR",
+    "Telephone": "+47 98900700"
+  },
+  {
+    "Wizard name": "HAMAROEY",
+    "CODES": {
+      "AVIS_CODE": "H2Y",
+      "AVIS_NUM": "05853"
+    },
+    "Fleet Name": "NORD NORSK BILUTLEIE",
+    "Fleet Code": "07952",
+    "Supervisor": "GUNNAR PEDERSEN",
+    "Address 1": "NORDSALTEN SENTRALVERKSTED AS",
+    "Address 2": "STRAUMENES",
+    "Zipcode": "8260",
+    "City": "INNHAVET",
+    "Telephone": "+47 48504855"
+  },
+  {
+    "Wizard name": "HAMMERFEST",
+    "CODES": {
+      "AVIS_CODE": "H8F",
+      "AVIS_NUM": "01176",
+      "Avis Vans_CODE": "H1F",
+      "Avis Vans_NUM": "55326",
+      "Budget_CODE": "H1T",
+      "Budget_NUM": "52831",
+      "Eco/GG Month_CODE": "O47",
+      "Eco/GG Month_NUM": "58292",
+      "Leasing 12 months +_CODE": "H36",
+      "Leasing 12 months +_NUM": "01799"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "FINNMARKSVEIEN 56",
+    "Address 2": "-",
+    "Zipcode": "9600",
+    "City": "HAMMERFEST",
+    "Telephone": "+47 98900700"
+  },
+  {
+    "Wizard name": "HAMMERFEST AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "HFT",
+      "AVIS_NUM": "04934",
+      "Avis Vans_CODE": "H6F",
+      "Avis Vans_NUM": "55382",
+      "Budget_CODE": "HFT",
+      "Budget_NUM": "50650",
+      "Month_CODE": "WT8",
+      "Month_NUM": "58465",
+      "Month Van_CODE": "WW7",
+      "Month Van_NUM": "58466"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "HAMMERFEST LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "9600",
+    "City": "HAMMERFEST",
+    "Telephone": "+47 91649645"
+  },
+  {
+    "Wizard name": "HAREID",
+    "CODES": {
+      "AVIS_CODE": "H9D",
+      "AVIS_NUM": "04656",
+      "Avis Vans_CODE": "HD6",
+      "Avis Vans_NUM": "55417"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "SOELVI BLINDHEIM SKJONG",
+    "Address 1": "HURTIGBAATKAIA",
+    "Address 2": "SHELL STASJONEN",
+    "Zipcode": "6060",
+    "City": "HAREID",
+    "Telephone": "+47 40429555"
+  },
+  {
+    "Wizard name": "HARSTAD",
+    "CODES": {
+      "AVIS_CODE": "HSD",
+      "AVIS_NUM": "01120",
+      "Avis Vans_CODE": "H2S",
+      "Avis Vans_NUM": "55360",
+      "Budget_CODE": "H6D",
+      "Budget_NUM": "52832",
+      "Eco/GG Month_CODE": "IH6",
+      "Eco/GG Month_NUM": "57236",
+      "Leasing 12 months +_CODE": "HD7",
+      "Leasing 12 months +_NUM": "01471",
+      "Leasing Vans 12 months +": "DO7",
+      "Leasing Vans 12 months +_1": "57021"
+    },
+    "Fleet Name": "ARNES BILUTLEIE AS",
+    "Fleet Code": "60546",
+    "Supervisor": "VEGARD ROBERTSEN",
+    "Address 1": "C/O ESSO",
+    "Address 2": "STORGATA 24",
+    "Zipcode": "9406",
+    "City": "HARSTAD",
+    "Telephone": "+47 77061945"
+  },
+  {
+    "Wizard name": "HARSTAD/NARVIK LUFTHAVN-EVENES",
+    "CODES": {
+      "AVIS_CODE": "EVE",
+      "AVIS_NUM": "04906",
+      "Avis Vans_CODE": "EL6",
+      "Avis Vans_NUM": "55343",
+      "Budget_CODE": "EVE",
+      "Budget_NUM": "01965",
+      "Month_CODE": "EV0",
+      "Month_NUM": "04353"
+    },
+    "Fleet Name": "ARNES BILUTLEIE AS",
+    "Fleet Code": "60546",
+    "Supervisor": "VEGARD ROBERTSEN",
+    "Address 1": "TERMINALBYGGET",
+    "Address 2": "-",
+    "Zipcode": "8536",
+    "City": "EVENES",
+    "Telephone": "+47 76982133"
+  },
+  {
+    "Wizard name": "HAUGESUND",
+    "CODES": {
+      "AVIS_CODE": "HA3",
+      "AVIS_NUM": "06460",
+      "Avis Vans_CODE": "H0V",
+      "Avis Vans_NUM": "55330",
+      "Budget_CODE": "H5D",
+      "Budget_NUM": "52728",
+      "Eco/GG Month_CODE": "L8J",
+      "Eco/GG Month_NUM": "58184",
+      "Leasing 12 months +_CODE": "MH0",
+      "Leasing 12 months +_NUM": "04470"
+    },
+    "Fleet Name": "FONNA BILUTLEIE",
+    "Fleet Code": "07682",
+    "Supervisor": "ODD JARLE AAMODT",
+    "Address 1": "C/O BAUGE AUTO, INDUSTRIGT 24",
+    "Address 2": "POB 1224",
+    "Zipcode": "5508",
+    "City": "KARMSUND",
+    "Telephone": "+47 41552726"
+  },
+  {
+    "Wizard name": "HAUGESUND AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "HAU",
+      "AVIS_NUM": "04907",
+      "Avis Vans_CODE": "H0U",
+      "Avis Vans_NUM": "55396",
+      "Budget_CODE": "HAU",
+      "Budget_NUM": "02237",
+      "Month_CODE": "H3U",
+      "Month_NUM": "03823"
+    },
+    "Fleet Name": "FONNA BILUTLEIE",
+    "Fleet Code": "07682",
+    "Supervisor": "ODD JARLE AAMODT",
+    "Address 1": "HAUGESUND LUFTHAVN - HELGANES",
+    "Address 2": "-",
+    "Zipcode": "4262",
+    "City": "HELGANES",
+    "Telephone": "+47 90150923"
+  },
+  {
+    "Wizard name": "HOENEFOSS",
+    "CODES": {
+      "AVIS_CODE": "HF3",
+      "AVIS_NUM": "02197",
+      "Avis Vans_CODE": "HF0",
+      "Avis Vans_NUM": "55314",
+      "Budget_CODE": "HF4",
+      "Budget_NUM": "52730",
+      "Eco/LEASING_CODE": "LP8",
+      "Eco/LEASING_NUM": "58205",
+      "Leasing 12 months +_CODE": "H34",
+      "Leasing 12 months +_NUM": "53493"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "STORGATA 15",
+    "Address 2": "-",
+    "Zipcode": "3510",
+    "City": "HOENEFOSS",
+    "Telephone": "+47 32120300"
+  },
+  {
+    "Wizard name": "HUSNES, FYLKESNES BIL",
+    "CODES": {
+      "AVIS_CODE": "H0S",
+      "AVIS_NUM": "54531"
+    },
+    "Fleet Name": "FONNA BILUTLEIE",
+    "Fleet Code": "07682",
+    "Supervisor": "ODD JARLE AAMODT",
+    "Address 1": "ONARHEIMVEGEN 94",
+    "Address 2": "-",
+    "Zipcode": "5460",
+    "City": "HUSNES",
+    "Telephone": "+47 53487444"
+  },
+  {
+    "Wizard name": "JESSHEIM",
+    "CODES": {
+      "AVIS_CODE": "J2S",
+      "AVIS_NUM": "05977",
+      "Avis Vans_CODE": "JX0",
+      "Avis Vans_NUM": "55332"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "INGHILD AALHOLM",
+    "Address 1": "ELEKTROVEGEN 1",
+    "Address 2": "-",
+    "Zipcode": "2069",
+    "City": "JESSHEIM",
+    "Telephone": "+47 63811220"
+  },
+  {
+    "Wizard name": "KIRKENES",
+    "CODES": {
+      "AVIS_CODE": "K8N",
+      "AVIS_NUM": "01198",
+      "Avis Vans_CODE": "ZA2",
+      "Avis Vans_NUM": "55405",
+      "Budget_CODE": "K7N",
+      "Budget_NUM": "52833"
+    },
+    "Fleet Name": "SANDNES AUTO AS",
+    "Fleet Code": "09206",
+    "Supervisor": "TRULS JOHANSEN",
+    "Address 1": "TOYOTA, HESSENG",
+    "Address 2": "PO BOX 83",
+    "Zipcode": "9916",
+    "City": "HESSENG",
+    "Telephone": "+47 78973705"
+  },
+  {
+    "Wizard name": "KIRKENES AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "KKN",
+      "AVIS_NUM": "04912",
+      "Avis Vans_CODE": "ZA1",
+      "Avis Vans_NUM": "55402",
+      "Budget_CODE": "KKN",
+      "Budget_NUM": "50653"
+    },
+    "Fleet Name": "SANDNES AUTO AS",
+    "Fleet Code": "09206",
+    "Supervisor": "TRULS JOHANSEN",
+    "Address 1": "KIRKENES LUFTHAVN",
+    "Address 2": "PO BOX 83",
+    "Zipcode": "9916",
+    "City": "HESSENG",
+    "Telephone": "+47 78973705"
+  },
+  {
+    "Wizard name": "KONGSBERG",
+    "CODES": {
+      "AVIS_CODE": "KON",
+      "AVIS_NUM": "00259",
+      "Avis Vans_CODE": "KO2",
+      "Avis Vans_NUM": "55331",
+      "Budget_CODE": "K0G",
+      "Budget_NUM": "52731",
+      "Leasing 12 months +_CODE": "KV5",
+      "Leasing 12 months +_NUM": "02676"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "KIRKEGAARDSV 45",
+    "Address 2": "-",
+    "Zipcode": "3616",
+    "City": "KONGSBERG",
+    "Telephone": "+47 32720700"
+  },
+  {
+    "Wizard name": "KONGSVINGER",
+    "CODES": {
+      "AVIS_CODE": "KV3",
+      "AVIS_NUM": "50438",
+      "Avis Vans_CODE": "V3G",
+      "Avis Vans_NUM": "55376"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "RASTA BILGLASS AS",
+    "Address 2": "EIDSKOGVEGEN 46",
+    "Zipcode": "2211",
+    "City": "KONGSVINGER",
+    "Telephone": "+47 98900700"
+  },
+  {
+    "Wizard name": "KRISTIANSAND DT",
+    "CODES": {
+      "AVIS_CODE": "KR0",
+      "AVIS_NUM": "04914",
+      "Avis Vans_CODE": "V8F",
+      "Avis Vans_NUM": "55365",
+      "Budget_CODE": "K2B",
+      "Budget_NUM": "52733",
+      "Eco/GG Month_CODE": "KR8",
+      "Eco/GG Month_NUM": "55600",
+      "Leasing 12 months +_CODE": "KR1",
+      "Leasing 12 months +_NUM": "4522"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "SETESDALSVEIEN 90",
+    "Address 2": "-",
+    "Zipcode": "4617",
+    "City": "KRISTIANSAND S",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "KRISTIANSAND INTL AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "KRS",
+      "AVIS_NUM": "04915",
+      "Avis Vans_CODE": "KH5",
+      "Avis Vans_NUM": "55356",
+      "Budget_CODE": "KRS",
+      "Budget_NUM": "02502",
+      "Month_CODE": "K0S",
+      "Month_NUM": "02207"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "",
+    "Address 1": "KJEVIK LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "4657",
+    "City": "KJEVIK",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "KRISTIANSAND SOERLANDSPARKEN",
+    "CODES": {
+      "AVIS_CODE": "K7S",
+      "AVIS_NUM": "50141",
+      "Avis Vans_CODE": "KR2",
+      "Avis Vans_NUM": "55315",
+      "Eco/Go Green_CODE": "X4S",
+      "Eco/Go Green_NUM": "58473",
+      "Eco/LEASING_CODE": "X4S",
+      "Eco/LEASING_NUM": "58473"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "BURAASEN 18",
+    "Address 2": "-",
+    "Zipcode": "4636",
+    "City": "KRISTIANSAND S",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "KRISTIANSUND DOM AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "KSU",
+      "AVIS_NUM": "04916",
+      "Avis Vans_CODE": "KH6",
+      "Avis Vans_NUM": "55411",
+      "Budget_CODE": "KSU",
+      "Budget_NUM": "50659"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "EIVIND DAHL",
+    "Address 1": "KVERNBERGET LUFTHAVN",
+    "Address 2": "FLYPLASSVEIEN 2",
+    "Zipcode": "6517",
+    "City": "KRISTIANSUND N",
+    "Telephone": "+47 71583815"
+  },
+  {
+    "Wizard name": "KRISTIANSUND DT",
+    "CODES": {
+      "AVIS_CODE": "KS0",
+      "AVIS_NUM": "00252",
+      "Avis Vans_CODE": "KV4",
+      "Avis Vans_NUM": "55355",
+      "Leasing 12 months +_CODE": "L9O",
+      "Leasing 12 months +_NUM": "58190"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "EIVIND DAHL",
+    "Address 1": "PILOTVEIEN 9",
+    "Address 2": "-",
+    "Zipcode": "6517",
+    "City": "KRISTIANSUND",
+    "Telephone": "+47 96902557"
+  },
+  {
+    "Wizard name": "KRISTIANSUND KAROSSERI",
+    "CODES": {
+      "AVIS_CODE": "KY5",
+      "AVIS_NUM": "06771"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "EIVIND DAHL",
+    "Address 1": "VERKSTEDVEIEN 1",
+    "Address 2": "RES: USE KSU",
+    "Zipcode": "6517",
+    "City": "KRISTIANSUND N",
+    "Telephone": "+47 71583815"
+  },
+  {
+    "Wizard name": "LAKSELV",
+    "CODES": {
+      "AVIS_CODE": "L2V",
+      "AVIS_NUM": "01208",
+      "Avis Vans_CODE": "LS3",
+      "Avis Vans_NUM": "55420",
+      "Budget_CODE": "L3V",
+      "Budget_NUM": "52842",
+      "Eco/GG Month_CODE": "O5M",
+      "Eco/GG Month_NUM": "58293"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "AVIS, LAKSELV MOTOR AS",
+    "Address 2": "SKOGANVARREVEIEN 75",
+    "Zipcode": "9700",
+    "City": "LAKSELV",
+    "Telephone": "+47 91771440"
+  },
+  {
+    "Wizard name": "LAKSELV APT BANAK",
+    "CODES": {
+      "AVIS_CODE": "LKL",
+      "AVIS_NUM": "00848",
+      "Avis Vans_CODE": "LS1",
+      "Avis Vans_NUM": "55438",
+      "Budget_CODE": "LKL",
+      "Budget_NUM": "52841"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "BANAK LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "9711",
+    "City": "LAKSELV",
+    "Telephone": "+47 91771440"
+  },
+  {
+    "Wizard name": "LEIKANGER",
+    "CODES": {
+      "AVIS_CODE": "L7R",
+      "AVIS_NUM": "5653"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "CO/SOGN BILSKADE AS",
+    "Address 2": "HAGANE 3",
+    "Zipcode": "6863",
+    "City": "LEIKANGER",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "LEKNES",
+    "CODES": {
+      "AVIS_CODE": "L9S",
+      "AVIS_NUM": "04952",
+      "Avis Vans_CODE": "LQ9",
+      "Avis Vans_NUM": "55379",
+      "Eco/GG Month_CODE": "LX9",
+      "Eco/GG Month_NUM": "58227",
+      "Leasing 12 months +_CODE": "LJ0",
+      "Leasing 12 months +_NUM": "05324"
+    },
+    "Fleet Name": "LOFOTEN BILUTELEIE AS",
+    "Fleet Code": "09480",
+    "Supervisor": "OLE KRISTIAN GRAV",
+    "Address 1": "LUFTHAVNVN 30",
+    "Address 2": "-",
+    "Zipcode": "8370",
+    "City": "LEKNES",
+    "Telephone": "+47 76080104"
+  },
+  {
+    "Wizard name": "LEKNES AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "LKN",
+      "AVIS_NUM": "04933",
+      "Avis Vans_CODE": "LQ7",
+      "Avis Vans_NUM": "55369",
+      "Budget_CODE": "LKN",
+      "Budget_NUM": "50654"
+    },
+    "Fleet Name": "LOFOTEN BILUTELEIE AS",
+    "Fleet Code": "09480",
+    "Supervisor": "OLE KRISTIAN GRAV",
+    "Address 1": "LEKNES LUFTHAVN",
+    "Address 2": "LUFTHAVNVEIEN 30",
+    "Zipcode": "8370",
+    "City": "LEKNES",
+    "Telephone": "+47 76080104"
+  },
+  {
+    "Wizard name": "LILLEHAMMER",
+    "CODES": {
+      "AVIS_CODE": "L01",
+      "AVIS_NUM": "04351",
+      "Avis Vans_CODE": "L03",
+      "Avis Vans_NUM": "55336",
+      "Budget_CODE": "LI3",
+      "Budget_NUM": "52782",
+      "Eco/GG Month_CODE": "E00",
+      "Eco/GG Month_NUM": "58201"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "INDUSTRIGT 17",
+    "Address 2": "-",
+    "Zipcode": "2619",
+    "City": "LILLEHAMMER",
+    "Telephone": "+47 98900700"
+  },
+  {
+    "Wizard name": "LILLESTROEM",
+    "CODES": {
+      "AVIS_CODE": "LI0",
+      "AVIS_NUM": "03452",
+      "Avis Vans_CODE": "L05",
+      "Avis Vans_NUM": "55323",
+      "Eco/GG Month_CODE": "F5Y",
+      "Eco/GG Month_NUM": "57918",
+      "Month_CODE": "R2F",
+      "Month_NUM": "58238"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "INGHILD AALHOLM",
+    "Address 1": "HVAMSVINGEN 5",
+    "Address 2": "-",
+    "Zipcode": "2013",
+    "City": "SKJETTEN",
+    "Telephone": "+47 63811220"
+  },
+  {
+    "Wizard name": "LOENNINGSFLATEN",
+    "CODES": {
+      "AVIS_CODE": "O09",
+      "AVIS_NUM": "58278",
+      "Avis Vans_CODE": "O2N",
+      "Avis Vans_NUM": "58279",
+      "Eco/GG Month_CODE": "XI5",
+      "Eco/GG Month_NUM": "58390"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "KENNETH SOLHEIM TUROEY",
+    "Address 1": "LOENNINGSVEGEN 2",
+    "Address 2": "-",
+    "Zipcode": "5258",
+    "City": "BLOMSTERDALEN",
+    "Telephone": "+47 45739055"
+  },
+  {
+    "Wizard name": "LYNGDAL",
+    "CODES": {
+      "AVIS_CODE": "LY7",
+      "AVIS_NUM": "03418",
+      "Avis Vans_CODE": "LY4",
+      "Avis Vans_NUM": "55400"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "C/O GUMPENS AUTO LYNGDAL AS",
+    "Address 2": "KVAVIK, BOKS 188",
+    "Zipcode": "4588",
+    "City": "LYNGDAL",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "MAALOEY",
+    "CODES": {
+      "AVIS_CODE": "M7Y",
+      "AVIS_NUM": "06839"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "V/ G-SPORT MAALOEY AS",
+    "Address 2": "-",
+    "Zipcode": "6718",
+    "City": "DEKNEPOLLEN",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "MANDAL",
+    "CODES": {
+      "AVIS_CODE": "M6H",
+      "AVIS_NUM": "1245",
+      "Avis Vans_CODE": "MD6",
+      "Avis Vans_NUM": "55337"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "SOMMERKROVN 1",
+    "Address 2": "-",
+    "Zipcode": "4515",
+    "City": "MANDAL",
+    "Telephone": "+47 45905633"
+  },
+  {
+    "Wizard name": "MELHUS",
+    "CODES": {
+      "AVIS_CODE": "ML0",
+      "AVIS_NUM": "50032",
+      "Avis Vans_CODE": "MH7",
+      "Avis Vans_NUM": "55428"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "MELHUSVEIEN",
+    "Address 2": "-",
+    "Zipcode": "7224",
+    "City": "TRONDHEIM",
+    "Telephone": "+47 72497160"
+  },
+  {
+    "Wizard name": "MELOY",
+    "CODES": {
+      "AVIS_CODE": "G6S",
+      "AVIS_NUM": "57141",
+      "Avis Vans_CODE": "G6Q",
+      "Avis Vans_NUM": "57142"
+    },
+    "Fleet Name": "NORD NORSK BILUTLEIE",
+    "Fleet Code": "07952",
+    "Supervisor": "GUNNAR PEDERSEN",
+    "Address 1": "JOKER NEVERDAL",
+    "Address 2": "ANGELLBAKKEN 1",
+    "Zipcode": "8149",
+    "City": "NEVERDAL",
+    "Telephone": "+47 96017803"
+  },
+  {
+    "Wizard name": "MO I RANA",
+    "CODES": {
+      "AVIS_CODE": "M7R",
+      "AVIS_NUM": "01249",
+      "Avis Vans_CODE": "M7Q",
+      "Avis Vans_NUM": "55431",
+      "Budget_CODE": "M4R",
+      "Budget_NUM": "52734"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "SNEKKERVEIEN 2",
+    "Address 2": "-",
+    "Zipcode": "8610",
+    "City": "MO I RANA",
+    "Telephone": "+47 99501311"
+  },
+  {
+    "Wizard name": "MO I RANA AIRPORT, ROESSVOLL",
+    "CODES": {
+      "AVIS_CODE": "MQN",
+      "AVIS_NUM": "04920",
+      "Avis Vans_CODE": "M5Q",
+      "Avis Vans_NUM": "55432",
+      "Budget_CODE": "MQN",
+      "Budget_NUM": "50656"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "ROESSVOLL LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "8626",
+    "City": "MO I RANA",
+    "Telephone": "+47 99501311"
+  },
+  {
+    "Wizard name": "MOELLER JESSHEIM (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "K2W",
+      "AVIS_NUM": "58639",
+      "Avis Vans_CODE": "U85",
+      "Avis Vans_NUM": "58640"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "INGHILD AALHOLM",
+    "Address 1": "VILBERGVEIEN 122",
+    "Address 2": "-",
+    "Zipcode": "2060",
+    "City": "GARDERMOEN",
+    "Telephone": "+47 63811220"
+  },
+  {
+    "Wizard name": "MOELLER NESTTUN (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "BM3",
+      "AVIS_NUM": "55705",
+      "Avis Vans_CODE": "C0V",
+      "Avis Vans_NUM": "55706"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "DAG GJERDE",
+    "Address 1": "SANDDALSVEGEN 1",
+    "Address 2": "-",
+    "Zipcode": "5221",
+    "City": "NESTTUN",
+    "Telephone": "+47 46931353"
+  },
+  {
+    "Wizard name": "MOELLER OSLO VEST (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "YI5",
+      "AVIS_NUM": "58392"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "HAZHAR HADJI",
+    "Address 1": "C/O MOELLER VEST",
+    "Address 2": "LILLEAKERVEIEN 22",
+    "Zipcode": "0283",
+    "City": "OSLO",
+    "Telephone": "+47 90221416"
+  },
+  {
+    "Wizard name": "MOELLER, MINDE (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "DJ7",
+      "AVIS_NUM": "55707"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "DAG GJERDE",
+    "Address 1": "KANALVEIEN 3",
+    "Address 2": "-",
+    "Zipcode": "5068",
+    "City": "BERGEN",
+    "Telephone": "+47 67255655"
+  },
+  {
+    "Wizard name": "MOELLER, DROTNINGSVIK (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "BM7",
+      "AVIS_NUM": "02129",
+      "Avis Vans_CODE": "BM0",
+      "Avis Vans_NUM": "55329"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "DAG GJERDE",
+    "Address 1": "JANAFLATEN 18",
+    "Address 2": "-",
+    "Zipcode": "5179",
+    "City": "GODVIK",
+    "Telephone": "+47 91824335"
+  },
+  {
+    "Wizard name": "MOLDE BILLAKKERING",
+    "CODES": {
+      "AVIS_CODE": "M6F",
+      "AVIS_NUM": "06593"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "KURT OLSSON",
+    "Address 1": "KROHNSVINGEN 1",
+    "Address 2": "-",
+    "Zipcode": "6421",
+    "City": "MOLDE",
+    "Telephone": "+47 71212919"
+  },
+  {
+    "Wizard name": "MOLDE DOM AIRPORT AAROE",
+    "CODES": {
+      "AVIS_CODE": "MOL",
+      "AVIS_NUM": "04921",
+      "Avis Vans_CODE": "M7V",
+      "Avis Vans_NUM": "55418",
+      "Budget_CODE": "MOL",
+      "Budget_NUM": "05231"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "KURT OLSSON",
+    "Address 1": "FJORD MOBILTY AS",
+    "Address 2": "FLYPLASSVEGEN 8",
+    "Zipcode": "6422",
+    "City": "MOLDE",
+    "Telephone": "+47 71212919"
+  },
+  {
+    "Wizard name": "MOLDE DT",
+    "CODES": {
+      "AVIS_CODE": "MO0",
+      "AVIS_NUM": "00233",
+      "Avis Vans_CODE": "M4V",
+      "Avis Vans_NUM": "55399"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "KURT OLSSON",
+    "Address 1": "AAROE LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "6421",
+    "City": "MOLDE",
+    "Telephone": "+47 71212919"
+  },
+  {
+    "Wizard name": "MOSJOEN",
+    "CODES": {
+      "AVIS_CODE": "M1J",
+      "AVIS_NUM": "01271",
+      "Avis Vans_CODE": "M0N",
+      "Avis Vans_NUM": "55353",
+      "Budget_CODE": "M3J",
+      "Budget_NUM": "52735",
+      "Leasing 12 months +_CODE": "H82",
+      "Leasing 12 months +_NUM": "53786"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "INGHILD AALHOLM",
+    "Address 1": "HVAMSTUBBEN 8",
+    "Address 2": "-",
+    "Zipcode": "2013",
+    "City": "SKJETTEN",
+    "Telephone": "+47 91701837"
+  },
+  {
+    "Wizard name": "MOSJOEN AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "MJF",
+      "AVIS_NUM": "04618",
+      "Avis Vans_CODE": "M0K",
+      "Avis Vans_NUM": "55421",
+      "Budget_CODE": "MJF",
+      "Budget_NUM": "50533"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "LAGMANNS GT 22",
+    "Address 2": "-",
+    "Zipcode": "8657",
+    "City": "MOSJOEN",
+    "Telephone": "+47 92632517"
+  },
+  {
+    "Wizard name": "MOSKENES",
+    "CODES": {
+      "AVIS_CODE": "R00",
+      "AVIS_NUM": "57425"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "MOSJOEN LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "8650",
+    "City": "MOSJOEN",
+    "Telephone": "+47 92632517"
+  },
+  {
+    "Wizard name": "MOSS",
+    "CODES": {
+      "AVIS_CODE": "MO4",
+      "AVIS_NUM": "04521",
+      "Avis Vans_CODE": "M2O",
+      "Avis Vans_NUM": "55350",
+      "Budget_CODE": "M6S",
+      "Budget_NUM": "52736",
+      "Eco/GG Month_CODE": "MP6",
+      "Eco/GG Month_NUM": "58209"
+    },
+    "Fleet Name": "LOFOTEN BILUTELEIE AS",
+    "Fleet Code": "09480",
+    "Supervisor": "VEGARD ROBERTSEN",
+    "Address 1": "BIRGER ERIKSENS VEI 23",
+    "Address 2": "-",
+    "Zipcode": "8392",
+    "City": "SOERVAAGEN",
+    "Telephone": "+47 76080104"
+  },
+  {
+    "Wizard name": "MOELLER HVAM (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "L93",
+      "AVIS_NUM": "58188",
+      "Avis Vans_CODE": "L96",
+      "Avis Vans_NUM": "58189"
+    },
+    "Fleet Name": "DAHLES BILUTLEIE",
+    "Fleet Code": "09840",
+    "Supervisor": "SVENN NORD",
+    "Address 1": "KVAENVEIEN 3",
+    "Address 2": "-",
+    "Zipcode": "1529",
+    "City": "MOSS",
+    "Telephone": "+47 95012100"
+  },
+  {
+    "Wizard name": "NAMSOS AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "OSY",
+      "AVIS_NUM": "04923",
+      "Avis Vans_CODE": "ND7",
+      "Avis Vans_NUM": "55439",
+      "Budget_CODE": "OSY",
+      "Budget_NUM": "52741"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "ANDREES VAN DER LINDEN",
+    "Address 1": "NAMSOS LUFTHAVN",
+    "Address 2": "FLYPLASSVEGEN 6",
+    "Zipcode": "7820",
+    "City": "NAMSOS",
+    "Telephone": "+47 74160300"
+  },
+  {
+    "Wizard name": "NAMSOS DT",
+    "CODES": {
+      "AVIS_CODE": "N4S",
+      "AVIS_NUM": "01272",
+      "Avis Vans_CODE": "ND6",
+      "Avis Vans_NUM": "55391",
+      "Budget_CODE": "O2Y",
+      "Budget_NUM": "52742"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "ANDREES VAN DER LINDEN",
+    "Address 1": "NORD-AUTO AS NAMSOS",
+    "Address 2": "INDUSTRIVEIEN 8",
+    "Zipcode": "7820",
+    "City": "SPILLUM",
+    "Telephone": "+47 74160300"
+  },
+  {
+    "Wizard name": "NARVIK DT",
+    "CODES": {
+      "AVIS_CODE": "N2V",
+      "AVIS_NUM": "01273",
+      "Avis Vans_CODE": "N6B",
+      "Avis Vans_NUM": "55359",
+      "Budget_CODE": "N3K",
+      "Budget_NUM": "52737",
+      "Leasing 12 months +_CODE": "N01",
+      "Leasing 12 months +_NUM": "04534",
+      "Leasing Vans 12 months +": "DO8",
+      "Leasing Vans 12 months +_1": "57022"
+    },
+    "Fleet Name": "NARVIK BILUTLEIE AS",
+    "Fleet Code": "09200",
+    "Supervisor": "TROND FAGERTHUN",
+    "Address 1": "FAGERTHUN BIL",
+    "Address 2": "ANKENESVEIEN 7",
+    "Zipcode": "8520",
+    "City": "ANKENES",
+    "Telephone": "+47 76943980"
+  },
+  {
+    "Wizard name": "NESODDEN AGENT",
+    "CODES": {
+      "AVIS_CODE": "U4W",
+      "AVIS_NUM": "58516"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "INGHILD AALHOLM",
+    "Address 1": "NESODDEN BIL OG KAROSSERI",
+    "Address 2": "MIDTVEIEN 141",
+    "Zipcode": "1458",
+    "City": "FJELLSTRAND",
+    "Telephone": "+47 67255643"
+  },
+  {
+    "Wizard name": "NOTODDEN",
+    "CODES": {
+      "AVIS_CODE": "NT3",
+      "AVIS_NUM": "04925",
+      "Avis Vans_CODE": "ND1",
+      "Avis Vans_NUM": "55387"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "MERDEVEGEN 2 J",
+    "Address 2": "-",
+    "Zipcode": "3676",
+    "City": "NOTODDEN",
+    "Telephone": "+47 35010101"
+  },
+  {
+    "Wizard name": "OPPDAL",
+    "CODES": {
+      "AVIS_CODE": "OP3",
+      "AVIS_NUM": "55269",
+      "Avis Vans_CODE": "HY2",
+      "Avis Vans_NUM": "55852"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "O.SKASLIENSVEG 1",
+    "Address 2": "-",
+    "Zipcode": "7340",
+    "City": "OPPDAL",
+    "Telephone": "+47 73196710"
+  },
+  {
+    "Wizard name": "ORKANGER",
+    "CODES": {
+      "AVIS_CODE": "OR2",
+      "AVIS_NUM": "04388",
+      "Avis Vans_CODE": "O8C",
+      "Avis Vans_NUM": "55368"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "TILLTAKSVEIEN 1",
+    "Address 2": "-",
+    "Zipcode": "7300",
+    "City": "ORKANGER",
+    "Telephone": "+47 46857705"
+  },
+  {
+    "Wizard name": "ORSTA/VOLDA LUFTHAMN HOVDEN",
+    "CODES": {
+      "AVIS_CODE": "HOV",
+      "AVIS_NUM": "03545",
+      "Avis Vans_CODE": "VO8",
+      "Avis Vans_NUM": "55403",
+      "Budget_CODE": "HOV",
+      "Budget_NUM": "52761"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "SOELVI SKJONG BLINDHEIM",
+    "Address 1": "VOLDA LUFTHAVN, TORVMYRANE 2",
+    "Address 2": "-",
+    "Zipcode": "6160",
+    "City": "HOVDEBYGDA",
+    "Telephone": "+47 96917609"
+  },
+  {
+    "Wizard name": "OSLO ALNABRU",
+    "CODES": {
+      "AVIS_CODE": "R3B",
+      "AVIS_NUM": "58426",
+      "Avis Vans_CODE": "R3W",
+      "Avis Vans_NUM": "58427"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "MARITA HOEGSET",
+    "Address 1": "SMALVOLLVEIEN 58",
+    "Address 2": "-",
+    "Zipcode": "0667",
+    "City": "OSLO",
+    "Telephone": "+47 67255559"
+  },
+  {
+    "Wizard name": "OSLO IN-HOUSE (WERKSTA ENSJOE)",
+    "CODES": {
+      "AVIS_CODE": "Z7B",
+      "AVIS_NUM": "58659"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "MARITA HOEGSET",
+    "Address 1": "WERKSTA",
+    "Address 2": "GLADENGVEIEN 8",
+    "Zipcode": "0661",
+    "City": "OSLO",
+    "Telephone": "+47 67255559"
+  },
+  {
+    "Wizard name": "OSLO IN-HOUSE ENSJOE (HURTIGRUTA CARGLASS)",
+    "CODES": {
+      "AVIS_CODE": "U2F",
+      "AVIS_NUM": "58660"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "MARITA HOEGSET",
+    "Address 1": "HURTIGRUTA CARGALSS",
+    "Address 2": "ENSJOEVEIEN 17",
+    "Zipcode": "0655",
+    "City": "OSLO",
+    "Telephone": "+47 67255559"
+  },
+  {
+    "Wizard name": "OSLO IN-HOUSE RYEN (MOELLER)",
+    "CODES": {
+      "AVIS_CODE": "A1T",
+      "AVIS_NUM": "58662"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "MARITA HOEGSET",
+    "Address 1": "VOLVO CAR",
+    "Address 2": "OEKERNVEIEN 115",
+    "Zipcode": "0579",
+    "City": "OSLO",
+    "Telephone": "+47 67255559"
+  },
+  {
+    "Wizard name": "OSLO IN-HOUSE OEKERN (VOLVO CAR)",
+    "CODES": {
+      "AVIS_CODE": "PX0",
+      "AVIS_NUM": "58661"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "MARITA HOEGSET",
+    "Address 1": "MOELLER RYEN",
+    "Address 2": "ENEBAKKVEIEN 154",
+    "Zipcode": "0680",
+    "City": "OSLO",
+    "Telephone": "+47 67255559"
+  },
+  {
+    "Wizard name": "OSLO INTL APT GARDERMOEN",
+    "CODES": {
+      "AVIS_CODE": "OSL",
+      "AVIS_NUM": "05446",
+      "Avis Vans_CODE": "OV6",
+      "Avis Vans_NUM": "55317",
+      "Budget_CODE": "OSL",
+      "Budget_NUM": "06124",
+      "Select_CODE": "OX9",
+      "Select_NUM": "53828",
+      "Eco/GG Month_CODE": "MF6",
+      "Eco/GG Month_NUM": "58207",
+      "Month_CODE": "FB1",
+      "Month_NUM": "00265"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "MAGNUS MAELUM",
+    "Address 1": "OSLO LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "2061",
+    "City": "GARDERMOEN",
+    "Telephone": "+47 67255510"
+  },
+  {
+    "Wizard name": "OSLO SENTRUM AKER BRYGGE",
+    "CODES": {
+      "AVIS_CODE": "OSI",
+      "AVIS_NUM": "04927",
+      "Avis Vans_CODE": "OV8",
+      "Avis Vans_NUM": "55324",
+      "Budget_CODE": "OS9",
+      "Budget_NUM": "01993",
+      "Select_CODE": "OX7",
+      "Select_NUM": "53829",
+      "Eco/GG Month_CODE": "MO9",
+      "Eco/GG Month_NUM": "58208",
+      "Month_CODE": "LE7",
+      "Month_NUM": "01604",
+      "Month Van_CODE": "O4N",
+      "Month Van_NUM": "5049"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "HAZHAR HADJI",
+    "Address 1": "SJOGATA 4",
+    "Address 2": "-",
+    "Zipcode": "0250",
+    "City": "OSLO",
+    "Telephone": "+47 23239202"
+  },
+  {
+    "Wizard name": "REINE",
+    "CODES": {
+      "AVIS_CODE": "N37",
+      "AVIS_NUM": "57424"
+    },
+    "Fleet Name": "LOFOTEN BILUTELEIE AS",
+    "Fleet Code": "09480",
+    "Supervisor": "VEGARD ROBERTSEN",
+    "Address 1": "REINEVEIEN 58",
+    "Address 2": "-",
+    "Zipcode": "8390",
+    "City": "REINE",
+    "Telephone": "+47 76080104"
+  },
+  {
+    "Wizard name": "SANDANE",
+    "CODES": {
+      "AVIS_CODE": "S8D",
+      "AVIS_NUM": "01278",
+      "Avis Vans_CODE": "VH4",
+      "Avis Vans_NUM": "55443"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "RUTEBILSTASJONEN",
+    "Address 2": "-",
+    "Zipcode": "6823",
+    "City": "SANDANE",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "SANDANE AIRPORT ",
+    "CODES": {
+      "AVIS_CODE": "SDN",
+      "AVIS_NUM": "04968",
+      "Avis Vans_CODE": "VH3",
+      "Avis Vans_NUM": "55407"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "SANDANE LUFTHAVN",
+    "Address 2": "POB 244",
+    "Zipcode": "6823",
+    "City": "SANDANE",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "SANDEFJORD",
+    "CODES": {
+      "AVIS_CODE": "S0D",
+      "AVIS_NUM": "01280",
+      "Avis Vans_CODE": "TF9",
+      "Avis Vans_NUM": "55413"
+    },
+    "Fleet Name": "DVT BILUTLEIE AS",
+    "Fleet Code": "64332",
+    "Supervisor": "EIVIND ROESHOLD",
+    "Address 1": "TORPVEIEN 130",
+    "Address 2": "LOCATED AT AIRPORT",
+    "Zipcode": "3241",
+    "City": "SANDEFJORD",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "SANDNESSJOEN DT",
+    "CODES": {
+      "AVIS_CODE": "S2J",
+      "AVIS_NUM": "01281",
+      "Avis Vans_CODE": "SI6",
+      "Avis Vans_NUM": "55341",
+      "Budget_CODE": "SA7",
+      "Budget_NUM": "52738"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "TOROLV KVELDULVSONS GT 7",
+    "Address 2": "-",
+    "Zipcode": "8800",
+    "City": "SANDNESSJOEN",
+    "Telephone": "+47 95467430"
+  },
+  {
+    "Wizard name": "SANDNESSJOEN, STOKKA LUFTHAVN",
+    "CODES": {
+      "AVIS_CODE": "SSJ",
+      "AVIS_NUM": "04931",
+      "Avis Vans_CODE": "SI8",
+      "Avis Vans_NUM": "55434",
+      "Budget_CODE": "SSJ",
+      "Budget_NUM": "50658"
+    },
+    "Fleet Name": "BILUTLEIE MOSJOEEN AS",
+    "Fleet Code": "60544",
+    "Supervisor": "MATS ROESDAL",
+    "Address 1": "SANDNESSJOEEN LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "8800",
+    "City": "SANDNESSJOEEN",
+    "Telephone": "+47 95467430"
+  },
+  {
+    "Wizard name": "SARPSBORG",
+    "CODES": {
+      "AVIS_CODE": "SB9",
+      "AVIS_NUM": "04692",
+      "Avis Vans_CODE": "VV4",
+      "Avis Vans_NUM": "55444",
+      "Budget_CODE": "S8G",
+      "Budget_NUM": "52763",
+      "Eco/GG Month_CODE": "N5B",
+      "Eco/GG Month_NUM": "58212",
+      "Month_CODE": "E8F",
+      "Month_NUM": "57859",
+      "Leasing Vans 12 months +": "Q5C",
+      "Leasing Vans 12 months +_1": "58418"
+    },
+    "Fleet Name": "DAHLES BILUTLEIE",
+    "Fleet Code": "09840",
+    "Supervisor": "SVENN NORD",
+    "Address 1": "POSTBOKS 4",
+    "Address 2": "-",
+    "Zipcode": "1701",
+    "City": "SARPSBORG",
+    "Telephone": "+47 95012100"
+  },
+  {
+    "Wizard name": "SKI (C)",
+    "CODES": {
+      "AVIS_CODE": "SK1",
+      "AVIS_NUM": "04329",
+      "Avis Vans_CODE": "SK8",
+      "Avis Vans_NUM": "55378"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "INGHILD AALHOLM",
+    "Address 1": "TEGLVEIEN 10",
+    "Address 2": "-",
+    "Zipcode": "1400",
+    "City": "SKI",
+    "Telephone": "+47 67255643"
+  },
+  {
+    "Wizard name": "SKOGN",
+    "CODES": {
+      "AVIS_CODE": "SK0",
+      "AVIS_NUM": "02790",
+      "Avis Vans_CODE": "S26",
+      "Avis Vans_NUM": "55325"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "MOENSTERHAUGVN 5",
+    "Address 2": "-",
+    "Zipcode": "7620",
+    "City": "SKOGN",
+    "Telephone": "+47 74019510"
+  },
+  {
+    "Wizard name": "SLEPENDEN, AUTO E18 (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "A3E",
+      "AVIS_NUM": "02587"
+    },
+    "Fleet Name": "RAC NORWAY AS",
+    "Fleet Code": "09080",
+    "Supervisor": "HAZHAR HADJI",
+    "Address 1": "BILLINGSTADSLETTA 2",
+    "Address 2": "-",
+    "Zipcode": "1312",
+    "City": "SLEPENDEN",
+    "Telephone": "+47 66777540"
+  },
+  {
+    "Wizard name": "SOGNDAL",
+    "CODES": {
+      "AVIS_CODE": "SO3",
+      "AVIS_NUM": "01284",
+      "Avis Vans_CODE": "SY6",
+      "Avis Vans_NUM": "55419"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "SHELL KAUPANGER",
+    "Address 2": "-",
+    "Zipcode": "6854",
+    "City": "KAUPANGER",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "SOGNDAL AIRPORT ",
+    "CODES": {
+      "AVIS_CODE": "SOG",
+      "AVIS_NUM": "02538",
+      "Avis Vans_CODE": "SY3",
+      "Avis Vans_NUM": "55381"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "SOGNDAL LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "6854",
+    "City": "KAUPANGER",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "SORTLAND",
+    "CODES": {
+      "AVIS_CODE": "S8L",
+      "AVIS_NUM": "01309",
+      "Avis Vans_CODE": "SJ5",
+      "Avis Vans_NUM": "55414",
+      "Budget_CODE": "SK4",
+      "Budget_NUM": "52739"
+    },
+    "Fleet Name": "ARNES BILUTLEIE AS",
+    "Fleet Code": "60546",
+    "Supervisor": "MORTEN PEDERSEN",
+    "Address 1": "ESSO, HAVNEGT 44",
+    "Address 2": "-",
+    "Zipcode": "8405",
+    "City": "SORTLAND",
+    "Telephone": "+47 76113710"
+  },
+  {
+    "Wizard name": "SOTRA",
+    "CODES": {
+      "AVIS_CODE": "SO8",
+      "AVIS_NUM": "04380",
+      "Avis Vans_CODE": "S96",
+      "Avis Vans_NUM": "55352"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "DAG GJERDE",
+    "Address 1": "IDRETTSVEGEN 126",
+    "Address 2": "-",
+    "Zipcode": "5353",
+    "City": "STRAUME",
+    "Telephone": "+47 56321617"
+  },
+  {
+    "Wizard name": "STAMSUND",
+    "CODES": {
+      "AVIS_CODE": "S2M",
+      "AVIS_NUM": "01322"
+    },
+    "Fleet Name": "LOFOTEN BILUTELEIE AS",
+    "Fleet Code": "09480",
+    "Supervisor": "LASSE VEIESUND",
+    "Address 1": "LEVERES FRA LEKNES",
+    "Address 2": "DELIVERY DOCK",
+    "Zipcode": "8376",
+    "City": "STAMSUND",
+    "Telephone": "+47 76080104"
+  },
+  {
+    "Wizard name": "STAVANGER INT AIRPORT SOLA",
+    "CODES": {
+      "AVIS_CODE": "SVG",
+      "AVIS_NUM": "04936",
+      "Avis Vans_CODE": "SY9",
+      "Avis Vans_NUM": "55415",
+      "Budget_CODE": "SVG",
+      "Budget_NUM": "03708",
+      "Prestige_CODE": "OX0",
+      "Prestige_NUM": "54640",
+      "Eco/GG Month_CODE": "Y87",
+      "Eco/GG Month_NUM": "54366",
+      "Month_CODE": "WS6",
+      "Month_NUM": "2292"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "DAMIAN KIWIT",
+    "Address 1": "SOLA LUFTHAVN",
+    "Address 2": "PO BOX 526",
+    "Zipcode": "4055",
+    "City": "SOLA",
+    "Telephone": "+47 51718950"
+  },
+  {
+    "Wizard name": "STAVANGER, FORUS (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "Y91",
+      "AVIS_NUM": "04937",
+      "Avis Vans_CODE": "Y11",
+      "Avis Vans_NUM": "55318",
+      "Budget_CODE": "S7V",
+      "Budget_NUM": "50662",
+      "Eco/GG Month_CODE": "J8E",
+      "Eco/GG Month_NUM": "57298",
+      "Month_CODE": "IO9",
+      "Month_NUM": "57240",
+      "Month Van_CODE": "SJ7",
+      "Month Van_NUM": "3014"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "DAMIAN KIWIT",
+    "Address 1": "ROYNEBERGSLETTA 5",
+    "Address 2": "-",
+    "Zipcode": "4033",
+    "City": "STAVANGER",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "STOKMARKNES APT, SKAGEN",
+    "CODES": {
+      "AVIS_CODE": "SKN",
+      "AVIS_NUM": "04935",
+      "Avis Vans_CODE": "SG8",
+      "Avis Vans_NUM": "55347",
+      "Budget_CODE": "SKN",
+      "Budget_NUM": "50664"
+    },
+    "Fleet Name": "ARNES BILUTLEIE AS",
+    "Fleet Code": "60546",
+    "Supervisor": "MORTEN PEDERSEN",
+    "Address 1": "SKAGEN LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "8450",
+    "City": "STOKMARKNES",
+    "Telephone": "+47 76113710"
+  },
+  {
+    "Wizard name": "STORD",
+    "CODES": {
+      "AVIS_CODE": "S1N",
+      "AVIS_NUM": "02064",
+      "Avis Vans_CODE": "S29",
+      "Avis Vans_NUM": "55375",
+      "Budget_CODE": "SR2",
+      "Budget_NUM": "52740",
+      "Eco/GG Month_CODE": "L8U",
+      "Eco/GG Month_NUM": "58183",
+      "Month_CODE": "A8F",
+      "Month_NUM": "58541"
+    },
+    "Fleet Name": "FONNA BILUTLEIE",
+    "Fleet Code": "07682",
+    "Supervisor": "ODD JARLE AAMODT",
+    "Address 1": "HEIANE 31",
+    "Address 2": "-",
+    "Zipcode": "5404",
+    "City": "STORD",
+    "Telephone": "+47 53404000"
+  },
+  {
+    "Wizard name": "STORD AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "SRP",
+      "AVIS_NUM": "02015",
+      "Avis Vans_CODE": "S28",
+      "Avis Vans_NUM": "55334",
+      "Budget_CODE": "SRP",
+      "Budget_NUM": "50666"
+    },
+    "Fleet Name": "FONNA BILUTLEIE",
+    "Fleet Code": "07682",
+    "Supervisor": "ODD JARLE AAMODT",
+    "Address 1": "STORD LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "5404",
+    "City": "STORD",
+    "Telephone": "+47 53404000"
+  },
+  {
+    "Wizard name": "STRYN",
+    "CODES": {
+      "AVIS_CODE": "S4N",
+      "AVIS_NUM": "06836"
+    },
+    "Fleet Name": "FJORDANE BILUTLEIGE AS",
+    "Fleet Code": "09860",
+    "Supervisor": "STIAN FIGENSCHAU",
+    "Address 1": "TONNINGSGT 2, ESSO",
+    "Address 2": "-",
+    "Zipcode": "6783",
+    "City": "STRYN",
+    "Telephone": "+47 57725080"
+  },
+  {
+    "Wizard name": "SVOLVAER",
+    "CODES": {
+      "AVIS_CODE": "SV0",
+      "AVIS_NUM": "01379",
+      "Avis Vans_CODE": "SW8",
+      "Avis Vans_NUM": "55448",
+      "Budget_CODE": "SV4",
+      "Budget_NUM": "52743"
+    },
+    "Fleet Name": "LOFOTEN BILUTELEIE AS",
+    "Fleet Code": "09480",
+    "Supervisor": "LASSE VEIESUND",
+    "Address 1": "FISKERGATA 46",
+    "Address 2": "C/O VESTFJORD HOTEL",
+    "Zipcode": "8300",
+    "City": "SVOLVAER",
+    "Telephone": "+47 76071140"
+  },
+  {
+    "Wizard name": "SVOLVAER AIRPORT, HELLE",
+    "CODES": {
+      "AVIS_CODE": "SVJ",
+      "AVIS_NUM": "04939",
+      "Avis Vans_CODE": "SW1",
+      "Avis Vans_NUM": "55357",
+      "Budget_CODE": "SVJ",
+      "Budget_NUM": "03710"
+    },
+    "Fleet Name": "LOFOTEN BILUTELEIE AS",
+    "Fleet Code": "09480",
+    "Supervisor": "LASSE VEIESUND",
+    "Address 1": "SVOLVAER LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "8301",
+    "City": "SVOLVAER",
+    "Telephone": "+47 76071140"
+  },
+  {
+    "Wizard name": "TORP INTL AIRPORT SANDEFJORD",
+    "CODES": {
+      "AVIS_CODE": "TRF",
+      "AVIS_NUM": "04930",
+      "Avis Vans_CODE": "TF0",
+      "Avis Vans_NUM": "55319",
+      "Budget_CODE": "TRF",
+      "Budget_NUM": "03590"
+    },
+    "Fleet Name": "DVT BILUTLEIE AS",
+    "Fleet Code": "64332",
+    "Supervisor": "EIVIND ROESHOLD",
+    "Address 1": "SANDEFJORD LUFTHAVN TORP",
+    "Address 2": "TORPVEIEN 130",
+    "Zipcode": "3241",
+    "City": "SANDEFJORD",
+    "Telephone": "+47 97474000"
+  },
+  {
+    "Wizard name": "TROMSOE",
+    "CODES": {
+      "AVIS_CODE": "TR7",
+      "AVIS_NUM": "02844",
+      "Avis Vans_CODE": "TO7",
+      "Avis Vans_NUM": "55383",
+      "Budget_CODE": "T1Y",
+      "Budget_NUM": "50661",
+      "Eco/GG Month_CODE": "J6R",
+      "Eco/GG Month_NUM": "57295",
+      "Eco/LEASING_CODE": "R4S",
+      "Eco/LEASING_NUM": "58428",
+      "Month_CODE": "T6O",
+      "Month_NUM": "01388",
+      "Month Van_CODE": "V6S",
+      "Month Van_NUM": "51656",
+      "Leasing 12 months +_CODE": "E9Z",
+      "Leasing 12 months +_NUM": "57883"
+    },
+    "Fleet Name": "TROMSOE BILUTLEIE AS",
+    "Fleet Code": "64442",
+    "Supervisor": "ASBJOERN JOERGENSEN",
+    "Address 1": "STRANDSKILLET 5",
+    "Address 2": "-",
+    "Zipcode": "9008",
+    "City": "TROMSOE",
+    "Telephone": "+47 77500270"
+  },
+  {
+    "Wizard name": "TROMSOE INTL APT LANGNES",
+    "CODES": {
+      "AVIS_CODE": "TOS",
+      "AVIS_NUM": "04941",
+      "Avis Vans_CODE": "TO0",
+      "Avis Vans_NUM": "55321",
+      "Budget_CODE": "TOS",
+      "Budget_NUM": "03817",
+      "Eco/GG Month_CODE": "N5T",
+      "Eco/GG Month_NUM": "58228"
+    },
+    "Fleet Name": "TROMSOE BILUTLEIE AS",
+    "Fleet Code": "64442",
+    "Supervisor": "ASBJOERN JOERGENSEN",
+    "Address 1": "LANGNES LUFTHAVN",
+    "Address 2": "FLYPLASSVEIEN 31",
+    "Zipcode": "9016",
+    "City": "TROMSOE",
+    "Telephone": "+47 77500270"
+  },
+  {
+    "Wizard name": "TRONDHEIM BJUGN AGENT",
+    "CODES": {
+      "AVIS_CODE": "P04",
+      "AVIS_NUM": "58567"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "LEIRA BIL AS",
+    "Address 2": "BJUGNVEIEN 24",
+    "Zipcode": "7160",
+    "City": "BJOTNGAARD",
+    "Telephone": "+47 41869032"
+  },
+  {
+    "Wizard name": "TRONDHEIM DT",
+    "CODES": {
+      "AVIS_CODE": "DE6",
+      "AVIS_NUM": "04943",
+      "Avis Vans_CODE": "T05",
+      "Avis Vans_NUM": "55366",
+      "Budget_CODE": "TR1",
+      "Budget_NUM": "03830",
+      "Eco/GG Month_CODE": "ZO4",
+      "Eco/GG Month_NUM": "57760",
+      "Month_CODE": "IQ5",
+      "Month_NUM": "57246"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "KJOEPMANNSGT 34",
+    "Address 2": "-",
+    "Zipcode": "7011",
+    "City": "TRONDHEIM",
+    "Telephone": "+47 67255600"
+  },
+  {
+    "Wizard name": "TRONDHEIM INTL APT,VAERNES",
+    "CODES": {
+      "AVIS_CODE": "TRD",
+      "AVIS_NUM": "04942",
+      "Avis Vans_CODE": "TD0",
+      "Avis Vans_NUM": "55320",
+      "Budget_CODE": "TRD",
+      "Budget_NUM": "03829",
+      "Eco/GG Month_CODE": "T28",
+      "Eco/GG Month_NUM": "54360",
+      "Month_CODE": "LG7",
+      "Month_NUM": "01610"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "STINE ELVEBAKK",
+    "Address 1": "TRONDHEIM LUFTHAVN VAERNES",
+    "Address 2": "-",
+    "Zipcode": "7502",
+    "City": "STJOERDAL",
+    "Telephone": "+47 67255610"
+  },
+  {
+    "Wizard name": "TRONDHEIM MOELLER (INHOUSE)",
+    "CODES": {
+      "AVIS_CODE": "K1U",
+      "AVIS_NUM": "58138",
+      "Avis Vans_CODE": "K1I",
+      "Avis Vans_NUM": "58137",
+      "Eco/GG Month_CODE": "K0O",
+      "Eco/GG Month_NUM": "58136"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "C/O MOELLER",
+    "Address 2": "INGVALD YSTGAARDS VEG 21",
+    "Zipcode": "7047",
+    "City": "TRONDHEIM",
+    "Telephone": "+47 90539811"
+  },
+  {
+    "Wizard name": "TRONDHEIM RISSA AGENT",
+    "CODES": {
+      "AVIS_CODE": "P06",
+      "AVIS_NUM": "58566"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "LEIRA BIL AS",
+    "Address 2": "R\u00c5DHUSVEIEN 20",
+    "Zipcode": "7100",
+    "City": "RISSA",
+    "Telephone": "+47 41869032"
+  },
+  {
+    "Wizard name": "TRONDHEIM SOER",
+    "CODES": {
+      "AVIS_CODE": "T5M",
+      "AVIS_NUM": "04475"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "TUNGASLETTA 8",
+    "Address 2": "-",
+    "Zipcode": "7047",
+    "City": "TRONDHEIM",
+    "Telephone": "+47 90539811"
+  },
+  {
+    "Wizard name": "TRONDHEIM TUNGA",
+    "CODES": {
+      "AVIS_CODE": "U23",
+      "AVIS_NUM": "58562",
+      "Avis Vans_CODE": "GJ4",
+      "Avis Vans_NUM": "55798",
+      "Eco/GG Month_CODE": "L76",
+      "Eco/GG Month_NUM": "58574"
+    },
+    "Fleet Name": "TROENDELAG BILUTLEIE AS",
+    "Fleet Code": "64352",
+    "Supervisor": "MORTEN VIKAN",
+    "Address 1": "TUNGASLETTA 8",
+    "Address 2": "-",
+    "Zipcode": "7047",
+    "City": "TRONDHEIM",
+    "Telephone": "+47 90539811"
+  },
+  {
+    "Wizard name": "TYNSET",
+    "CODES": {
+      "AVIS_CODE": "TY5",
+      "AVIS_NUM": "04922"
+    },
+    "Fleet Name": "HOLMEN MOTORSERVICE AS",
+    "Fleet Code": "09605",
+    "Supervisor": "KNUT HOLMEN",
+    "Address 1": "HOLMEN MOTORSERVICE AS",
+    "Address 2": "VERKSTEDVEIEN 15",
+    "Zipcode": "2500",
+    "City": "TYNSET",
+    "Telephone": "+47 62480980"
+  },
+  {
+    "Wizard name": "ULSTEINVIK",
+    "CODES": {
+      "AVIS_CODE": "U9K",
+      "AVIS_NUM": "04673"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "MERETE VANG",
+    "Address 1": "SJOEGATA 81",
+    "Address 2": "-",
+    "Zipcode": "6065",
+    "City": "ULSTEINVIK",
+    "Telephone": "+47 40429555"
+  },
+  {
+    "Wizard name": "UTSOLA",
+    "CODES": {
+      "AVIS_CODE": "WS6",
+      "AVIS_NUM": "02292"
+    },
+    "Fleet Name": "AGDER OG ROGALAND BILUTLEIE AS",
+    "Fleet Code": "64373",
+    "Supervisor": "TERJE LEONHARDSEN",
+    "Address 1": "SOLA LUFTHAVN",
+    "Address 2": "UTSOLA",
+    "Zipcode": "4050",
+    "City": "UTSOLA",
+    "Telephone": "+47 63811220"
+  },
+  {
+    "Wizard name": "VADSOE",
+    "CODES": {
+      "AVIS_CODE": "V1S",
+      "AVIS_NUM": "01382",
+      "Avis Vans_CODE": "V7O",
+      "Avis Vans_NUM": "55362",
+      "Eco/GG Month_CODE": "O60",
+      "Eco/GG Month_NUM": "58294"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "TANAVEGEN 8",
+    "Address 2": "-",
+    "Zipcode": "9800",
+    "City": "VADSOE",
+    "Telephone": "+47 95281367"
+  },
+  {
+    "Wizard name": "VADSOE AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "VDS",
+      "AVIS_NUM": "04944",
+      "Avis Vans_CODE": "V8O",
+      "Avis Vans_NUM": "55390",
+      "Budget_CODE": "VDS",
+      "Budget_NUM": "53857"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "VADSOE LUFTHAVN",
+    "Address 2": "-",
+    "Zipcode": "9810",
+    "City": "VESTRE JAKOBSELV",
+    "Telephone": "+47 95281367"
+  },
+  {
+    "Wizard name": "VARDOE",
+    "CODES": {
+      "AVIS_CODE": "U93",
+      "AVIS_NUM": "58647"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "KAIGATA 18 A",
+    "Address 2": "-",
+    "Zipcode": "9950",
+    "City": "VARDOE",
+    "Telephone": "+47 95281367"
+  },
+  {
+    "Wizard name": "VARDOE AIRPORT",
+    "CODES": {
+      "AVIS_CODE": "VAW",
+      "AVIS_NUM": "58646"
+    },
+    "Fleet Name": "HARILA AS",
+    "Fleet Code": "07540",
+    "Supervisor": "PER IVAN LUND",
+    "Address 1": "VARDOE LUFTHAVN",
+    "Address 2": "SVARTNES",
+    "Zipcode": "9950",
+    "City": "VARDOE",
+    "Telephone": "+47 95281367"
+  },
+  {
+    "Wizard name": "VIKING NAF HOENEFOSS",
+    "CODES": {
+      "AVIS_CODE": "VE4",
+      "AVIS_NUM": "02842",
+      "Avis Vans_CODE": "VE2",
+      "Avis Vans_NUM": "55371"
+    },
+    "Fleet Name": "FJELLDAL BILUTLEIE AS",
+    "Fleet Code": "09270",
+    "Supervisor": "ASLE FJELLDAL",
+    "Address 1": "SOKNEDALSVEIEN 7",
+    "Address 2": "-",
+    "Zipcode": "3517",
+    "City": "HOENEFOSS",
+    "Telephone": "+47 32123644"
+  },
+  {
+    "Wizard name": "VOLDA",
+    "CODES": {
+      "AVIS_CODE": "V5D",
+      "AVIS_NUM": "01391",
+      "Avis Vans_CODE": "VO7",
+      "Avis Vans_NUM": "55445",
+      "Budget_CODE": "V4A",
+      "Budget_NUM": "52762"
+    },
+    "Fleet Name": "FJORD MOBILITY AS",
+    "Fleet Code": "09362",
+    "Supervisor": "SOELVI SKJONG BLINDHEIM",
+    "Address 1": "TORVMYRANE 2",
+    "Address 2": "-",
+    "Zipcode": "6160",
+    "City": "HOVDEBYGDA",
+    "Telephone": "+47 96917609"
+  },
+  {
+    "Wizard name": "VOSS",
+    "CODES": {
+      "AVIS_CODE": "VO4",
+      "AVIS_NUM": "55069",
+      "Avis Vans_CODE": "VO5",
+      "Avis Vans_NUM": "55423"
+    },
+    "Fleet Name": "RINGHEIM BILHJELP OG UTLEIGE AS",
+    "Fleet Code": "64880",
+    "Supervisor": "LENA BAKKETUN RINGHEIM",
+    "Address 1": "ISTADVEGEN 9",
+    "Address 2": "-",
+    "Zipcode": "5709",
+    "City": "VOSS",
+    "Telephone": "+47 91632255"
+  }
+]

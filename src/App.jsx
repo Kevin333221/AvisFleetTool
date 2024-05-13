@@ -3,7 +3,8 @@ import * as XLSX from 'xlsx/xlsx.mjs';
 import { useState, useEffect } from 'react';
 import AvisFleets from '../AvisFleets.json';
 import BudgetFleets from '../BudgetFleets.json';
-import logo from "../public/Avis.png"
+import Stations from '../Stations.json';
+import Avislogo from "../public/Avis.png"
 import { motion } from "framer-motion"
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [owner, setOwner] = useState("64442");
   const [stations, setStations] = useState([]);
+  const [previewStation, setPreviewStation] = useState(null);
 
   useEffect(() => {
     get_stations();
@@ -383,7 +385,7 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      
+    
       if (car["Fleet Owner Code"] === owner) {
         if (car["Location Due Mne"] !== "TOS" && 
             car["Location Due Mne"] !== "TO0" && 
@@ -526,7 +528,7 @@ export default function App() {
       {data.length > 0 &&
         <div className="header">
           <div className="logo-container">
-            <img src={logo} alt="Avis Logo" className="logo"/>
+            <img src={Avislogo} alt="Avis Logo" className="logo"/>
           </div>
           <div className="search-container">
             <form className="search-form"
@@ -567,10 +569,93 @@ export default function App() {
           <section className="bottom-area">
             <table className="table">
               <Table_Head cars={cars} sortCars={sortCars}/>
-              <Table_Body cars={cars} fix_duplicate_status={fix_duplicate_status} />
-              <Table_Summary cars={cars}/>
+              <Table_Body cars={cars} fix_duplicate_status={fix_duplicate_status} setPreviewStation={setPreviewStation}/>
             </table>
           </section>
+          <Table_Summary cars={cars}/>
+          <Preview_Station previewStation={previewStation} setPreviewStation={setPreviewStation}/>
+        </div>
+      }
+    </>
+  )
+}
+
+function Preview_Station({ previewStation, setPreviewStation }) {
+
+
+  function show_owner_details(station, racf) {
+    const Fleet_code = station["Fleet Code"];
+    const Fleet_name = station["Fleet Name"];
+    const Supervisor = station["Supervisor"];
+    const address1 = station["Address 1"];
+    const address2 = station["Address 2"];
+    const zipcode = station["Zipcode"];
+    const city = station["City"];
+    const phone = station["Telephone"];
+
+    return <div className='preview-station'>
+      <div>
+        {racf === "A" ? 
+          <p><b>Fleet Code Avis: </b>{Fleet_code}</p>
+          :
+          <p><b>Fleet Code Budget: </b>{Fleet_code}</p>
+        }
+        <p><b>Fleet Name:</b> {Fleet_name}</p>
+      </div>
+      <div>
+        <p><b>Supervisor:</b> {Supervisor}</p>
+        <p><b>Telephone:</b> {phone}</p>
+      </div>
+      <div style={{display: "grid", gridTemplateColumns: "1fr 1fr"}}>
+        <div className='preview-address'>
+          <b>Address 1:</b>
+          <b>Address 2:</b>
+          <b>Zip Code:</b>
+          <b>City:</b>
+        </div>
+        <div className='preview-address'>
+          <p>{address1}</p>
+          <p>{address2}</p>
+          <p>{zipcode}</p>
+          <p>{city}</p>
+        </div>
+      </div>
+    </div>;
+  }
+
+  function search_for_owner(station, racf) {
+    const fleets = Object.keys(racf === "A" ? AvisFleets : BudgetFleets);
+    for (let i = 0; i < fleets.length; i++) {
+      const fleet = racf === "A" ? AvisFleets[fleets[i]] : BudgetFleets[fleets[i]];
+      const district = Object.keys(fleet);
+      for (let j = 0; j < district.length; j++) {
+        const stations = fleet[district[j]];
+        if (stations.includes(station)) {
+
+          const fleet_number = fleets[i].split("-")[1].substring(1, 6)
+
+          for (let k = 0; k < Stations.length; k++) {
+            const found_fleet = Stations[k]["Fleet Code"];
+            if (found_fleet === fleet_number) {
+              return show_owner_details(Stations[k], racf);
+            }
+          }
+        }
+      }
+    }
+    return "Utenlands";
+  }
+
+  return (
+    <>
+      {previewStation === null ? null : 
+        <div className="preview-station-container">
+          {search_for_owner(previewStation[0], previewStation[1])}
+          <button className='preview-station-close-button'
+            onClick={() => setPreviewStation(null)}
+          >
+            Close
+          </button>
         </div>
       }
     </>
@@ -603,45 +688,11 @@ function Table_Head({ cars, sortCars }) {
   )
 }
 
-function Table_Body({ cars, fix_duplicate_status }) {
+function Table_Body({ cars, fix_duplicate_status, setPreviewStation }) {
 
   const [selectedCar, setSelectedCar] = useState(null);
   const [selectedStation, setSelectedStation] = useState(null);
   const [selectedStation2, setSelectedStation2] = useState(null);
-
-  function find_owner_by_station(station, racf) {
-    
-    if (racf === "A") {
-      const A_fleets = Object.keys(AvisFleets);
-      for (let i = 0; i < A_fleets.length; i++) {
-        let fleet = AvisFleets[A_fleets[i]];
-        let district = Object.keys(fleet);
-        for (let j = 0; j < district.length; j++) {
-          let stations = fleet[district[j]];
-          if (stations.includes(station)) {
-            const text = "Avis - " + A_fleets[i].split("-")[1];
-            const district_text = district[j].split("-")[0];
-            return <div className='preview-station'><span>{text}</span><span>{district_text}</span></div>;
-          }
-        }
-      }
-    } else if (racf === "B") {
-      const B_fleets = Object.keys(BudgetFleets);
-      for (let i = 0; i < B_fleets.length; i++) {
-        let fleet = BudgetFleets[B_fleets[i]];
-        let district = Object.keys(fleet);
-        for (let j = 0; j < district.length; j++) {
-          let stations = fleet[district[j]];
-          if (stations.includes(station)) {
-            const text = "Budget - " + B_fleets[i].split("-")[1];
-            const district_text = district[j].split("-")[0];
-            return <div className='preview-station'><span>{text}</span><span>{district_text}</span></div>;
-          }
-        }
-      }
-    }
-    return "Utenlands";
-  }
 
   function displayLoc(car) {
 
@@ -710,24 +761,40 @@ function Table_Body({ cars, fix_duplicate_status }) {
         <tr
           className="table-body-row"
           key={index}
-          style={{"--color": Colors[car["Current Status"]], zIndex: selectedStation === car || selectedStation2 === car ? 1 : 0}}
+          style={{"--color": Colors[car["Current Status"]], zIndex: selectedStation === car || selectedStation2 === car || selectedCar === car ? 1 : 0}}
         >
           <td>{car["Body Type"]}</td>
           <td>{car["Make / Model"]}</td>
           <td>{car["MVA"]}</td>
-          <td onClick={() => {selectedCar !== car ? setSelectedCar(car) : setSelectedCar(null)}}>
-            {selectedCar === car ? car["Fleet Owner"] : car["Registration Number"]}
+
+          <td 
+            onClick={() => {(setSelectedCar(car), setSelectedStation(null), setSelectedStation2(null))}}
+            onMouseLeave={() => setSelectedCar(null)}
+          >
+            {selectedCar === car ? 
+              <div className='preview-station' style={{width: "fit-content"}}>
+                <p>{car["Fleet Owner"]}</p>
+              </div> 
+              : 
+              car["Registration Number"]}
           </td>
 
           <td style={{ backgroundColor: Colors[car["Current Status"]]}}>
             {car["Current Status"]}
           </td>
 
-          <td onClick={() => {selectedStation !== car ? (setSelectedStation(car), setSelectedStation2(null)) : (setSelectedStation(null), setSelectedStation2(null))}}>
-            {selectedStation === car ? find_owner_by_station(car["Current Location Mne"], car["Checkout Location"].slice(-1)) : car["Current Location Mne"]}
+          <td 
+            onClick={() => setPreviewStation([car["Current Location Mne"],  car["Checkout Location"].slice(-1)])}
+            onMouseLeave={() => setSelectedStation(null)}
+          >
+            {car["Current Location Mne"]}
           </td>
-          <td onClick={() => {selectedStation2 !== car && car["Rental Agreement Num"].length !== 0 ? (setSelectedStation2(car), setSelectedStation(null)) : (setSelectedStation2(null), setSelectedStation(null))}}>
-            {selectedStation2 === car ? find_owner_by_station(car["Location Due Mne"], car["Checkout Location"].slice(-1)) : displayLoc(car)}
+
+          <td
+            onClick={() => setPreviewStation([car["Location Due Mne"], car["Checkout Location"].slice(-1)])}
+            onMouseLeave={() => setSelectedStation2(null)}
+          >
+            {displayLoc(car)}
           </td>
 
           <td>{format_time(car["Checkin Datetime"])}</td>
@@ -812,28 +879,6 @@ function Table_Summary({ cars }) {
     return num_of_VTC;
   }
 
-  function get_num_of_avis_rentals(cars) {
-    let num_of_avis_rentals = 0;
-
-    for (let i = 0; i < cars.length; i++) {
-      if (cars[i]["Checkout Location"].slice(-1) === "A") {
-        num_of_avis_rentals += 1;
-      }
-    }
-    return num_of_avis_rentals;
-  }
-
-  function get_num_of_budget_rentals(cars) {
-    let num_of_budget_rentals = 0;
-
-    for (let i = 0; i < cars.length; i++) {
-      if (cars[i]["Checkout Location"].slice(-1) === "B") {
-        num_of_budget_rentals += 1;
-      }
-    }
-    return num_of_budget_rentals;
-  }
-
   function get_num_of_summer_tyres(cars) {
     let num_of_summer_tyres = 0;
 
@@ -870,9 +915,9 @@ function Table_Summary({ cars }) {
   let car_types = get_dict_of_car_types(cars);
 
   return (
-    <tfoot className="table-summary">
-      <tr className="table-summary-row">
-        <td
+    <div className="table-summary">
+      <div className="table-summary-row">
+        <span
           onClick={() => {setShowCarTypes(!showCarTypes)}}
           onMouseLeave={() => setShowCarTypes(false)}
         >Cars: {cars.length}
@@ -888,35 +933,35 @@ function Table_Summary({ cars }) {
 
           <div className='cartypes'>
             <p>Person</p>
-            {Object.entries(car_types["Car_Types"]).map((type, _) => (
+            {Object.entries(car_types["Car_Types"]).map((type, index) => (
               car_types["Person"][type[0]] !== undefined 
                 ? 
-              <p key={type[0]}>{car_types["Person"][type[0]]}</p> 
+              <p key={index}>{car_types["Person"][type[0]]}</p> 
                 : 
-              <p style={{height: "100%"}}></p>
+              <p key={index} style={{height: "100%"}}></p>
             ))}
           </div>
 
           <div className='cartypes'>
             <p>Vans</p>
-            {Object.entries(car_types["Car_Types"]).map((type, _) => (
+            {Object.entries(car_types["Car_Types"]).map((type, index) => (
               car_types["Vans"][type[0]] !== undefined 
                 ? 
-              <p key={type[0]}>{car_types["Vans"][type[0]]}</p> 
+              <p key={index}>{car_types["Vans"][type[0]]}</p> 
                 : 
-              <p style={{height: "100%"}}></p>
+              <p key={index} style={{height: "100%"}}></p>
             ))}
           </div> 
         </div>}
         
-        </td>
-        <td>RA: {get_num_of_RA(cars)}</td>
-        <td>VTC: {get_num_of_VTC(cars)}</td>
-        <td>Summer Tyres: {get_num_of_summer_tyres(cars)}</td>
-        <td>Winter Tyres: {get_num_of_winter_tyres(cars)}</td>
-        <td>Spike free Tyres: {get_num_of_spike_free_tyres(cars)}</td>
-      </tr>
-    </tfoot>
+        </span>
+        <span>RA: {get_num_of_RA(cars)}</span>
+        <span>VTC: {get_num_of_VTC(cars)}</span>
+        <span>Summer Tyres: {get_num_of_summer_tyres(cars)}</span>
+        <span>Winter Tyres: {get_num_of_winter_tyres(cars)}</span>
+        <span>Spike free Tyres: {get_num_of_spike_free_tyres(cars)}</span>
+      </div>
+    </div>
   )
 }
 
