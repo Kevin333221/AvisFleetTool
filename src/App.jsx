@@ -423,7 +423,9 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (car["Fleet Owner Code"] === owner || owner === "All" || owner === "") {
+      if (search === "") {
+        cars.push(data[i]);
+      } else if (car["Fleet Owner Code"] === owner || owner === "All" || owner === "") {
         if (search.length === 1) {
           if (car["Car Group"].includes(search.toUpperCase())) {
             cars.push(data[i]);
@@ -624,6 +626,7 @@ function Preview_Station({ previewStation, setPreviewStation }) {
   }
 
   function search_for_owner(station, racf) {
+    console.log(racf)
     const fleets = Object.keys(racf === "A" ? AvisFleets : BudgetFleets);
     for (let i = 0; i < fleets.length; i++) {
       const fleet = racf === "A" ? AvisFleets[fleets[i]] : BudgetFleets[fleets[i]];
@@ -631,9 +634,7 @@ function Preview_Station({ previewStation, setPreviewStation }) {
       for (let j = 0; j < district.length; j++) {
         const stations = fleet[district[j]];
         if (stations.includes(station)) {
-
           const fleet_number = fleets[i].split("-")[1].substring(1, 6)
-
           for (let k = 0; k < Stations.length; k++) {
             const found_fleet = Stations[k]["Fleet Code"];
             if (found_fleet === fleet_number) {
@@ -784,7 +785,7 @@ function Table_Body({ cars, fix_duplicate_status, setPreviewStation }) {
           </td>
 
           <td 
-            onClick={() => setPreviewStation([car["Current Location Mne"],  car["Checkout Location"].slice(-1)])}
+            onClick={() => setPreviewStation([car["Current Location Mne"], car["Current Location"].slice(-1)])}
             onMouseLeave={() => setSelectedStation(null)}
           >
             {car["Current Location Mne"]}
