@@ -85,6 +85,10 @@ Norway Fleet (Corp) - 09080:
 - BD Follo District:
 - - RYG  /SK5
 
+Oestfold Fleet - 09840:
+- Oestfold District:
+- - Ingen
+
 Sortland Fleet - 60546:
 - Sortland District:
 - - EVE  /SKN  /SK4  /H6D

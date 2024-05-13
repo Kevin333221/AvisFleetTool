@@ -138,6 +138,14 @@ Norway Fleet (Corp) - 09080:
 - Trondheim District (Igjen?):
 - - T6L  /J7E
 
+Oestfold Fleet - 09840:
+- Oestfold District:
+- - F16  /SB9  /H2F  /H3N  /MO4
+- - M4F  /S2T  /M2O  /FK3  /HD4
+- - VV4  /E8F  /E8Q  /E0Q  /E8I
+- - E1T  /MP6  /N0P  /N2G  /N5B
+- - Q5C                         
+
 Sortland Fleet - 60546:
 - - HSD  /S8L  /HD7  /EVE  /SKN
 - - EV0  /EL6  /SG8  /H2S  /SJ5

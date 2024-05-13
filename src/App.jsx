@@ -5,7 +5,19 @@ import AvisFleets from '../AvisFleets.json';
 import BudgetFleets from '../BudgetFleets.json';
 import Stations from '../Stations.json';
 import Avislogo from "../public/Avis.png"
-import { motion } from "framer-motion"
+
+import B_WF_P from "../public/B_Wireframe_PersonT.png"
+import C_WF_P from "../public/C_Wireframe_PersonT.png"
+import D_WF_P from "../public/D_Wireframe_PersonT.png"
+import E_WF_P from "../public/E_Wireframe_PersonT.png"
+import H_WF_P from "../public/H_Wireframe_PersonT.png"
+import N_WF_P from "../public/N_Wireframe_PersonT.png"
+
+import C_WF_V from "../public/C_Wireframe_VanT.png"
+import E_WF_V from "../public/E_Wireframe_VanT.png"
+import F_WF_V from "../public/F_Wireframe_VanT.png"
+
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function App() {
   
@@ -15,6 +27,7 @@ export default function App() {
   const [owner, setOwner] = useState("64442");
   const [stations, setStations] = useState([]);
   const [previewStation, setPreviewStation] = useState(null);
+  const [previewCar, setPreviewCar] = useState(null);
 
   useEffect(() => {
     get_stations();
@@ -68,7 +81,7 @@ export default function App() {
   }
 
   function fetch_data() {
-    const baseDate = new Date(1900, 0, 0);
+    const baseDate = new Date(1900, 0, 1);
     const input = document.getElementById('file-input'); // Assuming your input element has id="file-input"
   
     if (!input.files || input.files.length === 0) {
@@ -96,14 +109,53 @@ export default function App() {
         // Check if the json has the "Checkin Datetime" key
         if (xlData[i]["Checkin Datetime"] !== undefined && xlData[i].hasOwnProperty("Checkin Datetime") && typeof xlData[i]["Checkin Datetime"] === "number") {          
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Checkin Datetime"]);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Checkin Datetime"] - 1);
           xlData[i]["Checkin Datetime"] = newDate;
+        }
+
+        // Check if the json has the "Checkin Datetime" key
+        if (xlData[i]["Checkout Datetime"] !== undefined && xlData[i].hasOwnProperty("Checkout Datetime") && typeof xlData[i]["Checkout Datetime"] === "number") {          
+          let newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Checkout Datetime"]);
+          xlData[i]["Checkout Datetime"] = newDate;
         }
 
         // Fix conversion of "Vehicle Mileage" to number
         if (typeof xlData[i]["Vehicle Mileage"] !== "number") {
-          xlData[i]["Vehicle Mileage"] = Number(dateToExcelSerialNumber(xlData[i]["Vehicle Mileage"]));
+          xlData[i]["Vehicle Mileage"] = String(dateToExcelSerialNumber(xlData[i]["Vehicle Mileage"]));
         }
+
+        // Fix conversion of "Registration Date", "Inspection Date", "Disposal Date", "Last Movement" and "Delivery Date" to "Date
+        if (typeof xlData[i]["Registration Date"] === "number") {
+          let newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Registration Date"]);
+          xlData[i]["Registration Date"] = newDate;
+        }
+
+        if (typeof xlData[i]["Inspection Date"] === "number") {
+          let newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Inspection Date"]);
+          xlData[i]["Inspection Date"] = newDate;
+        }
+
+        if (typeof xlData[i]["Disposal Date"] === "number") {
+          let newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Disposal Date"]);
+          xlData[i]["Disposal Date"] = newDate;
+        }
+
+        if (typeof xlData[i]["Last Movement"] === "number") {
+          let newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Last Movement"]);
+          xlData[i]["Last Movement"] = newDate;
+        }
+
+        if (typeof xlData[i]["Delivery Date"] === "number") {
+          let newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + xlData[i]["Delivery Date"]);
+          xlData[i]["Delivery Date"] = newDate;
+        }
+
         cars.push(xlData[i]);
       }
 
@@ -420,91 +472,93 @@ export default function App() {
 
   function handleSearch() {
     let cars = [];
+
+    if (search.length === 0 || search === "") {
+      return setCars(data);
+    }
+
     for (let i = 0; i < data.length; i++) {
-      let car = data[i]
+      let car = data[i];
+      if (search.length === 1) {
+        if (car["Car Group"].includes(search.toUpperCase())) {
+          cars.push(data[i]);
+        }
+      } 
+      else if (search.includes(",")) {
+        
+        let search_array = search.split(",");
 
-      if (search === "") {
-        cars.push(data[i]);
-      } else if (car["Fleet Owner Code"] === owner || owner === "All" || owner === "") {
-        if (search.length === 1) {
-          if (car["Car Group"].includes(search.toUpperCase())) {
-            cars.push(data[i]);
-          }
-        } else if (search.includes(",")) {
+        {/* Sort the array from the longest to the shortest */}
+        search_array.sort((a, b) => b.length - a.length);
+
+        {/* If the first element is a body type, then check if the car group is in the array */}
+        if (search_array[0].length > 1) {
+          let bodyType = search_array[0].toUpperCase();
           
-          let search_array = search.split(",");
-
-          {/* Sort the array from the longest to the shortest */}
-          search_array.sort((a, b) => b.length - a.length);
-
-          {/* If the first element is a body type, then check if the car group is in the array */}
-          if (search_array[0].length > 1) {
-            let bodyType = search_array[0].toUpperCase();
-            
-            if (bodyType === "VAN") {
-              for (let j = 1; j < search_array.length; j++) {
-                if (car["Body Type"].includes(bodyType) && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                  cars.push(data[i]);
-                }
-              }
-            } else if (bodyType === "EL") {
-              for (let j = 1; j < search_array.length; j++) {
-                if (car["Fuel"] === "E" && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                  cars.push(data[i]);
-                }
-              }
-            } else if (bodyType === "AVIS") {
-              for (let j = 1; j < search_array.length; j++) {
-                if (car["Checkout Location"].slice(-1) === "A" && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                  cars.push(data[i]);
-                }
-              }
-            } else if (bodyType === "BUDGET") {
-              for (let j = 1; j < search_array.length; j++) {
-                if (car["Checkout Location"].slice(-1) === "B" && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                  cars.push(data[i]);
-                }
-              }
-            } else {
-              for (let j = 1; j < search_array.length; j++) {
-                if (car["Car Group"].includes(search_array[j].toUpperCase()) && car["Body Type"] !== "VAN") {
-                  cars.push(data[i]);
-                }
+          if (bodyType === "VAN") {
+            for (let j = 1; j < search_array.length; j++) {
+              if (car["Body Type"].includes(bodyType) && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                cars.push(data[i]);
               }
             }
-            
+          } else if (bodyType === "EL") {
+            for (let j = 1; j < search_array.length; j++) {
+              if (car["Fuel"] === "E" && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                cars.push(data[i]);
+              }
+            }
+          } else if (bodyType === "AVIS") {
+            for (let j = 1; j < search_array.length; j++) {
+              if (car["Checkout Location"].slice(-1) === "A" && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                cars.push(data[i]);
+              }
+            }
+          } else if (bodyType === "BUDGET") {
+            for (let j = 1; j < search_array.length; j++) {
+              if (car["Checkout Location"].slice(-1) === "B" && car["Car Group"].includes(search_array[j].toUpperCase())) {
+                cars.push(data[i]);
+              }
+            }
           } else {
-            for (let j = 0; j < search_array.length; j++) {
-              if (car["Car Group"].includes(search_array[j].toUpperCase())) {
+            for (let j = 1; j < search_array.length; j++) {
+              if (car["Car Group"].includes(search_array[j].toUpperCase()) && car["Body Type"] !== "VAN") {
                 cars.push(data[i]);
               }
             }
           }
-        } else if (search.toLocaleUpperCase() === "AVIS") {
-          if (car["Checkout Location"].slice(-1) === "A") {
-            cars.push(data[i]);
+          
+        } else {
+          for (let j = 0; j < search_array.length; j++) {
+            if (car["Car Group"].includes(search_array[j].toUpperCase())) {
+              cars.push(data[i]);
+            }
           }
-        } else if (search.toLocaleUpperCase() === "BUDGET") {
-          if (car["Checkout Location"].slice(-1) === "B") {
-            cars.push(data[i]);
-          }
-        } else if (stations.includes(search.toUpperCase())) {
-          if (car["Current Location Mne"] === search.toLocaleUpperCase()) {
-            cars.push(data[i]);
-          }
-        } else if (car["Registration Number"].includes(search.toUpperCase()) ||
-              car["MVA"].includes(search.toUpperCase()) ||
-              car["Current Status"].includes(search.toUpperCase()) ||
-              car["Rental Agreement Num"].includes(search.toUpperCase()) ||
-              car["Body Type"].includes(search.toUpperCase()) ||
-              (search.toLocaleUpperCase() === "EL" && car["Fuel"] === "E"))
-        {
+        }
+      } else if (search.toLocaleUpperCase() === "AVIS") {
+        if (car["Checkout Location"].slice(-1) === "A") {
           cars.push(data[i]);
         }
+      } else if (search.toLocaleUpperCase() === "BUDGET") {
+        if (car["Checkout Location"].slice(-1) === "B") {
+          cars.push(data[i]);
+        }
+      } else if (stations.includes(search.toUpperCase())) {
+        if (car["Current Location Mne"] === search.toLocaleUpperCase()) {
+          cars.push(data[i]);
+        }
+      } else if (car["Registration Number"].includes(search.toUpperCase()) ||
+            car["MVA"].includes(search.toUpperCase()) ||
+            car["Current Status"].includes(search.toUpperCase()) ||
+            car["Rental Agreement Num"].includes(search.toUpperCase()) ||
+            car["Body Type"].includes(search.toUpperCase()) || 
+            car["Vehicle Mileage"].includes(search.toUpperCase()) ||
+            (search.toLocaleUpperCase() === "EL" && car["Fuel"] === "E"))
+      {
+        cars.push(data[i]);
       }
-      
-    sortCars(cars, "ASC", "Car Group");
     }
+    setCars(cars);
+    // sortCars(cars, "ASC", "Car Group");
   }
 
   return (
@@ -571,11 +625,12 @@ export default function App() {
           <section className="bottom-area">
             <table className="table">
               <Table_Head cars={cars} sortCars={sortCars}/>
-              <Table_Body cars={cars} fix_duplicate_status={fix_duplicate_status} setPreviewStation={setPreviewStation}/>
+              <Table_Body cars={cars} fix_duplicate_status={fix_duplicate_status} setPreviewStation={setPreviewStation} setPreviewCar={setPreviewCar}/>
             </table>
           </section>
           <Table_Summary cars={cars}/>
           <Preview_Station previewStation={previewStation} setPreviewStation={setPreviewStation}/>
+          <Preview_car previewCar={previewCar} setPreviewCar={setPreviewCar}/>
         </div>
       }
     </>
@@ -593,22 +648,77 @@ function Preview_Station({ previewStation, setPreviewStation }) {
     const address2 = station["Address 2"];
     const zipcode = station["Zipcode"];
     const city = station["City"];
-    const phone = station["Telephone"];
+    const phone = station["Telephone"].substring(0, 3) + " " + station["Telephone"].substring(4, 7) + " " + station["Telephone"].substring(7, 9) + " " + station["Telephone"].substring(9, 12);
+
+    const station_codes = station["CODES"];
+    const codes_code = Object.keys(station_codes).filter(key => key.includes("CODE"));
+    const codes_num = Object.keys(station_codes).filter(key => key.includes("NUM"));
+
+    const codes = {
+      "AVIS_CODE": "Avis",
+      "AVIS_NUM": "Avis",
+      "Avis Vans_CODE": "Avis Vans",
+      "Avis Vans_NUM": "Avis Vans",
+      "Budget_CODE": "Budget",
+      "Budget_NUM": "Budget",
+      "Select_CODE": "Select",
+      "Select_NUM": "Select",
+      "Prestige_CODE": "Prestige",
+      "Prestige_NUM": "Prestige",
+      "Eco/GG Month_CODE": "Eco Monthly",
+      "Eco/GG Month_NUM": "Eco Monthly",
+      "Eco/LEASING_CODE": "Eco Leasing",
+      "Eco/LEASING_NUM": "Eco Leasing",
+      "Month_CODE": "Monthly",
+      "Month_NUM": "Monthly",
+      "Month Van_CODE": "Month Vans",
+      "Month Van_NUM": "Month Vans",
+      "Leasing 12 months +_CODE": "Leasing 12 months +",
+      "Leasing 12 months +_NUM": "Leasing 12 months +",
+      "Leasing Vans 12 months +": "Leasing Vans 12 months +",
+      "Leasing Vans 12 months +_1": "Leasing Vans 12 months +"
+    }
+
+    const text_space = "220px 1fr"
 
     return <div className='preview-station'>
+
+      {/* Fleet Code and Fleet Name */}
       <div>
         {racf === "A" ? 
-          <p><b>Fleet Code Avis: </b>{Fleet_code}</p>
+          <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Fleet Code Avis: </b>{Fleet_code}</p>
           :
-          <p><b>Fleet Code Budget: </b>{Fleet_code}</p>
+          <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Fleet Code Budget: </b>{Fleet_code}</p>
         }
-        <p><b>Fleet Name:</b> {Fleet_name}</p>
+        <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Fleet Name:</b> {Fleet_name}</p>
+        <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Place:</b> {city}</p>
       </div>
+
+      {/* Supervisor and Phonenumber */}
       <div>
-        <p><b>Supervisor:</b> {Supervisor}</p>
-        <p><b>Telephone:</b> {phone}</p>
+        <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Supervisor:</b> {Supervisor}</p>
+        <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Telephone:</b> {phone}</p>
       </div>
-      <div style={{display: "grid", gridTemplateColumns: "1fr 1fr"}}>
+
+      {/* Codes */}
+      <div>
+        {codes_code.map((key, index) => (
+          <div key={index} style={{display: "grid", gridTemplateColumns: text_space}}>
+            <b>{codes[key]}:</b> 
+            <div style={{display: "grid", gridTemplateColumns: "50px 1fr"}}>
+              <span>
+                {station_codes[key]}
+              </span>
+              <span>
+                - {station_codes[codes_num[index]]}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Address */}
+      <div style={{display: "grid", gridTemplateColumns: text_space}}>
         <div className='preview-address'>
           <b>Address 1:</b>
           <b>Address 2:</b>
@@ -626,7 +736,6 @@ function Preview_Station({ previewStation, setPreviewStation }) {
   }
 
   function search_for_owner(station, racf) {
-    console.log(racf)
     const fleets = Object.keys(racf === "A" ? AvisFleets : BudgetFleets);
     for (let i = 0; i < fleets.length; i++) {
       const fleet = racf === "A" ? AvisFleets[fleets[i]] : BudgetFleets[fleets[i]];
@@ -638,7 +747,13 @@ function Preview_Station({ previewStation, setPreviewStation }) {
           for (let k = 0; k < Stations.length; k++) {
             const found_fleet = Stations[k]["Fleet Code"];
             if (found_fleet === fleet_number) {
-              return show_owner_details(Stations[k], racf);
+              const station_codes = Stations[k]["CODES"];
+              const codes_keys = Object.keys(station_codes);
+              for (let l = 0; l < codes_keys.length; l++) {
+                if (station_codes[codes_keys[l]] === station) {
+                  return show_owner_details(Stations[k], racf);
+                }
+              }
             }
           }
         }
@@ -649,16 +764,167 @@ function Preview_Station({ previewStation, setPreviewStation }) {
 
   return (
     <>
-      {previewStation === null ? null : 
-        <div className="preview-station-container">
-          {search_for_owner(previewStation[0], previewStation[1])}
-          <button className='preview-station-close-button'
-            onClick={() => setPreviewStation(null)}
+      <AnimatePresence>
+        {previewStation !== null &&
+          <motion.div className="preview-station-container"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.3 }}
+            key={previewStation[0] + previewStation[1]}
           >
-            Close
-          </button>
+            {search_for_owner(previewStation[0], previewStation[1])}
+            <button className='preview-station-close-button'
+              onClick={() => setPreviewStation(null)}
+            >
+              Close
+            </button>
+          </motion.div>
+        }
+      </AnimatePresence>
+    </>
+  )
+}
+
+function Preview_car({ previewCar, setPreviewCar }) {
+
+  const Wireframe = {
+    "A": B_WF_P,
+    "B": B_WF_P,
+    "C": C_WF_P,
+    "D": D_WF_P,
+    "E": E_WF_P,
+    "F": E_WF_P,
+    "H": H_WF_P,
+    "I": B_WF_P,
+    "J": D_WF_P,
+    "K": D_WF_P,
+    "L": E_WF_P,
+    "M": E_WF_P,
+    "N": N_WF_P,
+    "O": E_WF_P,
+    "P": E_WF_P,
+    "X": E_WF_P,
+    "B_V": C_WF_V,
+    "C_V": C_WF_V,
+    "D_V": E_WF_V,
+    "E_V": E_WF_V,
+    "F_V": F_WF_V,
+    "G_V": F_WF_V,
+    "H_V": F_WF_V,
+    "I_V": E_WF_V,
+    "J_V": E_WF_V,
+    "L_V": E_WF_P,
+    "M_V": E_WF_P,
+  }
+
+  function format_time(time) {
+
+    if (time === undefined) {
+      return "";
+    }
+
+    let newTime = time.toUTCString().substring(5, 22);
+    let month = newTime.substring(3, 6);
+  
+    if (month === "Jan") {
+      month = "01";
+    } else if (month === "Feb") {
+      month = "02";
+    }  else if (month === "Mar") {
+      month = "03";
+    } else if (month === "Apr") {
+      month = "04";
+    } else if (month === "May") {
+      month = "05";
+    } else if (month === "Jun") {
+      month = "06";
+    } else if (month === "Jul") {
+      month = "07";
+    } else if (month === "Aug") {
+      month = "08";
+    } else if (month === "Sep") {
+      month = "09";
+    } else if (month === "Oct") {
+      month = "10";
+    } else if (month === "Nov") {
+      month = "11";
+    } else if (month === "Dec") {
+      month = "12";
+    }
+    
+    let day = newTime.substring(0, 2);
+    let year = newTime.substring(7, 11);
+
+    return `${day}/${month}/${year}`;
+  }
+
+  function show_car_details(car) {
+    const text_space = "220px 1fr";
+    return (
+      <div className='preview-car'>
+        <div className='preview-car-section'>
+          <section className='details car-details'>
+            <div>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>MVA:</b> {car["MVA"]}</p>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Reg Number:</b> {car["Registration Number"]}</p>
+            </div>
+            <div>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Car Group:</b> {car["Car Group"]}</p>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Body Type:</b> {car["Body Type"]}</p>
+            </div>
+            <div>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Make / Model:</b> {car["Make / Model"]}</p>
+            </div>
+          </section>
+          <section className='details show-wireframe'>
+            {car["Body Type"].toUpperCase() === "VAN" ?
+              <img src={Wireframe[car["Car Group"] + "_V"]} alt="Car" className="car-image-van"/> 
+              :
+              <img src={Wireframe[car["Car Group"]]} alt="Car" className="car-image"/>  
+            }
+          </section>
+          <section className='details rent-details'>
+            <div>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Current Status:</b> {car["Current Status"]}</p>
+
+              {car["Current Status"] === "ON HAND" &&
+                <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Current Location:</b> {car["Current Location Mne"]}</p>
+              }
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Location Due:</b> {car["Location Due Mne"]}</p>
+            </div>
+            <div>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Checkin:</b> {format_time(car["Checkin Datetime"])}</p>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Checkout:</b> {format_time(car["Checkout Datetime"])}</p>
+              <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Owner:</b> {car["Fleet Owner Code"]}</p>
+
+            </div>
+          </section>
         </div>
-      }
+      </div>
+    ) 
+  }
+
+  return (
+    <>
+      <AnimatePresence>
+        {previewCar !== null &&
+          <motion.div className="preview-car-container"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.3 }}
+            key={previewCar}
+          >
+            {show_car_details(previewCar)}
+            <button className='preview-car-close-button'
+              onClick={() => setPreviewCar(null)}
+            >
+              Close
+            </button>
+          </motion.div>
+        }
+      </AnimatePresence>
     </>
   )
 }
@@ -689,11 +955,7 @@ function Table_Head({ cars, sortCars }) {
   )
 }
 
-function Table_Body({ cars, fix_duplicate_status, setPreviewStation }) {
-
-  const [selectedCar, setSelectedCar] = useState(null);
-  const [selectedStation, setSelectedStation] = useState(null);
-  const [selectedStation2, setSelectedStation2] = useState(null);
+function Table_Body({ cars, fix_duplicate_status, setPreviewStation, setPreviewCar }) {
 
   function displayLoc(car) {
 
@@ -743,7 +1005,6 @@ function Table_Body({ cars, fix_duplicate_status, setPreviewStation }) {
     let year = newTime.substring(7, 11);
 
     return `${day}/${month}/${year}`;
-
   }
   
   const Colors = {
@@ -762,54 +1023,26 @@ function Table_Body({ cars, fix_duplicate_status, setPreviewStation }) {
         <tr
           className="table-body-row"
           key={index}
-          style={{"--color": Colors[car["Current Status"]], zIndex: selectedStation === car || selectedStation2 === car || selectedCar === car ? 1 : 0}}
         >
           <td>{car["Body Type"]}</td>
           <td>{car["Make / Model"]}</td>
           <td>{car["MVA"]}</td>
-
-          <td 
-            onClick={() => {(setSelectedCar(car), setSelectedStation(null), setSelectedStation2(null))}}
-            onMouseLeave={() => setSelectedCar(null)}
-          >
-            {selectedCar === car ? 
-              <div className='preview-station' style={{width: "fit-content"}}>
-                <p>{car["Fleet Owner"]}</p>
-              </div> 
-              : 
-              car["Registration Number"]}
-          </td>
-
-          <td style={{ backgroundColor: Colors[car["Current Status"]]}}>
-            {car["Current Status"]}
-          </td>
-
-          <td 
-            onClick={() => setPreviewStation([car["Current Location Mne"], car["Current Location"].slice(-1)])}
-            onMouseLeave={() => setSelectedStation(null)}
-          >
-            {car["Current Location Mne"]}
-          </td>
-
-          <td
-            onClick={() => setPreviewStation([car["Location Due Mne"], car["Checkout Location"].slice(-1)])}
-            onMouseLeave={() => setSelectedStation2(null)}
-          >
-            {displayLoc(car)}
-          </td>
-
+          <td onClick={() => {setPreviewCar(car)}}>{car["Registration Number"]}</td>
+          <td style={{ backgroundColor: Colors[car["Current Status"]]}}>{car["Current Status"]}</td>
+          <td onClick={() => setPreviewStation([car["Current Location Mne"] , car["Current Location"].slice(-1)]) }>{car["Current Location Mne"]}</td>
+          <td onClick={() => setPreviewStation([car["Location Due Mne"]     , car["Checkout Location"].slice(-1)])}>{displayLoc(car)}</td>
           <td>{format_time(car["Checkin Datetime"])}</td>
           <td>{car["Car Group"]}</td>
           <td>{car["Vehicle Mileage"]}</td>
           <td>{car["Ignition Key"]}</td>
           <td
-          style={{
-            backgroundColor: car["Rental Agreement Num"].length === 10 && 
-            car["Checkout Location"].slice(-1) === "A" ? "rgb(255, 20, 20)" : 
-            car["Rental Agreement Num"].length === 10 && car["Checkout Location"].slice(-1) === "B" ? "rgb(50, 50, 250)" : 
-            car["Rental Agreement Num"].length === 9 ? "rgb(150, 150, 150)" : "",
-            paddingLeft: "1.6rem"
-          }}
+            style={{
+              backgroundColor: car["Rental Agreement Num"].length === 10 && 
+              car["Checkout Location"].slice(-1) === "A" ? "rgb(255, 20, 20)" : 
+              car["Rental Agreement Num"].length === 10 && car["Checkout Location"].slice(-1) === "B" ? "rgb(50, 50, 250)" : 
+              car["Rental Agreement Num"].length === 9 ? "rgb(150, 150, 150)" : "",
+              paddingLeft: "1.6rem"
+            }}
           >{car["Rental Agreement Num"].substring(1)}</td>
           <td>{car["Trunk Key"]}</td>
           <td>{fix_duplicate_status(car["STATUS3"])}</td>
@@ -1071,8 +1304,7 @@ function Selection({ title, func, owner, setOwner, stations }) {
           <input
             type="text"
             placeholder="Owner"
-            value={owner}
-            onChange={(e) => setOwner(e.target.value)}
+            onBlur={(e) => setOwner(e.target.value)}
             className="owner-bar"
           />
         </form>

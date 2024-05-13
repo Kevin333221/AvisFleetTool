@@ -696,7 +696,7 @@
     "Wizard name": "FINNSNES DT",
     "CODES": {
       "AVIS_CODE": "FN0",
-      "AVIS_NUM": "6768",
+      "AVIS_NUM": "06768",
       "Budget_CODE": "O75",
       "Budget_NUM": "55044",
       "Eco/GG Month_CODE": "O46",
@@ -1434,7 +1434,7 @@
     "Wizard name": "LEIKANGER",
     "CODES": {
       "AVIS_CODE": "L7R",
-      "AVIS_NUM": "5653"
+      "AVIS_NUM": "05653"
     },
     "Fleet Name": "FJORDANE BILUTLEIGE AS",
     "Fleet Code": "09860",
@@ -1582,7 +1582,7 @@
     "Wizard name": "MANDAL",
     "CODES": {
       "AVIS_CODE": "M6H",
-      "AVIS_NUM": "1245",
+      "AVIS_NUM": "01245",
       "Avis Vans_CODE": "MD6",
       "Avis Vans_NUM": "55337"
     },
@@ -2156,7 +2156,7 @@
       "Month_CODE": "LE7",
       "Month_NUM": "01604",
       "Month Van_CODE": "O4N",
-      "Month Van_NUM": "5049"
+      "Month Van_NUM": "05049"
     },
     "Fleet Name": "RAC NORWAY AS",
     "Fleet Code": "09080",
