@@ -1,10 +1,15 @@
 import './App.css'
 import * as XLSX from 'xlsx/xlsx.mjs';
 import { useState, useEffect } from 'react';
-import AvisFleets from '../AvisFleets.json';
-import BudgetFleets from '../BudgetFleets.json';
-import Stations from '../Stations.json';
+import AvisFleets from '../data/AvisFleets.json';
+import BudgetFleets from '../data/BudgetFleets.json';
+import Stations from '../data/Stations.json';
 import Avislogo from "../public/Avis.png"
+import dataJson from "../public/postReqJson.json"
+
+import fs from 'fs';
+
+// import { spawn } from 'child_process';
 
 import B_WF_P from "../public/B_Wireframe_PersonT.png"
 import C_WF_P from "../public/C_Wireframe_PersonT.png"
@@ -29,9 +34,47 @@ export default function App() {
   const [previewStation, setPreviewStation] = useState(null);
   const [previewCar, setPreviewCar] = useState(null);
 
+  const authToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvOTdjMzI1ZDAtNGNjYi00M2YzLTg1OGMtYTBhYjA1NzQxOTg3LyIsImlhdCI6MTcxNTcyMDM5OCwibmJmIjoxNzE1NzIwMzk4LCJleHAiOjE3MTU3MjQ0NzcsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJBVlFBcS84V0FBQUFQNFoxYUJ1NzlpQi9hUDNHRW1CR05yT2N5M1YxS0d1UjF4ZVIvRlJMaThPRjRDSytJL3pESTRNOVZZYy90clhBeTZCVzBCWWMyM0RUQVoxNmZTd1F3b0laNEZTeWRNcXVxbWR0VXdSWElFbz0iLCJhbXIiOlsicHdkIiwibWZhIl0sImFwcGlkIjoiODcxYzAxMGYtNWU2MS00ZmIxLTgzYWMtOTg2MTBhN2U5MTEwIiwiYXBwaWRhY3IiOiIwIiwiZmFtaWx5X25hbWUiOiJCZXJnYW4iLCJnaXZlbl9uYW1lIjoiS2V2aW4gTWF0aGlhcyIsImlwYWRkciI6IjE5My42OS4zNS4yNDEiLCJuYW1lIjoiS2V2aW4gTWF0aGlhcyBCZXJnYW4iLCJvaWQiOiJiMTEwZDEwNC03NmE0LTQ5NzEtOThiNS0wOTM4ODhmN2NjOTEiLCJvbnByZW1fc2lkIjoiUy0xLTUtMjEtMTA4MzIyODk4NC0zMDgyNjk0MzE1LTI5MzY0NDA5LTIyNTEzNSIsInB1aWQiOiIxMDAzMjAwMDk5NkRERjM5IiwicmgiOiIwLkFVY0EwQ1hEbDh0TTgwT0ZqS0NyQlhRWmh3a0FBQUFBQUFBQXdBQUFBQUFBQUFBTkFlcy4iLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzaWduaW5fc3RhdGUiOlsia21zaSJdLCJzdWIiOiJOLU96SDF4T1g5bDN3TWFxZ1g5d1dsTnEzNVpzdGJlaTFJSG00NzhBYzN3IiwidGlkIjoiOTdjMzI1ZDAtNGNjYi00M2YzLTg1OGMtYTBhYjA1NzQxOTg3IiwidW5pcXVlX25hbWUiOiJZNTU4NzcxQGVtLmFiZy5jb20iLCJ1cG4iOiJZNTU4NzcxQGVtLmFiZy5jb20iLCJ1dGkiOiI3NkVLdlB3NmJFdWNLZnlONl9zMUFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXX0.M-SQy9PWcIZ9sS_KMY0s480hhuEYFqVkfEjqvXNAPfFNluGI_tZ0xLRsDMh93u-j3GAzROOksjSOLYBVbrTNdB_87QaZd1thnE-cspCyVMIiwcbrckHQZpRXTgwLPSpwySYOTfE-6dHqyuzvCNoqhZ44LgsdefqoVJVL_mRL4qAd9NJHSDoO8ErT7UTARn0d5WEx3sHgK2Yl_ffAYp4Pr6IOXwaOfqJ48E0DHjnRAyVMuhFTxGWo2K-NldKvRNq4DXN7Ei5BTaaiJKO6dznv5WuKb5QIE9whoNgaUTZG9up2i4lRPM0w7flroVTcMDN9Cx4q5mAJyeOGwjZ5FQFQug";
+  const postReqJsonPath = '../public/postReqJson.json';
+  const postReqURL = 'https://wabi-north-europe-h-primary-redirect.analysis.windows.net/export/xlsx';
+  const saveFilePath = '../public/data.xlsx';
+
   useEffect(() => {
     get_stations();
   }, [owner, data]);
+
+
+  async function exportToExcel(authToken, postReqURL, postReqJsonPath, saveFilePath) {
+    try {
+
+      // Make POST request
+      const postRequest = await fetch(postReqURL, {
+          method: 'POST',
+          headers: {
+              "Allow-Control-Allow-Origin": "*", // Required for CORS policy
+              'Authorization': authToken,
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataJson),
+      });
+
+      const postRequestStatus = postRequest.status;
+      console.log('POST Request Status:', postRequestStatus);
+
+      if (postRequestStatus !== 200) {
+          console.error('Error in POST request:', postRequest.statusText);
+          return;
+      }
+
+      // Save response as a file
+      const excelData = await postRequest.blob();
+      fs.writeFileSync(saveFilePath, excelData);
+
+      console.log('File saved as data.xlsx');
+      } catch (error) {
+        console.error('Error:', error);
+      }
+  }
 
   function dateToExcelSerialNumber(date) {
     const excelEpoch = new Date(Date.UTC(1900, 1, 1)); // January 1, 1900
@@ -80,16 +123,23 @@ export default function App() {
     setCars(sortedCars);
   }
 
-  function fetch_data() {
+  async function fetch_data(fetching=false) {
     const baseDate = new Date(1900, 0, 1);
     const input = document.getElementById('file-input'); // Assuming your input element has id="file-input"
-  
-    if (!input.files || input.files.length === 0) {
-      console.error('No file selected');
-      return;
+
+    let file = null;
+
+    if (!fetching) {
+      if (!input.files || input.files.length === 0) {
+        console.error('No file selected');
+        return;
+      }
+      file = input.files[0]; // Get the first selected file
+    } else {
+      await exportToExcel(authToken, postReqURL, postReqJsonPath, saveFilePath);
+      file = await fetch("../AvisFleetTool/public/data.xlsx").then((response) => {return response.blob();});
     }
-  
-    const file = input.files[0]; // Get the first selected file
+
     const reader = new FileReader();
 
     reader.onload = (e) => {
@@ -570,13 +620,19 @@ export default function App() {
           <label htmlFor="file-input" className='file-label'>Choose a file</label>
           <p>File must be in .xlsx format</p>
           <p>File must contain only one sheet</p>
-          <input 
+          <input
             type="file" 
             id="file-input"
-            onChange={() => fetch_data()}
+            onChange={() => fetch_data(false)}
             className='file-input'
             accept='.xlsx'
           />
+          <p>FOR TESTING ONLY!</p>
+          <button
+            onClick={() => fetch_data(true)}
+          >
+            Test Data
+          </button>
         </div>
       }
 
@@ -759,7 +815,7 @@ function Preview_Station({ previewStation, setPreviewStation }) {
         }
       }
     }
-    return "Utenlands";
+    return "Utenlands / Hvis ikke den utenlands, mail Kevin om å legge til stasjonen";
   }
 
   return (
@@ -897,7 +953,6 @@ function Preview_car({ previewCar, setPreviewCar }) {
               <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Checkin:</b> {format_time(car["Checkin Datetime"])}</p>
               <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Checkout:</b> {format_time(car["Checkout Datetime"])}</p>
               <p style={{display: "grid", gridTemplateColumns: text_space}}><b>Owner:</b> {car["Fleet Owner Code"]}</p>
-
             </div>
           </section>
         </div>

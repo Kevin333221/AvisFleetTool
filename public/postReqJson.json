@@ -1,0 +1,1467 @@
+{
+    "exportDataType": 2,
+    "executeSemanticQueryRequest": {
+        "version": "1.0.0",
+        "queries": [
+            {
+                "Query": {
+                    "Commands": [
+                        {
+                            "SemanticQueryDataShapeCommand": {
+                                "Query": {
+                                    "Version": 2,
+                                    "From": [
+                                        {
+                                            "Name": "v",
+                                            "Entity": "Vehicle DIM",
+                                            "Type": 0
+                                        },
+                                        {
+                                            "Name": "v1",
+                                            "Entity": "Vehicle Status FACT",
+                                            "Type": 0
+                                        },
+                                        {
+                                            "Name": "v2",
+                                            "Entity": "Vehicle Make DIM",
+                                            "Type": 0
+                                        },
+                                        {
+                                            "Name": "c",
+                                            "Entity": "Checkin Location DIM",
+                                            "Type": 0
+                                        },
+                                        {
+                                            "Name": "c1",
+                                            "Entity": "Checkout Location DIM",
+                                            "Type": 0
+                                        },
+                                        {
+                                            "Name": "l",
+                                            "Entity": "Location DIM",
+                                            "Type": 0
+                                        },
+                                        {
+                                            "Name": "v3",
+                                            "Entity": "Vehicle Status DIM",
+                                            "Type": 0
+                                        }
+                                    ],
+                                    "Select": [
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "DATE_OF_LAST_RA_NUM"
+                                            },
+                                            "Name": "Vehicle Status FACT.DATE_OF_LAST_RA_NUM"
+                                        },
+                                        {
+                                            "Aggregation": {
+                                                "Expression": {
+                                                    "Column": {
+                                                        "Expression": {
+                                                            "SourceRef": {
+                                                                "Source": "v1"
+                                                            }
+                                                        },
+                                                        "Property": "VEHICLE_MILEAGE"
+                                                    }
+                                                },
+                                                "Function": 0
+                                            },
+                                            "Name": "Sum(Vehicle Status FACT.VEHICLE_MILEAGE)"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "RENTAL_AGREEMENT_NUMBER"
+                                            },
+                                            "Name": "Vehicle Status FACT.RENTAL_AGREEMENT_NUMBER"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "CHECKOUT_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.CHECKOUT_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "CHECKIN_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.CHECKIN_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "STATUS2"
+                                            },
+                                            "Name": "Vehicle Status FACT.STATUS2"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "VIN"
+                                            },
+                                            "Name": "Vehicle DIM.VIN"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "MAKE_MODEL"
+                                            },
+                                            "Name": "Vehicle DIM.MAKE_MODEL"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "BODY_TYPE"
+                                            },
+                                            "Name": "Vehicle DIM.BODY_TYPE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "CAR_GROUP"
+                                            },
+                                            "Name": "Vehicle DIM.CAR_GROUP"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "COLOUR"
+                                            },
+                                            "Name": "Vehicle DIM.COLOUR"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_01"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_01"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_02"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_02"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_03"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_03"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_04"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_04"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_05"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_05"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_06"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_06"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_07"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_07"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_08"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_08"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_09"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_09"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "ACCESSORY_10"
+                                            },
+                                            "Name": "Vehicle Status FACT.ACCESSORY_10"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "FUEL"
+                                            },
+                                            "Name": "Vehicle DIM.FUEL"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "REGISTRATION_NUMBER"
+                                            },
+                                            "Name": "Vehicle DIM.REGISTRATION_NUMBER"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "DELIVERY_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.DELIVERY_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "REGISTRATION_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.REGISTRATION_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "INSPECTION_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.INSPECTION_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "DISPOSAL_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.DISPOSAL_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "UPDATED_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.UPDATED_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "TRUNK_KEY"
+                                            },
+                                            "Name": "Vehicle DIM.TRUNK_KEY"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "IGNITION_KEY"
+                                            },
+                                            "Name": "Vehicle DIM.IGNITION_KEY"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "VEHICLE_USE_CODE"
+                                            },
+                                            "Name": "Vehicle DIM.VEHICLE_USE_CODE"
+                                        },
+                                        {
+                                            "Aggregation": {
+                                                "Expression": {
+                                                    "Column": {
+                                                        "Expression": {
+                                                            "SourceRef": {
+                                                                "Source": "v1"
+                                                            }
+                                                        },
+                                                        "Property": "TURNBACK_KM"
+                                                    }
+                                                },
+                                                "Function": 0
+                                            },
+                                            "Name": "Sum(Vehicle Status FACT.TURNBACK_KM)"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "TURNBACK_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.TURNBACK_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "INVENTORY_DATE"
+                                            },
+                                            "Name": "Vehicle Status FACT.INVENTORY_DATE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "INVENTORY_LOCATION"
+                                            },
+                                            "Name": "Vehicle Status FACT.INVENTORY_LOCATION"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "INVENTORY_CODE"
+                                            },
+                                            "Name": "Vehicle Status FACT.INVENTORY_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "CHECKOUT_RATE_CODE"
+                                            },
+                                            "Name": "Vehicle Status FACT.CHECKOUT_RATE_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "CREDITCLUB_CODE"
+                                            },
+                                            "Name": "Vehicle Status FACT.CREDITCLUB_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "COMPANY_NAME"
+                                            },
+                                            "Name": "Vehicle Status FACT.COMPANY_NAME"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "REF_NUMBER"
+                                            },
+                                            "Name": "Vehicle Status FACT.REF_NUMBER"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "TANK_CAPACITY"
+                                            },
+                                            "Name": "Avg(Vehicle Status FACT.TANK_CAPACITY)"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v2"
+                                                    }
+                                                },
+                                                "Property": "VEHICLE_MAKE_CODE"
+                                            },
+                                            "Name": "Vehicle Make DIM.VEHICLE_MAKE_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "KM_LITER"
+                                            },
+                                            "Name": "Sum(Vehicle DIM.KM_LITER)"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "MODEL_DESCRIPTION"
+                                            },
+                                            "Name": "Vehicle DIM.MODEL_DESCRIPTION"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "c"
+                                                    }
+                                                },
+                                                "Property": "DISTRICT"
+                                            },
+                                            "Name": "Checkin Location DIM.DISTRICT"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "c1"
+                                                    }
+                                                },
+                                                "Property": "DISTRICT"
+                                            },
+                                            "Name": "Checkout Location DIM.DISTRICT"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "c1"
+                                                    }
+                                                },
+                                                "Property": "LOCATION_BRAND"
+                                            },
+                                            "Name": "Checkout Location DIM.LOCATION_BRAND"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "c1"
+                                                    }
+                                                },
+                                                "Property": "STATION_MNEMONIC_CODE"
+                                            },
+                                            "Name": "Checkout Location DIM.STATION_MNEMONIC_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "c"
+                                                    }
+                                                },
+                                                "Property": "LOCATION_BRAND"
+                                            },
+                                            "Name": "Checkin Location DIM.LOCATION_BRAND"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "c"
+                                                    }
+                                                },
+                                                "Property": "STATION_MNEMONIC_CODE"
+                                            },
+                                            "Name": "Checkin Location DIM.STATION_MNEMONIC_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "COUNTRY_CODE"
+                                            },
+                                            "Name": "Vehicle Status FACT.COUNTRY_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "FLEET_OWNER_CODE"
+                                            },
+                                            "Name": "Vehicle DIM.FLEET_OWNER_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "FLEET_OWNER_DESC"
+                                            },
+                                            "Name": "Vehicle DIM.FLEET_OWNER_DESC"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "l"
+                                                    }
+                                                },
+                                                "Property": "STATION_MNEMONIC_CODE"
+                                            },
+                                            "Name": "Location DIM.STATION_MNEMONIC_CODE"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "l"
+                                                    }
+                                                },
+                                                "Property": "LOCATION_BRAND"
+                                            },
+                                            "Name": "Location DIM.LOCATION_BRAND"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v3"
+                                                    }
+                                                },
+                                                "Property": "STATUS"
+                                            },
+                                            "Name": "Vehicle Status DIM.STATUS"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v"
+                                                    }
+                                                },
+                                                "Property": "MODEL_NAME"
+                                            },
+                                            "Name": "Vehicle DIM.MODEL_NAME"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "STRIPPED_MVA"
+                                            },
+                                            "Name": "Vehicle Status FACT.STRIPPED_MVA"
+                                        },
+                                        {
+                                            "Column": {
+                                                "Expression": {
+                                                    "SourceRef": {
+                                                        "Source": "v1"
+                                                    }
+                                                },
+                                                "Property": "STATUS3"
+                                            },
+                                            "Name": "Vehicle Status FACT.STATUS3"
+                                        }
+                                    ],
+                                    "Where": [
+                                        {
+                                            "Condition": {
+                                                "In": {
+                                                    "Expressions": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "v"
+                                                                    }
+                                                                },
+                                                                "Property": "FOREIGN_VEHICLE_YN"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Values": [
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'N'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'Y'"
+                                                                }
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "And": {
+                                                    "Left": {
+                                                        "Comparison": {
+                                                            "ComparisonKind": 2,
+                                                            "Left": {
+                                                                "Column": {
+                                                                    "Expression": {
+                                                                        "SourceRef": {
+                                                                            "Source": "v1"
+                                                                        }
+                                                                    },
+                                                                    "Property": "DELIVERY_DATE"
+                                                                }
+                                                            },
+                                                            "Right": {
+                                                                "Literal": {
+                                                                    "Value": "datetime'2018-03-05T00:00:00'"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "Right": {
+                                                        "Comparison": {
+                                                            "ComparisonKind": 3,
+                                                            "Left": {
+                                                                "Column": {
+                                                                    "Expression": {
+                                                                        "SourceRef": {
+                                                                            "Source": "v1"
+                                                                        }
+                                                                    },
+                                                                    "Property": "DELIVERY_DATE"
+                                                                }
+                                                            },
+                                                            "Right": {
+                                                                "Literal": {
+                                                                    "Value": "datetime'2027-03-25T00:00:00'"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "In": {
+                                                    "Expressions": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "v"
+                                                                    }
+                                                                },
+                                                                "Property": "LICENSEE_OR_CORPORATE"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Values": [
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'L'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'C'"
+                                                                }
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "In": {
+                                                    "Expressions": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "v1"
+                                                                    }
+                                                                },
+                                                                "Property": "BRAND_CODE"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Values": [
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'A'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'B'"
+                                                                }
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "In": {
+                                                    "Expressions": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "v1"
+                                                                    }
+                                                                },
+                                                                "Property": "OOS_YN"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Values": [
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'Yes'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'No'"
+                                                                }
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "In": {
+                                                    "Expressions": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "v3"
+                                                                    }
+                                                                },
+                                                                "Property": "STATUS"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Values": [
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'ON HAND'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'ON MOVE'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'MISSING'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'ON MOVE,OVDU'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'ON RENT,OVDU'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'OVERDUE'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'UNAVAILABLE'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'MARSHALLED'"
+                                                                }
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'ON RENT'"
+                                                                }
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "In": {
+                                                    "Expressions": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "v"
+                                                                    }
+                                                                },
+                                                                "Property": "FLEET_OWNER_DESC"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Values": [
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'TROMSOE FLEET'"
+                                                                }
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "Comparison": {
+                                                    "ComparisonKind": 2,
+                                                    "Left": {
+                                                        "Column": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "v1"
+                                                                }
+                                                            },
+                                                            "Property": "VEHICLE_MILEAGE"
+                                                        }
+                                                    },
+                                                    "Right": {
+                                                        "Literal": {
+                                                            "Value": "0D"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "Condition": {
+                                                "In": {
+                                                    "Expressions": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "v1"
+                                                                    }
+                                                                },
+                                                                "Property": "IS_NO"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Values": [
+                                                        [
+                                                            {
+                                                                "Literal": {
+                                                                    "Value": "'Y'"
+                                                                }
+                                                            }
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "OrderBy": [
+                                        {
+                                            "Direction": 1,
+                                            "Expression": {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "v1"
+                                                        }
+                                                    },
+                                                    "Property": "CHECKIN_DATE"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Binding": {
+                                    "Primary": {
+                                        "Groupings": [
+                                            {
+                                                "Projections": [
+                                                    0,
+                                                    1,
+                                                    2,
+                                                    3,
+                                                    4,
+                                                    5,
+                                                    6,
+                                                    7,
+                                                    8,
+                                                    9,
+                                                    10,
+                                                    11,
+                                                    12,
+                                                    13,
+                                                    14,
+                                                    15,
+                                                    16,
+                                                    17,
+                                                    18,
+                                                    19,
+                                                    20,
+                                                    21,
+                                                    22,
+                                                    23,
+                                                    24,
+                                                    25,
+                                                    26,
+                                                    27,
+                                                    28,
+                                                    29,
+                                                    30,
+                                                    31,
+                                                    32,
+                                                    33,
+                                                    34,
+                                                    35,
+                                                    36,
+                                                    37,
+                                                    38,
+                                                    39,
+                                                    40,
+                                                    41,
+                                                    42,
+                                                    43,
+                                                    44,
+                                                    45,
+                                                    46,
+                                                    47,
+                                                    48,
+                                                    49,
+                                                    50,
+                                                    51,
+                                                    52,
+                                                    53,
+                                                    54,
+                                                    55,
+                                                    56,
+                                                    57,
+                                                    58
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "DataReduction": {
+                                        "Primary": {
+                                            "Top": {
+                                                "Count": 1000000
+                                            }
+                                        },
+                                        "Secondary": {
+                                            "Top": {
+                                                "Count": 100
+                                            }
+                                        }
+                                    },
+                                    "Version": 1
+                                }
+                            }
+                        },
+                        {
+                            "ExportDataCommand": {
+                                "Columns": [
+                                    {
+                                        "QueryName": "Vehicle Status FACT.DATE_OF_LAST_RA_NUM",
+                                        "Name": "Last Movement"
+                                    },
+                                    {
+                                        "QueryName": "Sum(Vehicle Status FACT.VEHICLE_MILEAGE)",
+                                        "Name": "Vehicle Mileage"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.RENTAL_AGREEMENT_NUMBER",
+                                        "Name": "Rental Agreement Num"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.CHECKOUT_DATE",
+                                        "Name": "Checkout Datetime"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.CHECKIN_DATE",
+                                        "Name": "Checkin Datetime"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.STATUS2",
+                                        "Name": "Status2"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.VIN",
+                                        "Name": "VIN"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.MAKE_MODEL",
+                                        "Name": "Make / Model"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.BODY_TYPE",
+                                        "Name": "Body Type"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.CAR_GROUP",
+                                        "Name": "Car Group"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.COLOUR",
+                                        "Name": "Colour"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_01",
+                                        "Name": "Accessory 01"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_02",
+                                        "Name": "Accessory 02"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_03",
+                                        "Name": "Accessory 03"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_04",
+                                        "Name": "Accessory 04"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_05",
+                                        "Name": "Accessory 05"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_06",
+                                        "Name": "Accessory 06"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_07",
+                                        "Name": "Accessory 07"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_08",
+                                        "Name": "Accessory 08"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_09",
+                                        "Name": "Accessory 09"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.ACCESSORY_10",
+                                        "Name": "Accessory 10"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.FUEL",
+                                        "Name": "Fuel"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.REGISTRATION_NUMBER",
+                                        "Name": "Registration Number"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.DELIVERY_DATE",
+                                        "Name": "Delivery Date"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.REGISTRATION_DATE",
+                                        "Name": "Registration Date"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.INSPECTION_DATE",
+                                        "Name": "Inspection Date"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.DISPOSAL_DATE",
+                                        "Name": "Disposal Date"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.UPDATED_DATE",
+                                        "Name": "Updated Date"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.TRUNK_KEY",
+                                        "Name": "Trunk Key"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.IGNITION_KEY",
+                                        "Name": "Ignition Key"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.VEHICLE_USE_CODE",
+                                        "Name": "Vehicle Use Code"
+                                    },
+                                    {
+                                        "QueryName": "Sum(Vehicle Status FACT.TURNBACK_KM)",
+                                        "Name": "Turnback KM"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.TURNBACK_DATE",
+                                        "Name": "Turnback Date"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.INVENTORY_DATE",
+                                        "Name": "Inventory Date"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.INVENTORY_LOCATION",
+                                        "Name": "Inventory Location"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.INVENTORY_CODE",
+                                        "Name": "Inventory Loc Mne"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.CHECKOUT_RATE_CODE",
+                                        "Name": "Checkout Rate Code"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.CREDITCLUB_CODE",
+                                        "Name": "Creditclub Code"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.COMPANY_NAME",
+                                        "Name": "Company Name"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.REF_NUMBER",
+                                        "Name": "Ref Number"
+                                    },
+                                    {
+                                        "QueryName": "Avg(Vehicle Status FACT.TANK_CAPACITY)",
+                                        "Name": "Tank Capacity"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Make DIM.VEHICLE_MAKE_CODE",
+                                        "Name": "Vehicle Make Code"
+                                    },
+                                    {
+                                        "QueryName": "Sum(Vehicle DIM.KM_LITER)",
+                                        "Name": "Km Liter"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.MODEL_DESCRIPTION",
+                                        "Name": "Model Description"
+                                    },
+                                    {
+                                        "QueryName": "Checkin Location DIM.DISTRICT",
+                                        "Name": "Checkin District"
+                                    },
+                                    {
+                                        "QueryName": "Checkout Location DIM.DISTRICT",
+                                        "Name": "District"
+                                    },
+                                    {
+                                        "QueryName": "Checkout Location DIM.LOCATION_BRAND",
+                                        "Name": "Checkout Location"
+                                    },
+                                    {
+                                        "QueryName": "Checkout Location DIM.STATION_MNEMONIC_CODE",
+                                        "Name": "Checkout Location Mne"
+                                    },
+                                    {
+                                        "QueryName": "Checkin Location DIM.LOCATION_BRAND",
+                                        "Name": "Location Due"
+                                    },
+                                    {
+                                        "QueryName": "Checkin Location DIM.STATION_MNEMONIC_CODE",
+                                        "Name": "Location Due Mne"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.COUNTRY_CODE",
+                                        "Name": "Country Code"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.FLEET_OWNER_CODE",
+                                        "Name": "Fleet Owner Code"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.FLEET_OWNER_DESC",
+                                        "Name": "Fleet Owner"
+                                    },
+                                    {
+                                        "QueryName": "Location DIM.STATION_MNEMONIC_CODE",
+                                        "Name": "Current Location Mne"
+                                    },
+                                    {
+                                        "QueryName": "Location DIM.LOCATION_BRAND",
+                                        "Name": "Current Location"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status DIM.STATUS",
+                                        "Name": "Current Status"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle DIM.MODEL_NAME",
+                                        "Name": "Model Name"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.STRIPPED_MVA",
+                                        "Name": "MVA"
+                                    },
+                                    {
+                                        "QueryName": "Vehicle Status FACT.STATUS3",
+                                        "Name": "STATUS3"
+                                    }
+                                ],
+                                "Ordering": [
+                                    57,
+                                    22,
+                                    9,
+                                    7,
+                                    53,
+                                    55,
+                                    49,
+                                    2,
+                                    3,
+                                    4,
+                                    52,
+                                    28,
+                                    1,
+                                    32,
+                                    33,
+                                    0,
+                                    51,
+                                    54,
+                                    46,
+                                    47,
+                                    48,
+                                    5,
+                                    58,
+                                    6,
+                                    8,
+                                    10,
+                                    11,
+                                    12,
+                                    13,
+                                    14,
+                                    15,
+                                    16,
+                                    17,
+                                    18,
+                                    19,
+                                    20,
+                                    21,
+                                    23,
+                                    24,
+                                    25,
+                                    26,
+                                    27,
+                                    45,
+                                    44,
+                                    29,
+                                    30,
+                                    31,
+                                    34,
+                                    35,
+                                    36,
+                                    37,
+                                    50,
+                                    38,
+                                    40,
+                                    56,
+                                    41,
+                                    43,
+                                    42,
+                                    39
+                                ],
+                                "FiltersDescription": "Applied filters:\nFOREIGN_VEHICLE_YN is N or Y\nDELIVERY_DATE is on or after 05.03.2018 and is before 25.03.2027\nLICENSEE_OR_CORPORATE is L or C\nBRAND_CODE is A or B\nOOS_YN is Yes or No\nSTATUS is ON HAND, ON MOVE, MISSING, ON MOVE,OVDU, ON RENT,OVDU, OVERDUE, UNAVAILABLE, MARSHALLED, or ON RENT\nFLEET_OWNER_DESC is TROMSOE FLEET\nVEHICLE_MILEAGE is greater than or equal to 0"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "cancelQueries": [],
+        "modelId": 171143,
+        "userPreferredLocale": "en-GB"
+    },
+    "artifactId": 190188
+}
