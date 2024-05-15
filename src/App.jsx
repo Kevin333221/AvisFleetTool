@@ -5,11 +5,6 @@ import AvisFleets from '../data/AvisFleets.json';
 import BudgetFleets from '../data/BudgetFleets.json';
 import Stations from '../data/Stations.json';
 import Avislogo from "../public/Avis.png"
-import dataJson from "../public/postReqJson.json"
-
-import fs from 'fs';
-
-// import { spawn } from 'child_process';
 
 import B_WF_P from "../public/B_Wireframe_PersonT.png"
 import C_WF_P from "../public/C_Wireframe_PersonT.png"
@@ -17,7 +12,6 @@ import D_WF_P from "../public/D_Wireframe_PersonT.png"
 import E_WF_P from "../public/E_Wireframe_PersonT.png"
 import H_WF_P from "../public/H_Wireframe_PersonT.png"
 import N_WF_P from "../public/N_Wireframe_PersonT.png"
-
 import C_WF_V from "../public/C_Wireframe_VanT.png"
 import E_WF_V from "../public/E_Wireframe_VanT.png"
 import F_WF_V from "../public/F_Wireframe_VanT.png"
@@ -42,37 +36,6 @@ export default function App() {
   useEffect(() => {
     get_stations();
   }, [owner, data]);
-
-  async function exportToExcel(authToken, postReqURL, saveFilePath) {
-    try {
-
-      // Make POST request
-      const postRequest = await fetch(postReqURL, {
-        method: 'POST',
-        headers: {
-          'Authorization': authToken,
-          "Allow-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify(dataJson),
-      });
-
-      const postRequestStatus = postRequest.status;
-      console.log('POST Request Status:', postRequestStatus);
-
-      if (postRequestStatus !== 200) {
-          console.error('Error in POST request:', postRequest.statusText);
-          return;
-      }
-
-      // Save response as a file
-      const excelData = await postRequest.blob();
-      fs.writeFileSync(saveFilePath, excelData);
-
-      console.log('File saved as data.xlsx');
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
 
   function dateToExcelSerialNumber(date) {
     const excelEpoch = new Date(Date.UTC(1900, 1, 1)); // January 1, 1900
@@ -134,7 +97,6 @@ export default function App() {
       }
       file = input.files[0]; // Get the first selected file
     } else {
-      await exportToExcel(authToken, postReqURL, postReqJsonPath, saveFilePath);
       file = await fetch("../AvisFleetTool/public/data.xlsx").then((response) => {return response.blob();});
     }
 
@@ -234,7 +196,6 @@ export default function App() {
         }
       }
     }
-
     stations.sort();
 
     {/* If station is "Unknow" delete it */}
@@ -611,7 +572,6 @@ export default function App() {
 
   return (
     <>
-
       {/* Before giving file */}
       {data.length === 0 && 
         <div className='start'>
@@ -625,12 +585,12 @@ export default function App() {
             className='file-input'
             accept='.xlsx'
           />
-          <p>FOR TESTING ONLY!</p>
+          {/* <p>FOR TESTING ONLY!</p>
           <button
             onClick={() => fetch_data(true)}
           >
             Test Data
-          </button>
+          </button> */}
         </div>
       }
 
@@ -692,7 +652,6 @@ export default function App() {
 }
 
 function Preview_Station({ previewStation, setPreviewStation }) {
-
 
   function show_owner_details(station, racf) {
     const Fleet_code = station["Fleet Code"];

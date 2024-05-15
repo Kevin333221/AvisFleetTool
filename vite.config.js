@@ -9,5 +9,5 @@ export default defineConfig({
     react(),
   ],
   base: '/AvisFleetTool/',
-  assetsInclude: ['**/*.xlsx']
+  assetsInclude: ['**/*.xlsx'],
 })

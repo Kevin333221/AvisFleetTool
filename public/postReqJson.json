@@ -876,14 +876,14 @@
                                                         [
                                                             {
                                                                 "Literal": {
-                                                                    "Value": "'Yes'"
+                                                                    "Value": "'No'"
                                                                 }
                                                             }
                                                         ],
                                                         [
                                                             {
                                                                 "Literal": {
-                                                                    "Value": "'No'"
+                                                                    "Value": "'Yes'"
                                                                 }
                                                             }
                                                         ]
@@ -1452,7 +1452,7 @@
                                     42,
                                     39
                                 ],
-                                "FiltersDescription": "Applied filters:\nFOREIGN_VEHICLE_YN is N or Y\nDELIVERY_DATE is on or after 05.03.2018 and is before 25.03.2027\nLICENSEE_OR_CORPORATE is L or C\nBRAND_CODE is A or B\nOOS_YN is Yes or No\nSTATUS is ON HAND, ON MOVE, MISSING, ON MOVE,OVDU, ON RENT,OVDU, OVERDUE, UNAVAILABLE, MARSHALLED, or ON RENT\nFLEET_OWNER_DESC is TROMSOE FLEET\nVEHICLE_MILEAGE is greater than or equal to 0"
+                                "FiltersDescription": "Brukte filtre:\nFOREIGN_VEHICLE_YN er N eller Y\nDELIVERY_DATE er på eller etter 05.03.2018 og er før 25.03.2027\nLICENSEE_OR_CORPORATE er L eller C\nBRAND_CODE er A eller B\nOOS_YN er No eller Yes\nSTATUS er ON HAND, ON MOVE, MISSING, ON MOVE,OVDU, ON RENT,OVDU, OVERDUE, UNAVAILABLE, MARSHALLED eller ON RENT\nFLEET_OWNER_DESC er TROMSOE FLEET\nVEHICLE_MILEAGE er større enn eller lik 0"
                             }
                         }
                     ]
@@ -1461,7 +1461,7 @@
         ],
         "cancelQueries": [],
         "modelId": 171143,
-        "userPreferredLocale": "en-GB"
+        "userPreferredLocale": "nb-NO"
     },
     "artifactId": 190188
 }
