@@ -34,7 +34,7 @@ export default function App() {
   const [previewStation, setPreviewStation] = useState(null);
   const [previewCar, setPreviewCar] = useState(null);
 
-  const authToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvOTdjMzI1ZDAtNGNjYi00M2YzLTg1OGMtYTBhYjA1NzQxOTg3LyIsImlhdCI6MTcxNTcyMDM5OCwibmJmIjoxNzE1NzIwMzk4LCJleHAiOjE3MTU3MjQ0NzcsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJBVlFBcS84V0FBQUFQNFoxYUJ1NzlpQi9hUDNHRW1CR05yT2N5M1YxS0d1UjF4ZVIvRlJMaThPRjRDSytJL3pESTRNOVZZYy90clhBeTZCVzBCWWMyM0RUQVoxNmZTd1F3b0laNEZTeWRNcXVxbWR0VXdSWElFbz0iLCJhbXIiOlsicHdkIiwibWZhIl0sImFwcGlkIjoiODcxYzAxMGYtNWU2MS00ZmIxLTgzYWMtOTg2MTBhN2U5MTEwIiwiYXBwaWRhY3IiOiIwIiwiZmFtaWx5X25hbWUiOiJCZXJnYW4iLCJnaXZlbl9uYW1lIjoiS2V2aW4gTWF0aGlhcyIsImlwYWRkciI6IjE5My42OS4zNS4yNDEiLCJuYW1lIjoiS2V2aW4gTWF0aGlhcyBCZXJnYW4iLCJvaWQiOiJiMTEwZDEwNC03NmE0LTQ5NzEtOThiNS0wOTM4ODhmN2NjOTEiLCJvbnByZW1fc2lkIjoiUy0xLTUtMjEtMTA4MzIyODk4NC0zMDgyNjk0MzE1LTI5MzY0NDA5LTIyNTEzNSIsInB1aWQiOiIxMDAzMjAwMDk5NkRERjM5IiwicmgiOiIwLkFVY0EwQ1hEbDh0TTgwT0ZqS0NyQlhRWmh3a0FBQUFBQUFBQXdBQUFBQUFBQUFBTkFlcy4iLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzaWduaW5fc3RhdGUiOlsia21zaSJdLCJzdWIiOiJOLU96SDF4T1g5bDN3TWFxZ1g5d1dsTnEzNVpzdGJlaTFJSG00NzhBYzN3IiwidGlkIjoiOTdjMzI1ZDAtNGNjYi00M2YzLTg1OGMtYTBhYjA1NzQxOTg3IiwidW5pcXVlX25hbWUiOiJZNTU4NzcxQGVtLmFiZy5jb20iLCJ1cG4iOiJZNTU4NzcxQGVtLmFiZy5jb20iLCJ1dGkiOiI3NkVLdlB3NmJFdWNLZnlONl9zMUFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXX0.M-SQy9PWcIZ9sS_KMY0s480hhuEYFqVkfEjqvXNAPfFNluGI_tZ0xLRsDMh93u-j3GAzROOksjSOLYBVbrTNdB_87QaZd1thnE-cspCyVMIiwcbrckHQZpRXTgwLPSpwySYOTfE-6dHqyuzvCNoqhZ44LgsdefqoVJVL_mRL4qAd9NJHSDoO8ErT7UTARn0d5WEx3sHgK2Yl_ffAYp4Pr6IOXwaOfqJ48E0DHjnRAyVMuhFTxGWo2K-NldKvRNq4DXN7Ei5BTaaiJKO6dznv5WuKb5QIE9whoNgaUTZG9up2i4lRPM0w7flroVTcMDN9Cx4q5mAJyeOGwjZ5FQFQug";
+  const authToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvOTdjMzI1ZDAtNGNjYi00M2YzLTg1OGMtYTBhYjA1NzQxOTg3LyIsImlhdCI6MTcxNTc4NTI5NCwibmJmIjoxNzE1Nzg1Mjk0LCJleHAiOjE3MTU3OTAxMTIsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJBVlFBcS84V0FBQUFERFJVVXdNNmkwV05hQitIdzlYNDN4TENNRDJhWnB2eG5RQmtsaFFPamZPK1lTYUNmUXRhN1lJMlBKREwrWjVkem1Xeno3VHl3WmM0S21wZC9pQjZXODZHZDZPMDVDeTNnSjQ1NzVMcnhUOD0iLCJhbXIiOlsicHdkIiwibWZhIl0sImFwcGlkIjoiODcxYzAxMGYtNWU2MS00ZmIxLTgzYWMtOTg2MTBhN2U5MTEwIiwiYXBwaWRhY3IiOiIwIiwiZmFtaWx5X25hbWUiOiJCZXJnYW4iLCJnaXZlbl9uYW1lIjoiS2V2aW4gTWF0aGlhcyIsImlwYWRkciI6Ijg5LjguMjUyLjE1MCIsIm5hbWUiOiJLZXZpbiBNYXRoaWFzIEJlcmdhbiIsIm9pZCI6ImIxMTBkMTA0LTc2YTQtNDk3MS05OGI1LTA5Mzg4OGY3Y2M5MSIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS0xMDgzMjI4OTg0LTMwODI2OTQzMTUtMjkzNjQ0MDktMjI1MTM1IiwicHVpZCI6IjEwMDMyMDAwOTk2RERGMzkiLCJyaCI6IjAuQVVjQTBDWERsOHRNODBPRmpLQ3JCWFFaaHdrQUFBQUFBQUFBd0FBQUFBQUFBQUFOQWVzLiIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6Ik4tT3pIMXhPWDlsM3dNYXFnWDl3V2xOcTM1WnN0YmVpMUlIbTQ3OEFjM3ciLCJ0aWQiOiI5N2MzMjVkMC00Y2NiLTQzZjMtODU4Yy1hMGFiMDU3NDE5ODciLCJ1bmlxdWVfbmFtZSI6Ilk1NTg3NzFAZW0uYWJnLmNvbSIsInVwbiI6Ilk1NTg3NzFAZW0uYWJnLmNvbSIsInV0aSI6IlBmMnE1S0ZrZlV1YjZSVjRSQjFLQUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdfQ.joVtEmNypZO7v8ZVVVipJ9OXUHgTGgS1kG3yuFovP08GDFsjh_ax15UAh1lozaDAHrnyTdBaiEOlHLo_LJuw3qwxSaYtoRvHdCd5ujYLLhNshjmVeUJtPxDwctr1nTohWmYfnZnOm5gsJYynTlLr2cUxTYDa6204apJPlfKTlB-7MgQrE-nsVVF5HBHoEEfQgPYV1uzitgSBcoJOr3J3ZL4EgDqPsDoStYu5Y-bmzPyfq25oyOYn5xf_ljbgtMHbHGcd1fWtiQJ9TSuy2Y3jSdDhzkF1P5oMK5_R3UcgNQSknpmBEn6pRSKKfCQvVC1eTIztUA18S17bzuWTrubgwg";
   const postReqJsonPath = '../public/postReqJson.json';
   const postReqURL = 'https://wabi-north-europe-h-primary-redirect.analysis.windows.net/export/xlsx';
   const saveFilePath = '../public/data.xlsx';
@@ -43,19 +43,17 @@ export default function App() {
     get_stations();
   }, [owner, data]);
 
-
-  async function exportToExcel(authToken, postReqURL, postReqJsonPath, saveFilePath) {
+  async function exportToExcel(authToken, postReqURL, saveFilePath) {
     try {
 
       // Make POST request
       const postRequest = await fetch(postReqURL, {
-          method: 'POST',
-          headers: {
-              "Allow-Control-Allow-Origin": "*", // Required for CORS policy
-              'Authorization': authToken,
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(dataJson),
+        method: 'POST',
+        headers: {
+          'Authorization': authToken,
+          "Allow-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(dataJson),
       });
 
       const postRequestStatus = postRequest.status;
@@ -71,9 +69,9 @@ export default function App() {
       fs.writeFileSync(saveFilePath, excelData);
 
       console.log('File saved as data.xlsx');
-      } catch (error) {
-        console.error('Error:', error);
-      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   function dateToExcelSerialNumber(date) {
