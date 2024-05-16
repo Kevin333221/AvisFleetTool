@@ -28,11 +28,6 @@ export default function App() {
   const [previewStation, setPreviewStation] = useState(null);
   const [previewCar, setPreviewCar] = useState(null);
 
-  const authToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvOTdjMzI1ZDAtNGNjYi00M2YzLTg1OGMtYTBhYjA1NzQxOTg3LyIsImlhdCI6MTcxNTc4NTI5NCwibmJmIjoxNzE1Nzg1Mjk0LCJleHAiOjE3MTU3OTAxMTIsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJBVlFBcS84V0FBQUFERFJVVXdNNmkwV05hQitIdzlYNDN4TENNRDJhWnB2eG5RQmtsaFFPamZPK1lTYUNmUXRhN1lJMlBKREwrWjVkem1Xeno3VHl3WmM0S21wZC9pQjZXODZHZDZPMDVDeTNnSjQ1NzVMcnhUOD0iLCJhbXIiOlsicHdkIiwibWZhIl0sImFwcGlkIjoiODcxYzAxMGYtNWU2MS00ZmIxLTgzYWMtOTg2MTBhN2U5MTEwIiwiYXBwaWRhY3IiOiIwIiwiZmFtaWx5X25hbWUiOiJCZXJnYW4iLCJnaXZlbl9uYW1lIjoiS2V2aW4gTWF0aGlhcyIsImlwYWRkciI6Ijg5LjguMjUyLjE1MCIsIm5hbWUiOiJLZXZpbiBNYXRoaWFzIEJlcmdhbiIsIm9pZCI6ImIxMTBkMTA0LTc2YTQtNDk3MS05OGI1LTA5Mzg4OGY3Y2M5MSIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS0xMDgzMjI4OTg0LTMwODI2OTQzMTUtMjkzNjQ0MDktMjI1MTM1IiwicHVpZCI6IjEwMDMyMDAwOTk2RERGMzkiLCJyaCI6IjAuQVVjQTBDWERsOHRNODBPRmpLQ3JCWFFaaHdrQUFBQUFBQUFBd0FBQUFBQUFBQUFOQWVzLiIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6Ik4tT3pIMXhPWDlsM3dNYXFnWDl3V2xOcTM1WnN0YmVpMUlIbTQ3OEFjM3ciLCJ0aWQiOiI5N2MzMjVkMC00Y2NiLTQzZjMtODU4Yy1hMGFiMDU3NDE5ODciLCJ1bmlxdWVfbmFtZSI6Ilk1NTg3NzFAZW0uYWJnLmNvbSIsInVwbiI6Ilk1NTg3NzFAZW0uYWJnLmNvbSIsInV0aSI6IlBmMnE1S0ZrZlV1YjZSVjRSQjFLQUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdfQ.joVtEmNypZO7v8ZVVVipJ9OXUHgTGgS1kG3yuFovP08GDFsjh_ax15UAh1lozaDAHrnyTdBaiEOlHLo_LJuw3qwxSaYtoRvHdCd5ujYLLhNshjmVeUJtPxDwctr1nTohWmYfnZnOm5gsJYynTlLr2cUxTYDa6204apJPlfKTlB-7MgQrE-nsVVF5HBHoEEfQgPYV1uzitgSBcoJOr3J3ZL4EgDqPsDoStYu5Y-bmzPyfq25oyOYn5xf_ljbgtMHbHGcd1fWtiQJ9TSuy2Y3jSdDhzkF1P5oMK5_R3UcgNQSknpmBEn6pRSKKfCQvVC1eTIztUA18S17bzuWTrubgwg";
-  const postReqJsonPath = '../public/postReqJson.json';
-  const postReqURL = 'https://wabi-north-europe-h-primary-redirect.analysis.windows.net/export/xlsx';
-  const saveFilePath = '../public/data.xlsx';
-
   useEffect(() => {
     get_stations();
   }, [owner, data]);
@@ -169,7 +164,7 @@ export default function App() {
         cars.push(xlData[i]);
       }
 
-      setCars(cars);
+      // setCars(cars);
       sortCars(cars, "ASC", "Car Group");
       get_stations()
     }
@@ -479,95 +474,83 @@ export default function App() {
     sortCars(cars, "ASC", "Car Group");
   }
 
+  function match_car_group_search(car, search) {
+    return car["Car Group"].includes(search.toUpperCase());
+  }
+
   function handleSearch() {
     let cars = [];
+    let temp_cars = data.slice();
+    let final_cars = [];
 
-    if (search.length === 0 || search === "") {
-      return setCars(data);
+    let accessory = {
+      "GPS": "NV",
+      "HENGERFESTE": "DL",
+      "SKISTATIV": "SR"
     }
 
-    for (let i = 0; i < data.length; i++) {
-      let car = data[i];
-      if (search.length === 1) {
+    if (search.length === 0 || search === "") {
+      return sortCars(data, "ASC", "Car Group");
+    }
+
+    {/* If the search is only one letter, then check if the car group includes the letter */}
+    if (search.length === 1) {
+      for (let i = 0; i < data.length; i++) {
+        let car = data[i];
         if (car["Car Group"].includes(search.toUpperCase())) {
           cars.push(data[i]);
         }
-      } 
-      else if (search.includes(",")) {
-        
-        let search_array = search.split(",");
-
-        {/* Sort the array from the longest to the shortest */}
-        search_array.sort((a, b) => b.length - a.length);
-
-        {/* If the first element is a body type, then check if the car group is in the array */}
-        if (search_array[0].length > 1) {
-          let bodyType = search_array[0].toUpperCase();
-          
-          if (bodyType === "VAN") {
-            for (let j = 1; j < search_array.length; j++) {
-              if (car["Body Type"].includes(bodyType) && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                cars.push(data[i]);
-              }
-            }
-          } else if (bodyType === "EL") {
-            for (let j = 1; j < search_array.length; j++) {
-              if (car["Fuel"] === "E" && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                cars.push(data[i]);
-              }
-            }
-          } else if (bodyType === "AVIS") {
-            for (let j = 1; j < search_array.length; j++) {
-              if (car["Checkout Location"].slice(-1) === "A" && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                cars.push(data[i]);
-              }
-            }
-          } else if (bodyType === "BUDGET") {
-            for (let j = 1; j < search_array.length; j++) {
-              if (car["Checkout Location"].slice(-1) === "B" && car["Car Group"].includes(search_array[j].toUpperCase())) {
-                cars.push(data[i]);
-              }
-            }
-          } else {
-            for (let j = 1; j < search_array.length; j++) {
-              if (car["Car Group"].includes(search_array[j].toUpperCase()) && car["Body Type"] !== "VAN") {
-                cars.push(data[i]);
-              }
-            }
-          }
-          
-        } else {
-          for (let j = 0; j < search_array.length; j++) {
-            if (car["Car Group"].includes(search_array[j].toUpperCase())) {
-              cars.push(data[i]);
-            }
-          }
-        }
-      } else if (search.toLocaleUpperCase() === "AVIS") {
-        if (car["Checkout Location"].slice(-1) === "A") {
-          cars.push(data[i]);
-        }
-      } else if (search.toLocaleUpperCase() === "BUDGET") {
-        if (car["Checkout Location"].slice(-1) === "B") {
-          cars.push(data[i]);
-        }
-      } else if (stations.includes(search.toUpperCase())) {
-        if (car["Current Location Mne"] === search.toLocaleUpperCase()) {
-          cars.push(data[i]);
-        }
-      } else if (car["Registration Number"].includes(search.toUpperCase()) ||
-            car["MVA"].includes(search.toUpperCase()) ||
-            car["Current Status"].includes(search.toUpperCase()) ||
-            car["Rental Agreement Num"].includes(search.toUpperCase()) ||
-            car["Body Type"].includes(search.toUpperCase()) || 
-            car["Vehicle Mileage"].includes(search.toUpperCase()) ||
-            (search.toLocaleUpperCase() === "EL" && car["Fuel"] === "E"))
-      {
-        cars.push(data[i]);
       }
     }
-    setCars(cars);
-    // sortCars(cars, "ASC", "Car Group");
+
+    let search_array = [search];
+
+    if (search.includes(",")) {
+
+      search_array = search.split(",");
+    
+      {/* Sort the array from the longest to the shortest and converts every element in the search array to uppercase */}
+      search_array.sort((a, b) => b.length - a.length);
+    }
+    
+    search_array = search_array.map((element) => element.toUpperCase());
+
+    for (let i = 0; i < search_array.length; i++) {
+      let selector = search_array[i];
+
+      if (selector.length > 1) {
+        for (let j = temp_cars.length - 1; j >= 0; j--) {
+          let car = temp_cars[j];
+          let deleting = true;
+
+          for (const [key, value] of Object.entries(car)) {
+            if (typeof value === 'string' && value.includes(selector)) {
+              deleting = false;
+            } else {
+              if (key === "Accessory 01" || key === "Accessory 02" || key === "Accessory 03" || key === "Accessory 04" || key === "Accessory 05" || key === "Accessory 06" || key === "Accessory 07" || key === "Accessory 08" || key === "Accessory 09") {
+                if (value === accessory[selector] && value !== "") {
+                  deleting = false;
+                }
+              }
+            }
+          }
+
+          if (deleting) {temp_cars.splice(j, 1);}
+        }
+        cars = temp_cars;
+      }
+
+      else {
+        for (let j = 0; j < temp_cars.length; j++) {
+          let car = temp_cars[j];
+          if (match_car_group_search(car, selector)) {
+            final_cars.push(car);
+          }
+        }
+        cars = final_cars;
+      }
+    }
+    sortCars(cars, "ASC", "Car Group");
   }
 
   return (
@@ -772,7 +755,7 @@ function Preview_Station({ previewStation, setPreviewStation }) {
         }
       }
     }
-    return "Utenlands / Hvis ikke den utenlands, mail Kevin om å legge til stasjonen";
+    return "Utenlands / Hvis ikke den er utenlands, mail Kevin om å legge til stasjonen";
   }
 
   return (
@@ -1241,7 +1224,7 @@ function Selection({ title, func, owner, setOwner, stations }) {
         <select className='accessory-selection' onChange={(e) => setParam(e.target.value)}>
           <option value="All">-</option>
           <option value="NV">GPS</option>
-          <option value="DL">HENGEFESTE</option>
+          <option value="DL">HENGERFESTE</option>
           <option value="CR">CRUISE CONTROL</option>
           <option value="IQ">USB INNGANG</option>
           <option value="PH">BLUETOOTH</option>

@@ -197,8 +197,7 @@ if return_code != 0:
 
 # sign_on("TOS", "04941052")
 # get_number_of_customers_in_month("TOS", "AUG", "2024")
-get_number_of_car_groups_in_month("TOS", "AUG", "2024")
-
+# get_number_of_car_groups_in_month("TOS", "AUG", "2024")
 
 
 
