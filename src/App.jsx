@@ -20,6 +20,7 @@ import { motion, AnimatePresence } from "framer-motion"
 
 export default function App() {
   
+  const [typeFetch, setTypeFetch] = useState(0);
   const [data, setData] = useState([]);
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
@@ -164,7 +165,6 @@ export default function App() {
         cars.push(xlData[i]);
       }
 
-      // setCars(cars);
       sortCars(cars, "ASC", "Car Group");
       get_stations()
     }
@@ -253,14 +253,51 @@ export default function App() {
         let curMonth = new Date().getMonth();
         let curYear = new Date().getFullYear();
 
-        if (car["Checkin Datetime"] === undefined) {
+        if (car["Checkin Datetime"] === undefined || car["Checkin Datetime"] === "" || car["Checkin Datetime"] === null) {
           continue;
         }
 
-        let checkinDate = car["Checkin Datetime"].getDate();
-        let checkinMonth = car["Checkin Datetime"].getMonth();
-        let checkinYear = car["Checkin Datetime"].getFullYear();
-        
+        let checkinDate = null;
+        let checkinMonth = null;
+        let checkinYear = null
+
+        if (car["Checkin Datetime"].length === 7) {
+          checkinDate = Number(car["Checkin Datetime"].substring(0, 2));
+          checkinMonth = car["Checkin Datetime"].substring(2, 5);
+          checkinYear = Number("20" + car["Checkin Datetime"].substring(5, 7));
+
+          if (checkinMonth === "JAN") {
+            checkinMonth = 1;
+          } else if (checkinMonth === "FEB") {
+            checkinMonth = 2;
+          } else if (checkinMonth === "MAR") {
+            checkinMonth = 3;
+          } else if (checkinMonth === "APR") {
+            checkinMonth = 4;
+          } else if (checkinMonth === "MAY") {
+            checkinMonth = 5;
+          } else if (checkinMonth === "JUN") {
+            checkinMonth = 6;
+          } else if (checkinMonth === "JUL") {
+            checkinMonth = 7;
+          } else if (checkinMonth === "AUG") {
+            checkinMonth = 8;
+          } else if (checkinMonth === "SEP") {
+            checkinMonth = 9;
+          } else if (checkinMonth === "OCT") {
+            checkinMonth = 10;
+          } else if (checkinMonth === "NOV") {
+            checkinMonth = 11;
+          } else if (checkinMonth === "DEC") {
+            checkinMonth = 12;
+          }
+
+        } else {
+          checkinDate = car["Checkin Datetime"].getDate();
+          checkinMonth = car["Checkin Datetime"].getMonth();
+          checkinYear = car["Checkin Datetime"].getFullYear();
+        }
+
         if (car["Fleet Owner Code"] === owner) {
           if (car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) {
             if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
@@ -450,7 +487,8 @@ export default function App() {
             car["Location Due Mne"] !== "TR7" && 
             car["Location Due Mne"] !== "TO7" && 
             car["Location Due Mne"] !== "E9Z" &&
-            car["Location Due Mne"] !== "R4S") 
+            car["Location Due Mne"] !== "R4S" &&
+            car["Location Due Mne"] !== "") 
         {
           cars.push(data[i]);
         }
@@ -553,6 +591,101 @@ export default function App() {
     sortCars(cars, "ASC", "Car Group");
   }
 
+  async function test_fetch() {
+
+    setTypeFetch(1);
+
+    let response = await fetch("http://127.0.0.1:5000/api/get_cars");
+    let res = await response.json();
+    let data_cars = res["cars"]
+
+    const keyMap = {
+      mva: 'MVA',
+      registration_number: 'Registration Number',
+      fleet_code: "Fleet Owner Code",
+      make: 'Make / Model',
+      ignit_key: 'Ignition Key',
+      trunk_key: 'Trunk Key',
+      last_movement: 'Last Movement',
+      body_type: 'Body Type',
+      miles: 'Vehicle Mileage',
+      car_group: 'Car Group',
+      current_location: 'Current Location Mne',
+      movement: 'Rental Agreement Num',
+      date_out: 'Checkout Datetime',
+      date_due: 'Checkin Datetime',
+      location_due: 'Location Due Mne',
+      fuel_type: 'Fuel',
+      status: 'Current Status',
+      hold_date: 'Hold Date',
+      hold_reason: 'STATUS3'
+    };
+
+    let status = {
+      "ON MOVE": "ON MOVE",
+      "ON HAND,IDLE": "ON HAND",
+      "UNAVAIL": "UNAVAILABLE",
+      "ON MOVE,OVDU": "OVERDUE"
+    }
+
+    for (let i = 0; i < data_cars.length; i++) {
+      let car = data_cars[i];
+      let newCar = {};
+  
+      // Loop over each key in the car object
+      for (let key in car) {
+        if (car.hasOwnProperty(key)) {
+
+          if (key === "status") {
+            car[key] = status[car[key]];
+          }
+
+          if (key === "accessories") {
+            let accessories = car[key];
+            for (let i = 0; i < accessories.length; i++) {
+              newCar["Accessory 0" + (i + 1)] = accessories[i];
+            }
+          }
+
+          // If the key is in the keyMap, use the mapped key, otherwise use the original key
+          if (key === "location_out") {
+            
+            let newKey = "Checkout Location"
+            newCar[newKey] = car[key][0];
+
+            newKey = "Checkout Location Mne"
+            newCar[newKey] = car[key][1];
+
+          } else if (key === "location_due") {
+
+            let newKey = "Location Due"
+            newCar[newKey] = car[key][0];
+
+            newKey = "Location Due Mne"
+            newCar[newKey] = car[key][1];
+
+          } else if (key === "current_location") {
+
+            let newKey = "Current Location"
+            newCar[newKey] = car[key][0];
+
+            newKey = "Current Location Mne"
+            newCar[newKey] = car[key][1];
+
+          } else {
+            let newKey = keyMap[key] || key;
+            newCar[newKey] = car[key];
+          }
+        }
+      }
+  
+      // Replace the old car object with the new one
+      data_cars[i] = newCar;
+    }
+    sortCars(data_cars, "ASC", "Car Group")
+    setData(data_cars);
+  }
+
   return (
     <>
       {/* Before giving file */}
@@ -568,12 +701,12 @@ export default function App() {
             className='file-input'
             accept='.xlsx'
           />
-          {/* <p>FOR TESTING ONLY!</p>
+          {/*<p>FOR TESTING ONLY!</p>
           <button
-            onClick={() => fetch_data(true)}
+            onClick={() => test_fetch()}
           >
             Test Data
-          </button> */}
+          </button>*/}
         </div>
       }
 
@@ -606,7 +739,7 @@ export default function App() {
       {data.length > 0 &&
         <div className="main-container">
           <section className="top-area">
-            <Selection title="Owner"              func={get_owner} owner={owner} setOwner={setOwner}/>
+            {typeFetch === 0 && <Selection title="Owner"              func={get_owner} owner={owner} setOwner={setOwner}/>}
             <Selection title="Station"            func={get_all} owner={owner} setOwner={setOwner} stations={stations}/>
             <Selection title="Service"            func={get_serivce} owner={owner} setOwner={setOwner}/>
             <Selection title="Overdue RA/VTC"     func={get_overdue_RA} owner={owner} setOwner={setOwner}/>
@@ -614,8 +747,8 @@ export default function App() {
             <Selection title="Buy Back"           func={get_buy_back} owner={owner} setOwner={setOwner}/>
             <Selection title="Tyres"              func={get_tyres} owner={owner} setOwner={setOwner}/>
             <Selection title="Accessory"          func={get_accessory} owner={owner} setOwner={setOwner}/>
-            <Selection title="Credentials"        func={get_payment_method} owner={owner} setOwner={setOwner}/>
-            <Selection title="RA/VTC"             func={get_RA} owner={owner} setOwner={setOwner}/>
+            {typeFetch === 0 && <Selection title="Credentials"        func={get_payment_method} owner={owner} setOwner={setOwner}/>}
+            {typeFetch === 0 && <Selection title="RA/VTC"             func={get_RA} owner={owner} setOwner={setOwner}/>}
             <Selection title="Out of Town"        func={get_out_of_town_cars} owner={owner} setOwner={setOwner}/>
           </section>
 
@@ -953,7 +1086,6 @@ function Table_Head({ cars, sortCars }) {
 function Table_Body({ cars, fix_duplicate_status, setPreviewStation, setPreviewCar }) {
 
   function displayLoc(car) {
-
     if (car["Rental Agreement Num"].length === 0) {
       return "";
     } else {
@@ -963,8 +1095,38 @@ function Table_Body({ cars, fix_duplicate_status, setPreviewStation, setPreviewC
 
   function format_time(time) {
 
-    if (time === undefined) {
+    if (time === undefined || time === "") {
       return "";
+    }
+
+    if (time.length === 7) {
+      let month = time[2] + time[3] + time[4]
+      if (month === "JAN") {
+        month = "01";
+      } else if (month === "FEB") {
+        month = "02";
+      } else if (month === "MAR") {
+        month = "03";
+      } else if (month === "APR") {
+        month = "04";
+      } else if (month === "MAY") {
+        month = "05";
+      } else if (month === "JUN") {
+        month = "06";
+      } else if (month === "JUL") {
+        month = "07";
+      } else if (month === "AUG") {
+        month = "08";
+      } else if (month === "SEP") {
+        month = "09";
+      } else if (month === "OCT") {
+        month = "10";
+      } else if (month === "NOV") {
+        month = "11";
+      } else if (month === "DEC") {
+        month = "12";
+      }
+      return time[0] + time[1] + "/" + month + "/" + time[5] + time[6];
     }
 
     let newTime = time.toUTCString().substring(5, 22);
@@ -974,7 +1136,7 @@ function Table_Body({ cars, fix_duplicate_status, setPreviewStation, setPreviewC
       month = "01";
     } else if (month === "Feb") {
       month = "02";
-    }  else if (month === "Mar") {
+    } else if (month === "Mar") {
       month = "03";
     } else if (month === "Apr") {
       month = "04";

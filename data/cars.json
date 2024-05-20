@@ -1,0 +1,6287 @@
+{
+    "date": "19-05-2024 15:59:28",
+    "cars": [
+        {
+            "mva": "20995155",
+            "registration_number": "ZH60826",
+            "make": "TCTS GAH",
+            "ignit_key": "OW/90000",
+            "trunk_key": "S24/4B2",
+            "last_movement": "16MAY24",
+            "body_type": "5PW",
+            "miles": "80377",
+            "car_group": "H",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "FM",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "20995181",
+            "registration_number": "ZH60828",
+            "make": "TCTS GAH",
+            "ignit_key": "OW/90000",
+            "trunk_key": "S24/3E5",
+            "last_movement": "10MAY24",
+            "body_type": "5PW",
+            "miles": "78019",
+            "car_group": "H",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "FM",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "10MAY24",
+            "hold_reason": "HULL I DEKK"
+        },
+        {
+            "mva": "21003172",
+            "registration_number": "ZH61191",
+            "make": "TPCD 4X4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/4D6",
+            "last_movement": "07MAY24",
+            "body_type": "VAN",
+            "miles": "39204",
+            "car_group": "C",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003183",
+            "registration_number": "ZH61192",
+            "make": "TPCD 4X4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/3G4",
+            "last_movement": "23APR24",
+            "body_type": "VAN",
+            "miles": "34026",
+            "car_group": "C",
+            "location_out": [
+                "55321A",
+                "TO0"
+            ],
+            "movement": "716465035",
+            "date_out": "23APR24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "55321A",
+                "TO0"
+            ],
+            "accessories": [
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003441",
+            "registration_number": "ZH61428",
+            "make": "SIGN IG4",
+            "ignit_key": "60/60000",
+            "trunk_key": "S24/4E6",
+            "last_movement": "10MAY24",
+            "body_type": "5DR",
+            "miles": "56940",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08193944",
+            "date_out": "10MAY24",
+            "date_due": "30MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "10MAY24",
+            "hold_reason": "BB TIL RSA"
+        },
+        {
+            "mva": "21003603",
+            "registration_number": "ZH61636",
+            "make": "FDUC D13",
+            "ignit_key": "OW/75000",
+            "trunk_key": "S24/3D7",
+            "last_movement": "16MAY24",
+            "body_type": "VAN",
+            "miles": "41018",
+            "car_group": "F",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "08220427",
+            "date_out": "16MAY24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003614",
+            "registration_number": "ZH61595",
+            "make": "SVIT 4GA",
+            "ignit_key": "60/60000",
+            "trunk_key": "S24/3B1",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "55316",
+            "car_group": "D",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739933",
+            "date_out": "16MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003640",
+            "registration_number": "ZH60996",
+            "make": "CADM D4M",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/3G5",
+            "last_movement": "15MAY24",
+            "body_type": "VAN",
+            "miles": "37297",
+            "car_group": "C",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "MA",
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003651",
+            "registration_number": "ZH60997",
+            "make": "CADM D4M",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/3B1",
+            "last_movement": "15MAY24",
+            "body_type": "VAN",
+            "miles": "42966",
+            "car_group": "C",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "MA",
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003673",
+            "registration_number": "ZH61681",
+            "make": "SACR 4PI",
+            "ignit_key": "60/60000",
+            "trunk_key": "S24/3F6",
+            "last_movement": "09MAY24",
+            "body_type": "5DR",
+            "miles": "53486",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "DL",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003743",
+            "registration_number": "ZH61906",
+            "make": "SACR 4PI",
+            "ignit_key": "60/75000",
+            "trunk_key": "P24/3G6",
+            "last_movement": "03APR24",
+            "body_type": "5DR",
+            "miles": "66779",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "DL",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "02APR24",
+            "hold_reason": "BB TIL KVALOYA"
+        },
+        {
+            "mva": "21003754",
+            "registration_number": "ZH61897",
+            "make": "SSCR OS4",
+            "ignit_key": "60/80000",
+            "trunk_key": "P24/3G5",
+            "last_movement": "25MAR24",
+            "body_type": "5DR",
+            "miles": "70307",
+            "car_group": "D",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "21MAR24",
+            "hold_reason": "BB TIL KVALOYA"
+        },
+        {
+            "mva": "21003780",
+            "registration_number": "ZH61902",
+            "make": "SACR 4PI",
+            "ignit_key": "60/80000",
+            "trunk_key": "P24/3C5",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "69210",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08220072",
+            "date_out": "16MAY24",
+            "date_due": "30MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "DL",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003791",
+            "registration_number": "ZH61900",
+            "make": "SACR 4PI",
+            "ignit_key": "60/80000",
+            "trunk_key": "P24/4C3",
+            "last_movement": "09APR24",
+            "body_type": "5DR",
+            "miles": "66181",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "DL",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "12APR24",
+            "hold_reason": "BB TIL KV OYA"
+        },
+        {
+            "mva": "21003802",
+            "registration_number": "ZH61896",
+            "make": "SSCR OS4",
+            "ignit_key": "60/60000",
+            "trunk_key": "P24/3G5",
+            "last_movement": "25MAR24",
+            "body_type": "5DR",
+            "miles": "65175",
+            "car_group": "D",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "21MAR24",
+            "hold_reason": "BB TIL KVALOYA"
+        },
+        {
+            "mva": "21003813",
+            "registration_number": "ZH61894",
+            "make": "SSCR OS4",
+            "ignit_key": "60/80000",
+            "trunk_key": "P24/4B1",
+            "last_movement": "25MAR24",
+            "body_type": "5DR",
+            "miles": "73647",
+            "car_group": "D",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "21MAR24",
+            "hold_reason": "BB TIL KVALOYA"
+        },
+        {
+            "mva": "21003835",
+            "registration_number": "ZH61904",
+            "make": "SACR 4PI",
+            "ignit_key": "60/80000",
+            "trunk_key": "P24/3D7",
+            "last_movement": "02APR24",
+            "body_type": "5DR",
+            "miles": "67164",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "DL",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "02APR24",
+            "hold_reason": "BB TIL KVALOYA"
+        },
+        {
+            "mva": "21003883",
+            "registration_number": "ZH61892",
+            "make": "SSCR OS4",
+            "ignit_key": "60/80000",
+            "trunk_key": "P24/3B2",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "65665",
+            "car_group": "D",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08221131",
+            "date_out": "16MAY24",
+            "date_due": "30MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003905",
+            "registration_number": "ED80578",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/3G8",
+            "last_movement": "25APR24",
+            "body_type": "5DR",
+            "miles": "27984",
+            "car_group": "K",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003916",
+            "registration_number": "ED80579",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/3G8",
+            "last_movement": "27MAR24",
+            "body_type": "5DR",
+            "miles": "28030",
+            "car_group": "K",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "451147981",
+            "date_out": "27MAR24",
+            "date_due": "10APR24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [],
+            "fuel_type": "E",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003942",
+            "registration_number": "ED87959",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4G8",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "26764",
+            "car_group": "K",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841504",
+            "date_out": "13MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21003953",
+            "registration_number": "ZH61798",
+            "make": "RMEG WPI",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/4D7",
+            "last_movement": "24APR24",
+            "body_type": "5PW",
+            "miles": "40000",
+            "car_group": "H",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493139710",
+            "date_out": "24APR24",
+            "date_due": "14MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126195",
+            "registration_number": "ZH62116",
+            "make": "IDMA XD4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/VER",
+            "last_movement": "02MAY24",
+            "body_type": "VAN",
+            "miles": "40500",
+            "car_group": "L",
+            "location_out": [
+                "57883A",
+                "E9Z"
+            ],
+            "movement": "181683574",
+            "date_out": "02MAY24",
+            "date_due": "01JUN24",
+            "location_due": [
+                "57883A",
+                "E9Z"
+            ],
+            "accessories": [],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126210",
+            "registration_number": "ZH62652",
+            "make": "TLCD 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3G8",
+            "last_movement": "18APR24",
+            "body_type": "VAN",
+            "miles": "28901",
+            "car_group": "M",
+            "location_out": [
+                "55383A",
+                "TO7"
+            ],
+            "movement": "716592866",
+            "date_out": "18APR24",
+            "date_due": "18MAY24",
+            "location_due": [
+                "55383A",
+                "TO7"
+            ],
+            "accessories": [
+                "CR",
+                "NV",
+                "AM",
+                "IQ",
+                "DV",
+                "DL",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126221",
+            "registration_number": "ZH62703",
+            "make": "LNX4 50H",
+            "ignit_key": "50/45000",
+            "trunk_key": "S24/5B3",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "38055",
+            "car_group": "M",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636221",
+            "date_out": "18MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "FM",
+                "PW",
+                "AM",
+                "AB",
+                "IQ",
+                "DV",
+                "PL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126232",
+            "registration_number": "ZH62704",
+            "make": "LNX4 50H",
+            "ignit_key": "50/45000",
+            "trunk_key": "S24/5B3",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "31494",
+            "car_group": "M",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841810",
+            "date_out": "16MAY24",
+            "date_due": "17MAY24",
+            "location_due": [
+                "04892A",
+                "ALF"
+            ],
+            "accessories": [
+                "FM",
+                "PW",
+                "AM",
+                "AB",
+                "IQ",
+                "DV",
+                "PL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126243",
+            "registration_number": "ZH62705",
+            "make": "LNX4 50H",
+            "ignit_key": "50/45000",
+            "trunk_key": "S24/5B3",
+            "last_movement": "07MAY24",
+            "body_type": "5DR",
+            "miles": "39419",
+            "car_group": "M",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "FM",
+                "PW",
+                "AM",
+                "AB",
+                "IQ",
+                "DV",
+                "PL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126254",
+            "registration_number": "ZH62795",
+            "make": "TPVE RDA",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/3B5",
+            "last_movement": "24APR24",
+            "body_type": "BUS",
+            "miles": "42509",
+            "car_group": "N",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "PS",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126265",
+            "registration_number": "ZH62842",
+            "make": "TPVE RDA",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/3A2",
+            "last_movement": "15MAY24",
+            "body_type": "BUS",
+            "miles": "43627",
+            "car_group": "N",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739896",
+            "date_out": "15MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126276",
+            "registration_number": "EE92880",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4A3",
+            "last_movement": "08MAY24",
+            "body_type": "5DR",
+            "miles": "25473",
+            "car_group": "K",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258419803",
+            "date_out": "08MAY24",
+            "date_due": "17MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126280",
+            "registration_number": "EE92881",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4A2",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "26459",
+            "car_group": "K",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841703",
+            "date_out": "15MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [],
+            "fuel_type": "E",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126291",
+            "registration_number": "EE92882",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3B7",
+            "last_movement": "12APR24",
+            "body_type": "5DR",
+            "miles": "16587",
+            "car_group": "K",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126302",
+            "registration_number": "EE92883",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B7",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "29479",
+            "car_group": "K",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134482",
+            "date_out": "16MAY24",
+            "date_due": "06JUN24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126313",
+            "registration_number": "EF15885",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/5A3",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "25740",
+            "car_group": "K",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08220033",
+            "date_out": "16MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126324",
+            "registration_number": "ZH62818",
+            "make": "KNIR OPI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "P24/4B5",
+            "last_movement": "23APR24",
+            "body_type": "5DR",
+            "miles": "36120",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08113366",
+            "date_out": "23APR24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126335",
+            "registration_number": "ZH62819",
+            "make": "KNIR OPI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4C4",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "40954",
+            "car_group": "C",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126346",
+            "registration_number": "ZH62929",
+            "make": "TCTS GAH",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3C4",
+            "last_movement": "13MAY24",
+            "body_type": "5PW",
+            "miles": "33080",
+            "car_group": "H",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134423",
+            "date_out": "13MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126350",
+            "registration_number": "ZH62975",
+            "make": "TCTS GAH",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3C5",
+            "last_movement": "14MAY24",
+            "body_type": "5PW",
+            "miles": "29784",
+            "car_group": "H",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "08208993",
+            "date_out": "14MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "13MAY24",
+            "hold_reason": "SERVICE30K"
+        },
+        {
+            "mva": "21126361",
+            "registration_number": "ZH62928",
+            "make": "TPVE RDA",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/4D6",
+            "last_movement": "01MAY24",
+            "body_type": "BUS",
+            "miles": "32409",
+            "car_group": "N",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "PS",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126372",
+            "registration_number": "ZH62927",
+            "make": "TCTS GAH",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4B4",
+            "last_movement": "14MAY24",
+            "body_type": "5PW",
+            "miles": "29382",
+            "car_group": "H",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134456",
+            "date_out": "14MAY24",
+            "date_due": "28MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126383",
+            "registration_number": "EF21837",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4B7",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "15500",
+            "car_group": "K",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "08216981",
+            "date_out": "15MAY24",
+            "date_due": "15JUN24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126394",
+            "registration_number": "EF21832",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/5A3",
+            "last_movement": "12MAY24",
+            "body_type": "5DR",
+            "miles": "22940",
+            "car_group": "K",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126405",
+            "registration_number": "EF21828",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4B7",
+            "last_movement": "14APR24",
+            "body_type": "5DR",
+            "miles": "23510",
+            "car_group": "K",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126416",
+            "registration_number": "EF21835",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/5A2",
+            "last_movement": "14APR24",
+            "body_type": "5DR",
+            "miles": "22236",
+            "car_group": "K",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126420",
+            "registration_number": "EF21864",
+            "make": "POL2 4X4",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/5A3",
+            "last_movement": "22APR24",
+            "body_type": "5DR",
+            "miles": "24876",
+            "car_group": "K",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "08108594",
+            "date_out": "22APR24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126431",
+            "registration_number": "EF44707",
+            "make": "PE20 08E",
+            "ignit_key": "OW/12500",
+            "trunk_key": "S24/   ",
+            "last_movement": "25APR24",
+            "body_type": "5DR",
+            "miles": "22500",
+            "car_group": "I",
+            "location_out": [
+                "58428A",
+                "R4S"
+            ],
+            "movement": "200570786",
+            "date_out": "25APR24",
+            "date_due": "25MAY24",
+            "location_due": [
+                "58428A",
+                "R4S"
+            ],
+            "accessories": [],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126501",
+            "registration_number": "EF48737",
+            "make": "PE20 08E",
+            "ignit_key": "OW/12500",
+            "trunk_key": "S24/3B2",
+            "last_movement": "03MAY24",
+            "body_type": "5DR",
+            "miles": "9293",
+            "car_group": "I",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134375",
+            "date_out": "03MAY24",
+            "date_due": "02JUN24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126512",
+            "registration_number": "EF48738",
+            "make": "PE20 08E",
+            "ignit_key": "OW/23500",
+            "trunk_key": "S24/4C1",
+            "last_movement": "10MAY24",
+            "body_type": "5DR",
+            "miles": "16605",
+            "car_group": "I",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126523",
+            "registration_number": "ZH63051",
+            "make": "TCTS GAH",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3B3",
+            "last_movement": "15MAY24",
+            "body_type": "5PW",
+            "miles": "39806",
+            "car_group": "H",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841736",
+            "date_out": "15MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "SR"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126534",
+            "registration_number": "ZH63052",
+            "make": "TCTS GAH",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3C7",
+            "last_movement": "16MAY24",
+            "body_type": "5PW",
+            "miles": "32312",
+            "car_group": "H",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636195",
+            "date_out": "16MAY24",
+            "date_due": "18MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126545",
+            "registration_number": "ZH62937",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/4D5",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "31292",
+            "car_group": "D",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636151",
+            "date_out": "16MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126556",
+            "registration_number": "ZH62932",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/4E7",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "35464",
+            "car_group": "D",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134401",
+            "date_out": "13MAY24",
+            "date_due": "30MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126560",
+            "registration_number": "ZH62931",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/3C7",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "29048",
+            "car_group": "D",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313320",
+            "date_out": "16MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126571",
+            "registration_number": "ZH62934",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/4B5",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "35888",
+            "car_group": "D",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841773",
+            "date_out": "16MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126582",
+            "registration_number": "ZH62930",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/4D6",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "41250",
+            "car_group": "D",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739955",
+            "date_out": "18MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126593",
+            "registration_number": "ZH62939",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/4E7",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "27545",
+            "car_group": "D",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134445",
+            "date_out": "14MAY24",
+            "date_due": "28MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126604",
+            "registration_number": "ZH62933",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/3C6",
+            "last_movement": "08MAY24",
+            "body_type": "5DR",
+            "miles": "34527",
+            "car_group": "D",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08182307",
+            "date_out": "08MAY24",
+            "date_due": "15MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126615",
+            "registration_number": "ZH63371",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3A3",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "32739",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636033",
+            "date_out": "14MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126626",
+            "registration_number": "ZH63374",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3F6",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "38639",
+            "car_group": "E",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "344114831",
+            "date_out": "19MAY24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126630",
+            "registration_number": "ZH63365",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B7",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "39746",
+            "car_group": "E",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739874",
+            "date_out": "14MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126641",
+            "registration_number": "ZH63368",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3E8",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "32816",
+            "car_group": "E",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313390",
+            "date_out": "18MAY24",
+            "date_due": "31MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126652",
+            "registration_number": "ZH63367",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4A2",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "34921",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "493140152",
+            "date_out": "19MAY24",
+            "date_due": "24MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126663",
+            "registration_number": "ZH63373",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3A2",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "40707",
+            "car_group": "E",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313375",
+            "date_out": "18MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126674",
+            "registration_number": "ZH63372",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4G7",
+            "last_movement": "18APR24",
+            "body_type": "5DR",
+            "miles": "29719",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126685",
+            "registration_number": "ZH63366",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3C8",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "34971",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636162",
+            "date_out": "16MAY24",
+            "date_due": "26MAY24",
+            "location_due": [
+                "04943A",
+                "DE6"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126696",
+            "registration_number": "ZH63369",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4E3",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "38650",
+            "car_group": "E",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313353",
+            "date_out": "18MAY24",
+            "date_due": "18MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126700",
+            "registration_number": "ZH62839",
+            "make": "TPL2 4X4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4D3",
+            "last_movement": "18MAY24",
+            "body_type": "VAN",
+            "miles": "13926",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126711",
+            "registration_number": "ZH63370",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3B3",
+            "last_movement": "05APR24",
+            "body_type": "5DR",
+            "miles": "37478",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126733",
+            "registration_number": "ZH62938",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/3B5",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "33772",
+            "car_group": "D",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841876",
+            "date_out": "18MAY24",
+            "date_due": "27MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126744",
+            "registration_number": "ZH63255",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "P24/4F4",
+            "last_movement": "17APR24",
+            "body_type": "5DR",
+            "miles": "38028",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122839651",
+            "date_out": "17APR24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "10MAY24",
+            "hold_reason": "DEKKSKIFT"
+        },
+        {
+            "mva": "21126755",
+            "registration_number": "ZH63250",
+            "make": "TCHR LTA",
+            "ignit_key": "50/45000",
+            "trunk_key": "S24/4D4",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "40185",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841530",
+            "date_out": "13MAY24",
+            "date_due": "24MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126766",
+            "registration_number": "ZH63252",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3D3",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "37442",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "493141154",
+            "date_out": "19MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126770",
+            "registration_number": "ZH63251",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "P24/3G3",
+            "last_movement": "27APR24",
+            "body_type": "5DR",
+            "miles": "33604",
+            "car_group": "E",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739616",
+            "date_out": "27APR24",
+            "date_due": "18MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "10MAY24",
+            "hold_reason": "DEKKSKIFT"
+        },
+        {
+            "mva": "21126781",
+            "registration_number": "ZH63254",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3B2",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "31995",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841913",
+            "date_out": "18MAY24",
+            "date_due": "25MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "AC",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126792",
+            "registration_number": "ZH63253",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3B2",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "36824",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841714",
+            "date_out": "15MAY24",
+            "date_due": "26MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "AC",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126803",
+            "registration_number": "ZH62935",
+            "make": "SSCR OS4",
+            "ignit_key": "60/40000",
+            "trunk_key": "S24/4E7",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "38593",
+            "car_group": "D",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "15MAY24",
+            "hold_reason": "FRONTRUTE,HCARGLASS"
+        },
+        {
+            "mva": "21126814",
+            "registration_number": "ZZ35528",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B4",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "33809",
+            "car_group": "B",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739852",
+            "date_out": "13MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "AC",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126825",
+            "registration_number": "ZZ35529",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B2",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "32074",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841585",
+            "date_out": "14MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "AC",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126836",
+            "registration_number": "ZH62840",
+            "make": "TPL2 4X4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4E5",
+            "last_movement": "02MAY24",
+            "body_type": "VAN",
+            "miles": "11382",
+            "car_group": "E",
+            "location_out": [
+                "55383A",
+                "TO7"
+            ],
+            "movement": "716592936",
+            "date_out": "02MAY24",
+            "date_due": "01JUN24",
+            "location_due": [
+                "55383A",
+                "TO7"
+            ],
+            "accessories": [
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126840",
+            "registration_number": "EF85540",
+            "make": "BMWI X3E",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3B6",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "13826",
+            "car_group": "K",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "08216997",
+            "date_out": "15MAY24",
+            "date_due": "15JUN24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "DL"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126851",
+            "registration_number": "EF85541",
+            "make": "BMWI X3E",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3G7",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "20710",
+            "car_group": "K",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134493",
+            "date_out": "18MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "FM",
+                "NV",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126862",
+            "registration_number": "EF85552",
+            "make": "BMWI X3E",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3G7",
+            "last_movement": "12MAY24",
+            "body_type": "5DR",
+            "miles": "15805",
+            "car_group": "K",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841390",
+            "date_out": "12MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "FM",
+                "NV",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126873",
+            "registration_number": "EF85553",
+            "make": "BMWI X3E",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/VER",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "25036",
+            "car_group": "K",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "FM",
+                "NV",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126884",
+            "registration_number": "EF85554",
+            "make": "BMWI X3E",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/VER",
+            "last_movement": "06MAY24",
+            "body_type": "5DR",
+            "miles": "17300",
+            "car_group": "K",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "FM",
+                "NV",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126895",
+            "registration_number": "ZZ35531",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3B4",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "33856",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841972",
+            "date_out": "19MAY24",
+            "date_due": "29MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126906",
+            "registration_number": "ZH63451",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3D5",
+            "last_movement": "15APR24",
+            "body_type": "5DR",
+            "miles": "22789",
+            "car_group": "C",
+            "location_out": [
+                "57883A",
+                "E9Z"
+            ],
+            "movement": "181683751",
+            "date_out": "15APR24",
+            "date_due": "15MAY24",
+            "location_due": [
+                "57883A",
+                "E9Z"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126910",
+            "registration_number": "ZH63452",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3G4",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "35983",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841865",
+            "date_out": "18MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126921",
+            "registration_number": "ZH63446",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3A5",
+            "last_movement": "09MAY24",
+            "body_type": "5DR",
+            "miles": "37554",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126932",
+            "registration_number": "ZH63447",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4F3",
+            "last_movement": "10MAY24",
+            "body_type": "5DR",
+            "miles": "29234",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "451147944",
+            "date_out": "10MAY24",
+            "date_due": "24APR24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126943",
+            "registration_number": "ZH63448",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3D6",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "27121",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841935",
+            "date_out": "18MAY24",
+            "date_due": "25MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126954",
+            "registration_number": "ZH63449",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B6",
+            "last_movement": "09MAY24",
+            "body_type": "5DR",
+            "miles": "36819",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841132",
+            "date_out": "09MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126965",
+            "registration_number": "ZH63445",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B4",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "31515",
+            "car_group": "B",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739900",
+            "date_out": "15MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126976",
+            "registration_number": "ZH63453",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3E5",
+            "last_movement": "17MAY24",
+            "body_type": "5DR",
+            "miles": "39877",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841784",
+            "date_out": "17MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126980",
+            "registration_number": "ZH63450",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B3",
+            "last_movement": "06MAY24",
+            "body_type": "5DR",
+            "miles": "36285",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134331",
+            "date_out": "06MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "PW",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21126991",
+            "registration_number": "ZH63459",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3D4",
+            "last_movement": "16APR24",
+            "body_type": "5DR",
+            "miles": "29457",
+            "car_group": "C",
+            "location_out": [
+                "57883A",
+                "E9Z"
+            ],
+            "movement": "181683821",
+            "date_out": "16APR24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "57883A",
+                "E9Z"
+            ],
+            "accessories": [
+                "PW",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127002",
+            "registration_number": "ZH63455",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4E5",
+            "last_movement": "04MAY24",
+            "body_type": "5DR",
+            "miles": "28642",
+            "car_group": "C",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127013",
+            "registration_number": "ZH63460",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3E4",
+            "last_movement": "26MAR24",
+            "body_type": "5DR",
+            "miles": "31610",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "451147491",
+            "date_out": "26MAR24",
+            "date_due": "24APR24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127024",
+            "registration_number": "ZH63458",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3E4",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "41005",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134460",
+            "date_out": "14MAY24",
+            "date_due": "29MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127035",
+            "registration_number": "ZH63457",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3G6",
+            "last_movement": "02MAY24",
+            "body_type": "5DR",
+            "miles": "32872",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127046",
+            "registration_number": "ZH63456",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3D4",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "39880",
+            "car_group": "C",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739966",
+            "date_out": "18MAY24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127050",
+            "registration_number": "ZH63461",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4C3",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "36952",
+            "car_group": "C",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739911",
+            "date_out": "15MAY24",
+            "date_due": "24MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127061",
+            "registration_number": "ZH63454",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4E5",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "35877",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841515",
+            "date_out": "13MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127072",
+            "registration_number": "ZH63462",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B3",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "39348",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "493139161",
+            "date_out": "19MAY24",
+            "date_due": "26MAY24",
+            "location_due": [
+                "04939A",
+                "SVJ"
+            ],
+            "accessories": [
+                "CR",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21127083",
+            "registration_number": "DL80552",
+            "make": "HONC RV ",
+            "ignit_key": "OW/60000",
+            "trunk_key": "S24/VER",
+            "last_movement": "04JUL23",
+            "body_type": "5DR",
+            "miles": "50003",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [],
+            "fuel_type": "D",
+            "status": "UNAVAIL",
+            "hold_date": "20APR24",
+            "hold_reason": "PD SKAL HA"
+        },
+        {
+            "mva": "21127094",
+            "registration_number": "ZH62936",
+            "make": "SSCR OS4",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/4E7",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "35249",
+            "car_group": "D",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636081",
+            "date_out": "15MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "CR",
+                "FM",
+                "NV",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177004",
+            "registration_number": "ZH63463",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4E3",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "35208",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "493140653",
+            "date_out": "19MAY24",
+            "date_due": "26MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177015",
+            "registration_number": "ZH63464",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3D3",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "36024",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841821",
+            "date_out": "16MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177026",
+            "registration_number": "ZH63465",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4D4",
+            "last_movement": "10MAY24",
+            "body_type": "5DR",
+            "miles": "29758",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08191775",
+            "date_out": "10MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177030",
+            "registration_number": "ZH63466",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3D6",
+            "last_movement": "09MAY24",
+            "body_type": "5DR",
+            "miles": "30000",
+            "car_group": "C",
+            "location_out": [
+                "57883A",
+                "E9Z"
+            ],
+            "movement": "181684090",
+            "date_out": "09MAY24",
+            "date_due": "08JUN24",
+            "location_due": [
+                "57883A",
+                "E9Z"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177041",
+            "registration_number": "ZH63467",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4D4",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "28915",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841961",
+            "date_out": "19MAY24",
+            "date_due": "01JUN24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177052",
+            "registration_number": "ZH63471",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3G3",
+            "last_movement": "03MAY24",
+            "body_type": "5DR",
+            "miles": "31445",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493140126",
+            "date_out": "03MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177063",
+            "registration_number": "ZH63470",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3G3",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "36543",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636136",
+            "date_out": "16MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177074",
+            "registration_number": "ZH63469",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3G3",
+            "last_movement": "18APR24",
+            "body_type": "5DR",
+            "miles": "35726",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "08092224",
+            "date_out": "18APR24",
+            "date_due": "15MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "NV",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177085",
+            "registration_number": "ZH63468",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3B4",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "27709",
+            "car_group": "B",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739970",
+            "date_out": "18MAY24",
+            "date_due": "01JUN24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177096",
+            "registration_number": "ZH63472",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/3B4",
+            "last_movement": "30APR24",
+            "body_type": "5DR",
+            "miles": "32474",
+            "car_group": "B",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177100",
+            "registration_number": "ZH63332",
+            "make": "TPL2 4X4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4E2",
+            "last_movement": "23APR24",
+            "body_type": "VAN",
+            "miles": "14674",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177111",
+            "registration_number": "ZH63473",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4C4",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "37580",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841666",
+            "date_out": "15MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177122",
+            "registration_number": "ZH63474",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B2",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "33016",
+            "car_group": "B",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739944",
+            "date_out": "16MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177133",
+            "registration_number": "ZH63333",
+            "make": "TPL2 4X4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4E2",
+            "last_movement": "07MAY24",
+            "body_type": "VAN",
+            "miles": "15321",
+            "car_group": "E",
+            "location_out": [
+                "55383A",
+                "TO7"
+            ],
+            "movement": "493134390",
+            "date_out": "07MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "55383A",
+                "TO7"
+            ],
+            "accessories": [
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177144",
+            "registration_number": "ZH63475",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/45000",
+            "trunk_key": "S24/4B2",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "29445",
+            "car_group": "B",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313331",
+            "date_out": "16MAY24",
+            "date_due": "28MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177155",
+            "registration_number": "EF71658",
+            "make": "CITR EC4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/3D2",
+            "last_movement": "08MAY24",
+            "body_type": "5DR",
+            "miles": "13205",
+            "car_group": "I",
+            "location_out": [
+                "58428A",
+                "R4S"
+            ],
+            "movement": "200570941",
+            "date_out": "08MAY24",
+            "date_due": "07JUN24",
+            "location_due": [
+                "58428A",
+                "R4S"
+            ],
+            "accessories": [
+                "FM",
+                "NV",
+                "PS",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177166",
+            "registration_number": "EF71657",
+            "make": "CITR EC4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/3E5",
+            "last_movement": "06MAY24",
+            "body_type": "5DR",
+            "miles": "11406",
+            "car_group": "I",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "FM",
+                "NV",
+                "PS",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177170",
+            "registration_number": "EF90976",
+            "make": "CITR EC4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/3D1",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "5779",
+            "car_group": "I",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134434",
+            "date_out": "14MAY24",
+            "date_due": "28MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "FM",
+                "NV",
+                "PS",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177181",
+            "registration_number": "EF90975",
+            "make": "CITR EC4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/3D1",
+            "last_movement": "07MAY24",
+            "body_type": "5DR",
+            "miles": "14111",
+            "car_group": "I",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "FM",
+                "NV",
+                "PS",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177192",
+            "registration_number": "EF90977",
+            "make": "CITR EC4",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/   ",
+            "last_movement": "25APR24",
+            "body_type": "5DR",
+            "miles": "15000",
+            "car_group": "I",
+            "location_out": [
+                "58428A",
+                "R4S"
+            ],
+            "movement": "200570985",
+            "date_out": "25APR24",
+            "date_due": "25MAY24",
+            "location_due": [
+                "58428A",
+                "R4S"
+            ],
+            "accessories": [
+                "FM",
+                "NV",
+                "PS",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "E",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177203",
+            "registration_number": "ZH63537",
+            "make": "TPVE RDA",
+            "ignit_key": "OW/40000",
+            "trunk_key": "S24/3D5",
+            "last_movement": "16MAY24",
+            "body_type": "BUS",
+            "miles": "22586",
+            "car_group": "N",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636206",
+            "date_out": "16MAY24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "AM",
+                "IQ",
+                "DV",
+                "PL",
+                "DL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177214",
+            "registration_number": "ZH62373",
+            "make": "TPVE RDA",
+            "ignit_key": "BOBIL   ",
+            "trunk_key": "BOBI/3G",
+            "last_movement": "31JUL23",
+            "body_type": "BUS",
+            "miles": "7804",
+            "car_group": "N",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177225",
+            "registration_number": "ZH63274",
+            "make": "VWT4 DA5",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4B5",
+            "last_movement": "14MAY24",
+            "body_type": "VAN",
+            "miles": "13230",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [],
+            "fuel_type": "D",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177236",
+            "registration_number": "ZH63588",
+            "make": "TYAR ISG",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4C4",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "24867",
+            "car_group": "B",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841460",
+            "date_out": "13MAY24",
+            "date_due": "18MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177240",
+            "registration_number": "ZH63656",
+            "make": "VWT4 DA5",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4E3",
+            "last_movement": "13MAY24",
+            "body_type": "VAN",
+            "miles": "10109",
+            "car_group": "E",
+            "location_out": [
+                "55321A",
+                "TO0"
+            ],
+            "movement": "716465374",
+            "date_out": "13MAY24",
+            "date_due": "12JUN24",
+            "location_due": [
+                "55321A",
+                "TO0"
+            ],
+            "accessories": [],
+            "fuel_type": "D",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177251",
+            "registration_number": "ZH62228",
+            "make": "MCX6 04G",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4G3",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "13809",
+            "car_group": "M",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841375",
+            "date_out": "13MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "NV",
+                "AM",
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177262",
+            "registration_number": "ZZ35821",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4E4",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "12780",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841924",
+            "date_out": "18MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177273",
+            "registration_number": "ZZ35822",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4E4",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "12000",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493139220",
+            "date_out": "14MAY24",
+            "date_due": "30MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "NV"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177284",
+            "registration_number": "ZZ35823",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4E4",
+            "last_movement": "06MAY24",
+            "body_type": "5DR",
+            "miles": "13606",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134320",
+            "date_out": "06MAY24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177295",
+            "registration_number": "ZZ35825",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/4E4",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "18696",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134471",
+            "date_out": "15MAY24",
+            "date_due": "30MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "NV",
+                "MP",
+                "AM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177306",
+            "registration_number": "ZZ35824",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S23/4F4",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "12100",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134412",
+            "date_out": "13MAY24",
+            "date_due": "27MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177310",
+            "registration_number": "ZH63652",
+            "make": "LNX4 50H",
+            "ignit_key": "50/15000",
+            "trunk_key": "S24/3C3",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "12553",
+            "car_group": "M",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313386",
+            "date_out": "18MAY24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "FM",
+                "PW",
+                "AM",
+                "AB",
+                "IQ",
+                "DV",
+                "PL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177321",
+            "registration_number": "ZH63653",
+            "make": "LNX4 50H",
+            "ignit_key": "50/15000",
+            "trunk_key": "S24/3C3",
+            "last_movement": "24APR24",
+            "body_type": "5DR",
+            "miles": "12584",
+            "car_group": "M",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "FM",
+                "PW",
+                "AM",
+                "AB",
+                "IQ",
+                "DV",
+                "PL",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177332",
+            "registration_number": "ZH62229",
+            "make": "MCX6 04G",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4G3",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "10179",
+            "car_group": "M",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "NV",
+                "AM",
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177343",
+            "registration_number": "PR69115",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/5B3",
+            "last_movement": "07MAY24",
+            "body_type": "5DR",
+            "miles": "9728",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177354",
+            "registration_number": "PR69114",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/5B2",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "10415",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177365",
+            "registration_number": "PR69113",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4F5",
+            "last_movement": "08MAY24",
+            "body_type": "5DR",
+            "miles": "12866",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177376",
+            "registration_number": "PR69112",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/5B2",
+            "last_movement": "09MAY24",
+            "body_type": "5DR",
+            "miles": "6829",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841202",
+            "date_out": "09MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "01379A",
+                "SV0"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177380",
+            "registration_number": "PR69111",
+            "make": "SACR 4PI",
+            "ignit_key": "60/30000",
+            "trunk_key": "S24/4G1",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "15765",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636210",
+            "date_out": "18MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177391",
+            "registration_number": "PR69110",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/5B2",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "10887",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841681",
+            "date_out": "15MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177402",
+            "registration_number": "PR69109",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/5B1",
+            "last_movement": "06MAY24",
+            "body_type": "5DR",
+            "miles": "10620",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258419700",
+            "date_out": "06MAY24",
+            "date_due": "05JUN24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177413",
+            "registration_number": "PR69108",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4F7",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "13847",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841740",
+            "date_out": "15MAY24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177424",
+            "registration_number": "PR69107",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4G4",
+            "last_movement": "13MAY24",
+            "body_type": "5DR",
+            "miles": "9838",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "08203897",
+            "date_out": "13MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "13MAY24",
+            "hold_reason": "MOTORLAMPE"
+        },
+        {
+            "mva": "21177435",
+            "registration_number": "PR69106",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4G1",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "11492",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "493139651",
+            "date_out": "19MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177446",
+            "registration_number": "PR69105",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5B1",
+            "last_movement": "24APR24",
+            "body_type": "5DR",
+            "miles": "11330",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493140620",
+            "date_out": "24APR24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177450",
+            "registration_number": "PR69104",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5B1",
+            "last_movement": "02MAY24",
+            "body_type": "5DR",
+            "miles": "7910",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177461",
+            "registration_number": "PR69103",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5A3",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "11086",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841751",
+            "date_out": "16MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177472",
+            "registration_number": "PR69102",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5A2",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "14670",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08220679",
+            "date_out": "16MAY24",
+            "date_due": "25MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "07MAY24",
+            "hold_reason": "15KSERVICE"
+        },
+        {
+            "mva": "21177483",
+            "registration_number": "PR69101",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5A2",
+            "last_movement": "12MAY24",
+            "body_type": "5DR",
+            "miles": "14536",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177494",
+            "registration_number": "PR69100",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/5A2",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "21601",
+            "car_group": "E",
+            "location_out": [
+                "01993B",
+                "OS9"
+            ],
+            "movement": "238965112",
+            "date_out": "16MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "06124B",
+                "OSL"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177505",
+            "registration_number": "PR68270",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5A1",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "14983",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08220673",
+            "date_out": "16MAY24",
+            "date_due": "25MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177516",
+            "registration_number": "PR68269",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5A1",
+            "last_movement": "08MAY24",
+            "body_type": "5DR",
+            "miles": "12011",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177520",
+            "registration_number": "PR68268",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/5A1",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "14705",
+            "car_group": "E",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "344114842",
+            "date_out": "19MAY24",
+            "date_due": "22MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177531",
+            "registration_number": "PR68267",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/5A1",
+            "last_movement": "10MAY24",
+            "body_type": "5DR",
+            "miles": "16358",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08193942",
+            "date_out": "10MAY24",
+            "date_due": "30MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177542",
+            "registration_number": "ZH63654",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4A5",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "14409",
+            "car_group": "C",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177553",
+            "registration_number": "ZH63655",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3D6",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "13508",
+            "car_group": "C",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313364",
+            "date_out": "18MAY24",
+            "date_due": "23MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177564",
+            "registration_number": "ZH63838",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3C6",
+            "last_movement": "10MAY24",
+            "body_type": "5DR",
+            "miles": "11366",
+            "car_group": "C",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08191713",
+            "date_out": "10MAY24",
+            "date_due": "15MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177575",
+            "registration_number": "ZH63839",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4E8",
+            "last_movement": "12MAY24",
+            "body_type": "5DR",
+            "miles": "14147",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841342",
+            "date_out": "12MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "04690A",
+                "BOO"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177586",
+            "registration_number": "ZH63840",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "P24/4D8",
+            "last_movement": "26FEB24",
+            "body_type": "5DR",
+            "miles": "2925",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "07844343",
+            "date_out": "26FEB24",
+            "date_due": "01MAR24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "03FEB24",
+            "hold_reason": "UTFORKJORING"
+        },
+        {
+            "mva": "21177590",
+            "registration_number": "ZH63841",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4A5",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "15281",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "08220681",
+            "date_out": "16MAY24",
+            "date_due": "25MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "13MAY24",
+            "hold_reason": "SERVICE15K"
+        },
+        {
+            "mva": "21177601",
+            "registration_number": "ZH63842",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4D5",
+            "last_movement": "07MAY24",
+            "body_type": "5DR",
+            "miles": "11063",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134386",
+            "date_out": "07MAY24",
+            "date_due": "04JUN24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177612",
+            "registration_number": "ZH63857",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4F8",
+            "last_movement": "19MAY24",
+            "body_type": "5DR",
+            "miles": "14731",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841946",
+            "date_out": "19MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177623",
+            "registration_number": "ZH63856",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3F1",
+            "last_movement": "30APR24",
+            "body_type": "5DR",
+            "miles": "14334",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177634",
+            "registration_number": "ZH63855",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3E2",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "15178",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636243",
+            "date_out": "18MAY24",
+            "date_due": "19MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177645",
+            "registration_number": "ZH63384",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3E2",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "9774",
+            "car_group": "E",
+            "location_out": [
+                "03817B",
+                "TOS"
+            ],
+            "movement": "238739922",
+            "date_out": "15MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "03817B",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177656",
+            "registration_number": "ZH63383",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3E2",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "11872",
+            "car_group": "E",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "258636232",
+            "date_out": "18MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177660",
+            "registration_number": "ZH63382",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3E2",
+            "last_movement": "06MAY24",
+            "body_type": "5DR",
+            "miles": "1250",
+            "car_group": "E",
+            "location_out": [
+                "57883A",
+                "E9Z"
+            ],
+            "movement": "181684016",
+            "date_out": "06MAY24",
+            "date_due": "24MAY24",
+            "location_due": [
+                "57883A",
+                "E9Z"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177671",
+            "registration_number": "ZH63381",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3E1",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "12580",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841795",
+            "date_out": "16MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177682",
+            "registration_number": "ZH63380",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3E1",
+            "last_movement": "07MAY24",
+            "body_type": "5DR",
+            "miles": "15028",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177693",
+            "registration_number": "ZH63379",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3E1",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "16044",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841596",
+            "date_out": "14MAY24",
+            "date_due": "27MAY24",
+            "location_due": [
+                "55112A",
+                "BM5"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177704",
+            "registration_number": "ZH63378",
+            "make": "SACR 4PI",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/3E1",
+            "last_movement": "12MAY24",
+            "body_type": "5DR",
+            "miles": "9421",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177715",
+            "registration_number": "ZH63866",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4G1",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "13535",
+            "car_group": "E",
+            "location_out": [
+                "50661B",
+                "T1Y"
+            ],
+            "movement": "238313342",
+            "date_out": "16MAY24",
+            "date_due": "27MAY24",
+            "location_due": [
+                "50661B",
+                "T1Y"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177726",
+            "registration_number": "ZH63865",
+            "make": "SACR 4PI",
+            "ignit_key": "60/30000",
+            "trunk_key": "S24/5B2",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "14990",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841854",
+            "date_out": "18MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177730",
+            "registration_number": "ZH63864",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/5B1",
+            "last_movement": "07MAY24",
+            "body_type": "5DR",
+            "miles": "14411",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122840992",
+            "date_out": "07MAY24",
+            "date_due": "17MAY24",
+            "location_due": [
+                "02844A",
+                "TR7"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "08MAY24",
+            "hold_reason": "SERVICE15K"
+        },
+        {
+            "mva": "21177741",
+            "registration_number": "ZH63863",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4G4",
+            "last_movement": "16MAY24",
+            "body_type": "5DR",
+            "miles": "14032",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841806",
+            "date_out": "16MAY24",
+            "date_due": "20MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177752",
+            "registration_number": "ZH63862",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4B3",
+            "last_movement": "22APR24",
+            "body_type": "5DR",
+            "miles": "9803",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "SR",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177763",
+            "registration_number": "ZH63861",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4G1",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "29533",
+            "car_group": "E",
+            "location_out": [
+                "01538A",
+                "AG9"
+            ],
+            "movement": "903505411",
+            "date_out": "15MAY24",
+            "date_due": "17MAY24",
+            "location_due": [
+                "02361A",
+                "GY4"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177774",
+            "registration_number": "ZH63860",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4F6",
+            "last_movement": "07APR24",
+            "body_type": "5DR",
+            "miles": "13913",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177785",
+            "registration_number": "ZH63859",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4G4",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "12465",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "493139150",
+            "date_out": "18MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177796",
+            "registration_number": "ZH63858",
+            "make": "SACR 4PI",
+            "ignit_key": "60/30000",
+            "trunk_key": "S24/4F7",
+            "last_movement": "12MAY24",
+            "body_type": "5DR",
+            "miles": "15936",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177800",
+            "registration_number": "ZH63867",
+            "make": "SACR 4PI",
+            "ignit_key": "60/15000",
+            "trunk_key": "S24/4G4",
+            "last_movement": "15MAY24",
+            "body_type": "5DR",
+            "miles": "10539",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841655",
+            "date_out": "15MAY24",
+            "date_due": "29MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177811",
+            "registration_number": "ZH62230",
+            "make": "MCX6 04G",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4G3",
+            "last_movement": "10MAY24",
+            "body_type": "5DR",
+            "miles": "9350",
+            "car_group": "M",
+            "location_out": [
+                "57883A",
+                "E9Z"
+            ],
+            "movement": "181683913",
+            "date_out": "10MAY24",
+            "date_due": "09JUN24",
+            "location_due": [
+                "57883A",
+                "E9Z"
+            ],
+            "accessories": [
+                "NV",
+                "AM",
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177822",
+            "registration_number": "ZH62231",
+            "make": "MCX6 04G",
+            "ignit_key": "OW/20000",
+            "trunk_key": "S24/4G3",
+            "last_movement": "18MAY24",
+            "body_type": "5DR",
+            "miles": "14130",
+            "car_group": "M",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [
+                "NV",
+                "AM",
+                "DL",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON HAND,IDLE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177833",
+            "registration_number": "ZH63931",
+            "make": "TCHR LTA",
+            "ignit_key": "OW/15000",
+            "trunk_key": "S24/4B3",
+            "last_movement": "17APR24",
+            "body_type": "5DR",
+            "miles": "13101",
+            "car_group": "C",
+            "location_out": [
+                "02844A",
+                "TR7"
+            ],
+            "movement": "493134154",
+            "date_out": "17APR24",
+            "date_due": "16MAY24",
+            "location_due": [
+                "01388A",
+                "T6O"
+            ],
+            "accessories": [
+                "CR",
+                "PW",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE,OVDU",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177844",
+            "registration_number": "ZH63934",
+            "make": "TR4G 4PI",
+            "ignit_key": "OW/30000",
+            "trunk_key": "S24/3F2",
+            "last_movement": "14MAY24",
+            "body_type": "5DR",
+            "miles": "18015",
+            "car_group": "E",
+            "location_out": [
+                "04941A",
+                "TOS"
+            ],
+            "movement": "122841633",
+            "date_out": "14MAY24",
+            "date_due": "21MAY24",
+            "location_due": [
+                "04941A",
+                "TOS"
+            ],
+            "accessories": [
+                "CR",
+                "PS",
+                "MP",
+                "AM",
+                "IQ",
+                "DV",
+                "CS",
+                "PH",
+                "XM"
+            ],
+            "fuel_type": "G",
+            "status": "ON MOVE",
+            "hold_date": "",
+            "hold_reason": ""
+        },
+        {
+            "mva": "21177855",
+            "registration_number": "BT28627",
+            "make": "MOUT 4X4",
+            "ignit_key": "OW/50000",
+            "trunk_key": "S24/VER",
+            "last_movement": "09MAY24",
+            "body_type": "5DR",
+            "miles": "2",
+            "car_group": "E",
+            "location_out": [],
+            "movement": "",
+            "date_out": "",
+            "date_due": "",
+            "location_due": [],
+            "accessories": [],
+            "fuel_type": "G",
+            "status": "UNAVAIL",
+            "hold_date": "09MAY24",
+            "hold_reason": "JUL24"
+        }
+    ]
+}
