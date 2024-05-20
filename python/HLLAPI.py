@@ -626,11 +626,11 @@ def get_out_of_town_rentals():
 
     total_out_of_town_rentals = []
     
-    for month in range(6, 7):
+    for month in range(6, 9):
         data = get_out_of_town_rentals_month(num_to_months[month], "2024", "TOS", "A")
         total_out_of_town_rentals.append(data)
 
-    for month in range(6, 7):
+    for month in range(6, 9):
         data = get_out_of_town_rentals_month(num_to_months[month], "2024", "TR7", "A")
         total_out_of_town_rentals.append(data)
     
@@ -652,11 +652,11 @@ def get_out_of_town_rentals():
     
     total_out_of_town_rentals = []
     
-    for month in range(6, 7):
+    for month in range(6, 9):
         data = get_out_of_town_rentals_month(num_to_months[month], "2024", "TOS", "B")
         total_out_of_town_rentals.append(data)
         
-    for month in range(6, 7):
+    for month in range(6, 9):
         data = get_out_of_town_rentals_month(num_to_months[month], "2024", "T1Y", "B")
         total_out_of_town_rentals.append(data)
 
