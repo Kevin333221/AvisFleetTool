@@ -1,4 +1,3 @@
-from matplotlib.widgets import Slider
 import matplotlib.pyplot as plt
 import pandas as pd
 import json

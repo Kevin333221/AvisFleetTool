@@ -2,7 +2,6 @@ import ctypes
 import time
 import json
 import datetime
-import itertools
 
 # Load the HLLAPI DLL
 hllapi_dll = ctypes.windll.LoadLibrary(r".\Backend\whlapi32.dll")
@@ -13,9 +12,13 @@ hllapi.argtypes = [ctypes.POINTER(ctypes.c_short), ctypes.c_char_p, ctypes.POINT
     
 cursor_locations = {
     "CMD_LINE": 7,
+    
+    "x502_PAC": 82,
+    
     "x515_ACTION": 89,
     "x515_RPT": 98,
     "x515_PAGE_NUM": 474,
+    
     "x601_ACTION": 91,
     "x801_ACTION": 171,
     
@@ -290,6 +293,50 @@ def e515(location, date=""):
                 
         send_key_sequence(f'@0')
 
+def x502(rac):
+        
+    if rac == "A":
+        send_key_sequence(f'@R@0/FOR X502@E')
+    else:
+        send_key_sequence(f'@R@0/FOR e502@E')
+    
+    ready = False
+    while not ready:
+        ret = call_hllapi(7, "", 0)[2]
+        if ret == cursor_locations["x502_PAC"]:
+            ready = True
+
+    return
+
+def xe502_cont(car_group: str, date: str, out_sta: str, in_sta: str, length: int):
+    
+    in_date = (f"{int(date[0:2])+length:02}") + date[2:5].upper() + "24"
+    
+    if int(in_date[0:2]) > months[date[2:5].upper()]:
+        in_date = (f"{months[date[2:5].upper()]:02}") + date[2:5].upper() + "24"
+    
+    send_key_sequence(f'RS@T{out_sta}@T@T{date}/1000WI@T@T{car_group}@T@T{in_sta}@T@T{in_date}/1000@E')
+    
+    ready = False
+    while not ready:
+        ret = call_hllapi(7, "", 0)[2]
+        if ret == cursor_locations["x502_PAC"]:
+            ready = True
+            
+    send_key_sequence(f'@x')
+    
+    ready = False
+    ret = 0
+    while not ready:
+        ret = call_hllapi(6, f"TOTL=", 0)
+        if ret[3] == 0:
+            ready = True
+    
+    price = call_hllapi(8, "0000000000000000000000", ret[2]+8)[1].decode('ascii').strip()
+    
+    send_key_sequence(f'@0@T')
+    return price, int(in_date[0:2]) - int(date[0:2])
+
 def xe515_cont(date):
     send_key_sequence(f'@T@T@T@T{date}@T@F@E')
     ready = False
@@ -548,14 +595,9 @@ def get_out_of_town_rentals_month(month, year, station, rac_code):
     x515(station, rac_code, f"01{month.upper()}{year}")
     
     days_in_month = months[month]
-    customers, _ = get_customers()
     out_of_town_customers = []
     
-    for customer in customers:
-        if len(customer["in_sta"].strip()) != 0 and customer["in_sta"] != "TOS" and customer["in_sta"] != "TR7" and customer["in_sta"] != "T1Y":
-            out_of_town_customers.append(customer)
-    
-    for i in range(2, days_in_month+1):
+    for i in range(1, days_in_month+1):
         
         xe515_cont(f"{i:02}{month.upper()}{year}")
         customers, _ = get_customers()
@@ -563,7 +605,7 @@ def get_out_of_town_rentals_month(month, year, station, rac_code):
         for customer in customers:
             if len(customer["in_sta"].strip()) != 0 and customer["in_sta"] != "TOS" and customer["in_sta"] != "TR7" and customer["in_sta"] != "T1Y":
                 new_customer = {
-                    "date": f"{i:02}{month.upper()}{year}",
+                    "date": f"{i:02}{month.upper()}",
                     "length": customer["exp_lor"],
                     "in_sta": customer["in_sta"],
                     "out_sta": station,
@@ -617,7 +659,7 @@ def get_total_data():
     merge_data("TOTAL_A", "TOTAL_B", "TOTAL")
 
 def get_out_of_town_rentals():
-    
+      
     session_id = 'H'
     return_code = call_hllapi(1, session_id, 0)[3]
     if return_code != 0:
@@ -638,9 +680,9 @@ def get_out_of_town_rentals():
     merged_data = {"data": []}
     for item in total_out_of_town_rentals:
         merged_data["data"] += item["data"]
-
-    # Sort the merged data based on the "date" field
-    merged_data["data"] = sorted(merged_data["data"], key=lambda x: x["date"])
+    
+    with open("python/data/OUT_OF_TOWN_A.json", "w") as file:
+        file.write(json.dumps(merged_data))
     
     disconnect_from_session(session_id)
     
@@ -666,19 +708,46 @@ def get_out_of_town_rentals():
     merged_data1 = {"data": []}
     for item in total_out_of_town_rentals:
         merged_data1["data"] += item["data"]
-        
-    # Sort the merged data based on the "date" field
-    merged_data1["data"] = sorted(merged_data1["data"], key=lambda x: x["date"])
-    
-    # Merge the two datasets
-    merged_data["data"] += merged_data1["data"]
-    
-    # Sort the merged data based on the "date" field
-    merged_data["data"] = sorted(merged_data["data"], key=lambda x: x["date"])
-    
-    with open("python/data/OUT_OF_TOWN.json", "w") as file:
-        file.write(json.dumps(merged_data))
-    
-get_out_of_town_rentals()
 
+    with open("python/data/OUT_OF_TOWN_B.json", "w") as file:
+        file.write(json.dumps(merged_data1))        
+
+    # Merge and sort the data
+    total_merged_data = {"data": []}
+    total_merged_data["data"] = merged_data["data"] + merged_data1["data"]
+        
+    # Function to convert date format
+    def parse_date(date_str):
+        return datetime.datetime.strptime(date_str, "%d%b%Y")
+
+    total_merged_data["data"] = sorted(total_merged_data["data"], key=lambda x: parse_date(x["date"]))
+    
+    with open("python/data/OUT_OF_TOWN_TOTAL.json", "w") as file:
+        file.write(json.dumps(total_merged_data))
+        
+    # Write the data to a txt file
+    with open("python/data/Enveisleier_Juni_Juli_August.txt", "w") as file:
+        for item in total_merged_data["data"]:
+            file.write(f"{item['date']} - {item['out_sta']} to {item['in_sta']} - {item['length']} - {item['car_group']}\n")
+    
+def get_price(car_group, date, out_sta, in_sta, length):
+    return xe502_cont(car_group, date, out_sta, in_sta, length)
+    
+def get_prices_for_x_days(rac, car_group, month, out_sta, in_sta, length):
+    x502(rac)
+    for i in range(1, months[month]):
+        price, rent_days = get_price(car_group, f"{i:02}{month.upper()}24", out_sta, in_sta, length)
+        print(f"Price for a {rent_days}-day rental with car group {car_group} - {i:02}{month.upper()}24 is {price} NOK")
+
+session_id = 'H'
+return_code = call_hllapi(1, session_id, 0)[3]
+if return_code != 0:
+    print('Failed to connect to session')
+    exit()
+
+get_prices_for_x_days("A", "C", "AUG", "TOS", "TOS", 3)
+
+disconnect_from_session(session_id)
+
+# get_out_of_town_rentals()
 # get_total_data()
