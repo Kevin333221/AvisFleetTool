@@ -310,12 +310,12 @@ def x502(rac):
 
 def xe502_cont(car_group: str, date: str, out_sta: str, in_sta: str, length: int):
     
-    in_date = (f"{int(date[0:2])+length:02}") + date[2:5].upper() + "24"
+    in_date = (f"{int(date[0:2])+length:02}") + date[2:5].upper() + "24" + "/" + date[8:]
     
     if int(in_date[0:2]) > months[date[2:5].upper()]:
-        in_date = (f"{months[date[2:5].upper()]:02}") + date[2:5].upper() + "24"
+        in_date = (f"{months[date[2:5].upper()]:02}") + date[2:5].upper() + "24" + "/" + date[8:]
     
-    send_key_sequence(f'RS@T{out_sta}@T@T{date}/1000WI@T@T{car_group}@T@T{in_sta}@T@T{in_date}/1000@E')
+    send_key_sequence(f'RS@T{out_sta}@T@T{date}WI@T@T{car_group}@T@T{in_sta}@T@T{in_date}@E')
     
     ready = False
     while not ready:
@@ -733,21 +733,52 @@ def get_out_of_town_rentals():
 def get_price(car_group, date, out_sta, in_sta, length):
     return xe502_cont(car_group, date, out_sta, in_sta, length)
     
-def get_prices_for_x_days(rac, car_group, month, out_sta, in_sta, length):
+def get_prices_for_x_days_for_the_whole_month(rac, car_group, month, out_sta, in_sta, length):
+    
+    session_id = "H"
+    if rac == "A":
+        return_code = call_hllapi(1, session_id, 0)[3]
+        if return_code != 0:
+            print('Failed to connect to session')
+            exit()
+    else:
+        session_id = "B"
+        return_code = call_hllapi(1, session_id, 0)[3]
+        if return_code != 0:
+            print('Failed to connect to session')
+            exit()
+    
     x502(rac)
     for i in range(1, months[month]):
-        price, rent_days = get_price(car_group, f"{i:02}{month.upper()}24", out_sta, in_sta, length)
+        price, rent_days = get_price(car_group, f"{i:02}{month.upper()}24/1000", out_sta, in_sta, length)
         print(f"Price for a {rent_days}-day rental with car group {car_group} - {i:02}{month.upper()}24 is {price} NOK")
 
-session_id = 'H'
-return_code = call_hllapi(1, session_id, 0)[3]
-if return_code != 0:
-    print('Failed to connect to session')
-    exit()
+    disconnect_from_session(session_id)
 
-get_prices_for_x_days("A", "C", "AUG", "TOS", "TOS", 3)
+def get_prices_for_every_car_group(rac, date, out_sta, in_sta, length):
+        
+    session_id = "H"
+    if rac == "A":
+        return_code = call_hllapi(1, session_id, 0)[3]
+        if return_code != 0:
+            print('Failed to connect to session')
+            exit()
+    else:
+        session_id = "B"
+        return_code = call_hllapi(1, session_id, 0)[3]
+        if return_code != 0:
+            print('Failed to connect to session')
+            exit()
+    
+    x502(rac)
+    for car_group in ["B", "C", "D", "E", "H", "I", "K", "M", "N"]:
+        price, rent_days = get_price(car_group, date, out_sta, in_sta, length)
+        print(f"{rent_days}-day rental - {date} - car group {car_group} is {price} NOK")
+    
+    disconnect_from_session(session_id)
 
-disconnect_from_session(session_id)
+# get_prices_for_every_car_group("A", "11AUG24/1000", "TOS", "TOS", 1)
 
+get_prices_for_x_days_for_the_whole_month("A", "C", "AUG", "TOS", "TOS", 1)
 # get_out_of_town_rentals()
-# get_total_data()
+# get_total_data()  
