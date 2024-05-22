@@ -1,0 +1,512 @@
+[
+    {
+        "date": "22 MAY",
+        "available_cars": 191,
+        "on_rent_cars": 0
+    },
+    {
+        "date": "23 MAY",
+        "available_cars": 169,
+        "on_rent_cars": 21
+    },
+    {
+        "date": "24 MAY",
+        "available_cars": 163,
+        "on_rent_cars": 26
+    },
+    {
+        "date": "25 MAY",
+        "available_cars": 158,
+        "on_rent_cars": 29
+    },
+    {
+        "date": "26 MAY",
+        "available_cars": 153,
+        "on_rent_cars": 34
+    },
+    {
+        "date": "27 MAY",
+        "available_cars": 137,
+        "on_rent_cars": 50
+    },
+    {
+        "date": "28 MAY",
+        "available_cars": 125,
+        "on_rent_cars": 61
+    },
+    {
+        "date": "29 MAY",
+        "available_cars": 116,
+        "on_rent_cars": 66
+    },
+    {
+        "date": "30 MAY",
+        "available_cars": 88,
+        "on_rent_cars": 88
+    },
+    {
+        "date": "31 MAY",
+        "available_cars": 77,
+        "on_rent_cars": 97
+    },
+    {
+        "date": "01 JUN",
+        "available_cars": 66,
+        "on_rent_cars": 108
+    },
+    {
+        "date": "02 JUN",
+        "available_cars": 71,
+        "on_rent_cars": 102
+    },
+    {
+        "date": "03 JUN",
+        "available_cars": 53,
+        "on_rent_cars": 116
+    },
+    {
+        "date": "04 JUN",
+        "available_cars": 48,
+        "on_rent_cars": 120
+    },
+    {
+        "date": "05 JUN",
+        "available_cars": 34,
+        "on_rent_cars": 129
+    },
+    {
+        "date": "06 JUN",
+        "available_cars": 34,
+        "on_rent_cars": 128
+    },
+    {
+        "date": "07 JUN",
+        "available_cars": 19,
+        "on_rent_cars": 141
+    },
+    {
+        "date": "08 JUN",
+        "available_cars": 30,
+        "on_rent_cars": 129
+    },
+    {
+        "date": "09 JUN",
+        "available_cars": 39,
+        "on_rent_cars": 120
+    },
+    {
+        "date": "10 JUN",
+        "available_cars": 24,
+        "on_rent_cars": 128
+    },
+    {
+        "date": "11 JUN",
+        "available_cars": 7,
+        "on_rent_cars": 141
+    },
+    {
+        "date": "12 JUN",
+        "available_cars": -5,
+        "on_rent_cars": 149
+    },
+    {
+        "date": "13 JUN",
+        "available_cars": -12,
+        "on_rent_cars": 155
+    },
+    {
+        "date": "14 JUN",
+        "available_cars": -15,
+        "on_rent_cars": 154
+    },
+    {
+        "date": "15 JUN",
+        "available_cars": -22,
+        "on_rent_cars": 159
+    },
+    {
+        "date": "16 JUN",
+        "available_cars": -31,
+        "on_rent_cars": 163
+    },
+    {
+        "date": "17 JUN",
+        "available_cars": -40,
+        "on_rent_cars": 170
+    },
+    {
+        "date": "18 JUN",
+        "available_cars": -29,
+        "on_rent_cars": 157
+    },
+    {
+        "date": "19 JUN",
+        "available_cars": -35,
+        "on_rent_cars": 162
+    },
+    {
+        "date": "20 JUN",
+        "available_cars": -40,
+        "on_rent_cars": 166
+    },
+    {
+        "date": "21 JUN",
+        "available_cars": -41,
+        "on_rent_cars": 165
+    },
+    {
+        "date": "22 JUN",
+        "available_cars": -35,
+        "on_rent_cars": 156
+    },
+    {
+        "date": "23 JUN",
+        "available_cars": -41,
+        "on_rent_cars": 160
+    },
+    {
+        "date": "24 JUN",
+        "available_cars": -40,
+        "on_rent_cars": 157
+    },
+    {
+        "date": "25 JUN",
+        "available_cars": -36,
+        "on_rent_cars": 152
+    },
+    {
+        "date": "26 JUN",
+        "available_cars": -34,
+        "on_rent_cars": 150
+    },
+    {
+        "date": "27 JUN",
+        "available_cars": -33,
+        "on_rent_cars": 149
+    },
+    {
+        "date": "28 JUN",
+        "available_cars": -23,
+        "on_rent_cars": 139
+    },
+    {
+        "date": "29 JUN",
+        "available_cars": -17,
+        "on_rent_cars": 132
+    },
+    {
+        "date": "30 JUN",
+        "available_cars": -8,
+        "on_rent_cars": 122
+    },
+    {
+        "date": "01 JUL",
+        "available_cars": -12,
+        "on_rent_cars": 126
+    },
+    {
+        "date": "02 JUL",
+        "available_cars": -14,
+        "on_rent_cars": 125
+    },
+    {
+        "date": "03 JUL",
+        "available_cars": -23,
+        "on_rent_cars": 131
+    },
+    {
+        "date": "04 JUL",
+        "available_cars": -22,
+        "on_rent_cars": 128
+    },
+    {
+        "date": "05 JUL",
+        "available_cars": -22,
+        "on_rent_cars": 126
+    },
+    {
+        "date": "06 JUL",
+        "available_cars": -29,
+        "on_rent_cars": 131
+    },
+    {
+        "date": "07 JUL",
+        "available_cars": -32,
+        "on_rent_cars": 131
+    },
+    {
+        "date": "08 JUL",
+        "available_cars": -32,
+        "on_rent_cars": 127
+    },
+    {
+        "date": "09 JUL",
+        "available_cars": -35,
+        "on_rent_cars": 128
+    },
+    {
+        "date": "10 JUL",
+        "available_cars": -45,
+        "on_rent_cars": 135
+    },
+    {
+        "date": "11 JUL",
+        "available_cars": -45,
+        "on_rent_cars": 132
+    },
+    {
+        "date": "12 JUL",
+        "available_cars": -58,
+        "on_rent_cars": 144
+    },
+    {
+        "date": "13 JUL",
+        "available_cars": -49,
+        "on_rent_cars": 134
+    },
+    {
+        "date": "14 JUL",
+        "available_cars": -54,
+        "on_rent_cars": 138
+    },
+    {
+        "date": "15 JUL",
+        "available_cars": -69,
+        "on_rent_cars": 149
+    },
+    {
+        "date": "16 JUL",
+        "available_cars": -71,
+        "on_rent_cars": 150
+    },
+    {
+        "date": "17 JUL",
+        "available_cars": -81,
+        "on_rent_cars": 157
+    },
+    {
+        "date": "18 JUL",
+        "available_cars": -87,
+        "on_rent_cars": 159
+    },
+    {
+        "date": "19 JUL",
+        "available_cars": -92,
+        "on_rent_cars": 162
+    },
+    {
+        "date": "20 JUL",
+        "available_cars": -88,
+        "on_rent_cars": 158
+    },
+    {
+        "date": "21 JUL",
+        "available_cars": -90,
+        "on_rent_cars": 158
+    },
+    {
+        "date": "22 JUL",
+        "available_cars": -104,
+        "on_rent_cars": 168
+    },
+    {
+        "date": "23 JUL",
+        "available_cars": -106,
+        "on_rent_cars": 166
+    },
+    {
+        "date": "24 JUL",
+        "available_cars": -109,
+        "on_rent_cars": 166
+    },
+    {
+        "date": "25 JUL",
+        "available_cars": -110,
+        "on_rent_cars": 166
+    },
+    {
+        "date": "26 JUL",
+        "available_cars": -103,
+        "on_rent_cars": 158
+    },
+    {
+        "date": "27 JUL",
+        "available_cars": -97,
+        "on_rent_cars": 150
+    },
+    {
+        "date": "28 JUL",
+        "available_cars": -90,
+        "on_rent_cars": 141
+    },
+    {
+        "date": "29 JUL",
+        "available_cars": -96,
+        "on_rent_cars": 146
+    },
+    {
+        "date": "30 JUL",
+        "available_cars": -83,
+        "on_rent_cars": 131
+    },
+    {
+        "date": "31 JUL",
+        "available_cars": -86,
+        "on_rent_cars": 133
+    },
+    {
+        "date": "01 AUG",
+        "available_cars": -87,
+        "on_rent_cars": 133
+    },
+    {
+        "date": "02 AUG",
+        "available_cars": -99,
+        "on_rent_cars": 142
+    },
+    {
+        "date": "03 AUG",
+        "available_cars": -110,
+        "on_rent_cars": 144
+    },
+    {
+        "date": "04 AUG",
+        "available_cars": -104,
+        "on_rent_cars": 138
+    },
+    {
+        "date": "05 AUG",
+        "available_cars": -106,
+        "on_rent_cars": 137
+    },
+    {
+        "date": "06 AUG",
+        "available_cars": -109,
+        "on_rent_cars": 136
+    },
+    {
+        "date": "07 AUG",
+        "available_cars": -122,
+        "on_rent_cars": 148
+    },
+    {
+        "date": "08 AUG",
+        "available_cars": -118,
+        "on_rent_cars": 143
+    },
+    {
+        "date": "09 AUG",
+        "available_cars": -107,
+        "on_rent_cars": 132
+    },
+    {
+        "date": "10 AUG",
+        "available_cars": -101,
+        "on_rent_cars": 125
+    },
+    {
+        "date": "11 AUG",
+        "available_cars": -94,
+        "on_rent_cars": 117
+    },
+    {
+        "date": "12 AUG",
+        "available_cars": -117,
+        "on_rent_cars": 138
+    },
+    {
+        "date": "13 AUG",
+        "available_cars": -124,
+        "on_rent_cars": 144
+    },
+    {
+        "date": "14 AUG",
+        "available_cars": -127,
+        "on_rent_cars": 145
+    },
+    {
+        "date": "15 AUG",
+        "available_cars": -140,
+        "on_rent_cars": 156
+    },
+    {
+        "date": "16 AUG",
+        "available_cars": -146,
+        "on_rent_cars": 160
+    },
+    {
+        "date": "17 AUG",
+        "available_cars": -146,
+        "on_rent_cars": 159
+    },
+    {
+        "date": "18 AUG",
+        "available_cars": -141,
+        "on_rent_cars": 152
+    },
+    {
+        "date": "19 AUG",
+        "available_cars": -147,
+        "on_rent_cars": 157
+    },
+    {
+        "date": "20 AUG",
+        "available_cars": -152,
+        "on_rent_cars": 161
+    },
+    {
+        "date": "21 AUG",
+        "available_cars": -145,
+        "on_rent_cars": 153
+    },
+    {
+        "date": "22 AUG",
+        "available_cars": -143,
+        "on_rent_cars": 151
+    },
+    {
+        "date": "23 AUG",
+        "available_cars": -142,
+        "on_rent_cars": 149
+    },
+    {
+        "date": "24 AUG",
+        "available_cars": -137,
+        "on_rent_cars": 141
+    },
+    {
+        "date": "25 AUG",
+        "available_cars": -129,
+        "on_rent_cars": 131
+    },
+    {
+        "date": "26 AUG",
+        "available_cars": -128,
+        "on_rent_cars": 129
+    },
+    {
+        "date": "27 AUG",
+        "available_cars": -115,
+        "on_rent_cars": 116
+    },
+    {
+        "date": "28 AUG",
+        "available_cars": -107,
+        "on_rent_cars": 107
+    },
+    {
+        "date": "29 AUG",
+        "available_cars": -107,
+        "on_rent_cars": 106
+    },
+    {
+        "date": "30 AUG",
+        "available_cars": -114,
+        "on_rent_cars": 113
+    },
+    {
+        "date": "31 AUG",
+        "available_cars": -113,
+        "on_rent_cars": 111
+    }
+]
