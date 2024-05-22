@@ -251,14 +251,28 @@ def xe515_cont(date):
         if ret == cursor_locations["x515_ACTION"]:
             ready = True
 
-def x601(location):
-    send_key_sequence(f'@R@0/FOR X601@E')
+def x601(location, rac):
+    
+    if rac == "A":
+        send_key_sequence(f'@R@0/FOR X601@E')
+    else:
+        send_key_sequence(f'@R@0/FOR e601@E')
+        
     ready = False
     while not ready:
         ret = call_hllapi(7, "", 0)[2]
         if ret == cursor_locations["x601_ACTION"]:
             ready = True
+            
     send_key_sequence(f'NC@T{location}@E')
+    
+    ready = False
+    while not ready:
+        ret = call_hllapi(7, "", 0)[2]
+        if ret == cursor_locations["x601_ACTION"]:
+            ready = True
+        
+    send_key_sequence(f'@0')
     
 def format_data(data):
     lines = [""]
@@ -683,8 +697,79 @@ def get_prices_for_every_car_group(rac, date, out_sta, in_sta, length):
     
     disconnect_from_session(session_id)
 
-# get_prices_for_every_car_group("A", "11AUG24/1000", "TOS", "TOS", 1)
+def get_all_customers_from_month(station, rac, month, year):
+    
+    x515(station, rac, f"01{month.upper()}{year}")
+    customers = []
+    for i in range(1, months[month]+1):
+        xe515_cont(f"{i:02}{month.upper()}{year}")
+        customer, _ = get_customers()
+        
+        for c in customer:
+            
+            if station != "TO0" or station != "TO7":
+                c["car_type"] = "Person"
+            else:
+                c["car_type"] = "Van"
+                
+            c["rac"] = rac
+            c["out_station"] = station
+            c["out_date"] = f"{i:02}"
+            c["month"] = month
+            c["year"] = year
+            customers.append(c)
+    
+    return customers
 
-get_prices_for_x_days_for_the_whole_month("A", "C", "AUG", "TOS", "TOS", 1)
+def get_and_save_excel_data():
+    session_id = "H"
+    return_code = call_hllapi(1, session_id, 0)[3]
+    if return_code != 0:
+        print('Failed to connect to session')
+        exit()
+        
+    x601("64442", "A")
+
+    total_customers = []
+
+    for station in stations_A:
+        customers = get_all_customers_from_month(station, "A", "JUN", "2024")
+        total_customers += customers
+
+        customers = get_all_customers_from_month(station, "A", "JUL", "2024")
+        total_customers += customers
+
+        customers = get_all_customers_from_month(station, "A", "AUG", "2024")
+        total_customers += customers
+
+    disconnect_from_session(session_id)
+
+    session_id = "B"
+    return_code = call_hllapi(1, session_id, 0)[3]
+    if return_code != 0:
+        print('Failed to connect to session')
+        exit()
+
+    x601("64442", "B")
+
+    for station in stations_B:
+        customers = get_all_customers_from_month(station, "B", "JUN", "2024")
+        total_customers += customers
+
+        customers = get_all_customers_from_month(station, "B", "JUL", "2024")
+        total_customers += customers
+
+        customers = get_all_customers_from_month(station, "B", "AUG", "2024")
+        total_customers += customers
+
+    disconnect_from_session(session_id)
+
+    with open(f"python/data/TOTAL_JUN_AUG.json", "w") as file:
+        file.write(json.dumps(total_customers))
+
+
+get_prices_for_every_car_group("A", "01JUL24/1000", "TR7", "TR7", 1)
+# get_prices_for_x_days_for_the_whole_month("A", "C", "AUG", "TOS", "TOS", 1)
+
 # get_out_of_town_rentals()
-# get_total_data()  
+# get_and_save_excel_data()

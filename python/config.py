@@ -91,5 +91,5 @@ months_to_num = {
     "DEC": 12
 }
 
-stations_A = ["TOS", "TR7"]
+stations_A = ["TOS", "TR7", "TO0", "TO7"]
 stations_B = ["TOS", "T1Y"]
