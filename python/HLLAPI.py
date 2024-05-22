@@ -227,8 +227,8 @@ def xe502_cont(car_group: str, date: str, out_sta: str, in_sta: str, length: int
     while not ready:
         ret = call_hllapi(7, "", 0)[2]
         if ret == cursor_locations["x502_PAC"]:
-            ready = True
-            
+            ready = True    
+        
     send_key_sequence(f'@x')
     
     ready = False
@@ -769,7 +769,7 @@ def get_and_save_excel_data():
 
 
 get_prices_for_every_car_group("A", "01JUL24/1000", "TR7", "TR7", 1)
-# get_prices_for_x_days_for_the_whole_month("A", "C", "AUG", "TOS", "TOS", 1)
+# get_prices_for_x_days_for_the_whole_month("A", "E", "AUG", "TOS", "TOS", 1)
 
 # get_out_of_town_rentals()
 # get_and_save_excel_data()
