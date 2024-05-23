@@ -1,8 +1,9 @@
-    
 cursor_locations = {
     "CMD_LINE": 7,
     
     "x502_PAC": 82,
+    
+    "WZTDOC_ACTION": 87,
     
     "x515_ACTION": 89,
     "x515_RPT": 98,
@@ -90,6 +91,9 @@ months_to_num = {
     "NOV": 11,
     "DEC": 12
 }
+
+year = "2024"
+year2D = "24"
 
 stations_A = ["TOS", "TR7"]
 stations_B = ["TOS", "T1Y"]

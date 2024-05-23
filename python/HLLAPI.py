@@ -2,6 +2,8 @@ import ctypes
 import time
 import json
 import datetime
+# import pygame
+
 from config import *
 from car import Car
 
@@ -11,6 +13,13 @@ hllapi_dll = ctypes.windll.LoadLibrary(r".\python\whlapi32.dll")
 # Define the HLLAPI function prototype
 hllapi = hllapi_dll.hllapi
 hllapi.argtypes = [ctypes.POINTER(ctypes.c_short), ctypes.c_char_p, ctypes.POINTER(ctypes.c_short), ctypes.POINTER(ctypes.c_short)]
+
+def wait_for_ready(loc):
+    ready = False
+    while not ready:
+        ret = call_hllapi(7, "", 0)[2]
+        if ret == cursor_locations[loc]:
+            ready = True
 
 def read_file(file_path):
     with open(file_path, 'r') as file:
@@ -83,6 +92,12 @@ def call_hllapi(function_code, data, reserved):
     # Return the function code, data, length and reserved values
     return function_code.value, data.value, length.value, reserved.value
 
+def connect_to_session(session_id):
+    return_code = call_hllapi(1, session_id, 0)[3]
+    if return_code != 0:
+        print('Failed to connect to session')
+        exit()
+        
 def disconnect_from_session(session_id):
     return_code = call_hllapi(2, session_id, 0)
     return return_code
@@ -243,6 +258,65 @@ def xe601(location, rac):
         
     send_key_sequence(f'@0')
     
+def wztdoc(rac, station, rpt_type="RO", date=""):
+    
+    send_key_sequence(f'@R@0/FOR WZTDOC@E')
+    wait_for_ready("WZTDOC_ACTION")
+    
+    if date:
+        send_key_sequence(f"DS{rpt_type}{station}@T{rac}{date}@E")
+    else:
+        send_key_sequence(f"DS{rpt_type}{station}@T{rac}@E")
+    
+    wait_for_ready("WZTDOC_ACTION")
+
+def get_wztdoc_data():
+    customers = []
+    isEnd = False
+    
+    while not isEnd:
+        isEnd = True
+        
+        image = call_hllapi(5, " "*1920, 0)[1]
+        data = image.decode('ascii')
+        lines = format_data(data)
+        
+        page = 1
+        for line in lines:
+            print(line)
+    #         if line[0] == "3":
+    #             press_page_up()
+    #             page += 1
+                
+    #             # Search for the page number to be correct in order to move on
+    #             ready = False
+    #             while not ready:
+    #                 ret = call_hllapi(6, f"PAGE 0{page}", 0)
+    #                 if ret[3] == 0:
+    #                     ready = True
+                
+    #             isEnd = False
+            
+    #         elif line[0:3] == "END":
+    #             break
+            
+    #         elif ord(line[0]) != 32 and line[0:8] != "VERIFIED":
+                
+    #             # print(f"Adding customer {customer_count+1} to the list, page {page}")
+                
+    #             customer = {}
+    #             for key, value in columns.items():
+    #                 if line[value[0]:value[1]] == " ":
+    #                     customer[key] = line[value[0]+1:value[1]+1]
+    #                 else:
+    #                     customer[key] = line[value[0]:value[1]]
+                    
+    #             customers.append(customer)
+    #             customer_count += 1
+    
+    # send_key_sequence(f"@0")
+    # return customers, customer_count
+
 def format_data(data):
     lines = [""]
 
@@ -332,7 +406,7 @@ def get_number_of_car_groups_in_month(station: str, month: str, year: str, rac_c
         }
     
     
-    x515(f"{station.upper()}", rac_code, f"01{month.upper()}{year}")
+    xe515(f"{station.upper()}", rac_code, f"01{month.upper()}{year}")
         
     customers, customer_count = get_customers()
     Days[f"01"]["Total Customers"] = customer_count
@@ -359,8 +433,10 @@ def get_number_of_car_groups_in_month(station: str, month: str, year: str, rac_c
     return data
 
 def get_cursor_location():
+    connect_to_session("H")
     time.sleep(3)
-    return call_hllapi(7, "", 0)
+    print(call_hllapi(7, "", 0))
+    disconnect_from_session("H")
 
 def place_cursor(location):
     call_hllapi(40, "", location)
@@ -463,8 +539,8 @@ def sign_on(station, ped_number, rac_code):
         exit()
     
     x801(ped_number)
-    x601(station)
-    x515(station, rac_code)
+    xe601(station, rac_code)
+    xe515(station, rac_code)
     
     disconnect_from_session(session_id)
 
@@ -502,7 +578,7 @@ def fetch_data_from_months(from_month, to_month, station: str, year, rac_code):
     
 def get_out_of_town_rentals_month(month, year, station, rac_code):
     
-    x515(station, rac_code, f"01{month.upper()}{year}")
+    xe515(station, rac_code, f"01{month.upper()}{year}")
     
     days_in_month = months[month]
     out_of_town_customers = []
@@ -513,7 +589,7 @@ def get_out_of_town_rentals_month(month, year, station, rac_code):
         customers, _ = get_customers()
         
         for customer in customers:
-            if len(customer["in_sta"].strip()) != 0 and customer["in_sta"] != "TOS" and customer["in_sta"] != "TR7" and customer["in_sta"] != "T1Y":
+            if len(customer["in_sta"].strip()) != 0 and customer["in_sta"] not in stations_A and customer["in_sta"] not in stations_B:
                 new_customer = {
                     "date": f"{i:02}{month.upper()}",
                     "length": customer["exp_lor"],
@@ -569,24 +645,18 @@ def get_total_data():
     
     merge_data("TOTAL_A", "TOTAL_B", "TOTAL")
 
-def get_out_of_town_rentals():
+def get_out_of_town_rentals(month):
       
     session_id = 'H'
-    return_code = call_hllapi(1, session_id, 0)[3]
-    if return_code != 0:
-        print('Failed to connect to session')
-        exit()
+    connect_to_session(session_id)
 
     total_out_of_town_rentals = []
     
-    for month in range(6, 9):
-        data = get_out_of_town_rentals_month(num_to_months[month], "2024", "TOS", "A")
-        total_out_of_town_rentals.append(data)
+    for month in range(6, months_to_num[month]+1):
+        for station in stations_A:
+            data = get_out_of_town_rentals_month(num_to_months[month], "2024", station, "A")
+            total_out_of_town_rentals.append(data)
 
-    for month in range(6, 9):
-        data = get_out_of_town_rentals_month(num_to_months[month], "2024", "TR7", "A")
-        total_out_of_town_rentals.append(data)
-    
     # Merge and sort the data
     merged_data = {"data": []}
     for item in total_out_of_town_rentals:
@@ -598,20 +668,14 @@ def get_out_of_town_rentals():
     disconnect_from_session(session_id)
     
     session_id = 'B'
-    return_code = call_hllapi(1, session_id, 0)[3]
-    if return_code != 0:
-        print('Failed to connect to session')
-        exit()
+    connect_to_session(session_id)
     
     total_out_of_town_rentals = []
     
-    for month in range(6, 9):
-        data = get_out_of_town_rentals_month(num_to_months[month], "2024", "TOS", "B")
-        total_out_of_town_rentals.append(data)
-        
-    for month in range(6, 9):
-        data = get_out_of_town_rentals_month(num_to_months[month], "2024", "T1Y", "B")
-        total_out_of_town_rentals.append(data)
+    for month in range(6, months_to_num[month]+1):
+        for station in stations_B:
+            data = get_out_of_town_rentals_month(num_to_months[month], "2024", station, "B")
+            total_out_of_town_rentals.append(data)
 
     disconnect_from_session(session_id)
     
@@ -656,31 +720,32 @@ def get_prices_for_x_days_for_the_whole_month(rac, car_group, month, out_sta, in
         print('Failed to connect to session')
         exit()
     
-    x502(rac)
+    xe502(rac)
     for i in range(1, months[month]):
-        if out_sta == "TR7" and datetime.datetime(2024, months_to_num[month], i).weekday() != 5 and datetime.datetime(2024, months_to_num[month], i).weekday() != 6:
-            price, rent_days = get_price(car_group, f"{i:02}{month.upper()}24/1000", out_sta, in_sta, length)
-            print(f"Price for a {rent_days}-day rental with car group {car_group} - {i:02}{month.upper()}24 is {price} NOK")
+        if out_sta == "TR7" and datetime.datetime({int(year)}, months_to_num[month], i).weekday() != 5 and datetime.datetime(int(year), months_to_num[month], i).weekday() != 6:
+            price, rent_days = get_price(car_group, f"{i:02}{month.upper()}{year2D}/1000", out_sta, in_sta, length)
+            print(f"Price for a {rent_days}-day rental with car group {car_group} - {i:02}{month.upper()}{year2D} is {price} NOK")
+        else:
+            price, rent_days = get_price(car_group, f"{i:02}{month.upper()}{year2D}/1000", out_sta, in_sta, length)
+            print(f"Price for a {rent_days}-day rental with car group {car_group} - {i:02}{month.upper()}{year2D} is {price} NOK")
 
     disconnect_from_session(session_id)
 
-def get_prices_for_every_car_group(rac, date, out_sta, in_sta, length):
+def get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, length):
         
-    session_id = "H"
+    
     if rac == "A":
-        return_code = call_hllapi(1, session_id, 0)[3]
-        if return_code != 0:
-            print('Failed to connect to session')
-            exit()
+        session_id = "H"
     else:
         session_id = "B"
-        return_code = call_hllapi(1, session_id, 0)[3]
-        if return_code != 0:
-            print('Failed to connect to session')
-            exit()
+        
+    return_code = call_hllapi(1, session_id, 0)[3]
+    if return_code != 0:
+        print('Failed to connect to session')
+        exit()
     
-    x502(rac)
-    for car_group in ["B", "C", "D", "E", "H", "I", "K", "M", "N"]:
+    xe502(rac)
+    for car_group in car_groups:
         price, rent_days = get_price(car_group, date, out_sta, in_sta, length)
         print(f"{rent_days}-day rental - {date} - car group {car_group} is {price} NOK")
     
@@ -688,7 +753,7 @@ def get_prices_for_every_car_group(rac, date, out_sta, in_sta, length):
 
 def get_all_customers_from_month(station, rac, month, year):
     
-    x515(station, rac, f"01{month.upper()}{year}")
+    xe515(station, rac, f"01{month.upper()}{year}")
     customers = []
     for i in range(1, months[month]+1):
         xe515_cont(f"{i:02}{month.upper()}{year}")
@@ -771,6 +836,15 @@ def save_on_rent_and_available_cars(available_cars, on_rent_cars, day, month):
 
 def get_amount_of_cars_in_month(station, desired_date, starting_amount):
     
+    def update_cars_on_rent(c_on_rent, c_available):
+        new_cars_on_rent = []
+        for c in c_on_rent:
+            if c == 0:
+                c_available += 1
+            else:
+                new_cars_on_rent.append(c-1)
+        return new_cars_on_rent, c_available
+    
     # Initialize the available cars array
     with open("python/data/available_cars.json", "w") as file:
         file.write(json.dumps([]))
@@ -784,26 +858,24 @@ def get_amount_of_cars_in_month(station, desired_date, starting_amount):
     desired_day = int(desired_date[0:2])
     desired_month = months_to_num[desired_date[2:5].upper()]
     
+    session_id = "H"
+    call_hllapi(1, session_id, 0)[3]
+    xe515("TOS", "A", f"{i:02}{num_to_months[todays_month]}2024")
+    disconnect_from_session(session_id)
+    
+    session_id = "B"
+    call_hllapi(1, session_id, 0)[3]
+    xe515("TOS", "B", f"{i:02}{num_to_months[todays_month]}2024")
+    disconnect_from_session(session_id)
+    
     # Current Month
     for i in range(todays_day, months[num_to_months[todays_month]]+1):
         
         session_id = "H"
-        return_code = call_hllapi(1, session_id, 0)[3]
-        if return_code != 0:
-            print('Failed to connect to session')
-            exit()
-            
-        new_cars_on_rent = []
-        for j in cars_on_rent:
-            if j == 0:
-                cars_currently_available += 1
-            else:
-                new_cars_on_rent.append(j-1)
-            
-        cars_on_rent = new_cars_on_rent
+        call_hllapi(1, session_id, 0)[3]
+        cars_on_rent, cars_currently_available = update_cars_on_rent(cars_on_rent, cars_currently_available)
         
         # AVIS
-        xe515("TOS", "A", f"{i:02}{num_to_months[todays_month]}2024")
         for station in stations_A:
             xe515_cont_with_station(station, f"{i:02}{num_to_months[todays_month].upper()}2024")
             
@@ -818,13 +890,9 @@ def get_amount_of_cars_in_month(station, desired_date, starting_amount):
         disconnect_from_session(session_id)
         
         session_id = "B"
-        return_code = call_hllapi(1, session_id, 0)[3]
-        if return_code != 0:
-            print('Failed to connect to session')
-            exit()
+        call_hllapi(1, session_id, 0)[3]
             
         # BUDGET
-        xe515("TOS", "B", f"{i:02}{num_to_months[todays_month]}2024")
         for station in stations_B:
             xe515_cont_with_station(station, f"{i:02}{num_to_months[todays_month].upper()}2024")
             
@@ -848,22 +916,12 @@ def get_amount_of_cars_in_month(station, desired_date, starting_amount):
                 break
             
             session_id = "H"
-            return_code = call_hllapi(1, session_id, 0)[3]
-            if return_code != 0:
-                print('Failed to connect to session')
-                exit()
-                
-            new_cars_on_rent = []
-            for k in cars_on_rent:
-                if k == 0:
-                    cars_currently_available += 1
-                else:
-                    new_cars_on_rent.append(k-1)
-                
-            cars_on_rent = new_cars_on_rent
+            call_hllapi(1, session_id, 0)[3]
+            
+            cars_on_rent, cars_currently_available = update_cars_on_rent(cars_on_rent, cars_currently_available)
             
             # AVIS
-            xe515("TOS", "A", f"{j:02}{num_to_months[i]}2024")
+            # xe515("TOS", "A", f"{j:02}{num_to_months[i]}2024")
             for station in stations_A:
                 xe515_cont_with_station(station, f"{j:02}{num_to_months[i].upper()}2024")
                 
@@ -878,13 +936,10 @@ def get_amount_of_cars_in_month(station, desired_date, starting_amount):
             disconnect_from_session(session_id)
             
             session_id = "B"
-            return_code = call_hllapi(1, session_id, 0)[3]
-            if return_code != 0:
-                print('Failed to connect to session')
-                exit()
+            call_hllapi(1, session_id, 0)[3]
                 
             # BUDGET
-            xe515("TOS", "B", f"{j:02}{num_to_months[i]}2024")
+            # xe515("TOS", "B", f"{j:02}{num_to_months[i]}2024")
             for station in stations_B:
                 xe515_cont_with_station(station, f"{j:02}{num_to_months[i].upper()}2024")
                 
@@ -899,11 +954,29 @@ def get_amount_of_cars_in_month(station, desired_date, starting_amount):
             disconnect_from_session(session_id)
             
             save_on_rent_and_available_cars(cars_currently_available, cars_on_rent, j, i)
+
+def get_yesterdays_RAs(rac, station):
     
-# get_prices_for_every_car_group("A", "24JUN24/1200", "TR7", "TR7", 1)
-# get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TR7", "TR7", 1)
-# get_amount_of_cars_in_month("A", "TOS", "AUG", 15, 100)
+    if rac == "A":
+        session_id = "H"
+    else:
+        session_id = "B"
+        
+    connect_to_session(session_id)
+    
+    yesterday = f"{datetime.datetime.now().day-1:02}"
+    month = num_to_months[datetime.datetime.now().month]
+
+    wztdoc(rac, station, "RO", f"{yesterday}{month.upper()}{year}")
+    
+    get_wztdoc_data()
+
+    disconnect_from_session(session_id)
+
+# get_prices_for_every_car_group("A", "24JUN24/1200", "BDU", "BDU", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "M", "N"], 1)
+# get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "BDU", "BDU", 1)
 # get_out_of_town_rentals()
 # get_and_save_excel_data()
+# get_amount_of_cars_in_month("A", "31AUG", 191)
 
-get_amount_of_cars_in_month("A", "31AUG", 191)
+get_yesterdays_RAs("A", "TOS")
