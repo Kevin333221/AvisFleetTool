@@ -2,6 +2,9 @@ import ctypes
 import time
 import json
 import datetime
+import flask
+
+app = flask.Flask(__name__)
 
 from config import *
 from car import Car
@@ -12,6 +15,10 @@ hllapi_dll = ctypes.windll.LoadLibrary(r".\python\whlapi32.dll")
 # Define the HLLAPI function prototype
 hllapi = hllapi_dll.hllapi
 hllapi.argtypes = [ctypes.POINTER(ctypes.c_short), ctypes.c_char_p, ctypes.POINTER(ctypes.c_short), ctypes.POINTER(ctypes.c_short)]
+
+@flask.route('/get_data', methods=['GET'])
+def get_data():
+    print("Getting data")
 
 def wait_for_ready(loc):
     ready = False
@@ -995,7 +1002,3 @@ def get_previous_RAs(rac, station, num_of_days):
 # get_and_save_excel_data()
 # get_amount_of_cars_in_month("31AUG", 191)
 
-# days = get_previous_RAs("A", "BDU", 61)
-# for records in days:
-#     for record in records:
-#         print(record)
