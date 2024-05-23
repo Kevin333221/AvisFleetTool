@@ -4,6 +4,7 @@ cursor_locations = {
     "x502_PAC": 82,
     
     "WZTDOC_ACTION": 87,
+    "WZTDOC_DATE": 142,
     
     "x515_ACTION": 89,
     "x515_RPT": 98,

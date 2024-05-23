@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+BZLP File for BlueZone Web-to-Host 7.1.11.3446 
+Site Name : ABG6.1.TLS
+Page Name : AEL%20AVIS%20BUD%207D2%202P
+-->
+<bzlp
+  codebase="https://webwiz.avisbudget.com/bz/Sites/ABG6.1.TLS"
+  href="AEL%20AVIS%20BUD%207D2%202P/bzw2h.bzlp?sKey=67dcdad2e494bd1c527a3265128280c5">
+  <information>
+    <title>BZW2H ABG6.1.TLS_AEL AVIS BUD 7D2 2P</title>
+    <vendor>Rocket Software</vendor>
+    <homepage href="http://www3.rocketsoftware.com/bluezone/help/v71/en/bz/"/>
+    <description>BlueZone Web-to-Host Control Module</description>
+    <description kind="short">BlueZone Web-to-Host Control Module</description>
+    
+    
+  </information>
+  <security>
+      <all-permissions/>
+  </security>
+  <update check="always" policy="always"/>
+  <resources os="Windows" arch="x86">
+    <dll href="controls/bzw2h32.dll"/>
+  </resources>
+  <resources os="Windows" arch="amd64">
+    <dll href="controls/bzw2h64.dll"/>
+  </resources>
+  <resources>
+    <property name="bzSiteUrl" value="https://webwiz.avisbudget.com/bz/Sites/ABG6.1.TLS" />
+    <property name="bzPageName" value="AEL%20AVIS%20BUD%207D2%202P" />
+  </resources>
+  <application-desc main-func="BZ_web_launch_doPropExchange">
+  	<argument>https://webwiz.avisbudget.com/bz/Sites/ABG6.1.TLS/AEL%20AVIS%20BUD%207D2%202P/page.json?sKey=67dcdad2e494bd1c527a3265128280c5</argument>
+  </application-desc>
+</bzlp>
