@@ -561,6 +561,12 @@ export default function App() {
           let car = temp_cars[j];
           let deleting = true;
 
+          if (selector === "PERSON") {
+            if (car["Body Type"] != "VAN") {
+              deleting = false;
+            }
+          }
+
           for (const [key, value] of Object.entries(car)) {
             if (typeof value === 'string' && value.includes(selector)) {
               deleting = false;
@@ -591,101 +597,6 @@ export default function App() {
     sortCars(cars, "ASC", "Car Group");
   }
 
-  async function test_fetch() {
-
-    setTypeFetch(1);
-
-    let response = await fetch("http://127.0.0.1:5000/api/get_cars");
-    let res = await response.json();
-    let data_cars = res["cars"]
-
-    const keyMap = {
-      mva: 'MVA',
-      registration_number: 'Registration Number',
-      fleet_code: "Fleet Owner Code",
-      make: 'Make / Model',
-      ignit_key: 'Ignition Key',
-      trunk_key: 'Trunk Key',
-      last_movement: 'Last Movement',
-      body_type: 'Body Type',
-      miles: 'Vehicle Mileage',
-      car_group: 'Car Group',
-      current_location: 'Current Location Mne',
-      movement: 'Rental Agreement Num',
-      date_out: 'Checkout Datetime',
-      date_due: 'Checkin Datetime',
-      location_due: 'Location Due Mne',
-      fuel_type: 'Fuel',
-      status: 'Current Status',
-      hold_date: 'Hold Date',
-      hold_reason: 'STATUS3'
-    };
-
-    let status = {
-      "ON MOVE": "ON MOVE",
-      "ON HAND,IDLE": "ON HAND",
-      "UNAVAIL": "UNAVAILABLE",
-      "ON MOVE,OVDU": "OVERDUE"
-    }
-
-    for (let i = 0; i < data_cars.length; i++) {
-      let car = data_cars[i];
-      let newCar = {};
-  
-      // Loop over each key in the car object
-      for (let key in car) {
-        if (car.hasOwnProperty(key)) {
-
-          if (key === "status") {
-            car[key] = status[car[key]];
-          }
-
-          if (key === "accessories") {
-            let accessories = car[key];
-            for (let i = 0; i < accessories.length; i++) {
-              newCar["Accessory 0" + (i + 1)] = accessories[i];
-            }
-          }
-
-          // If the key is in the keyMap, use the mapped key, otherwise use the original key
-          if (key === "location_out") {
-            
-            let newKey = "Checkout Location"
-            newCar[newKey] = car[key][0];
-
-            newKey = "Checkout Location Mne"
-            newCar[newKey] = car[key][1];
-
-          } else if (key === "location_due") {
-
-            let newKey = "Location Due"
-            newCar[newKey] = car[key][0];
-
-            newKey = "Location Due Mne"
-            newCar[newKey] = car[key][1];
-
-          } else if (key === "current_location") {
-
-            let newKey = "Current Location"
-            newCar[newKey] = car[key][0];
-
-            newKey = "Current Location Mne"
-            newCar[newKey] = car[key][1];
-
-          } else {
-            let newKey = keyMap[key] || key;
-            newCar[newKey] = car[key];
-          }
-        }
-      }
-  
-      // Replace the old car object with the new one
-      data_cars[i] = newCar;
-    }
-    sortCars(data_cars, "ASC", "Car Group")
-    setData(data_cars);
-  }
-
   return (
     <>
       {/* Before giving file */}
@@ -701,12 +612,6 @@ export default function App() {
             className='file-input'
             accept='.xlsx'
           />
-          {/*<p>FOR TESTING ONLY!</p>
-          <button
-            onClick={() => test_fetch()}
-          >
-            Test Data
-          </button>*/}
         </div>
       }
 

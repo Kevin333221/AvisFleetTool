@@ -308,7 +308,10 @@ def get_wztdoc_data(date):
                 record = {}
                 record["Date"] = date
                 record["RA"] = line[0:9]
-                record["MVA"] = line[17:25]
+                mva = line[17:25]
+                if mva[0] == " ":
+                    mva = "0" + mva[1:]
+                record["MVA"] = mva
                 name = line[26:56].strip().split(",")
                 record["Customer_Lastname"] = name[0]
                 record["Customer_Firstname"] = name[1]
@@ -654,9 +657,9 @@ def get_out_of_town_rentals(month):
 
     total_out_of_town_rentals = []
     
-    for month in range(6, months_to_num[month]+1):
+    for m in range(6, months_to_num[month]+1):
         for station in stations_A:
-            data = get_out_of_town_rentals_month(num_to_months[month], year, station, "A")
+            data = get_out_of_town_rentals_month(num_to_months[m], year, station, "A")
             total_out_of_town_rentals.append(data)
 
     # Merge and sort the data
@@ -664,7 +667,7 @@ def get_out_of_town_rentals(month):
     for item in total_out_of_town_rentals:
         merged_data["data"] += item["data"]
     
-    with open("python/data/OUT_OF_TOWN_A.json", "w") as file:
+    with open(f"python/data/Enveisleier_AVIS_{month}.json", "w") as file:
         file.write(json.dumps(merged_data))
     
     disconnect_from_session(session_id)
@@ -674,9 +677,9 @@ def get_out_of_town_rentals(month):
     
     total_out_of_town_rentals = []
     
-    for month in range(6, months_to_num[month]+1):
+    for m in range(6, months_to_num[month]+1):
         for station in stations_B:
-            data = get_out_of_town_rentals_month(num_to_months[month], year, station, "B")
+            data = get_out_of_town_rentals_month(num_to_months[m], year, station, "B")
             total_out_of_town_rentals.append(data)
 
     disconnect_from_session(session_id)
@@ -686,7 +689,7 @@ def get_out_of_town_rentals(month):
     for item in total_out_of_town_rentals:
         merged_data1["data"] += item["data"]
 
-    with open("python/data/OUT_OF_TOWN_B.json", "w") as file:
+    with open(f"python/data/Enveisleier_BUDGET_{month}.json", "w") as file:
         file.write(json.dumps(merged_data1))        
 
     # Merge and sort the data
@@ -699,11 +702,11 @@ def get_out_of_town_rentals(month):
 
     total_merged_data["data"] = sorted(total_merged_data["data"], key=lambda x: parse_date(x["date"]))
     
-    with open("python/data/OUT_OF_TOWN_TOTAL.json", "w") as file:
+    with open(f"python/data/Enveisleier_{month}.json", "w") as file:
         file.write(json.dumps(total_merged_data))
         
     # Write the data to a txt file
-    with open("python/data/Enveisleier_Juni_Juli_August.txt", "w") as file:
+    with open(f"python/data/Enveisleier_{month}.txt", "w") as file:
         for item in total_merged_data["data"]:
             file.write(f"{item['date']} - {item['out_sta']} to {item['in_sta']} - {item['length']} - {item['car_group']}\n")
     
@@ -921,7 +924,6 @@ def get_amount_of_cars_in_month(desired_date, starting_amount):
             cars_on_rent, cars_currently_available = update_cars_on_rent(cars_on_rent, cars_currently_available)
             
             # AVIS
-            # xe515("TOS", "A", f"{j:02}{num_to_months[i]}2024")
             for station in stations_A:
                 xe515_cont_with_station(station, f"{j:02}{num_to_months[i].upper()}2024")
                 
@@ -939,7 +941,6 @@ def get_amount_of_cars_in_month(desired_date, starting_amount):
             call_hllapi(1, session_id, 0)[3]
                 
             # BUDGET
-            # xe515("TOS", "B", f"{j:02}{num_to_months[i]}2024")
             for station in stations_B:
                 xe515_cont_with_station(station, f"{j:02}{num_to_months[i].upper()}2024")
                 
@@ -989,14 +990,9 @@ def get_previous_RAs(rac, station, num_of_days):
     return data
 
 # get_prices_for_every_car_group("A", "24JUN24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 10)
-
-
 # get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
 
 # get_out_of_town_rentals("JUN")
-
-# get_and_save_excel_data()
-
-get_amount_of_cars_in_month("31AUG", 191)
-
-# get_previous_RAs("A", "TOS", 5)
+get_and_save_excel_data()
+# get_amount_of_cars_in_month("31JUN", 191)
+# get_previous_RAs("A", "TOS", 7)
