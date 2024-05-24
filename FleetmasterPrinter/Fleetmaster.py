@@ -203,5 +203,4 @@ def func(arr_of_regs):
         py.press('enter')
         time.sleep(2)
 
-if __name__ == "__main__":
-    main()
+main()

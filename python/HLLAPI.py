@@ -2,10 +2,6 @@ import ctypes
 import time
 import json
 import datetime
-import flask
-
-app = flask.Flask(__name__)
-
 from config import *
 from car import Car
 
@@ -15,10 +11,6 @@ hllapi_dll = ctypes.windll.LoadLibrary(r".\python\whlapi32.dll")
 # Define the HLLAPI function prototype
 hllapi = hllapi_dll.hllapi
 hllapi.argtypes = [ctypes.POINTER(ctypes.c_short), ctypes.c_char_p, ctypes.POINTER(ctypes.c_short), ctypes.POINTER(ctypes.c_short)]
-
-@flask.route('/get_data', methods=['GET'])
-def get_data():
-    print("Getting data")
 
 def wait_for_ready(loc):
     ready = False
@@ -868,12 +860,12 @@ def get_amount_of_cars_in_month(desired_date, starting_amount):
     
     session_id = "A"
     connect_to_session(session_id)
-    xe515("TOS", "A", f"{i:02}{num_to_months[todays_month]}{year}")
+    xe515("TOS", "A", f"{todays_day}{num_to_months[todays_month]}{year}")
     disconnect_from_session(session_id)
     
     session_id = "B"
     connect_to_session(session_id)
-    xe515("TOS", "B", f"{i:02}{num_to_months[todays_month]}{year}")
+    xe515("TOS", "B", f"{todays_day}{num_to_months[todays_month]}{year}")
     disconnect_from_session(session_id)
     
     # Current Month
@@ -973,7 +965,7 @@ def get_previous_RAs(rac, station, num_of_days):
     connect_to_session(session_id)
     
     months_back = 0
-    day = datetime.datetime.now().day + 1
+    day = datetime.datetime.now().day
     month = f"{num_to_months[(datetime.datetime.now().month-months_back) % 12]}"
     
     wztdoc(rac, station, "RO", f"{day-1}{month.upper()}{year}")
@@ -996,9 +988,15 @@ def get_previous_RAs(rac, station, num_of_days):
     
     return data
 
-# get_prices_for_every_car_group("A", "24JUN24/1200", "TOS", "TOS", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "M", "N"], 10)
-# get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "BDU", "BDU", 1)
-# get_out_of_town_rentals()
-# get_and_save_excel_data()
-# get_amount_of_cars_in_month("31AUG", 191)
+# get_prices_for_every_car_group("A", "24JUN24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 10)
 
+
+# get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
+
+# get_out_of_town_rentals("JUN")
+
+# get_and_save_excel_data()
+
+get_amount_of_cars_in_month("31AUG", 191)
+
+# get_previous_RAs("A", "TOS", 5)
