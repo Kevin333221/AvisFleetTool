@@ -1,0 +1,23 @@
+[
+  {
+    "date": "03SEP",
+    "length": "007",
+    "in_sta": "TOS",
+    "out_sta": "EVE",
+    "car_group": "E"
+  },
+  {
+    "date": "04SEP",
+    "length": "021",
+    "in_sta": "TOS",
+    "out_sta": "OSL",
+    "car_group": "M"
+  },
+  {
+    "date": "04SEP",
+    "length": "021",
+    "in_sta": "TOS",
+    "out_sta": "OSL",
+    "car_group": "M"
+  }
+]

@@ -340,6 +340,7 @@ def get_customers():
     customers = []
     isEnd = False
     customer_count = 0
+    page = 1
     
     while not isEnd:
         isEnd = True
@@ -347,13 +348,12 @@ def get_customers():
         image = call_hllapi(5, " "*1920, 0)[1]
         data = image.decode('ascii')
         lines = format_data(data)
-        page = 1
         
         for line in lines[12:]:
             
             if line[0] == "3":
-                press_page_up()
                 page += 1
+                press_page_up()
                 
                 # Search for the page number to be correct in order to move on
                 ready = False
@@ -780,24 +780,19 @@ def get_all_customers_from_month(station, rac, month, year):
     
     return customers
 
-def get_and_save_excel_data():
+def get_all_customers_from_given_months(fleet_code, months):
     
     session_id = "A"
     connect_to_session(session_id)
         
-    xe601("64442", "A")
+    xe601(fleet_code, "A")
 
     total_customers = []
 
     for station in stations_A:
-        customers = get_all_customers_from_month(station, "A", "JUN", year)
-        total_customers += customers
-
-        customers = get_all_customers_from_month(station, "A", "JUL", year)
-        total_customers += customers
-
-        customers = get_all_customers_from_month(station, "A", "AUG", year)
-        total_customers += customers
+        for month in months:
+            customers = get_all_customers_from_month(station, "A", month, year)
+            total_customers += customers
 
     disconnect_from_session(session_id)
 
@@ -807,17 +802,12 @@ def get_and_save_excel_data():
         print('Failed to connect to session')
         exit()
 
-    xe601("64442", "B")
+    xe601(fleet_code, "B")
 
     for station in stations_B:
-        customers = get_all_customers_from_month(station, "B", "JUN", year)
-        total_customers += customers
-
-        customers = get_all_customers_from_month(station, "B", "JUL", year)
-        total_customers += customers
-
-        customers = get_all_customers_from_month(station, "B", "AUG", year)
-        total_customers += customers
+        for month in months:
+            customers = get_all_customers_from_month(station, "B", month, year)
+            total_customers += customers
 
     disconnect_from_session(session_id)
 
@@ -989,10 +979,44 @@ def get_previous_RAs(rac, station, num_of_days):
     
     return data
 
+def find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway(month, in_stations):
+    
+    session_id = "A"
+    connect_to_session(session_id)
+        
+    back_rentals = []
+    
+    for station in all_budget_stations:
+        xe515(station, "B", f"01{month.upper()}{year}")
+        days_in_month = months[month]
+        
+        for i in range(1, days_in_month+1):
+            xe515_cont(f"{i:02}{month.upper()}{year}")
+            customers, _ = get_customers()
+            
+            for customer in customers:
+                if customer["in_sta"] in in_stations:
+                    new_customer = {
+                        "date": f"{i:02}{month.upper()}",
+                        "length": customer["exp_lor"],
+                        "in_sta": customer["in_sta"],
+                        "out_sta": station,
+                        "car_group": customer["car_grp"]
+                    }
+                    back_rentals.append(new_customer)
+    
+    back_rentals.sort(key=lambda x: x["date"])
+    
+    with open(f"python/data/OneWayRentals_BUDGET_{month}.json", "w") as file:
+        file.write(json.dumps(back_rentals))
+        
+    disconnect_from_session(session_id)
+
 # get_prices_for_every_car_group("A", "24JUN24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 10)
 # get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
-
 # get_out_of_town_rentals("JUN")
-get_and_save_excel_data()
+# get_all_customers_from_given_months("64442", ["JUN", "JUL", "AUG"])
 # get_amount_of_cars_in_month("31JUN", 191)
 # get_previous_RAs("A", "TOS", 7)
+
+find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("SEP", ["TOS", "T1Y"])

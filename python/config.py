@@ -98,3 +98,10 @@ year2D = "24"
 
 stations_A = ["TOS", "TR7"]
 stations_B = ["TOS", "T1Y"]
+
+all_budget_stations = [
+    "ALF", "BDU", "HFT", "AL6", "H1T", "LKL", "L3V", "VDS", "O75", "MJF", "MQN", "SSJ", "BNN", "B0D", "M4R", "M3J",
+    "T02", "ST4", "OSL", "OS9", "J9S", "EVE", "SKN", "SK4", "H6D", "N3K", "KKN", "K7N", "G6L", "HF4", "K0G", "HA1", 
+    "LI3", "GJ3", "AES", "AS7", "BGO", "BG1", "MOL", "KSU", "HOV", "V4A", "F3S", "AX4", "ANX", "HAU", "SRP", "H5D", 
+    "SR2", "KRS", "SVG", "S7V", "K2B", "TRD", "TR1", "OSY", "O2Y"
+]

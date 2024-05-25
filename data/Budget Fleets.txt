@@ -83,7 +83,7 @@ Norway Fleet (Corp) - 09080:
 - BD Romerike District:
 - - RT0  /JE8  /LO4  /LB8  /SK8
 - BD Follo District:
-- - RYG  /SK5
+- - SK5
 
 Oestfold Fleet - 09840:
 - Oestfold District:
