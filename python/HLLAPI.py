@@ -1,6 +1,7 @@
 import ctypes
 import time
 import json
+import math
 import datetime
 from config import *
 from car import Car
@@ -1397,8 +1398,167 @@ def get_previous_RA_info(rac, station, length):
     with open(f"python/data/previous_RAs_{rac}_{station}.json", "w") as file:
         file.write(json.dumps(all_RAs))
 
+def wzttrc():
+    send_key_sequence(f'@R@0/FOR WZTTRC@E')
+    wait_for_ready("WZTTRC_ACTION")
+
+def get_wzttrc_data(MVA):
+    records = []
+    isEnd = False
+    page = 1
+    
+    while not isEnd:
+        isEnd = True
+        
+        image = call_hllapi(5, " "*1920, 0)[1]
+        data = image.decode('ascii')
+        lines = format_data(data)
+        reg = call_hllapi(8, "7777777", cursor_locations["WZTTRC_REG_NO"])[1].decode('ascii')
+        prev_MOVEMENT = ("", "")
+        for line in lines[9:]:
+            
+            if line[40] == "3":
+                page += 1
+                press_page_up()
+                
+                # Search for the page number to be correct in order to move on
+                ready = False
+                while not ready:
+                    ret = call_hllapi(6, f"PAGE:   {page}", 0)
+                    if ret[3] == 0:
+                        ready = True
+
+                isEnd = False
+            
+            elif line[40] == ".":
+                break
+            
+            elif ord(line[1]) != 32:
+                
+                if prev_MOVEMENT[0] == "CHECK-OUT":
+                    check_in_movement = prev_MOVEMENT[1]
+                else:
+                    check_in_movement = line[51:61].strip()
+                
+                record = {
+                    "MVA": MVA,
+                    "REG": reg,
+                    "MOVEMENT_TYPE": line[0:10].strip(),
+                    "LOCATION": line[13:17].strip(),
+                    "DATE": line[20:29].strip(),
+                    "TIME": line[34:39],
+                    "MILES": line[43:49].strip(),
+                    "MOVEMENT": check_in_movement,
+                    "RAC": line[65:66],
+                    "REMARKS": line[68:73].strip()
+                }
+                prev_MOVEMENT = (record["MOVEMENT_TYPE"], record["MOVEMENT"])
+                records.append(record) 
+    return records, math.ceil(len(records)/2)
+
+def get_wzttrc_report(MVAs, days_back):
+    
+    wzttrc()
+    for mva in MVAs:
+        months_back = 0
+        day = datetime.datetime.now().day
+        month = f"{num_to_months[(datetime.datetime.now().month-months_back) % 12]}"
+        
+        # Calculates the date
+        for _ in range(days_back):
+            day -= 1
+            
+            if day < 1:
+                months_back += 1
+                day = int(f"{months[num_to_months[(datetime.datetime.now().month-months_back) % 12]]:02}")
+        month = f"{num_to_months[(datetime.datetime.now().month-months_back) % 12]}"
+        
+        send_key_sequence(f'DSTR{mva}{day:02}{month.upper()}{year}@E')
+
+        data, total_CO_CI = get_wzttrc_data(mva)
+        for record in data:
+            print(record)
+
+def varmenu():
+    send_key_sequence(f'@R@0/FOR VARMENU@E')
+    wait_for_ready("VARMENU_ACTION")
+
+def get_varmenu_report(station, rac):
+    
+    send_key_sequence(f'DSSM{station}@T{rac}@E')
+    
+    data = []
+    image = call_hllapi(5, " "*1920, 0)[1]
+    data = image.decode('ascii')
+    lines = format_data(data)
+    
+    OWNED = lines[8][6:12].strip()
+    FOREIGN = lines[8][21:26].strip()
+    UNAVAILABLE = lines[8][39:44].strip()
+    OUT_OF_SERVICE = lines[8][60:65].strip()
+    ON_RENT = lines[8][75:79].strip()
+    OVERDUE = lines[9][8:14].strip()
+    PARTIAL = lines[9][22:30].strip()
+    
+    DAYS_IN_THE_WEEK    = [lines[11][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    DATES               = [lines[12][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    ON_HAND             = [lines[13][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    DUE_IN              = [lines[14][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    RES_DI              = [lines[15][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    STN_INV             = [lines[16][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    VEH_RSVD            = [lines[17][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    AVAILABLE           = [lines[18][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    CAR_GROUP_AVAILABILITY = {
+        lines[20][i*5 + 1:i*5 + 6].strip(): lines[21][i*5 + 1:i*5 + 6].strip() for i in range(0, 16)
+    }
+    
+    DAYS = []
+    
+    for i in range(len(DAYS_IN_THE_WEEK)):
+        record = {
+            "DAYS_IN_THE_WEEK": DAYS_IN_THE_WEEK[i],
+            "DATES": DATES[i],
+            "ON_HAND": ON_HAND[i],
+            "DUE_IN": DUE_IN[i],
+            "RES_DI": RES_DI[i],
+            "STN_INV": STN_INV[i],
+            "VEH_RSVD": VEH_RSVD[i],
+            "AVAILABLE": AVAILABLE[i]
+        }
+        DAYS.append(record)
+    
+    record = {
+        "OWNED": OWNED,
+        "FOREIGN": FOREIGN,
+        "UNAVAILABLE": UNAVAILABLE,
+        "OUT_OF_SERVICE": OUT_OF_SERVICE,
+        "ON_RENT": ON_RENT,
+        "OVERDUE": OVERDUE,
+        "PARTIAL": PARTIAL,
+        "DAYS": DAYS,
+        "CAR_GROUP_AVAILABILITY": CAR_GROUP_AVAILABILITY
+    }
+    
+    station = {
+        "STATION": station,
+        "REPORT": record
+    }
+    
+    return station
+    
+def get_all_varmenu_data_from_NOFF1():
+    NOFF1_A_Varmenu_data = []
+    for stations in NOFF1_A:
+        varmenu()
+        report = get_varmenu_report(stations, "A")
+        NOFF1_A_Varmenu_data.append(report)
+        
+    with open("python/data/NOFF1_A_Varmenu_data.json", "w") as file:
+        file.write(json.dumps(NOFF1_A_Varmenu_data))
+    
 # get_prices_for_every_car_group("A", "24JUN24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 10)
 # get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
+
 # get_out_of_town_rentals("JUN")
 # get_all_customers_from_given_months("64442", ["JUN", "JUL", "AUG"])
 # get_amount_of_cars_in_month("31JUN", 191)
@@ -1406,8 +1566,13 @@ def get_previous_RA_info(rac, station, length):
 # find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("SEP", ["TOS", "T1Y"])
 # get_all_x606_cars()
 
+
 connect_to_session("A")
 
+NOFF1_A_PREVIOUS_RAs = []
+
+for stations in NOFF1_A:
+    pass
 get_previous_RA_info("A", "HFT", 5)
 
 disconnect_from_session("A")

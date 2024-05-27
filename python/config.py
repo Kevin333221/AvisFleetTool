@@ -1,6 +1,11 @@
 cursor_locations = {
     "CMD_LINE": 7,
     
+    "VARMENU_ACTION": 90,
+    
+    "WZTTRC_ACTION": 90,
+    "WZTTRC_REG_NO": 383,
+    
     "WZTDOC_ACTION": 87,
     "WZTDOC_DATE": 142,
     
@@ -33,7 +38,7 @@ cursor_locations = {
     "x203_REA": 626,
     "x203_DELIVERY": 633,
     "x203_KILOMETER_IN": 646,
-    "x203_STATION_IN": 657,
+    "x203_STATION_IN": 657, 
     "x203_DATE_IN": 667,
     "x203_AUTH_IN": 684,
     "x203_BFL": 699,
@@ -245,10 +250,27 @@ stations_A = ["TOS", "TR7"]
 stations_B = ["TOS", "T1Y"]
 
 all_budget_stations = [
-    "ALF", "BDU", "HFT", "AL6", "H1T", "LKL", "L3V", "VDS", "O75", "MJF", "MQN", "SSJ", "BNN", "B0D", "M4R", "M3J",
-    "T02", "ST4", "OSL", "OS9", "J9S", "EVE", "SKN", "SK4", "H6D", "N3K", "KKN", "K7N", "G6L", "HF4", "K0G", "HA1", 
-    "LI3", "GJ3", "AES", "AS7", "BGO", "BG1", "MOL", "KSU", "HOV", "V4A", "F3S", "AX4", "ANX", "HAU", "SRP", "H5D", 
-    "SR2", "KRS", "SVG", "S7V", "K2B", "TRD", "TR1", "OSY", "O2Y"
+    "ALF", "BDU", "HFT", "AL6", "H1T", 
+    "LKL", "L3V", "VDS", "O75", "MJF", 
+    "MQN", "SSJ", "BNN", "B0D", "M4R", 
+    "M3J", "T02", "ST4", "OSL", "OS9", 
+    "J9S", "EVE", "SKN", "SK4", "H6D", 
+    "N3K", "KKN", "K7N", "G6L", "HF4", 
+    "K0G", "HA1", "LI3", "GJ3", "AES", 
+    "AS7", "BGO", "BG1", "MOL", "KSU", 
+    "HOV", "V4A", "F3S", "AX4", "ANX", 
+    "HAU", "SRP", "H5D", "SR2", "KRS", 
+    "SVG", "S7V", "K2B", "TRD", "TR1", 
+    "OSY", "O2Y"
 ]
 
-NOFF1 = ["LKL", "AL0", "B1F", "H8F", "L2V", "BDU", "V1S", "K4K", "ALF", "HFT", "VDS", "FN0", "H36", "AF0", "H1F", "PJ6", "V7O", "V2L", "H6F", "V8O", "V2R", "FN6", "LS3", "TJ9", "LS1", "U4J", "O41", "O42", "O46", "O47", "O5M", "O60", "WT8", "WW7", "XI1", "XO5", "XO6", "XO7", "VAW", "U93"]
+NOFF1_A = [
+    "LKL", "AL0", "B1F", "H8F", "L2V",
+    "BDU", "V1S", "K4K", "ALF", "HFT",
+    "VDS", "FN0", "H36", "AF0", "H1F",
+    "PJ6", "V7O", "V2L", "H6F", "V8O",
+    "V2R", "FN6", "LS3", "TJ9", "LS1",
+    "U4J", "O41", "O42", "O46", "O47",
+    "O5M", "O60", "WT8", "WW7", "XI1",
+    "XO5", "XO6", "XO7", "VAW", "U93"
+]

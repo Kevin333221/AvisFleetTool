@@ -1,0 +1,4082 @@
+[
+  {
+    "STATION": "LKL",
+    "REPORT": {
+      "OWNED": "3",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "5",
+      "OVERDUE": "2",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "3",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "5",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "1",
+          "STN_INV": "1",
+          "VEH_RSVD": "2",
+          "AVAILABLE": "1-"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "1-",
+          "DUE_IN": "0",
+          "RES_DI": "3",
+          "STN_INV": "2",
+          "VEH_RSVD": "2",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "2",
+          "RES_DI": "2",
+          "STN_INV": "4",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "4"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "4",
+          "DUE_IN": "3",
+          "RES_DI": "3",
+          "STN_INV": "10",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "9"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "9",
+          "DUE_IN": "0",
+          "RES_DI": "1",
+          "STN_INV": "10",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "10"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "10",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "10",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "10"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "0",
+        "D": "0",
+        "E": "4",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "AL0",
+    "REPORT": {
+      "OWNED": "1",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "34",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "1",
+          "DUE_IN": "1",
+          "RES_DI": "2",
+          "STN_INV": "4",
+          "VEH_RSVD": "2",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "2",
+          "DUE_IN": "11",
+          "RES_DI": "0",
+          "STN_INV": "13",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "12"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "12",
+          "DUE_IN": "2",
+          "RES_DI": "1",
+          "STN_INV": "15",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "15"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "15",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "15",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "15"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "15",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "15",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "15"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "4",
+        "C": "0",
+        "D": "1",
+        "E": "11",
+        "F": "0",
+        "G": "3",
+        "H": "2",
+        "I": "0",
+        "J": "4",
+        "K": "3",
+        "L": "1",
+        "M": "3",
+        "N": "0",
+        "O": "1",
+        "P": "1"
+      }
+    }
+  },
+  {
+    "STATION": "B1F",
+    "REPORT": {
+      "OWNED": "5",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "1",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "3",
+      "OVERDUE": "3",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "5",
+          "DUE_IN": "3",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "2",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "1",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "H8F",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "1",
+      "OUT_OF_SERVICE": "1",
+      "ON_RENT": "11",
+      "OVERDUE": "2",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "3",
+          "RES_DI": "0",
+          "STN_INV": "3",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "3"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "3",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "5",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "6",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "6"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "6",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "7",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "7"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "7",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "1",
+        "D": "2",
+        "E": "1",
+        "F": "0",
+        "G": "1",
+        "H": "0",
+        "I": "0",
+        "J": "4",
+        "K": "0",
+        "L": "1",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "L2V",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "8",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "1-"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "1-",
+          "DUE_IN": "0",
+          "RES_DI": "1",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "1-"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "1-",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1-",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1-"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "1-",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1-",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1-"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "0",
+        "D": "5",
+        "E": "2",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "BDU",
+    "REPORT": {
+      "OWNED": "24",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "1",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "17",
+      "OVERDUE": "9",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "24",
+          "DUE_IN": "12",
+          "RES_DI": "0",
+          "STN_INV": "36",
+          "VEH_RSVD": "4",
+          "AVAILABLE": "32"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "32",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "32",
+          "VEH_RSVD": "6",
+          "AVAILABLE": "26"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "26",
+          "DUE_IN": "1",
+          "RES_DI": "5",
+          "STN_INV": "32",
+          "VEH_RSVD": "2",
+          "AVAILABLE": "30"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "30",
+          "DUE_IN": "2",
+          "RES_DI": "2",
+          "STN_INV": "34",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "33"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "33",
+          "DUE_IN": "1",
+          "RES_DI": "5",
+          "STN_INV": "39",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "38"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "38",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "38",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "38"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "38",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "38",
+          "VEH_RSVD": "10",
+          "AVAILABLE": "28"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "3",
+        "D": "1",
+        "E": "7",
+        "F": "0",
+        "G": "2",
+        "H": "1",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "1",
+        "M": "1",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "V1S",
+    "REPORT": {
+      "OWNED": "5",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "28",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "5",
+          "DUE_IN": "3",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "8",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "2",
+          "AVAILABLE": "7"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "7",
+          "DUE_IN": "12",
+          "RES_DI": "1",
+          "STN_INV": "20",
+          "VEH_RSVD": "3",
+          "AVAILABLE": "17"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "17",
+          "DUE_IN": "1",
+          "RES_DI": "2",
+          "STN_INV": "20",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "19"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "19",
+          "DUE_IN": "2",
+          "RES_DI": "2",
+          "STN_INV": "23",
+          "VEH_RSVD": "3",
+          "AVAILABLE": "20"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "20",
+          "DUE_IN": "3",
+          "RES_DI": "0",
+          "STN_INV": "23",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "23"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "23",
+          "DUE_IN": "0",
+          "RES_DI": "3",
+          "STN_INV": "26",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "25"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "1",
+        "D": "7",
+        "E": "6",
+        "F": "0",
+        "G": "3",
+        "H": "0",
+        "I": "4",
+        "J": "3",
+        "K": "0",
+        "L": "2",
+        "M": "0",
+        "N": "1",
+        "O": "1",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "K4K",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "ALF",
+    "REPORT": {
+      "OWNED": "10",
+      "FOREIGN": "3",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "25",
+      "OVERDUE": "4",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "13",
+          "DUE_IN": "10",
+          "RES_DI": "0",
+          "STN_INV": "23",
+          "VEH_RSVD": "7",
+          "AVAILABLE": "16"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "16",
+          "DUE_IN": "7",
+          "RES_DI": "1",
+          "STN_INV": "24",
+          "VEH_RSVD": "7",
+          "AVAILABLE": "17"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "17",
+          "DUE_IN": "3",
+          "RES_DI": "3",
+          "STN_INV": "23",
+          "VEH_RSVD": "8",
+          "AVAILABLE": "15"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "15",
+          "DUE_IN": "2",
+          "RES_DI": "10",
+          "STN_INV": "27",
+          "VEH_RSVD": "3",
+          "AVAILABLE": "24"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "24",
+          "DUE_IN": "12",
+          "RES_DI": "5",
+          "STN_INV": "41",
+          "VEH_RSVD": "3",
+          "AVAILABLE": "38"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "38",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "40",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "39"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "39",
+          "DUE_IN": "0",
+          "RES_DI": "5",
+          "STN_INV": "44",
+          "VEH_RSVD": "7",
+          "AVAILABLE": "37"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "4",
+        "D": "1",
+        "E": "15",
+        "F": "0",
+        "G": "1",
+        "H": "1",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "1",
+        "N": "0",
+        "O": "1",
+        "P": "1"
+      }
+    }
+  },
+  {
+    "STATION": "HFT",
+    "REPORT": {
+      "OWNED": "8",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "11",
+      "OVERDUE": "2",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "8",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "10",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "10"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "10",
+          "DUE_IN": "0",
+          "RES_DI": "1",
+          "STN_INV": "11",
+          "VEH_RSVD": "4",
+          "AVAILABLE": "7"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "7",
+          "DUE_IN": "1",
+          "RES_DI": "1",
+          "STN_INV": "9",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "8",
+          "DUE_IN": "1",
+          "RES_DI": "2",
+          "STN_INV": "11",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "11"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "11",
+          "DUE_IN": "2",
+          "RES_DI": "1",
+          "STN_INV": "14",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "13"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "13",
+          "DUE_IN": "0",
+          "RES_DI": "1",
+          "STN_INV": "14",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "14"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "14",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "14",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "14"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "0",
+        "D": "1",
+        "E": "7",
+        "F": "0",
+        "G": "2",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "VDS",
+    "REPORT": {
+      "OWNED": "2",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "9",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "2",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "4",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "3"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "3",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "5",
+          "DUE_IN": "2",
+          "RES_DI": "1",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "4",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "2",
+        "K": "0",
+        "L": "0",
+        "M": "2",
+        "N": "0",
+        "O": "0",
+        "P": "1"
+      }
+    }
+  },
+  {
+    "STATION": "FN0",
+    "REPORT": {
+      "OWNED": "10",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "1",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "8",
+      "OVERDUE": "3",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "10",
+          "DUE_IN": "3",
+          "RES_DI": "0",
+          "STN_INV": "13",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "13"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "13",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "13",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "13"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "13",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "13",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "13"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "13",
+          "DUE_IN": "3",
+          "RES_DI": "0",
+          "STN_INV": "16",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "16"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "16",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "17",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "17"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "17",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "17",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "17"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "17",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "17",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "17"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "2",
+        "F": "0",
+        "G": "5",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "1",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "H36",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "15",
+      "OVERDUE": "3",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "4",
+          "RES_DI": "0",
+          "STN_INV": "4",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "4"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "4",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "5",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "6",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "6"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "6",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "6",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "6"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "6",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "7",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "7"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "7",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "9"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "9",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "11",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "11"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "1",
+        "D": "0",
+        "E": "5",
+        "F": "0",
+        "G": "1",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "4",
+        "O": "1",
+        "P": "3"
+      }
+    }
+  },
+  {
+    "STATION": "AF0",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "6",
+      "OVERDUE": "1",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "1",
+        "D": "0",
+        "E": "2",
+        "F": "2",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "H1F",
+    "REPORT": {
+      "OWNED": "2",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "1",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "2",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "3",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "3"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "3",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "3",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "3"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "3",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "3",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "3"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "PJ6",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "V7O",
+    "REPORT": {
+      "OWNED": "2",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "9",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "2",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "3",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "3"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "3",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "3",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "3"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "3",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "5",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "7",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "7"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "3",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "2",
+        "J": "1",
+        "K": "0",
+        "L": "1",
+        "M": "1",
+        "N": "0",
+        "O": "0",
+        "P": "1"
+      }
+    }
+  },
+  {
+    "STATION": "V2L",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "6",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "3",
+          "RES_DI": "0",
+          "STN_INV": "3",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "3"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "3",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "2",
+        "J": "0",
+        "K": "0",
+        "L": "1",
+        "M": "2",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "H6F",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "V8O",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "1",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "1",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "V2R",
+    "REPORT": {
+      "OWNED": "4",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "4",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "4",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "4"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "4",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "FN6",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "LS3",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "3",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "1",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "2",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "TJ9",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "LS1",
+    "REPORT": {
+      "OWNED": "1",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "1",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "1",
+          "AVAILABLE": "1-"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "1-",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "1",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "U4J",
+    "REPORT": {
+      "OWNED": "1",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "8",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "1",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "4",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "1",
+        "J": "2",
+        "K": "0",
+        "L": "1",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "O41",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "1",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "1",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "O42",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "O46",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "1",
+      "OVERDUE": "1",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "1",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "1",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "1"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "1",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "O47",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "4",
+      "OVERDUE": "1",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "2",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "1",
+        "H": "0",
+        "I": "1",
+        "J": "1",
+        "K": "0",
+        "L": "1",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "O5M",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "O60",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "WT8",
+    "REPORT": {
+      "OWNED": "3",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "18",
+      "OVERDUE": "16",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "3",
+          "DUE_IN": "16",
+          "RES_DI": "0",
+          "STN_INV": "19",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "19"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "19",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "19",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "19"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "19",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "19",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "19"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "19",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "19",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "19"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "19",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "19",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "19"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "19",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "19",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "19"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "19",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "19",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "19"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "1",
+        "D": "1",
+        "E": "3",
+        "F": "0",
+        "G": "3",
+        "H": "0",
+        "I": "0",
+        "J": "2",
+        "K": "0",
+        "L": "2",
+        "M": "5",
+        "N": "0",
+        "O": "1",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "WW7",
+    "REPORT": {
+      "OWNED": "1",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "8",
+      "OVERDUE": "7",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "1",
+          "DUE_IN": "7",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "8",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "1",
+        "H": "0",
+        "I": "3",
+        "J": "0",
+        "K": "0",
+        "L": "1",
+        "M": "2",
+        "N": "1",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "XI1",
+    "REPORT": {
+      "OWNED": "2",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "11",
+      "OVERDUE": "9",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "2",
+          "DUE_IN": "9",
+          "RES_DI": "0",
+          "STN_INV": "11",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "11"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "11",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "11",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "11"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "11",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "12",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "12"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "12",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "12",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "12"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "12",
+          "DUE_IN": "0",
+          "RES_DI": "1",
+          "STN_INV": "13",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "13"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "13",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "13",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "13"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "13",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "13",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "13"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "3",
+        "H": "0",
+        "I": "2",
+        "J": "1",
+        "K": "1",
+        "L": "1",
+        "M": "1",
+        "N": "0",
+        "O": "1",
+        "P": "1"
+      }
+    }
+  },
+  {
+    "STATION": "XO5",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "8",
+      "OVERDUE": "4",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "4",
+          "RES_DI": "0",
+          "STN_INV": "4",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "4"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "4",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "4",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "4"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "4",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "4",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "4"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "4",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "5",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "5",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "5"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "1",
+        "F": "0",
+        "G": "5",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "2",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "XO6",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "XO7",
+    "REPORT": {
+      "OWNED": "1",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "9",
+      "OVERDUE": "7",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "1",
+          "DUE_IN": "7",
+          "RES_DI": "0",
+          "STN_INV": "8",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "8"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "8",
+          "DUE_IN": "1",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "9"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "9",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "9"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "9",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "9"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "9",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "9"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "9",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "9"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "9",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "9",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "9"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "2",
+        "D": "0",
+        "E": "3",
+        "F": "1",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "1",
+        "K": "0",
+        "L": "2",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "VAW",
+    "REPORT": {
+      "OWNED": "2",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "2",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "2",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "2"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  },
+  {
+    "STATION": "U93",
+    "REPORT": {
+      "OWNED": "0",
+      "FOREIGN": "0",
+      "UNAVAILABLE": "0",
+      "OUT_OF_SERVICE": "0",
+      "ON_RENT": "0",
+      "OVERDUE": "0",
+      "PARTIAL": "0",
+      "DAYS": [
+        {
+          "DAYS_IN_THE_WEEK": "MONDAY",
+          "DATES": "MAY27",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "TUESDAY",
+          "DATES": "MAY28",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "WEDNESDAY",
+          "DATES": "MAY29",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "THURSDAY",
+          "DATES": "MAY30",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "FRIDAY",
+          "DATES": "MAY31",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SATURDAY",
+          "DATES": "JUN01",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        },
+        {
+          "DAYS_IN_THE_WEEK": "SUNDAY",
+          "DATES": "JUN02",
+          "ON_HAND": "0",
+          "DUE_IN": "0",
+          "RES_DI": "0",
+          "STN_INV": "0",
+          "VEH_RSVD": "0",
+          "AVAILABLE": "0"
+        }
+      ],
+      "CAR_GROUP_AVAILABILITY": {
+        "A": "0",
+        "B": "0",
+        "C": "0",
+        "D": "0",
+        "E": "0",
+        "F": "0",
+        "G": "0",
+        "H": "0",
+        "I": "0",
+        "J": "0",
+        "K": "0",
+        "L": "0",
+        "M": "0",
+        "N": "0",
+        "O": "0",
+        "P": "0"
+      }
+    }
+  }
+]
