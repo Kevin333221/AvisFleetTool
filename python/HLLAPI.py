@@ -1211,8 +1211,9 @@ def x806():
     send_key_sequence(f'@R@0/FOR X806@E')
     wait_for_ready("x806_RA")
 
-def x806_cont(mva):
-    send_key_sequence(f"{mva}@E")
+def x806_cont(ra):
+    wait_for_ready("x806_RA")
+    send_key_sequence(f"{ra}@E")
     wait_for_ready("x806_RA")
 
 def get_RA_info_x806():
@@ -1378,6 +1379,9 @@ def get_previous_RA_info(rac, station, length):
     all_RAs = []
     x806_RAs = []
 
+    if len(days) == 0:
+        return all_RAs
+    
     x203()
     for day in days:
         for customer in day:
@@ -1394,9 +1398,8 @@ def get_previous_RA_info(rac, station, length):
         x806_cont(ra)
         record = get_RA_info_x806()
         all_RAs.append(record)
-        
-    with open(f"python/data/previous_RAs_{rac}_{station}.json", "w") as file:
-        file.write(json.dumps(all_RAs))
+    
+    return all_RAs
 
 def wzttrc():
     send_key_sequence(f'@R@0/FOR WZTTRC@E')
@@ -1555,24 +1558,34 @@ def get_all_varmenu_data_from_NOFF1():
         
     with open("python/data/NOFF1_A_Varmenu_data.json", "w") as file:
         file.write(json.dumps(NOFF1_A_Varmenu_data))
-    
-# get_prices_for_every_car_group("A", "24JUN24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 10)
-# get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
+        
+def get_all_previous_NOFF1_A_RAs(num_of_days):    
+    NOFF1_A_PREVIOUS_RAs = []
+    for stations in NOFF1_A:
+        ras = get_previous_RA_info("A", stations, num_of_days)
+        if len(ras) > 0:
+            NOFF1_A_PREVIOUS_RAs.append({
+                "STATION": stations,
+                "RAs": ras
+            })
+        
+    with open("python/data/NOFF1_A_PREVIOUS_RAs.json", "w") as file:
+        file.write(json.dumps(NOFF1_A_PREVIOUS_RAs))
 
-# get_out_of_town_rentals("JUN")
+# get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
 # get_all_customers_from_given_months("64442", ["JUN", "JUL", "AUG"])
 # get_amount_of_cars_in_month("31JUN", 191)
 # get_previous_RAs("A", "BDU", 7)
 # find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("SEP", ["TOS", "T1Y"])
 # get_all_x606_cars()
+# get_prices_for_every_car_group("A", "28MAY24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 1)
 
 
 connect_to_session("A")
 
-NOFF1_A_PREVIOUS_RAs = []
 
-for stations in NOFF1_A:
-    pass
-get_previous_RA_info("A", "HFT", 5)
+# get_out_of_town_rentals("JUL")
+# get_all_varmenu_data_from_NOFF1()
+# get_all_previous_NOFF1_A_RAs(3)
 
 disconnect_from_session("A")

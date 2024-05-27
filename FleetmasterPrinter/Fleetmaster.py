@@ -5,7 +5,7 @@ import pygame
 # Set up the screen
 pygame.init()
 pygame.display.set_caption("Fleetmaster PDF Printer")
-pygame.display.set_icon(pygame.image.load("img/monitor.png"))
+pygame.display.set_icon(pygame.image.load("FleetmasterPrinter/img/monitor.png"))
 
 def main():
     
@@ -112,7 +112,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("img/Fleetmaster.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/Fleetmaster.png", confidence=0.8)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()
@@ -124,7 +124,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("img/Vehicles.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/Vehicles.png", confidence=0.8)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()
@@ -136,7 +136,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("img/Search.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/Search.png", confidence=0.8)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()
@@ -153,7 +153,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("img/1item.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/1item.png", confidence=0.8)
                 center = py.center(box)
                 py.moveTo(center.x - 50, center.y - 50)
                 py.click()
@@ -165,7 +165,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("img/Actions.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/Actions.png", confidence=0.8)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()
@@ -177,7 +177,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("img/Download.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/Download.png", confidence=0.8)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()
@@ -189,7 +189,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("img/pdf.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/pdf.png", confidence=0.8)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()
