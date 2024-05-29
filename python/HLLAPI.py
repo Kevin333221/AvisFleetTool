@@ -1107,11 +1107,11 @@ def is_valid_ra(RA):
         tries -= 1
     return RA_FOUND
 
-def get_RA_info_x203():
+def _get_RA_info_x203():
     RA = call_hllapi(8, "999999999", cursor_locations["x203_RA"])[1].decode('ascii').strip()
-    ACT = call_hllapi(8, "333", cursor_locations["x203_ACT"])[1].decode('ascii').strip()
-    AGENT_ID = call_hllapi(8, "55555", cursor_locations["x203_AGENT_ID"])[1].decode('ascii').strip()
-    PIN = call_hllapi(8, "55555", cursor_locations["x203_PIN"])[1].decode('ascii').strip()
+    # ACT = call_hllapi(8, "333", cursor_locations["x203_ACT"])[1].decode('ascii').strip()
+    # AGENT_ID = call_hllapi(8, "55555", cursor_locations["x203_AGENT_ID"])[1].decode('ascii').strip()
+    # PIN = call_hllapi(8, "55555", cursor_locations["x203_PIN"])[1].decode('ascii').strip()
     MVA = call_hllapi(8, "88888888", cursor_locations["x203_MVA"])[1].decode('ascii').strip()
     CCI = call_hllapi(8, "000000000000000", cursor_locations["x203_CCI"])[1].decode('ascii').strip()
     CUSTOMER_NAME = call_hllapi(8, "000000000000000000000000000000", cursor_locations["x203_CUSTOMER_NAME"])[1].decode('ascii').strip()
@@ -1134,7 +1134,7 @@ def get_RA_info_x203():
     DATE_OUT = call_hllapi(8, "000000000000", cursor_locations["x203_DATE_OUT"])[1].decode('ascii').strip()
     AUTH_OUT = call_hllapi(8, "0000000000", cursor_locations["x203_AUTH_OUT"])[1].decode('ascii').strip()
     FUEL_OUT = call_hllapi(8, "22", cursor_locations["x203_FUEL_OUT"])[1].decode('ascii').strip()
-    REA = call_hllapi(8, "22", cursor_locations["x203_REA"])[1].decode('ascii').strip()
+    # REA = call_hllapi(8, "22", cursor_locations["x203_REA"])[1].decode('ascii').strip()
     DELIVERY = call_hllapi(8, "88888888", cursor_locations["x203_DELIVERY"])[1].decode('ascii').strip()
     KILOMETER_IN = call_hllapi(8, "666666", cursor_locations["x203_KILOMETER_IN"])[1].decode('ascii').strip()
     STATION_IN = call_hllapi(8, "55555", cursor_locations["x203_STATION_IN"])[1].decode('ascii').strip()
@@ -1143,80 +1143,88 @@ def get_RA_info_x203():
     BFL = call_hllapi(8, "88888888", cursor_locations["x203_BFL"])[1].decode('ascii').strip()
     COLLECTION = call_hllapi(8, "88888888", cursor_locations["x203_COLLECTION"])[1].decode('ascii').strip()
     AMOUNT_DUE = call_hllapi(8, "0000000000000", cursor_locations["x203_AMOUNT_DUE"])[1].decode('ascii').strip()
-    FO = call_hllapi(8, "0000000000000", cursor_locations["x203_F/O"])[1].decode('ascii').strip()
+    # FO = call_hllapi(8, "0000000000000", cursor_locations["x203_F/O"])[1].decode('ascii').strip()
     AWD = call_hllapi(8, "999999999", cursor_locations["x203_AWD"])[1].decode('ascii').strip()
-    UPGRADE = call_hllapi(8, "55555", cursor_locations["x203_GRP/$$"])[1].decode('ascii').strip()
+    # UPGRADE = call_hllapi(8, "55555", cursor_locations["x203_GRP/$$"])[1].decode('ascii').strip()
     ADJUSMENT = call_hllapi(8, "88888888", cursor_locations["x203_ADJUSTMENT"])[1].decode('ascii').strip()
     RATE = call_hllapi(8, "666666", cursor_locations["x203_RATE"])[1].decode('ascii').strip()
     OWFMISC = call_hllapi(8, "0000000000000000", cursor_locations["x203_OWF/MISC"])[1].decode('ascii').strip()
     DATE_OF_BIRTH = call_hllapi(8, "7777777", cursor_locations["x203_DATE_OF_BIRTH"])[1].decode('ascii').strip()
-    NEW_MVA = call_hllapi(8, "88888888", cursor_locations["x203_NEW_MVA"])[1].decode('ascii').strip()
+    # NEW_MVA = call_hllapi(8, "88888888", cursor_locations["x203_NEW_MVA"])[1].decode('ascii').strip()
     FREQUENT_TRAVEL_NUMBER = call_hllapi(8, "0000000000000000000000000", cursor_locations["x203_FREQUENT_TRAVEL_NUMBER"])[1].decode('ascii').strip()
     TER = call_hllapi(8, "999999999", cursor_locations["x203_TER"])[1].decode('ascii').strip()
     PASSPORT_NUMBER = call_hllapi(8, "000000000000000", cursor_locations["x203_PASSPORT_NUMBER"])[1].decode('ascii').strip()
     
+    AGENT_ID = call_hllapi(8, "55555", cursor_locations["x203_AGENT_ID"])[1].decode('ascii').strip()
+    MODEL = call_hllapi(8, "4444", cursor_locations["x203_MODEL"])[1].decode('ascii').strip()
+    CAR_GROUP = call_hllapi(8, "1", cursor_locations["x203_CAR_GROUP"])[1].decode('ascii').strip()
+    CAR_OWNER = call_hllapi(8, "55555", cursor_locations["x203_CAR_OWNER"])[1].decode('ascii').strip()
+    REG_NO = call_hllapi(8, "55555", cursor_locations["x203_REG_NO"])[1].decode('ascii').strip()
+    
     record = {
         "RA_TYPE": "X203",
         "RA": RA,
-        "ACT": ACT,
-        "AGENT_ID": AGENT_ID,
-        "PIN": PIN,
+        # "ACT": ACT,
+        # "AGENT_ID": AGENT_ID,
+        # "PIN": PIN,
         "MVA": MVA,
-        "CCI": CCI,
+        "REG": REG_NO,
+        "MODEL": MODEL,
+        "CAR_GROUP": CAR_GROUP,
+        "CAR_OWNER": CAR_OWNER,
+        
         "CUSTOMER_NAME": CUSTOMER_NAME,
-        "SOURCE": SOURCE,
-        "CUPON": CUPON,
-        "N/C": NC,
-        "CONTACT": CONTACT,
-        "METH_PAY": METH_PAY,
+        "DATE_OF_BIRTH": DATE_OF_BIRTH,
         "ADDR1": ADDR1,
-        "REMARKS": REMARKS,
-        "INSURANCE_CODES": INSURANCE_CODES,
         "ADDR2": ADDR2,
-        "LICENSE": LICENSE,
-        "D/C": DC,
         "ADDR3": ADDR3,
-        "CID": CID,
-        "TAX": TAX,
-        "KILOMETER_OUT": KILOMETER_OUT,
+        "CONTACT": CONTACT,
+        "LICENSE": LICENSE,
+        "PASSPORT_NUMBER": PASSPORT_NUMBER,
+        "N/C": NC,
+        
         "STATION_OUT": STATION_OUT,
         "DATE_OUT": DATE_OUT,
-        "AUTH_OUT": AUTH_OUT,
+        "KILOMETER_OUT": KILOMETER_OUT,
         "FUEL_OUT": FUEL_OUT,
-        "REA": REA,
-        "DELIVERY": DELIVERY,
-        "KILOMETER_IN": KILOMETER_IN,
+        
         "STATION_IN": STATION_IN,
         "DATE_IN": DATE_IN,
-        "AUTH_IN": AUTH_IN,
+        "KILOMETER_IN": KILOMETER_IN,
         "BFL": BFL,
-        "COLLECTION": COLLECTION,
+        
+        "AUTH_IN": AUTH_IN,
+        "AUTH_OUT": AUTH_OUT,
+        
         "AMOUNT_DUE": AMOUNT_DUE,
-        "F/O": FO,
-        "AWD": AWD,
-        "GRP/$$": UPGRADE,
-        "ADJUSMENT": ADJUSMENT,
+        "INSURANCE_CODES": INSURANCE_CODES,
+        "REMARKS": REMARKS,
         "RATE": RATE,
+        "CID": CID,
+        "METH_PAY": METH_PAY,
+        "AWD": AWD,
+        "CCI": CCI,
+        
+        "AGENT_ID": AGENT_ID,
+        "SOURCE": SOURCE,
+        "CUPON": CUPON,
+        "D/C": DC,
+        "TAX": TAX,
+        "DELIVERY": DELIVERY,
+        "COLLECTION": COLLECTION,
+        "ADJUSMENT": ADJUSMENT,
         "OWF/MISC": OWFMISC,
-        "DATE_OF_BIRTH": DATE_OF_BIRTH,
-        "NEW_MVA": NEW_MVA,
         "FREQUENT_TRAVEL_NUMBER": FREQUENT_TRAVEL_NUMBER,
         "TER": TER,
-        "PASSPORT_NUMBER": PASSPORT_NUMBER
+        # "REA": REA,
+        # "F/O": FO,
+        # "NEW_MVA": NEW_MVA,
+        # "GRP/$$": UPGRADE,
     }
     
     return record
-    
-def x806():
-    send_key_sequence(f'@R@0/FOR X806@E')
-    wait_for_ready("x806_RA")
 
-def x806_cont(ra):
-    wait_for_ready("x806_RA")
-    send_key_sequence(f"{ra}@E")
-    wait_for_ready("x806_RA")
-
-def get_RA_info_x806():
+def _get_RA_info_x806():
     
     RA = call_hllapi(8, "88888888", cursor_locations["x806_RA"])[1].decode('ascii').strip()
     ACT = call_hllapi(8, "333", cursor_locations["x806_ACT"])[1].decode('ascii').strip()
@@ -1315,6 +1323,15 @@ def get_RA_info_x806():
     
     return record
 
+def x806():
+    send_key_sequence(f'@R@0/FOR X806@E')
+    wait_for_ready("x806_RA")
+
+def x806_cont(ra):
+    wait_for_ready("x806_RA")
+    send_key_sequence(f"{ra}@E")
+    wait_for_ready("x806_RA")
+
 def get_car_info_x606():
     MVA = call_hllapi(8, "88888888", cursor_locations["x606_MVA"])[1].decode('ascii')
     VIN = call_hllapi(8, "00000000000000000", cursor_locations["x606_VIN"])[1].decode('ascii')
@@ -1388,16 +1405,19 @@ def get_previous_RA_info(rac, station, length):
             x203_cont(customer["RA"])
             valid = is_valid_ra(customer["RA"])
             if valid:
-                record = get_RA_info_x203()
+                record = _get_RA_info_x203()
                 all_RAs.append(record)
             else:
                 x806_RAs.append(customer["RA"])
-
-    x806()
-    for ra in x806_RAs:
-        x806_cont(ra)
-        record = get_RA_info_x806()
-        all_RAs.append(record)
+                
+    # if len(x806_RAs) == 0:
+    #     return all_RAs
+    
+    # x806()
+    # for ra in x806_RAs:
+    #     x806_cont(ra)
+    #     record = _get_RA_info_x806()
+    #     all_RAs.append(record)
     
     return all_RAs
 
@@ -1417,6 +1437,8 @@ def get_wzttrc_data(MVA):
         data = image.decode('ascii')
         lines = format_data(data)
         reg = call_hllapi(8, "7777777", cursor_locations["WZTTRC_REG_NO"])[1].decode('ascii')
+        model = call_hllapi(8, "88888888", cursor_locations["WZTTRC_MODEL"])[1].decode('ascii')
+        
         prev_MOVEMENT = ("", "")
         for line in lines[9:]:
             
@@ -1428,6 +1450,9 @@ def get_wzttrc_data(MVA):
                 ready = False
                 while not ready:
                     ret = call_hllapi(6, f"PAGE:   {page}", 0)
+                    if ret[3] == 0:
+                        ready = True
+                    ret = call_hllapi(6, f"PAGE:  {page}", 0)
                     if ret[3] == 0:
                         ready = True
 
@@ -1446,6 +1471,7 @@ def get_wzttrc_data(MVA):
                 record = {
                     "MVA": MVA,
                     "REG": reg,
+                    "MODEL": model,
                     "MOVEMENT_TYPE": line[0:10].strip(),
                     "LOCATION": line[13:17].strip(),
                     "DATE": line[20:29].strip(),
@@ -1456,28 +1482,21 @@ def get_wzttrc_data(MVA):
                     "REMARKS": line[68:73].strip()
                 }
                 prev_MOVEMENT = (record["MOVEMENT_TYPE"], record["MOVEMENT"])
-                records.append(record) 
+                records.append(record)
+                
     return records, math.ceil(len(records)/2)
 
-def get_wzttrc_report(MVAs, days_back):
+def get_wzttrc_report(MVAs, date):
     
     wzttrc()
+    
+    day = int(date[:2])
+    month = date[2:5]
+    year = date[5:]
+     
     for mva in MVAs:
-        months_back = 0
-        day = datetime.datetime.now().day
-        month = f"{num_to_months[(datetime.datetime.now().month-months_back) % 12]}"
-        
-        # Calculates the date
-        for _ in range(days_back):
-            day -= 1
-            
-            if day < 1:
-                months_back += 1
-                day = int(f"{months[num_to_months[(datetime.datetime.now().month-months_back) % 12]]:02}")
-        month = f"{num_to_months[(datetime.datetime.now().month-months_back) % 12]}"
-        
         send_key_sequence(f'DSTR{mva}{day:02}{month.upper()}{year}@E')
-
+        
         data, total_CO_CI = get_wzttrc_data(mva)
         for record in data:
             print(record)
@@ -1489,6 +1508,7 @@ def varmenu():
 def get_varmenu_report(station, rac):
     
     send_key_sequence(f'DSSM{station}@T{rac}@E')
+    wait_for_ready("VARMENU_ACTION")
     
     data = []
     image = call_hllapi(5, " "*1920, 0)[1]
@@ -1561,15 +1581,14 @@ def get_all_varmenu_data_from_NOFF1():
         
 def get_all_previous_NOFF1_A_RAs(num_of_days):    
     NOFF1_A_PREVIOUS_RAs = []
+    
     for stations in NOFF1_A:
         ras = get_previous_RA_info("A", stations, num_of_days)
         if len(ras) > 0:
-            NOFF1_A_PREVIOUS_RAs.append({
-                "STATION": stations,
-                "RAs": ras
-            })
+            for ra in ras:
+                NOFF1_A_PREVIOUS_RAs.append(ra)
         
-    with open("python/data/NOFF1_A_PREVIOUS_RAs.json", "w") as file:
+    with open("python/data/NOFF1_A_PREVIOUS_RAs_V2.json", "w") as file:
         file.write(json.dumps(NOFF1_A_PREVIOUS_RAs))
 
 # get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
@@ -1580,12 +1599,15 @@ def get_all_previous_NOFF1_A_RAs(num_of_days):
 # get_all_x606_cars()
 # get_prices_for_every_car_group("A", "28MAY24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 1)
 
-
 connect_to_session("A")
-
 
 # get_out_of_town_rentals("JUL")
 # get_all_varmenu_data_from_NOFF1()
-# get_all_previous_NOFF1_A_RAs(3)
+get_all_previous_NOFF1_A_RAs(3)
+
+# get_wzttrc_report([
+#     "21131375","21131703","21131891","21131950",
+#     "21132042","21132355","21132370"
+# ], "01JAN2022")
 
 disconnect_from_session("A")

@@ -1,0 +1,9 @@
+INF-2900 Presentasjon - Frontend:
+
+Skal si noe om hvorfor vi brukte React: Flere av oss har/hadde mer kjentskap til React kontra for eksempel Angular eller Vue. Detter gjorde det lettere å komme godt i gang istedenfor å lære et nytt språk gange 6 personer.s
+
+Skal si noe om fragmentering/komponering av komponenter som bidrog til en mer hierarki-basert struktur. Dette gjorde det lettere å delegere arbeid blant oss på gruppen da isolerte komponenter ikke ødelegger andres komponenter.
+
+Skal si noe om brukertesting og feedback fra users som bidrog til raske og effektive endringer/løsninger. Dette fjerner uintuitive desigvalg og skaper en bedre flyt i sin helhet.
+
+Skal si noe om Universell utforming: At vi ønsket å ha en tacky/flashy side som hamrer veldig på et "Security" design istedenfor en universell løsning.

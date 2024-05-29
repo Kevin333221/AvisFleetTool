@@ -4,6 +4,7 @@ cursor_locations = {
     "VARMENU_ACTION": 90,
     
     "WZTTRC_ACTION": 90,
+    "WZTTRC_MODEL": 343,
     "WZTTRC_REG_NO": 383,
     
     "WZTDOC_ACTION": 87,
@@ -11,7 +12,7 @@ cursor_locations = {
     
     "x203_RA": 86,
     "x203_ACT": 100,
-    "x203_AGENT_ID": 108,
+    # "x203_AGENT_ID": 108,
     "x203_PIN": 119,
     "x203_MVA": 130,
     "x203_CCI": 143,
@@ -55,6 +56,11 @@ cursor_locations = {
     "x203_FREQUENT_TRAVEL_NUMBER": 966,
     "x203_TER": 997,
     "x203_PASSPORT_NUMBER": 1015,
+    "x203_AGENT_ID": 1131,
+    "x203_MODEL": 1141,
+    "x203_CAR_GROUP": 1163,
+    "x203_CAR_OWNER": 1169,
+    "x203_REG_NO": 1181,
     
     "x313_ACTION": 170,
     "x313_MVA_NO": 330,
