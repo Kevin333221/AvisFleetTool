@@ -194,15 +194,15 @@ cursor_locations = {
 }
 
 columns = {
-    "name":     (0, 19),
-    "arr_time": (20, 24),
-    "flight_no":(25, 31),
-    "car_grp":  (33, 34),
-    "rate_code":(37, 41),
-    "remarks":  (43, 65),
-    "exp_lor":  (70, 73),
-    "in_sta":   (74, 77)
-}
+    "Customer Name":    (0, 20),
+    "Pickup time":      (20, 24),
+    "Flight nr":        (25, 31),
+    "Car Group":        (33, 34),
+    "Rate":             (37, 41),
+    "Remarks":          (43, 65),
+    "Rental Length":    (70, 73),
+    "In Station":       (74, 77)
+}   
 
 months = {
     "JAN": 31,
@@ -254,6 +254,7 @@ year2D = "24"
 
 stations_A = ["TOS", "TR7"]
 stations_B = ["TOS", "T1Y"]
+Van_stations = ["TO0", "TO7"]
 
 all_budget_stations = [
     "ALF", "BDU", "HFT", "AL6", "H1T", 

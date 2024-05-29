@@ -125,8 +125,8 @@ def x801(ped_number):
             
     send_key_sequence(f'@0')
 
-def xe515(station, rac_code, date=""):
-    
+def xe515(station, rac_code, date="", res=False):
+        
     if date:
         if rac_code == "A":
             send_key_sequence(f'@R@0/FOR X515@E')
@@ -139,10 +139,21 @@ def xe515(station, rac_code, date=""):
             if ret == cursor_locations["x515_ACTION"]:
                 ready = True
                 
+    
+        res_code = "AT"
+        if res:
+            res_code = "RES"
+        
         if rac_code == "A":
-            send_key_sequence(f'DSAT@T{station}@T {date}@E')
+            if res_code == "RES":
+                send_key_sequence(f'DS{res_code}{station}@T {date}@E')
+            else:
+                send_key_sequence(f'DS{res_code}@T{station}@T {date}@E')
         else:
-            send_key_sequence(f'DSAT@T{station}@T{date}@E')
+            if res_code == "RES":
+                send_key_sequence(f'DS{res_code}{station}@T{date}@E')
+            else:
+                send_key_sequence(f'DS{res_code}@T{station}@T{date}@E')
         
         ready = False
         while not ready:
@@ -164,7 +175,16 @@ def xe515(station, rac_code, date=""):
             if ret == cursor_locations["x515_ACTION"]:
                 ready = True
         
-        send_key_sequence(f'DSAT@T{station}@E')
+        if rac_code == "A":
+            if res_code == "RES":
+                send_key_sequence(f'DS{res_code}{station}@E')
+            else:
+                send_key_sequence(f'DS{res_code}@T{station}@E')
+        else:
+            if res_code == "RES":
+                send_key_sequence(f'DS{res_code}{station}@E')
+            else:
+                send_key_sequence(f'DS{res_code}@T{station}@E')
         
         ready = False
         while not ready:
@@ -225,6 +245,8 @@ def x502_see_reservation(reservation_number):
     wait_for_ready("x502_PAC")
 
 def x502_get_reservation_info():
+    
+    wait_for_ready("x502_PAC")
     WIZ = call_hllapi(8, "666666", cursor_locations["x502_WIZ"])[1].decode('ascii').strip()
     STATION_OUT = call_hllapi(8, "55555", cursor_locations["x502_STATION_OUT"])[1].decode('ascii').strip()
     CTR = call_hllapi(8, "22", cursor_locations["x502_CTR"])[1].decode('ascii').strip()
@@ -259,14 +281,55 @@ def x502_get_reservation_info():
     TA = call_hllapi(8, "0000000000", cursor_locations["x502_T/A"])[1].decode('ascii').strip()
     FREQUENT_TRAVEL_NUMBER = call_hllapi(8, "0000000000000000000000000", cursor_locations["x502_FREQUENT_TRAVEL_NUMBER"])[1].decode('ascii').strip()
     
+    RES = ""
+    PREPAYMENT = ""
+    CDW = ""
+    TP = ""
+    OWF = ""
+    PRICE = ""
     
-    RES = "Not Found"
-    ready = False
-    while not ready:
-        ret = call_hllapi(6, f"RES NO. ", 0)
-        if ret[3] == 0:
-            RES = call_hllapi(8, "00000000000000", ret[2]+8)[1].decode('ascii').strip()
-            ready = True
+    tries = 500
+    currency = "NKR"
+    isEnd = True
+    
+    while tries > 0:
+        tries -= 1
+            
+        ret = call_hllapi(6, f"N MORE...", 0)
+        if ret[3] == 0 and not RES:
+            isEnd = False
+            
+        ret = call_hllapi(6, f"RES NO.", 0)
+        if ret[3] == 0 and not RES:
+            RES = call_hllapi(8, "000000000000000", ret[2]+7)[1].decode('ascii').strip()
+        
+        ret = call_hllapi(6, f"FIXED VALUE PP AMOUNT IS", 0)
+        if ret[3] == 0 and not PREPAYMENT:
+            amount = call_hllapi(8, "0000000000000", ret[2]+24)[1].decode('ascii').strip().split()
+            currency = amount[0]
+            PREPAYMENT = amount[1] + " " + amount[0]
+            
+        ret = call_hllapi(6, f"NWE  CDW=", 0)
+        if ret[3] == 0 and not CDW:
+            CDW = call_hllapi(8, "000000000000", ret[2]+9)[1].decode('ascii').strip()
+        
+        ret = call_hllapi(6, f"TP =", 0)
+        if ret[3] == 0 and not TP:
+            TP = call_hllapi(8, "000000000000", ret[2]+4)[1].decode('ascii').strip()
+            
+        ret = call_hllapi(6, f"ONE WAY FEE", 0)
+        if ret[3] == 0 and not OWF:
+            OWF = call_hllapi(8, "00000000000000", ret[2]+12)[1].decode('ascii').strip()
+            
+        ret = call_hllapi(6, f"TOTL=", 0)
+        if ret[3] == 0 and not PRICE:
+            PRICE = call_hllapi(8, "00000000000000000000", ret[2]+8)[1].decode('ascii').strip() + " " + currency
+            
+        if not isEnd and tries == 0 and not (PREPAYMENT and CDW and TP and OWF and PRICE and RES):
+            press_page_up()
+            wait_for_ready("x502_PAC")
+            tries = 500
+            isEnd = True
     
     return {
         "RES": RES,
@@ -302,7 +365,12 @@ def x502_get_reservation_info():
         "REMARKS": REMARKS,
         "AWD": AWD,
         "T/A": TA,
-        "FREQUENT_TRAVEL_NUMBER": FREQUENT_TRAVEL_NUMBER
+        "FREQUENT_TRAVEL_NUMBER": FREQUENT_TRAVEL_NUMBER,
+        "PREPAYMENT": PREPAYMENT,
+        "PRICE": PRICE,
+        "CDW": CDW,
+        "TP": TP,
+        "OWF": OWF
     }
 
 def xe601(location, rac):
@@ -407,7 +475,7 @@ def format_data(data):
 
     return lines
     
-def get_customers():
+def get_customers(res=False):
     
     customers = []
     isEnd = False
@@ -423,17 +491,19 @@ def get_customers():
         
         for line in lines[12:]:
             
-            if line[0] == "3":
+            if line[0:3] == "36-":
                 page += 1
                 press_page_up()
                 
                 # Search for the page number to be correct in order to move on
                 ready = False
                 while not ready:
-                    ret = call_hllapi(6, f"PAGE 0{page}", 0)
+                    if not res:
+                        ret = call_hllapi(6, f"PAGE 0{page}", 0)
+                    else:
+                        ret = call_hllapi(6, f"PAGE 00{page}", 0)
                     if ret[3] == 0:
                         ready = True
-                
                 isEnd = False
             
             elif line[0:3] == "END":
@@ -441,14 +511,16 @@ def get_customers():
             
             elif ord(line[0]) != 32 and line[0:8] != "VERIFIED":
                 
-                # print(f"Adding customer {customer_count+1} to the list, page {page}")
-                
                 customer = {}
-                for key, value in columns.items():
-                    if line[value[0]:value[1]] == " ":
-                        customer[key] = line[value[0]+1:value[1]+1]
-                    else:
-                        customer[key] = line[value[0]:value[1]]
+                
+                if not res:
+                    for key, value in columns.items():
+                        if line[value[0]:value[1]] == " ":
+                            customer[key] = line[value[0]+1:value[1]+1]
+                        else:
+                            customer[key] = line[value[0]:value[1]]
+                else:
+                    customer["RES"] = line[0:15].strip()
                     
                 customers.append(customer)
                 customer_count += 1
@@ -828,31 +900,42 @@ def get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, lengt
     
     disconnect_from_session(session_id)
 
-def get_all_customers_from_month(station, rac, month, year):
+def _get_customer_reservations(customers, rac):
     
-    xe515(station, rac, f"01{month.upper()}{year}")
+    total_customers = []
+    xe502(rac)
+    for customer in customers:
+        x502_see_reservation(customer["RES"])
+        total_customers.append(x502_get_reservation_info())
+
+    return total_customers
+
+def get_all_customers_from_month(station, res, rac, month, year):
+    
+    xe515(station, rac, f"01{month.upper()}{year}", res)
     customers = []
+    
+    car_type = "Person"
+    if station  in Van_stations:
+        car_type = "Van"
+        
     for i in range(1, months[month]+1):
         xe515_cont(f"{i:02}{month.upper()}{year}")
-        customer, _ = get_customers()
+        customer, _ = get_customers(res)
         
         for c in customer:
             
-            if station != "TO0" or station != "TO7":
-                c["car_type"] = "Person"
-            else:
-                c["car_type"] = "Van"
-                
-            c["rac"] = rac
-            c["out_station"] = station
-            c["out_date"] = f"{i:02}"
-            c["month"] = month
-            c["year"] = year
+            c["Body Type"] = car_type
+            c["RAC"] = rac
+            c["Out Station"] = station
+            c["Out Date"] = f"{i:02}"
+            c["Month"] = month
+            c["Year"] = year
             customers.append(c)
     
     return customers
 
-def get_all_customers_from_given_months(fleet_code, months):
+def get_all_customers_from_given_months(fleet_code, months, res):
     
     session_id = "A"
     connect_to_session(session_id)
@@ -863,27 +946,29 @@ def get_all_customers_from_given_months(fleet_code, months):
 
     for station in stations_A:
         for month in months:
-            customers = get_all_customers_from_month(station, "A", month, year)
+            customers = get_all_customers_from_month(station, res, "A", month, year)
             total_customers += customers
+            
+    total_customers = _get_customer_reservations(total_customers, "A")
 
     disconnect_from_session(session_id)
 
-    session_id = "B"
-    return_code = call_hllapi(1, session_id, 0)[3]
-    if return_code != 0:
-        print('Failed to connect to session')
-        exit()
+    # session_id = "B"
+    # return_code = call_hllapi(1, session_id, 0)[3]
+    # if return_code != 0:
+    #     print('Failed to connect to session')
+    #     exit()
 
-    xe601(fleet_code, "B")
+    # xe601(fleet_code, "B")
 
-    for station in stations_B:
-        for month in months:
-            customers = get_all_customers_from_month(station, "B", month, year)
-            total_customers += customers
+    # for station in stations_B:
+    #     for month in months:
+    #         customers = get_all_customers_from_month(station, res, "B", month, year)
+    #         total_customers += customers
 
-    disconnect_from_session(session_id)
+    # disconnect_from_session(session_id)
 
-    with open(f"python/data/TOTAL_JUN_AUG.json", "w") as file:
+    with open(f"python/data/TOTAL_JUN_AUG_AVIS.json", "w") as file:
         file.write(json.dumps(total_customers))
 
 def save_on_rent_and_available_cars(available_cars, on_rent_cars, day, month):
@@ -1410,14 +1495,14 @@ def get_previous_RA_info(rac, station, length):
             else:
                 x806_RAs.append(customer["RA"])
                 
-    # if len(x806_RAs) == 0:
-    #     return all_RAs
+    if len(x806_RAs) == 0:
+        return all_RAs
     
-    # x806()
-    # for ra in x806_RAs:
-    #     x806_cont(ra)
-    #     record = _get_RA_info_x806()
-    #     all_RAs.append(record)
+    x806()
+    for ra in x806_RAs:
+        x806_cont(ra)
+        record = _get_RA_info_x806()
+        all_RAs.append(record)
     
     return all_RAs
 
@@ -1474,7 +1559,7 @@ def get_wzttrc_data(MVA):
                     "MODEL": model,
                     "MOVEMENT_TYPE": line[0:10].strip(),
                     "LOCATION": line[13:17].strip(),
-                    "DATE": line[20:29].strip(),
+                    "DATE": line[20:30].strip(),
                     "TIME": line[34:39],
                     "MILES": line[43:49].strip(),
                     "MOVEMENT": check_in_movement,
@@ -1494,12 +1579,17 @@ def get_wzttrc_report(MVAs, date):
     month = date[2:5]
     year = date[5:]
      
+    all_traces = []
+     
     for mva in MVAs:
         send_key_sequence(f'DSTR{mva}{day:02}{month.upper()}{year}@E')
         
-        data, total_CO_CI = get_wzttrc_data(mva)
+        data, _ = get_wzttrc_data(mva)
         for record in data:
-            print(record)
+            all_traces.append(record)
+            
+    with open(f"python/data/WZTTRC_64442.json", "w") as file:
+        file.write(json.dumps(all_traces))
 
 def varmenu():
     send_key_sequence(f'@R@0/FOR VARMENU@E')
@@ -1598,16 +1688,14 @@ def get_all_previous_NOFF1_A_RAs(num_of_days):
 # find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("SEP", ["TOS", "T1Y"])
 # get_all_x606_cars()
 # get_prices_for_every_car_group("A", "28MAY24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 1)
+# get_wzttrc_report(read_MVAs(), "01JAN2022")
 
-connect_to_session("A")
+# connect_to_session("A")
 
 # get_out_of_town_rentals("JUL")
 # get_all_varmenu_data_from_NOFF1()
-get_all_previous_NOFF1_A_RAs(3)
+# get_all_previous_NOFF1_A_RAs(3)
 
-# get_wzttrc_report([
-#     "21131375","21131703","21131891","21131950",
-#     "21132042","21132355","21132370"
-# ], "01JAN2022")
+get_all_customers_from_given_months("64442", ["JUN"], res=True)
 
-disconnect_from_session("A")
+# disconnect_from_session("A")
