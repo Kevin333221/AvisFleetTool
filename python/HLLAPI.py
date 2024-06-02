@@ -2022,7 +2022,7 @@ def get_current_day_varmenu_report(station, rac):
 # get_all_customers_from_given_months("64442", ["JUN"], res=True)
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["JUN"])
+# get_car_group_availability_for_month(["JUN"])
 
 # get_out_of_town_rentals("SEP")
-# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUN", ["TOS", "T1Y"])
+find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUN", ["TOS", "T1Y"])

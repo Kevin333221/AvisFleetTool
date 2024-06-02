@@ -1,0 +1,8 @@
+Out Station	In Station 	Car Group	Arrives in
+OSL		TOS		B		14JUN
+OSL		TOS		E		29JUN
+OSL		TOS		M		01JUL
+ANX		TOS		C		04JUL
+OS9		TOS		B		08JUL
+OS9		TOS		C		14JUL
+BGO		TOS		O		18JUL
