@@ -127,6 +127,8 @@ def x801(ped_number):
 
 def xe515(station, rac_code, date="", res=False):
         
+    res_code = "AT" if not res else "RES"
+        
     if date:
         if rac_code == "A":
             send_key_sequence(f'@R@0/FOR X515@E')
@@ -138,11 +140,6 @@ def xe515(station, rac_code, date="", res=False):
             ret = call_hllapi(7, "", 0)[2]
             if ret == cursor_locations["x515_ACTION"]:
                 ready = True
-                
-    
-        res_code = "AT"
-        if res:
-            res_code = "RES"
         
         if rac_code == "A":
             if res_code == "RES":
@@ -250,7 +247,7 @@ def x502_get_reservation_info():
     WIZ = call_hllapi(8, "666666", cursor_locations["x502_WIZ"])[1].decode('ascii').strip()
     STATION_OUT = call_hllapi(8, "55555", cursor_locations["x502_STATION_OUT"])[1].decode('ascii').strip()
     CTR = call_hllapi(8, "22", cursor_locations["x502_CTR"])[1].decode('ascii').strip()
-    DATE_OUT = call_hllapi(8, "000000000000", cursor_locations["x502_DATE_OUT"])[1].decode('ascii').strip()
+    DATE_OUT = call_hllapi(8, "000000000000", cursor_locations["x502_DATE_OUT"])[1].decode('ascii').strip()[:7]
     DAY_OUT = call_hllapi(8, "333", cursor_locations["x502_DATE_OUT"] + 15)[1].decode('ascii').strip()    
     FLIGHT_NO = call_hllapi(8, "666666", cursor_locations["x502_FLIGHT_NO"])[1].decode('ascii').strip()
     CUPON = call_hllapi(8, "7777777", cursor_locations["x502_CUPON"])[1].decode('ascii').strip()
@@ -258,7 +255,7 @@ def x502_get_reservation_info():
     DELIVERY = call_hllapi(8, "1", cursor_locations["x502_DELIVERY"])[1].decode('ascii').strip()
     STATION_IN = call_hllapi(8, "55555", cursor_locations["x502_STATION_IN"])[1].decode('ascii').strip()
     COLLECTION = call_hllapi(8, "1", cursor_locations["x502_COLLECTION"])[1].decode('ascii').strip()
-    DATE_IN = call_hllapi(8, "000000000000", cursor_locations["x502_DATE_IN"])[1].decode('ascii').strip()
+    DATE_IN = call_hllapi(8, "000000000000", cursor_locations["x502_DATE_IN"])[1].decode('ascii').strip()[:7]
     DAY_IN = call_hllapi(8, "333", cursor_locations["x502_DATE_IN"] + 15)[1].decode('ascii').strip()
     CUSTOMER_NAME = call_hllapi(8, "000000000000000000000000000000", cursor_locations["x502_CUSTOMER_NAME"])[1].decode('ascii').strip()
     RATE = call_hllapi(8, "0000000000", cursor_locations["x502_RATE"])[1].decode('ascii').strip()
@@ -283,53 +280,57 @@ def x502_get_reservation_info():
     
     RES = ""
     PREPAYMENT = ""
+    CURRENCY = ""
     CDW = ""
     TP = ""
     OWF = ""
     PRICE = ""
     
-    tries = 500
-    currency = "NKR"
-    isEnd = True
+    isEnd = False
     
-    while tries > 0:
-        tries -= 1
-            
-        ret = call_hllapi(6, f"N MORE...", 0)
-        if ret[3] == 0 and not RES:
-            isEnd = False
-            
-        ret = call_hllapi(6, f"RES NO.", 0)
-        if ret[3] == 0 and not RES:
-            RES = call_hllapi(8, "000000000000000", ret[2]+7)[1].decode('ascii').strip()
+    while not isEnd:
         
-        ret = call_hllapi(6, f"FIXED VALUE PP AMOUNT IS", 0)
-        if ret[3] == 0 and not PREPAYMENT:
-            amount = call_hllapi(8, "0000000000000", ret[2]+24)[1].decode('ascii').strip().split()
-            currency = amount[0]
-            PREPAYMENT = amount[1] + " " + amount[0]
-            
-        ret = call_hllapi(6, f"NWE  CDW=", 0)
-        if ret[3] == 0 and not CDW:
-            CDW = call_hllapi(8, "000000000000", ret[2]+9)[1].decode('ascii').strip()
+        # Takes a picture of the screen
+        image = call_hllapi(5, " "*1920, 0)[1]
+        data = image.decode('ascii')
+        lines = format_data(data)
+        isEnd = True
         
-        ret = call_hllapi(6, f"TP =", 0)
-        if ret[3] == 0 and not TP:
-            TP = call_hllapi(8, "000000000000", ret[2]+4)[1].decode('ascii').strip()
+        for line in lines[3:]:
+            curr_line = line[35:]
             
-        ret = call_hllapi(6, f"ONE WAY FEE", 0)
-        if ret[3] == 0 and not OWF:
-            OWF = call_hllapi(8, "00000000000000", ret[2]+12)[1].decode('ascii').strip()
+            if curr_line[0:3] == "RES":
+                RES = curr_line[8:22].strip()
             
-        ret = call_hllapi(6, f"TOTL=", 0)
-        if ret[3] == 0 and not PRICE:
-            PRICE = call_hllapi(8, "00000000000000000000", ret[2]+8)[1].decode('ascii').strip() + " " + currency
+            if curr_line[0:25] == "FIXED VALUE PP AMOUNT IS ":
+                amount = curr_line[25:].strip().split()
+                PREPAYMENT = amount[1]
+                CURRENCY = amount[0]
+                
+            if curr_line[0:9] == "NWE  CDW=":
+                CDW = curr_line[9:20].strip()
+
+            if curr_line[21:25] == "TP =":
+                TP = curr_line[25:].strip()
+                
+            if curr_line[18:26] == "CURRENCY":
+                CURRENCY = curr_line[29:32].strip()
             
-        if not isEnd and tries == 0 and not (PREPAYMENT and CDW and TP and OWF and PRICE and RES):
-            press_page_up()
-            wait_for_ready("x502_PAC")
-            tries = 500
-            isEnd = True
+            if curr_line[0:11] == "ONE WAY FEE":
+                OWF = curr_line[11:20].strip()
+                
+            if curr_line[0:5] == "TOTL=":
+                PRICE = curr_line[5:].strip()
+                
+            if curr_line[35:43] == "N MORE..":
+                isEnd = False
+                send_key_sequence(f'@0')
+                press_page_up()
+                wait_for_ready("x502_PAC")
+            
+            if curr_line[35:43] == "N END...":
+                isEnd = True
+                break
     
     return {
         "RES": RES,
@@ -367,6 +368,7 @@ def x502_get_reservation_info():
         "T/A": TA,
         "FREQUENT_TRAVEL_NUMBER": FREQUENT_TRAVEL_NUMBER,
         "PREPAYMENT": PREPAYMENT,
+        "CURRENCY": CURRENCY,
         "PRICE": PRICE,
         "CDW": CDW,
         "TP": TP,
@@ -592,24 +594,13 @@ def move_cursor(location):
 
 def x313_setup():
     send_key_sequence(f'@R@0/FOR X313@E')
-    
-    ready = False
-    while not ready:
-        ret = call_hllapi(7, "", 0)[2]
-        if ret == cursor_locations["x313_ACTION"]:
-            ready = True
-    
+    wait_for_ready("x313_ACTION")
     send_key_sequence(f'@T')
 
 def get_car_details(MVA: str):
 
     send_key_sequence(f'{MVA}@E')
-     
-    ready = False
-    while not ready:
-        ret = call_hllapi(7, "", 0)[2]
-        if ret == cursor_locations["x313_MVA_NO"]:
-            ready = True
+    wait_for_ready("x313_MVA_NO")
     
     MVA           = call_hllapi(8, "88888888", cursor_locations["x313_MVA_NO"])[1].decode('ascii')
     REG           = call_hllapi(8, "7777777", cursor_locations["x313_REG_NO"])[1].decode('ascii')
@@ -738,13 +729,13 @@ def get_out_of_town_rentals_month(month, year, station, rac_code):
         customers, _ = get_customers()
         
         for customer in customers:
-            if len(customer["in_sta"].strip()) != 0 and customer["in_sta"] not in stations_A and customer["in_sta"] not in stations_B:
+            if len(customer["In Station"].strip()) != 0 and customer["In Station"] not in stations_A and customer["In Station"] not in stations_B:
                 new_customer = {
                     "date": f"{i:02}{month.upper()}",
-                    "length": customer["exp_lor"],
-                    "in_sta": customer["in_sta"],
-                    "out_sta": station,
-                    "car_group": customer["car_grp"]
+                    "Rental Length": customer["Rental Length"],
+                    "In Station": customer["In Station"],
+                    "Out Station": station,
+                    "Car Group": customer["Car Group"]
                 }
                 out_of_town_customers.append(new_customer)
     
@@ -796,45 +787,37 @@ def get_total_data():
 
 def get_out_of_town_rentals(month):
       
-    session_id = 'A'
-    connect_to_session(session_id)
-
-    total_out_of_town_rentals = []
+    ######## AVIS ########
+    connect_to_session('A')
+    xe601("64442", "A")
     
-    for m in range(6, months_to_num[month]+1):
-        for station in stations_A:
-            data = get_out_of_town_rentals_month(num_to_months[m], year, station, "A")
-            total_out_of_town_rentals.append(data)
+    total_out_of_town_rentals = []
+    for station in stations_A:
+        data = get_out_of_town_rentals_month(month, year, station, "A")
+        total_out_of_town_rentals.append(data)
 
     # Merge and sort the data
     merged_data = {"data": []}
     for item in total_out_of_town_rentals:
         merged_data["data"] += item["data"]
     
-    with open(f"python/data/Enveisleier_AVIS_{month}.json", "w") as file:
-        file.write(json.dumps(merged_data))
+    disconnect_from_session('A')
     
-    disconnect_from_session(session_id)
-    
-    session_id = 'B'
-    connect_to_session(session_id)
+    ######## BUDGET ########
+    connect_to_session('B')
+    xe601("64442", "B")
     
     total_out_of_town_rentals = []
-    
-    for m in range(6, months_to_num[month]+1):
-        for station in stations_B:
-            data = get_out_of_town_rentals_month(num_to_months[m], year, station, "B")
-            total_out_of_town_rentals.append(data)
+    for station in stations_B:
+        data = get_out_of_town_rentals_month(month, year, station, "B")
+        total_out_of_town_rentals.append(data)
 
-    disconnect_from_session(session_id)
+    disconnect_from_session('B')
     
     # Merge and sort the data
     merged_data1 = {"data": []}
     for item in total_out_of_town_rentals:
-        merged_data1["data"] += item["data"]
-
-    with open(f"python/data/Enveisleier_BUDGET_{month}.json", "w") as file:
-        file.write(json.dumps(merged_data1))        
+        merged_data1["data"] += item["data"] 
 
     # Merge and sort the data
     total_merged_data = {"data": []}
@@ -845,14 +828,11 @@ def get_out_of_town_rentals(month):
         return datetime.datetime.strptime(date_str, "%d%b")
 
     total_merged_data["data"] = sorted(total_merged_data["data"], key=lambda x: parse_date(x["date"]))
-    
-    with open(f"python/data/Enveisleier_{month}.json", "w") as file:
-        file.write(json.dumps(total_merged_data))
         
     # Write the data to a txt file
     with open(f"python/data/Enveisleier_{month}.txt", "w") as file:
         for item in total_merged_data["data"]:
-            file.write(f"{item['date']} - {item['out_sta']} to {item['in_sta']} - {item['length']} - {item['car_group']}\n")
+            file.write(f"{item['date']} - {item['Out Station']} to {item['In Station']} - {item['Rental Length']} - {item['Car Group']}\n")
     
 def get_price(car_group, date, out_sta, in_sta, length):
     return xe502_cont(car_group, date, out_sta, in_sta, length)
@@ -949,27 +929,29 @@ def get_all_customers_from_given_months(fleet_code, months, res):
             customers = get_all_customers_from_month(station, res, "A", month, year)
             total_customers += customers
             
-    total_customers = _get_customer_reservations(total_customers, "A")
+    all_customers = _get_customer_reservations(total_customers, "A")
 
     disconnect_from_session(session_id)
 
-    # session_id = "B"
-    # return_code = call_hllapi(1, session_id, 0)[3]
-    # if return_code != 0:
-    #     print('Failed to connect to session')
-    #     exit()
+    session_id = "B"
+    connect_to_session(session_id)
+        
+    xe601(fleet_code, "B")
 
-    # xe601(fleet_code, "B")
+    total_customers = []
 
-    # for station in stations_B:
-    #     for month in months:
-    #         customers = get_all_customers_from_month(station, res, "B", month, year)
-    #         total_customers += customers
+    for station in stations_B:
+        for month in months:
+            customers = get_all_customers_from_month(station, res, "B", month, year)
+            total_customers += customers
+            
+    for x in _get_customer_reservations(total_customers, "B"):
+        all_customers.append(x)
 
-    # disconnect_from_session(session_id)
+    disconnect_from_session(session_id)
 
-    with open(f"python/data/TOTAL_JUN_AUG_AVIS.json", "w") as file:
-        file.write(json.dumps(total_customers))
+    with open(f"python/data/TOTAL_JUN.json", "w") as file:
+        file.write(json.dumps(all_customers))
 
 def save_on_rent_and_available_cars(available_cars, on_rent_cars, day, month):
     with open("python/data/available_cars.json", "r") as file:
@@ -1143,13 +1125,13 @@ def find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway(month, in_stations
             customers, _ = get_customers()
             
             for customer in customers:
-                if customer["in_sta"] in in_stations:
+                if customer["In Station"] in in_stations:
                     new_customer = {
                         "date": f"{i:02}{month.upper()}",
-                        "length": customer["exp_lor"],
-                        "in_sta": customer["in_sta"],
+                        "length": customer["Rental Length"],
+                        "in_sta": customer["In Station"],
                         "out_sta": station,
-                        "car_group": customer["car_grp"]
+                        "car_group": customer["Car Group"]
                     }
                     back_rentals.append(new_customer)
     
@@ -1681,21 +1663,366 @@ def get_all_previous_NOFF1_A_RAs(num_of_days):
     with open("python/data/NOFF1_A_PREVIOUS_RAs_V2.json", "w") as file:
         file.write(json.dumps(NOFF1_A_PREVIOUS_RAs))
 
+def manifest(date, station, rac):
+    send_key_sequence(f"@R@0/FOR MANIFEST@E")
+    wait_for_ready("MANIFEST_ACTION")
+    
+    send_key_sequence(f"DSRNT{station}@T{rac}@T{date}@E")
+    wait_for_ready("MANIFEST_ACTION") 
+
+def manifest_get_amount_car_group_in(car_group):
+    
+    isEnd = False
+    amount = 0
+    movements = []
+    all_stations = []
+    
+    for station in stations_A[1:]:
+        all_stations.append([station, "A"])
+        
+    for index, station in enumerate(stations_B):
+        if index == 0:
+            all_stations.append([station, "B"])
+        else:
+            all_stations.append([station, ""])
+    
+    while not isEnd:
+        image = call_hllapi(5, " "*1920, 0)[1]
+        data = image.decode('ascii')
+        lines = format_data(data)
+        
+        isEnd = True
+    
+        for line in lines[13:]:        
+            if ord(line[0]) != 32 and line[0:3] != "36-" and line[0:3] != "END":
+                mva = line[43:51].strip()
+                movements.append(mva)
+                
+            if line[0:3] == "36-":
+                send_key_sequence(f'@0')
+                press_page_up()
+                wait_for_ready("MANIFEST_ACTION")
+                isEnd = False
+                
+            if line[0:3] == "END":
+                if len(all_stations) > 0:
+                    station = all_stations.pop(0)
+                    send_key_sequence(f'@T@T{station[0]}@T{station[1]}@E')
+                    wait_for_ready("MANIFEST_ACTION")
+                    isEnd = False
+                else:
+                    isEnd = True
+                    break
+    
+    if len(movements) == 0:
+        return 0
+      
+    x313_setup()
+    for movement in movements:
+        car: Car = get_car_details(movement)
+        if car.car_group == car_group:
+            amount += 1
+            
+    return amount
+            
+def get_car_group_availability_for_month(desired_months):
+    connect_to_session("A")
+    xe601("64442", "A")
+    varmenu()
+    
+    today = datetime.datetime.now().day
+    dates = [f"{day:02}{month.upper()}{year}" for month in desired_months for day in range(today, months[month]+1)]
+    # on_hand = []
+    # in_res = []
+    # out_res = []
+    # available = []
+    # num_car_group_on_rent = 0
+    # num_car_group_available = 0
+    
+    car_groups_on_hand = {
+        "A": [],
+        "B": [],
+        "C": [],
+        "D": [],
+        "E": [],
+        "F": [],
+        "G": [],
+        "H": [],
+        "I": [],
+        "J": [],
+        "K": [],
+        "L": [],
+        "M": [],
+        "N": [],
+        "O": [],
+        "P": []
+    }
+    
+    car_groups_in_res = {
+        "A": [],
+        "B": [],
+        "C": [],
+        "D": [],
+        "E": [],
+        "F": [],
+        "G": [],
+        "H": [],
+        "I": [],
+        "J": [],
+        "K": [],
+        "L": [],
+        "M": [],
+        "N": [],
+        "O": [],
+        "P": []
+    }
+    
+    car_groups_out_res = {
+        "A": [],
+        "B": [],
+        "C": [],
+        "D": [],
+        "E": [],
+        "F": [],
+        "G": [],
+        "H": [],
+        "I": [],
+        "J": [],
+        "K": [],
+        "L": [],
+        "M": [],
+        "N": [],
+        "O": [],
+        "P": []
+    }
+    
+    car_groups_available = {
+        "A": [],
+        "B": [],
+        "C": [],
+        "D": [],
+        "E": [],
+        "F": [],
+        "G": [],
+        "H": [],
+        "I": [],
+        "J": [],
+        "K": [],
+        "L": [],
+        "M": [],
+        "N": [],
+        "O": [],
+        "P": []
+    }
+    
+    num_car_groups_on_rent = {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "G": 0,
+        "H": 0,
+        "I": 0,
+        "J": 0,
+        "K": 0,
+        "L": 0,
+        "M": 0,
+        "N": 0,
+        "O": 0,
+        "P": 0
+    }
+    
+    num_car_groups_available = {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "G": 0,
+        "H": 0,
+        "I": 0,
+        "J": 0,
+        "K": 0,
+        "L": 0,
+        "M": 0,
+        "N": 0,
+        "O": 0,
+        "P": 0
+    }
+    
+    for station in stations_A:
+        curr_day, car_group_avail = get_current_day_varmenu_report(station, "A")
+        for car_grp in car_group_avail:
+            num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
+            num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
+        
+    for station in stations_B:
+        curr_day, car_group_avail = get_current_day_varmenu_report(station, "B")
+        for car_grp in car_group_avail:
+            num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
+            num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
+    
+    disconnect_from_session("A")
+    
+    connect_to_session("B")
+    xe601("64442", "B")
+    disconnect_from_session("B")
+    
+    out_manifest = []
+    
+    for month in desired_months:
+        for day in range(today, months[month]+1):
+            for car_grp in car_groups_on_hand:
+                car_groups_on_hand[car_grp].append(num_car_groups_available[car_grp])
+            
+            in_rentals = 0
+            out_rentals = 0
+            
+            connect_to_session("A")
+            
+            for station in stations_A:
+                xe515(station, "A")
+                xe515_cont(f"{day:02}{month.upper()}{year}")
+                customers, _ = get_customers()
+                
+                # Checking out-manifest screen
+                for customer in customers:
+                    if customer["Car Group"] == car_group:
+                        num_car_group_on_rent += 1
+                        num_car_group_available -= 1
+                        out_manifest.append(int(customer["Rental Length"]))
+                        out_rentals += 1
+            
+            # Check in-manifest screen
+            manifest(f"{day:02}{month.upper()}{year}", "TOS", "A")
+            comes_in = manifest_get_amount_car_group_in(car_group)
+            
+            in_rentals += comes_in
+            num_car_group_available += comes_in
+            
+            disconnect_from_session("A")
+            
+            # Connecting to Budget
+            connect_to_session("B")
+            
+            # for station in stations_B:
+            #     xe515(station, "B")
+            #     xe515_cont(f"{day:02}{month.upper()}{year}")
+            #     customers, _ = get_customers()
+                
+            #     # Checking out-manifest screen
+            #     for customer in customers:
+            #         if customer["Car Group"] == car_group:
+            #             num_car_group_on_rent += 1
+            #             num_car_group_available -= 1
+            #             out_manifest.append(int(customer["Rental Length"]))
+            #             out_rentals += 1
+                        
+            disconnect_from_session("B")
+            
+            # Check x515 screen, cars in
+            next_day = []
+            for rental in out_manifest:
+                if rental > 0:
+                    next_day.append(rental - 1)
+                else:
+                    num_car_group_on_rent -= 1
+                    num_car_group_available += 1
+                    in_rentals += 1
+            out_manifest = next_day
+            
+            out_res.append(out_rentals)
+            in_res.append(in_rentals)
+            available.append(num_car_group_available)
+    
+    # data = []
+    
+    # row = {
+    #     "Status": "On Hand",
+    # }
+    # for i in range(len(dates)):
+    #     row[f"{dates[i][:5]}"] = on_hand[i]
+    # data.append(row)
+    
+    # row = {
+    #     "Status": "Out Rentals",
+    # }
+    # for i in range(len(dates)):
+    #     row[f"{dates[i][:5]}"] = out_res[i]
+    # data.append(row)
+    
+    # row = {
+    #     "Status": "In Rentals",
+    # }
+    # for i in range(len(dates)):
+    #     row[f"{dates[i][:5]}"] = in_res[i]
+    # data.append(row)
+    
+    # row = {
+    #     "Status": "Available",
+    # }
+    # for i in range(len(dates)):
+    #     row [f"{dates[i][:5]}"] = available[i]
+    # data.append(row)
+    
+    # with open(f"python/data/{car_group}_Availability.json", "w") as file:
+    #     file.write(json.dumps(data))
+            
+def get_current_day_varmenu_report(station, rac):
+    
+    send_key_sequence(f'DSSM{station}@F@T{rac}@E')
+    wait_for_ready("VARMENU_ACTION")
+    
+    data = []
+    image = call_hllapi(5, " "*1920, 0)[1]
+    data = image.decode('ascii')
+    lines = format_data(data)
+    
+    ON_RENT = lines[8][75:79].strip()
+    
+    # DAYS_IN_THE_WEEK    = [lines[11][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    # DATES               = [lines[12][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    # ON_HAND             = [lines[13][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    # DUE_IN              = [lines[14][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    # RES_DI              = [lines[15][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    # STN_INV             = [lines[16][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    # VEH_RSVD            = [lines[17][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    # AVAILABLE           = [lines[18][i*10:i*10 + 10].strip() for i in range(1, 8)]
+    
+    NUM_CAR_GROUPS_ON_RENT = {
+        lines[20][i*5 + 1:i*5 + 6].strip(): lines[21][i*5 + 1:i*5 + 6].strip() for i in range(0, 16)
+    }
+    
+    send_key_sequence(f'@TCZ@T{rac}@E')
+    wait_for_ready("VARMENU_ACTION")
+    
+    data = []
+    image = call_hllapi(5, " "*1920, 0)[1]
+    data = image.decode('ascii')
+    lines = format_data(data)
+    car_groups = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"]
+    
+    CAR_GROUP_AVAIL = {
+        car_groups[i] : int(lines[14][i*4 + 14:i*4 + 18].strip()) for i in range(0, 16)
+    }
+    
+    return [ON_RENT, NUM_CAR_GROUPS_ON_RENT], CAR_GROUP_AVAIL
+    
 # get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
 # get_all_customers_from_given_months("64442", ["JUN", "JUL", "AUG"])
 # get_amount_of_cars_in_month("31JUN", 191)
 # get_previous_RAs("A", "BDU", 7)
-# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("SEP", ["TOS", "T1Y"])
-# get_all_x606_cars()
 # get_prices_for_every_car_group("A", "28MAY24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 1)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
-
-# connect_to_session("A")
-
-# get_out_of_town_rentals("JUL")
 # get_all_varmenu_data_from_NOFF1()
 # get_all_previous_NOFF1_A_RAs(3)
+# get_all_customers_from_given_months("64442", ["JUN"], res=True)
+# get_all_x606_cars()
 
-get_all_customers_from_given_months("64442", ["JUN"], res=True)
+get_car_group_availability_for_month(["JUN"])
 
-# disconnect_from_session("A")
+# get_out_of_town_rentals("SEP")
+# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUN", ["TOS", "T1Y"])

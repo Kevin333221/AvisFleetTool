@@ -124,7 +124,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("FleetmasterPrinter/img/Vehicles.png", confidence=0.8)
+                box = py.locateOnScreen("FleetmasterPrinter/img/Vehicles.png", confidence=0.7)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()

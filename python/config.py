@@ -10,6 +10,8 @@ cursor_locations = {
     "WZTDOC_ACTION": 87,
     "WZTDOC_DATE": 142,
     
+    "MANIFEST_ACTION": 89,
+    
     "x203_RA": 86,
     "x203_ACT": 100,
     # "x203_AGENT_ID": 108,

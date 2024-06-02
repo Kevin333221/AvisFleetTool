@@ -10,8 +10,9 @@ def convert_to_excel(data, output_file):
     df.to_excel(output_file, index=False)
 
 def main():
-    file_path = 'python/data/TOTAL_JUN_AUG_AVIS.json'
-    output_file = 'python/data/Excel/TOTAL_JUN_AUG_AVIS.xlsx'
+    name = "H_Availability"
+    file_path = f'python/data/{name}.json'
+    output_file = f'python/data/Excel/{name}.xlsx'
     
     convert_to_excel(read_data(file_path), output_file)
     
