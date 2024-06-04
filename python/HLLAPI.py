@@ -1670,10 +1670,10 @@ def manifest(date, station, rac):
     send_key_sequence(f"DSRNT{station}@T{rac}@T{date}@E")
     wait_for_ready("MANIFEST_ACTION") 
 
-def manifest_get_amount_car_group_in(car_group):
+def manifest_get_amount_car_group_in():
     
     isEnd = False
-    amount = 0
+    cars = {}
     movements = []
     all_stations = []
     
@@ -1715,29 +1715,27 @@ def manifest_get_amount_car_group_in(car_group):
                     break
     
     if len(movements) == 0:
-        return 0
+        return cars
       
     x313_setup()
     for movement in movements:
         car: Car = get_car_details(movement)
-        if car.car_group == car_group:
-            amount += 1
+        if car.car_group in cars:
+            cars[car.car_group] += 1
+        else:
+            cars[car.car_group] = 1
+    
+    return cars
             
-    return amount
-            
-def get_car_group_availability_for_month(desired_months):
+def get_car_group_availability_for_month(desired_months, stations=[]):
     connect_to_session("A")
     xe601("64442", "A")
     varmenu()
     
     today = datetime.datetime.now().day
-    dates = [f"{day:02}{month.upper()}{year}" for month in desired_months for day in range(today, months[month]+1)]
-    # on_hand = []
-    # in_res = []
-    # out_res = []
-    # available = []
-    # num_car_group_on_rent = 0
-    # num_car_group_available = 0
+    dates = [f"{day:02}{desired_months[0].upper()}{year}" for day in range(today, months[desired_months[0]]+1)]
+    dates_cont = [f"{day:02}{month.upper()}{year}" for month in desired_months[1:] for day in range(1, months[month]+1)]
+    dates.extend(dates_cont)
     
     car_groups_on_hand = {
         "A": [],
@@ -1874,102 +1872,199 @@ def get_car_group_availability_for_month(desired_months):
     out_manifest = []
     
     for month in desired_months:
-        for day in range(today, months[month]+1):
-            for car_grp in car_groups_on_hand:
-                car_groups_on_hand[car_grp].append(num_car_groups_available[car_grp])
-            
-            in_rentals = 0
-            out_rentals = 0
-            
-            connect_to_session("A")
-            
-            for station in stations_A:
-                xe515(station, "A")
-                xe515_cont(f"{day:02}{month.upper()}{year}")
-                customers, _ = get_customers()
+        if month == desired_months[0]:
+            for day in range(today, months[month]+1):
+                for car_grp in car_groups_on_hand:
+                    car_groups_on_hand[car_grp].append(num_car_groups_available[car_grp])
                 
-                # Checking out-manifest screen
-                for customer in customers:
-                    if customer["Car Group"] == car_group:
-                        num_car_group_on_rent += 1
-                        num_car_group_available -= 1
-                        out_manifest.append(int(customer["Rental Length"]))
-                        out_rentals += 1
-            
-            # Check in-manifest screen
-            manifest(f"{day:02}{month.upper()}{year}", "TOS", "A")
-            comes_in = manifest_get_amount_car_group_in(car_group)
-            
-            in_rentals += comes_in
-            num_car_group_available += comes_in
-            
-            disconnect_from_session("A")
-            
-            # Connecting to Budget
-            connect_to_session("B")
-            
-            # for station in stations_B:
-            #     xe515(station, "B")
-            #     xe515_cont(f"{day:02}{month.upper()}{year}")
-            #     customers, _ = get_customers()
+                in_rentals = {}
+                out_rentals = {}
                 
-            #     # Checking out-manifest screen
-            #     for customer in customers:
-            #         if customer["Car Group"] == car_group:
-            #             num_car_group_on_rent += 1
-            #             num_car_group_available -= 1
-            #             out_manifest.append(int(customer["Rental Length"]))
-            #             out_rentals += 1
-                        
-            disconnect_from_session("B")
-            
-            # Check x515 screen, cars in
-            next_day = []
-            for rental in out_manifest:
-                if rental > 0:
-                    next_day.append(rental - 1)
-                else:
-                    num_car_group_on_rent -= 1
-                    num_car_group_available += 1
-                    in_rentals += 1
-            out_manifest = next_day
-            
-            out_res.append(out_rentals)
-            in_res.append(in_rentals)
-            available.append(num_car_group_available)
+                connect_to_session("A")
+                
+                for station in stations_A:
+                    xe515(station, "A")
+                    xe515_cont(f"{day:02}{month.upper()}{year}")
+                    customers, _ = get_customers()
+                    
+                    # Checking out-manifest screen
+                    for customer in customers:
+                        for car_group in car_groups_on_hand:
+                            if customer["Car Group"] == car_group:
+                                num_car_groups_on_rent[car_group] += 1
+                                num_car_groups_available[car_group] -= 1
+                                out_manifest.append([customer["Car Group"], int(customer["Rental Length"])])
+                                
+                                if car_group in out_rentals:
+                                    out_rentals[car_group] += 1
+                                else:
+                                    out_rentals[car_group] = 1
+                
+                # Check in-manifest screen
+                manifest(f"{day:02}{month.upper()}{year}", "TOS", "A")
+                cars = manifest_get_amount_car_group_in()
+                for car_group in cars:
+                    num_car_groups_on_rent[car_group] -= cars[car_group]
+                    num_car_groups_available[car_group] += cars[car_group]
+                    in_rentals[car_group] = cars[car_group]
+
+                disconnect_from_session("A")
+                
+                # Connecting to Budget
+                connect_to_session("B")
+                
+                for station in stations_B:
+                    xe515(station, "B")
+                    xe515_cont(f"{day:02}{month.upper()}{year}")
+                    customers, _ = get_customers()
+                    
+                    # Checking out-manifest screen
+                    for customer in customers:
+                        for car_group in car_groups_on_hand:
+                            if customer["Car Group"] == car_group:
+                                num_car_groups_on_rent[car_group] += 1
+                                num_car_groups_available[car_group] -= 1
+                                out_manifest.append([customer["Car Group"], int(customer["Rental Length"])])
+                                    
+                                if car_group in out_rentals:
+                                    out_rentals[car_group] += 1
+                                else:
+                                    out_rentals[car_group] = 1
+                                    
+                disconnect_from_session("B")
+                
+                # Check x515 screen, cars in
+                next_day = []
+                for lst in out_manifest:
+                    c_group = lst[0]
+                    rental = lst[1]
+                    if rental > 0:
+                        next_day.append([c_group, rental - 1])
+                    else:
+                        num_car_groups_on_rent[c_group] -= 1
+                        num_car_groups_available[c_group] += 1
+                        if c_group in in_rentals:
+                            in_rentals[c_group] += 1
+                        else:
+                            in_rentals[c_group] = 1
+                out_manifest = next_day
+                
+                for car_group in car_groups_on_hand:
+                    car_groups_in_res[car_group].append(in_rentals[car_group] if car_group in in_rentals else 0)
+                    car_groups_out_res[car_group].append(out_rentals[car_group] if car_group in out_rentals else 0)
+                    car_groups_available[car_group].append(num_car_groups_available[car_group])
+        else:
+            for day in range(1, months[month]+1):
+                for car_grp in car_groups_on_hand:
+                    car_groups_on_hand[car_grp].append(num_car_groups_available[car_grp])
+                
+                in_rentals = {}
+                out_rentals = {}
+                
+                connect_to_session("A")
+                
+                for station in stations_A:
+                    xe515(station, "A")
+                    xe515_cont(f"{day:02}{month.upper()}{year}")
+                    customers, _ = get_customers()
+                    
+                    # Checking out-manifest screen
+                    for customer in customers:
+                        for car_group in car_groups_on_hand:
+                            if customer["Car Group"] == car_group:
+                                num_car_groups_on_rent[car_group] += 1
+                                num_car_groups_available[car_group] -= 1
+                                out_manifest.append([customer["Car Group"], int(customer["Rental Length"])])
+                                
+                                if car_group in out_rentals:
+                                    out_rentals[car_group] += 1
+                                else:
+                                    out_rentals[car_group] = 1
+                
+                # Check in-manifest screen
+                manifest(f"{day:02}{month.upper()}{year}", "TOS", "A")
+                cars = manifest_get_amount_car_group_in()
+                for car_group in cars:
+                    num_car_groups_on_rent[car_group] -= cars[car_group]
+                    num_car_groups_available[car_group] += cars[car_group]
+                    in_rentals[car_group] = cars[car_group]
+
+                disconnect_from_session("A")
+                
+                # Connecting to Budget
+                connect_to_session("B")
+                
+                for station in stations_B:
+                    xe515(station, "B")
+                    xe515_cont(f"{day:02}{month.upper()}{year}")
+                    customers, _ = get_customers()
+                    
+                    # Checking out-manifest screen
+                    for customer in customers:
+                        for car_group in car_groups_on_hand:
+                            if customer["Car Group"] == car_group:
+                                num_car_groups_on_rent[car_group] += 1
+                                num_car_groups_available[car_group] -= 1
+                                out_manifest.append([customer["Car Group"], int(customer["Rental Length"])])
+                                if car_group in out_rentals:
+                                    out_rentals[car_group] += 1
+                                else:
+                                    out_rentals[car_group] = 1
+                            
+                disconnect_from_session("B")
+                
+                # Check x515 screen, cars in
+                next_day = []
+                for lst in out_manifest:
+                    c_group = lst[0]
+                    rental = lst[1]
+                    if rental > 0:
+                        next_day.append([c_group, rental - 1])
+                    else:
+                        num_car_groups_on_rent[c_group] -= 1
+                        num_car_groups_available[c_group] += 1
+                        if c_group in in_rentals:
+                            in_rentals[c_group] += 1
+                        else:
+                            in_rentals[c_group] = 1
+                out_manifest = next_day
+                
+                for car_group in car_groups_on_hand:
+                    car_groups_in_res[car_group].append(in_rentals[car_group] if car_group in in_rentals else 0)
+                    car_groups_out_res[car_group].append(out_rentals[car_group] if car_group in out_rentals else 0)
+                    car_groups_available[car_group].append(num_car_groups_available[car_group])
     
-    # data = []
+    data = []
+    row = {
+        "Status": "On Hand",
+    }
+    for i in range(len(dates)):
+        row [f"{dates[i][:5]}"] = sum([car_groups_on_hand[car_group][i] for car_group in car_groups_on_hand])
+    data.append(row)
+
+    row = {
+        "Status": "Out Rentals",
+    }
+    for i in range(len(dates)):
+        row [f"{dates[i][:5]}"] = sum([car_groups_out_res[car_group][i] for car_group in car_groups_on_hand])
+    data.append(row)
     
-    # row = {
-    #     "Status": "On Hand",
-    # }
-    # for i in range(len(dates)):
-    #     row[f"{dates[i][:5]}"] = on_hand[i]
-    # data.append(row)
+    row = {
+        "Status": "In Rentals",
+    }
+    for i in range(len(dates)):
+        row [f"{dates[i][:5]}"] = sum([car_groups_in_res[car_group][i] for car_group in car_groups_on_hand])
+    data.append(row)
+      
+    row = {
+        "Status": "Available",
+    }
+    for i in range(len(dates)):
+        row [f"{dates[i][:5]}"] = sum([car_groups_available[car_group][i] for car_group in car_groups_on_hand])
+    data.append(row)
     
-    # row = {
-    #     "Status": "Out Rentals",
-    # }
-    # for i in range(len(dates)):
-    #     row[f"{dates[i][:5]}"] = out_res[i]
-    # data.append(row)
-    
-    # row = {
-    #     "Status": "In Rentals",
-    # }
-    # for i in range(len(dates)):
-    #     row[f"{dates[i][:5]}"] = in_res[i]
-    # data.append(row)
-    
-    # row = {
-    #     "Status": "Available",
-    # }
-    # for i in range(len(dates)):
-    #     row [f"{dates[i][:5]}"] = available[i]
-    # data.append(row)
-    
-    # with open(f"python/data/{car_group}_Availability.json", "w") as file:
-    #     file.write(json.dumps(data))
+    with open(f"python/data/All_Groups_Availability_{desired_months}.json", "w") as file:
+        file.write(json.dumps(data))
             
 def get_current_day_varmenu_report(station, rac):
     
@@ -1982,15 +2077,6 @@ def get_current_day_varmenu_report(station, rac):
     lines = format_data(data)
     
     ON_RENT = lines[8][75:79].strip()
-    
-    # DAYS_IN_THE_WEEK    = [lines[11][i*10:i*10 + 10].strip() for i in range(1, 8)]
-    # DATES               = [lines[12][i*10:i*10 + 10].strip() for i in range(1, 8)]
-    # ON_HAND             = [lines[13][i*10:i*10 + 10].strip() for i in range(1, 8)]
-    # DUE_IN              = [lines[14][i*10:i*10 + 10].strip() for i in range(1, 8)]
-    # RES_DI              = [lines[15][i*10:i*10 + 10].strip() for i in range(1, 8)]
-    # STN_INV             = [lines[16][i*10:i*10 + 10].strip() for i in range(1, 8)]
-    # VEH_RSVD            = [lines[17][i*10:i*10 + 10].strip() for i in range(1, 8)]
-    # AVAILABLE           = [lines[18][i*10:i*10 + 10].strip() for i in range(1, 8)]
     
     NUM_CAR_GROUPS_ON_RENT = {
         lines[20][i*5 + 1:i*5 + 6].strip(): lines[21][i*5 + 1:i*5 + 6].strip() for i in range(0, 16)
@@ -2022,7 +2108,7 @@ def get_current_day_varmenu_report(station, rac):
 # get_all_customers_from_given_months("64442", ["JUN"], res=True)
 # get_all_x606_cars()
 
-# get_car_group_availability_for_month(["JUN"])
+get_car_group_availability_for_month(["JUN", "JUL", "AUG", "SEP"], ["TR7", "T1Y"])
 
 # get_out_of_town_rentals("SEP")
-find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUN", ["TOS", "T1Y"])
+# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUN", ["TOS", "T1Y"])
