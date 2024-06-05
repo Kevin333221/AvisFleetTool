@@ -256,6 +256,13 @@ year2D = "24"
 
 stations_A = ["TOS", "TR7"]
 stations_B = ["TOS", "T1Y"]
+
+in_stations_A = ["TOS"]
+in_stations_B = ["TOS"]
+
+# stations_A = ["TOS"]
+# stations_B = ["TOS"]
+
 Van_stations = ["TO0", "TO7"]
 
 all_budget_stations = [

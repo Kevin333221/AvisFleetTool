@@ -556,7 +556,17 @@ export default function App() {
     for (let i = 0; i < search_array.length; i++) {
       let selector = search_array[i];
 
-      if (selector.length > 1) {
+      if (selector.length === 3) {
+        for (let j = 0; j < temp_cars.length; j++) {
+          let car = temp_cars[j];
+          if (car["Location Due Mne"] === selector || car["Current Location Mne"] === selector) {
+            final_cars.push(car);
+          }
+        }
+        cars = final_cars;
+      }
+
+      else if (selector.length > 1) {
         for (let j = temp_cars.length - 1; j >= 0; j--) {
           let car = temp_cars[j];
           let deleting = true;
@@ -578,7 +588,7 @@ export default function App() {
               }
             }
           }
-
+          
           if (deleting) {temp_cars.splice(j, 1);}
         }
         cars = temp_cars;

@@ -23,7 +23,7 @@ class Car:
         self.hold_date: str = None
         self.hold_reason: str = None
     
-    def set_attributes(self, registration_number, fleet_code, make, ignit_key, current_location, trunk_key, last_movement, body_type, miles, car_group, location_out, movement, date_out, date_due, location_due, accessories, fuel_type, status, hold_date, hold_reason):
+    def set_attributes(self, registration_number=0, fleet_code=0, make=0, ignit_key=0, current_location=0, trunk_key=0, last_movement=0, body_type=0, miles=0, car_group=0, location_out=0, movement=0, date_out=0, date_due=0, location_due=0, accessories=0, fuel_type=0, status=0, hold_date=0, hold_reason=0):
         self.registration_number: str = registration_number
         self.fleet_code = fleet_code
         self.make: str = make
