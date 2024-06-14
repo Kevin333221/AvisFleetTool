@@ -559,7 +559,14 @@ export default function App() {
       if (selector.length === 3) {
         for (let j = 0; j < temp_cars.length; j++) {
           let car = temp_cars[j];
-          if (car["Location Due Mne"] === selector || car["Current Location Mne"] === selector) {
+
+          if (selector === "VAN") {
+            if (car["Body Type"] === "VAN") {
+              final_cars.push(car);
+            }
+          }
+
+          else if (car["Location Due Mne"] === selector || car["Current Location Mne"] === selector) {
             final_cars.push(car);
           }
         }
