@@ -319,7 +319,7 @@ export default function App() {
       let car = data[i]
 
       if (car["Fleet Owner Code"] === owner) {
-        if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && car["Vehicle Mileage"] + BB_number_offset >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString())) {
+        if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && ((Number(car["Vehicle Mileage"]) + BB_number_offset) >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString()))) {
           cars.push(data[i]);
         }
       }
