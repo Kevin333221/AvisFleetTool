@@ -491,8 +491,9 @@ def get_customers(res=False):
         data = image.decode('ascii')
         lines = format_data(data)
         
+        date = lines[2][50:56].strip()
+        
         for line in lines[12:]:
-            
             if line[0:3] == "36-":
                 page += 1
                 press_page_up()
@@ -512,7 +513,6 @@ def get_customers(res=False):
                 break
             
             elif ord(line[0]) != 32 and line[0:8] != "VERIFIED":
-                
                 customer = {}
                 
                 if not res:
@@ -521,6 +521,7 @@ def get_customers(res=False):
                             customer[key] = line[value[0]+1:value[1]+1].strip()
                         else:
                             customer[key] = line[value[0]:value[1]].strip()
+                    customer["Date Out"] = date
                 else:
                     customer["RES"] = line[0:15].strip()
                     
@@ -1115,6 +1116,8 @@ def find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway(month, in_stations
     connect_to_session(session_id)
         
     back_rentals = []
+    
+    today = datetime.datetime.now().day
     
     for station in all_budget_stations:
         xe515(station, "B", f"01{month.upper()}{year}")
@@ -1722,7 +1725,8 @@ def manifest_get_amount_car_group_in():
         cars.append(get_car_details(movement))
     return cars
             
-def get_car_group_availability_for_month(desired_months, stations=[]):
+def get_car_group_availability_for_month(desired_months, avis_stations, budget_stations):
+    
     connect_to_session("A")
     xe601("64442", "A")
     varmenu()
@@ -1846,13 +1850,13 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
         "P": 0
     }
     
-    for station in stations_A:
+    for station in avis_stations:
         curr_day, car_group_avail = get_current_day_varmenu_report(station, "A")
         for car_grp in car_group_avail:
             num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
             num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
         
-    for station in stations_B:
+    for station in budget_stations:
         curr_day, car_group_avail = get_current_day_varmenu_report(station, "B")
         for car_grp in car_group_avail:
             num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
@@ -1877,6 +1881,7 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
             for car_grp in car_groups_on_hand:
                 car_groups_on_hand[car_grp].append(num_car_groups_available[car_grp])
             
+            print(f"Day: {day}")
             in_rentals = {}
             out_rentals = {}
             
@@ -1891,20 +1896,19 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
                 for customer in customers:
                     customer["Out Station"] = station
                     out_manifest.append(customer)
-                    num_car_groups_on_rent[customer["Car Group"]] += 1
-                    num_car_groups_available[customer["Car Group"]] -= 1
                     
-                    if customer["Car Group"] in out_rentals:
-                        out_rentals[customer["Car Group"]] += 1
-                    else:
-                        out_rentals[customer["Car Group"]] = 1
-            
+                    if station == "TOS":
+                        num_car_groups_on_rent[customer["Car Group"]] += 1
+                        num_car_groups_available[customer["Car Group"]] -= 1
+                        if customer["Car Group"] in out_rentals:
+                            out_rentals[customer["Car Group"]] += 1
+                        else:
+                            out_rentals[customer["Car Group"]] = 1
+                            
             # Check in-manifest screen
             manifest(f"{day:02}{month.upper()}{year}", "TOS", "A")
             cars = manifest_get_amount_car_group_in()
             cars_already_in = []
-            
-            num_cars_in = 0
             
             for car in cars:
                 car: Car
@@ -1912,14 +1916,15 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
                 if car.mva in cars_already_in:
                     continue
                 
-                num_cars_in += 1
-                
                 cars_already_in.append(car.mva)
                 
                 car_group = car.car_group
-                num_car_groups_on_rent[car_group] -= 1 if car_group in num_car_groups_on_rent else 1
-                num_car_groups_available[car_group] += 1 if car_group in num_car_groups_available else 1
-            
+                num_car_groups_on_rent[car_group] -= 1
+                num_car_groups_available[car_group] += 1
+
+                if day == 21:
+                    print(f"Car has been returned DUE IN, Movement {car.movement}")
+
                 if car_group in in_rentals:
                     in_rentals[car_group] += 1
                 else:
@@ -1939,14 +1944,15 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
                 for customer in customers:
                     customer["Out Station"] = station
                     out_manifest.append(customer)
-                    num_car_groups_on_rent[customer["Car Group"]] += 1
-                    num_car_groups_available[customer["Car Group"]] -= 1
                     
-                    if customer["Car Group"] in out_rentals:
-                        out_rentals[customer["Car Group"]] += 1
-                    else:
-                        out_rentals[customer["Car Group"]] = 1
-                                
+                    if station == "TOS":
+                        num_car_groups_on_rent[customer["Car Group"]] += 1
+                        num_car_groups_available[customer["Car Group"]] -= 1
+                        if customer["Car Group"] in out_rentals:
+                            out_rentals[customer["Car Group"]] += 1
+                        else:
+                            out_rentals[customer["Car Group"]] = 1
+                            
             disconnect_from_session("B")
             
             # Check x515 screen, cars in
@@ -1955,6 +1961,7 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
                 c_group = customer["Car Group"]
                 customer["Rental Length"] = int(customer["Rental Length"])
                 rental = customer["Rental Length"]
+                
                 in_station = customer["In Station"]
                 out_station = customer["Out Station"]
                 
@@ -1963,16 +1970,18 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
                     next_day.append(customer)
                     
                 else:
+                    # Car has returned somewhere
                     if in_station == "TOS" or (len(in_station.strip()) == 0 and out_station == "TOS"):
+                        
+                        if day == 21:
+                            print(f"Customer {customer["Customer Name"]} has returned a car of group {c_group} from {out_station} at {customer["Date Out"]}")
+                        
                         if c_group in in_rentals:
                             in_rentals[c_group] += 1
                         else:
                             in_rentals[c_group] = 1
                         num_car_groups_available[c_group] += 1
-                            
-                    elif in_station == "T1Y" or in_station == "TR7" or len(in_station.strip()) == 0:
-                        num_car_groups_available[c_group] += 1
-                    
+                        
                     num_car_groups_on_rent[c_group] -= 1
                     
             out_manifest = next_day
@@ -1981,6 +1990,10 @@ def get_car_group_availability_for_month(desired_months, stations=[]):
                 car_groups_in_res[car_group].append(in_rentals[car_group] if car_group in in_rentals else 0)
                 car_groups_out_res[car_group].append(out_rentals[car_group] if car_group in out_rentals else 0)
                 car_groups_available[car_group].append(num_car_groups_available[car_group])
+                
+            print(f"NUM CARS IN RENTALS: {sum([in_rentals[car_group] for car_group in in_rentals])}")
+            print(f"NUM OUT RENTALS: {sum([out_rentals[car_group] for car_group in out_rentals])}")
+            print(f"NUM CARS AVAILABLE: {sum([num_car_groups_available[car_group] for car_group in num_car_groups_available])}\n")
                 
     data = []
     row = {
@@ -2046,17 +2059,16 @@ def get_current_day_varmenu_report(station, rac):
     return [ON_RENT, NUM_CAR_GROUPS_ON_RENT], CAR_GROUP_AVAIL
     
 # get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
-# get_all_customers_from_given_months("64442", ["JUN", "JUL", "AUG"])
 # get_amount_of_cars_in_month("31JUN", 191)
 # get_previous_RAs("A", "BDU", 7)
 # get_prices_for_every_car_group("A", "28MAY24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 1)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
-# get_all_varmenu_data_from_NOFF1()
-# get_all_previous_NOFF1_A_RAs(3)
-# get_all_customers_from_given_months("64442", ["JUN"], res=True)
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["JUN"], ["TR7", "T1Y"])
+get_car_group_availability_for_month(["JUN", "JUL", "AUG"], ["TOS"], ["TOS"])
+
+# get_number_of_car_groups_in_month("64442", "JUN", 1)
 
 # get_out_of_town_rentals("SEP")
-# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUN", ["TOS", "T1Y"])
+# get_all_customers_from_given_months("64442", ["JUN"], res=True)
+# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("SEP", ["TOS", "T1Y"])

@@ -247,62 +247,64 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (length !== "NaN") {
+      let curDate = new Date().getDate();
+      let curMonth = new Date().getMonth();
+      let curYear = new Date().getFullYear();
 
-        let curDate = new Date().getDate();
-        let curMonth = new Date().getMonth();
-        let curYear = new Date().getFullYear();
+      if (car["Checkin Datetime"] === undefined || car["Checkin Datetime"] === "" || car["Checkin Datetime"] === null) {
+        continue;
+      }
 
-        if (car["Checkin Datetime"] === undefined || car["Checkin Datetime"] === "" || car["Checkin Datetime"] === null) {
-          continue;
+      let checkinDate = null;
+      let checkinMonth = null;
+      let checkinYear = null;
+
+      // if (car["Checkin Datetime"].length === 7) {
+      //   checkinDate = Number(car["Checkin Datetime"].substring(0, 2));
+      //   checkinMonth = car["Checkin Datetime"].substring(2, 5);
+      //   checkinYear = Number("20" + car["Checkin Datetime"].substring(5, 7));
+
+      //   if (checkinMonth === "JAN") {
+      //     checkinMonth = 1;
+      //   } else if (checkinMonth === "FEB") {
+      //     checkinMonth = 2;
+      //   } else if (checkinMonth === "MAR") {
+      //     checkinMonth = 3;
+      //   } else if (checkinMonth === "APR") {
+      //     checkinMonth = 4;
+      //   } else if (checkinMonth === "MAY") {
+      //     checkinMonth = 5;
+      //   } else if (checkinMonth === "JUN") {
+      //     checkinMonth = 6;
+      //   } else if (checkinMonth === "JUL") {
+      //     checkinMonth = 7;
+      //   } else if (checkinMonth === "AUG") {
+      //     checkinMonth = 8;
+      //   } else if (checkinMonth === "SEP") {
+      //     checkinMonth = 9;
+      //   } else if (checkinMonth === "OCT") {
+      //     checkinMonth = 10;
+      //   } else if (checkinMonth === "NOV") {
+      //     checkinMonth = 11;
+      //   } else if (checkinMonth === "DEC") {
+      //     checkinMonth = 12;
+      //   }
+
+      // } else {
+      // }
+      
+      checkinDate = car["Checkin Datetime"].getDate();
+      checkinMonth = car["Checkin Datetime"].getMonth();
+      checkinYear = car["Checkin Datetime"].getFullYear();
+      console.log(car["Current Status"] === "OVERDUE")
+      if (car["Fleet Owner Code"] === owner) {
+
+        if (car["Current Status"] === "ON RENT,OVDU" || car["Current Status"] === "OVERDUE") {
+          cars.push(data[i]);
         }
-
-        let checkinDate = null;
-        let checkinMonth = null;
-        let checkinYear = null
-
-        if (car["Checkin Datetime"].length === 7) {
-          checkinDate = Number(car["Checkin Datetime"].substring(0, 2));
-          checkinMonth = car["Checkin Datetime"].substring(2, 5);
-          checkinYear = Number("20" + car["Checkin Datetime"].substring(5, 7));
-
-          if (checkinMonth === "JAN") {
-            checkinMonth = 1;
-          } else if (checkinMonth === "FEB") {
-            checkinMonth = 2;
-          } else if (checkinMonth === "MAR") {
-            checkinMonth = 3;
-          } else if (checkinMonth === "APR") {
-            checkinMonth = 4;
-          } else if (checkinMonth === "MAY") {
-            checkinMonth = 5;
-          } else if (checkinMonth === "JUN") {
-            checkinMonth = 6;
-          } else if (checkinMonth === "JUL") {
-            checkinMonth = 7;
-          } else if (checkinMonth === "AUG") {
-            checkinMonth = 8;
-          } else if (checkinMonth === "SEP") {
-            checkinMonth = 9;
-          } else if (checkinMonth === "OCT") {
-            checkinMonth = 10;
-          } else if (checkinMonth === "NOV") {
-            checkinMonth = 11;
-          } else if (checkinMonth === "DEC") {
-            checkinMonth = 12;
-          }
-
-        } else {
-          checkinDate = car["Checkin Datetime"].getDate();
-          checkinMonth = car["Checkin Datetime"].getMonth();
-          checkinYear = car["Checkin Datetime"].getFullYear();
-        }
-
-        if (car["Fleet Owner Code"] === owner) {
-          if (car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) {
-            if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
-              cars.push(data[i]);
-            }
+        else if (car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) {
+          if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
+            cars.push(data[i]);
           }
         }
       }

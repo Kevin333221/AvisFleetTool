@@ -119,12 +119,13 @@ def func(arr_of_regs):
                 found = True
             except:
                 continue
-        
+            
+        time.sleep(2)
         # Click Vehicle Tab
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("FleetmasterPrinter/img/Vehicles.png", confidence=0.7)
+                box = py.locateOnScreen("FleetmasterPrinter/img/Vehicles.png", confidence=0.6)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()
