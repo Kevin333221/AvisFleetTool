@@ -257,8 +257,8 @@ year2D = "24"
 stations_A = ["TOS", "TR7"]
 stations_B = ["TOS", "T1Y"]
 
-in_stations_A = ["TOS"]
-in_stations_B = ["TOS"]
+in_stations_A = ["TOS", "TR7"]
+in_stations_B = ["TOS", "T1Y"]
 
 Van_stations = ["TO0", "TO7"]
 
