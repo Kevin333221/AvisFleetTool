@@ -255,9 +255,9 @@ export default function App() {
         continue;
       }
       
-      checkinDate = car["Checkin Datetime"].getDate();
-      checkinMonth = car["Checkin Datetime"].getMonth();
-      checkinYear = car["Checkin Datetime"].getFullYear();
+      let checkinDate = car["Checkin Datetime"].getDate();
+      let checkinMonth = car["Checkin Datetime"].getMonth();
+      let checkinYear = car["Checkin Datetime"].getFullYear();
       if (car["Fleet Owner Code"] === owner) {
 
         if (car["Current Status"] === "ON RENT,OVDU" || car["Current Status"] === "OVERDUE" || car["Current Status"] === "ON MOVE,OVDU") {
