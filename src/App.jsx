@@ -51,31 +51,61 @@ export default function App() {
   function sortCars(cars, sortDirection, sortingType) {
     const sortedCars = [...cars]; // Create a new array
 
-    if (sortDirection === "ASC") {
+    if (sortingType === "Vehicle Mileage") {
+      if (sortDirection === "ASC") {
+        sortedCars.sort((a, b) => {
+        if (Number(a[sortingType]) < Number(b[sortingType])) {
+            return -1;
+          }
+          if (Number(a[sortingType]) > Number(b[sortingType])) {
+            return 1;
+          }
+          if (Number(a[sortingType]) === Number(b[sortingType])) {
+            return 0;
+          }
+        });
+      } else if (sortDirection === "DESC") {
+        sortedCars.sort((a, b) => {
+          if (Number(a[sortingType]) > Number(b[sortingType])) {
+            return -1;
+          }
+          if (Number(a[sortingType]) < Number(b[sortingType])) {
+            return 1;
+          }
+          if (Number(a[sortingType]) === Number(b[sortingType])) {
+            return 0;
+          }
+        });
+      }
+    }
 
-      sortedCars.sort((a, b) => {
-        if (a[sortingType] < b[sortingType]) {
-          return -1;
-        }
-        if (a[sortingType] > b[sortingType]) {
-          return 1;
-        }
-        if (a[sortingType] === b[sortingType]) {
-          return 0;
-        }
-      });
-    } else if (sortDirection === "DESC") {
-      sortedCars.sort((a, b) => {
-        if (a[sortingType] > b[sortingType]) {
-          return -1;
-        }
-        if (a[sortingType] < b[sortingType]) {
-          return 1;
-        }
-        if (a[sortingType] === b[sortingType]) {
-          return 0;
-        }
-      });
+    else {
+      if (sortDirection === "ASC") {
+
+        sortedCars.sort((a, b) => {
+          if (a[sortingType] < b[sortingType]) {
+            return -1;
+          }
+          if (a[sortingType] > b[sortingType]) {
+            return 1;
+          }
+          if (a[sortingType] === b[sortingType]) {
+            return 0;
+          }
+        });
+      } else if (sortDirection === "DESC") {
+        sortedCars.sort((a, b) => {
+          if (a[sortingType] > b[sortingType]) {
+            return -1;
+          }
+          if (a[sortingType] < b[sortingType]) {
+            return 1;
+          }
+          if (a[sortingType] === b[sortingType]) {
+            return 0;
+          }
+        });
+      }
     }
     setCars(sortedCars);
   }
