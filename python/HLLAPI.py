@@ -1678,16 +1678,17 @@ def manifest_get_amount_car_group_in():
     isEnd = False
     cars = []
     movements = []
-    all_stations = []
     
-    for station in in_stations_A[1:]:
-        all_stations.append([station, "A"])
+    # all_stations = []
+    
+    # for station in in_stations_A[1:]:
+    #     all_stations.append([station, "A"])
         
-    for index, station in enumerate(in_stations_B):
-        if index == 0:
-            all_stations.append([station, "B"])
-        else:
-            all_stations.append([station, ""])
+    # for index, station in enumerate(in_stations_B):
+    #     if index == 0:
+    #         all_stations.append([station, "B"])
+    #     else:
+    #         all_stations.append([station, ""])
     
     while not isEnd:
         image = call_hllapi(5, " "*1920, 0)[1]
@@ -1708,14 +1709,8 @@ def manifest_get_amount_car_group_in():
                 isEnd = False
                 
             if line[0:3] == "END":
-                if len(all_stations) > 0:
-                    station = all_stations.pop(0)
-                    send_key_sequence(f'@T@T{station[0]}@T{station[1]}@E')
-                    wait_for_ready("MANIFEST_ACTION")
-                    isEnd = False
-                else:
-                    isEnd = True
-                    break
+                isEnd = True
+                break
     
     if len(movements) == 0:
         return cars
@@ -1904,16 +1899,18 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
                             out_rentals[customer["Car Group"]] += 1
                         else:
                             out_rentals[customer["Car Group"]] = 1
-        
-            
             
             # Check in-manifest screen
             cars_already_in = []
-            manifest(f"{day:02}{month.upper()}{year}", "TOS", "A")
-            cars = manifest_get_amount_car_group_in()
+            cars = []
             
-            manifest(f"{day:02}{month.upper()}{year}", "TR7", "B")
-            cars = manifest_get_amount_car_group_in()
+            for station in avis_stations:
+                manifest(f"{day:02}{month.upper()}{year}", station, "A")
+                cars += manifest_get_amount_car_group_in()
+            
+            for station in budget_stations:
+                manifest(f"{day:02}{month.upper()}{year}", station, "B")
+                cars += manifest_get_amount_car_group_in()
             
             for car in cars:
                 car: Car
@@ -1972,9 +1969,7 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
                     next_day.append(customer)
                     
                 else:
-                    # Car has returned somewhere
-                    if in_station == "TOS" or (len(in_station.strip()) == 0 and out_station == "TOS"):
-                        
+                    if in_station in avis_stations or (len(in_station.strip()) == 0 and out_station in avis_stations) or in_station in budget_stations or (len(in_station.strip()) == 0 and out_station in budget_stations):
                         if c_group in in_rentals:
                             in_rentals[c_group] += 1
                         else:
@@ -2071,7 +2066,7 @@ def see_incomming_out_of_town_rentals():
             for car in cars:
                 car: Car
                 if car.fleet_code != "64442":
-                    total_cars.append(f"{car.registration_number} - {car.movement} - {car.mva} - {car.car_group} - {car.date_due}")
+                    total_cars.append(f"{car.registration_number} - {car.mva} - {car.movement} - {car.fleet_code} - {car.car_group} - {car.date_due} - {car.location_due}")
         
     with open("python/data/Incomming_Cars.txt", "w") as file:
         for car in total_cars:
@@ -2079,17 +2074,17 @@ def see_incomming_out_of_town_rentals():
         
     disconnect_from_session("A")
     
-# get_prices_for_x_days_for_the_whole_month("A", "E", "JUN", "TOS", "TOS", 1)
-# get_amount_of_cars_in_month("31JUN", 191)
+# get_prices_for_x_days_for_the_whole_month("A", "E", "JUL", "TOS", "TOS", 1)
 # get_previous_RAs("A", "BDU", 7)
-# get_prices_for_every_car_group("A", "28MAY24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "K", "M", "N"], 1)
+
+# get_prices_for_every_car_group("A", "25JUN24/1000", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "J", "K", "M", "N"], 5)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["JUN", "JUL", "AUG"], ["TOS", "TR7"], ["TOS", "T1Y"])
+get_car_group_availability_for_month(["JUN", "JUL"], ["TOS"], ["TOS"])
 # see_incomming_out_of_town_rentals()
 
 # get_number_of_car_groups_in_month("64442", "JUN", 1)
 # get_out_of_town_rentals("SEP")
 # get_all_customers_from_given_months("64442", ["JUN"], res=True)
-# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("SEP", ["TOS", "T1Y"])
+# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUL", ["TOS", "T1Y"])

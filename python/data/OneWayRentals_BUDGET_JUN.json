@@ -1,0 +1,16 @@
+[
+    {
+        "date": "27JUN",
+        "length": "007",
+        "in_sta": "TOS",
+        "out_sta": "ANX",
+        "car_group": "C"
+    },
+    {
+        "date": "28JUN",
+        "length": "020",
+        "in_sta": "TOS",
+        "out_sta": "BGO",
+        "car_group": "O"
+    }
+]
