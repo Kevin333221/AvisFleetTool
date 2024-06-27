@@ -2081,7 +2081,7 @@ def see_incomming_out_of_town_rentals():
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["JUN", "JUL"], ["TOS"], ["TOS"])
+get_car_group_availability_for_month(["JUN", "JUL", "AUG", "SEP"], ["TOS"], ["TOS"])
 # see_incomming_out_of_town_rentals()
 
 # get_number_of_car_groups_in_month("64442", "JUN", 1)
