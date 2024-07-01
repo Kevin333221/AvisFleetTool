@@ -292,9 +292,7 @@ export default function App() {
       if (car["Fleet Owner Code"] === owner) {
 
         if (car["Current Status"] === "ON RENT,OVDU" || car["Current Status"] === "OVERDUE" || car["Current Status"] === "ON MOVE,OVDU") {
-          if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
-            cars.push(data[i]);
-          }
+          cars.push(data[i]);
         }
         else if (car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) {
           if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
