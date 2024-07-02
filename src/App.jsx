@@ -290,7 +290,6 @@ export default function App() {
       let checkinYear = car["Checkin Datetime"].getFullYear();
       
       if (car["Fleet Owner Code"] === owner) {
-
         if (car["Current Status"] === "ON RENT,OVDU" || car["Current Status"] === "OVERDUE" || car["Current Status"] === "ON MOVE,OVDU") {
           cars.push(data[i]);
         }
@@ -417,7 +416,7 @@ export default function App() {
 
   function get_RA(length) {
 
-    const forsikringsleie = ["VK", "FS", "VK", "CZ", "2J", "S2", "86"];
+    const forsikringsleie = ["VK", "FS", "CZ", "2J", "S2", "86", "VR", "VC", "UK", "J5", "S3", "6Y", "ER", "RH"]
 
     let cars = [];
 
