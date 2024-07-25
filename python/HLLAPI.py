@@ -209,9 +209,10 @@ def xe502(rac):
 def xe502_cont(car_group: str, date: str, out_sta: str, in_sta: str, length: int):
     
     in_date = (f"{int(date[0:2])+length:02}") + date[2:5].upper() + "24" + "/" + date[8:]
-    
+    lor = int(in_date[0:2]) - int(date[0:2])
     if int(in_date[0:2]) > months[date[2:5].upper()]:
-        in_date = (f"{months[date[2:5].upper()]:02}") + date[2:5].upper() + "24" + "/" + date[8:]
+        in_day = int(in_date[0:2]) - months[date[2:5].upper()]
+        in_date = f"{in_day:02}" + num_to_months[months_to_num[date[2:5].upper()]+1] + "24" + "/" + date[8:]
     
     send_key_sequence(f'RS@T{out_sta}@T@T{date}WI@T@T{car_group}@T@T{in_sta}@T@T{in_date}@E')
     
@@ -232,8 +233,12 @@ def xe502_cont(car_group: str, date: str, out_sta: str, in_sta: str, length: int
     
     price = call_hllapi(8, "0000000000000000000000", ret[2]+8)[1].decode('ascii').strip()
     
+    RATE = call_hllapi(8, "0000000000", cursor_locations["x502_RATE"])[1].decode('ascii').strip()
+    if RATE[0:2] == "X-":
+        RATE = RATE[2:]
+    
     send_key_sequence(f'@0@T')
-    return price, int(in_date[0:2]) - int(date[0:2])
+    return price, lor, RATE
 
 def x502_see_reservation(reservation_number):
     send_key_sequence(f"DR")
@@ -241,7 +246,7 @@ def x502_see_reservation(reservation_number):
     send_key_sequence(f"R/{reservation_number}@F@E")
     wait_for_ready("x502_PAC")
 
-def x502_get_reservation_info():
+def x502_get_reservation_info(rac):
     
     wait_for_ready("x502_PAC")
     WIZ = call_hllapi(8, "666666", cursor_locations["x502_WIZ"])[1].decode('ascii').strip()
@@ -252,6 +257,8 @@ def x502_get_reservation_info():
     FLIGHT_NO = call_hllapi(8, "666666", cursor_locations["x502_FLIGHT_NO"])[1].decode('ascii').strip()
     CUPON = call_hllapi(8, "7777777", cursor_locations["x502_CUPON"])[1].decode('ascii').strip()
     CAR_GROUP = call_hllapi(8, "999999999", cursor_locations["x502_CAR_GROUP"])[1].decode('ascii').strip()
+    if CAR_GROUP[0] == "/":
+        CAR_GROUP = CAR_GROUP[1:]
     DELIVERY = call_hllapi(8, "1", cursor_locations["x502_DELIVERY"])[1].decode('ascii').strip()
     STATION_IN = call_hllapi(8, "55555", cursor_locations["x502_STATION_IN"])[1].decode('ascii').strip()
     COLLECTION = call_hllapi(8, "1", cursor_locations["x502_COLLECTION"])[1].decode('ascii').strip()
@@ -259,6 +266,8 @@ def x502_get_reservation_info():
     DAY_IN = call_hllapi(8, "333", cursor_locations["x502_DATE_IN"] + 15)[1].decode('ascii').strip()
     CUSTOMER_NAME = call_hllapi(8, "000000000000000000000000000000", cursor_locations["x502_CUSTOMER_NAME"])[1].decode('ascii').strip()
     RATE = call_hllapi(8, "0000000000", cursor_locations["x502_RATE"])[1].decode('ascii').strip()
+    if RATE[0:2] == "X-":
+        RATE = RATE[2:]
     SAC = call_hllapi(8, "22", cursor_locations["x502_SAC"])[1].decode('ascii').strip()
     DATE_OF_BIRTH = call_hllapi(8, "7777777", cursor_locations["x502_DATE_OF_BIRTH"])[1].decode('ascii').strip()
     INSURANCE_CODES = call_hllapi(8, "4444", cursor_locations["x502_INSURANCE_CODES"])[1].decode('ascii').strip()
@@ -285,6 +294,8 @@ def x502_get_reservation_info():
     TP = ""
     OWF = ""
     PRICE = ""
+    BOOKET_AT = ""
+    TOUR_RATE = 0
     
     isEnd = False
     
@@ -296,7 +307,7 @@ def x502_get_reservation_info():
         lines = format_data(data)
         isEnd = True
         
-        for line in lines[3:]:
+        for line in lines[1:]:
             curr_line = line[35:]
             
             if curr_line[0:3] == "RES":
@@ -318,9 +329,18 @@ def x502_get_reservation_info():
             
             if curr_line[0:11] == "ONE WAY FEE":
                 OWF = curr_line[11:20].strip()
-                
+
+            if curr_line[0:9] == "TOUR RATE":
+                TOUR_RATE = 1
+        
             if curr_line[0:5] == "TOTL=":
-                PRICE = curr_line[5:].strip()
+                PRICE = curr_line[5:25].strip()
+                
+            if curr_line[0:7] == "CURRENT":
+                BOOKET_AT = curr_line[15:22]
+                
+            if curr_line[0:8] == "ORIGINAL":
+                BOOKET_AT = curr_line[15:22]
                 
             if curr_line[35:43] == "N MORE..":
                 isEnd = False
@@ -333,23 +353,25 @@ def x502_get_reservation_info():
                 break
     
     return {
+        "RAC": rac,
+        "BOOKET_AT": BOOKET_AT,
         "RES": RES,
         "WIZARD_NR": WIZ,
         "STATION_OUT": STATION_OUT,
-        "CTR": CTR,
+        # "CTR": CTR,
         "DATE_OUT": DATE_OUT,
         "DAY_OUT": DAY_OUT,
         "FLIGHT_NO": FLIGHT_NO,
-        "CUPON": CUPON,
+        # "CUPON": CUPON,
         "CAR_GROUP": CAR_GROUP,
-        "DELIVERY": DELIVERY,
+        # "DELIVERY": DELIVERY,
         "STATION_IN": STATION_IN,
-        "COLLECTION": COLLECTION,
+        # "COLLECTION": COLLECTION,
         "DATE_IN": DATE_IN,
         "DAY_IN": DAY_IN,
         "CUSTOMER_NAME": CUSTOMER_NAME,
         "RATE": RATE,
-        "SAC": SAC,
+        # "SAC": SAC,
         "DATE_OF_BIRTH": DATE_OF_BIRTH,
         "INSURANCE_CODES": INSURANCE_CODES,
         "CCI": CCI,
@@ -372,7 +394,8 @@ def x502_get_reservation_info():
         "PRICE": PRICE,
         "CDW": CDW,
         "TP": TP,
-        "OWF": OWF
+        "OWF": OWF,
+        "TOUR RATE": TOUR_RATE
     }
 
 def xe601(location, rac):
@@ -853,16 +876,15 @@ def get_prices_for_x_days_for_the_whole_month(rac, car_group, month, out_sta, in
     xe502(rac)
     for i in range(1, months[month]):
         if out_sta == "TR7" and datetime.datetime({int(year)}, months_to_num[month], i).weekday() != 5 and datetime.datetime(int(year), months_to_num[month], i).weekday() != 6:
-            price, rent_days = get_price(car_group, f"{i:02}{month.upper()}{year2D}/1000", out_sta, in_sta, length)
+            price, rent_days, rate = get_price(car_group, f"{i:02}{month.upper()}{year2D}/1000", out_sta, in_sta, length)
             print(f"Price for a {rent_days}-day rental with car group {car_group} - {i:02}{month.upper()}{year2D} is {price} NOK")
         else:
-            price, rent_days = get_price(car_group, f"{i:02}{month.upper()}{year2D}/1000", out_sta, in_sta, length)
+            price, rent_days, rate = get_price(car_group, f"{i:02}{month.upper()}{year2D}/1000", out_sta, in_sta, length)
             print(f"Price for a {rent_days}-day rental with car group {car_group} - {i:02}{month.upper()}{year2D} is {price} NOK")
 
     disconnect_from_session(session_id)
 
 def get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, length):
-        
     
     if rac == "A":
         session_id = "A"
@@ -876,8 +898,8 @@ def get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, lengt
     
     xe502(rac)
     for car_group in car_groups:
-        price, rent_days = get_price(car_group, date, out_sta, in_sta, length)
-        print(f"{rent_days}-day rental - {date} - car group {car_group} is {price} NOK")
+        price, rent_days, rate = get_price(car_group, date, out_sta, in_sta, length)
+        print(f"{abs(rent_days)}-day rental - {date} - car group {car_group} is {price} NOK - RATE {rate}")
     
     disconnect_from_session(session_id)
 
@@ -887,7 +909,7 @@ def _get_customer_reservations(customers, rac):
     xe502(rac)
     for customer in customers:
         x502_see_reservation(customer["RES"])
-        total_customers.append(x502_get_reservation_info())
+        total_customers.append(x502_get_reservation_info(rac))
 
     return total_customers
 
@@ -951,7 +973,7 @@ def get_all_customers_from_given_months(fleet_code, months, res):
 
     disconnect_from_session(session_id)
 
-    with open(f"python/data/TOTAL_JUN.json", "w") as file:
+    with open(f"python/data/TOTAL_2024_Ny.json", "w") as file:
         file.write(json.dumps(all_customers))
 
 def save_on_rent_and_available_cars(available_cars, on_rent_cars, day, month):
@@ -1088,6 +1110,8 @@ def get_amount_of_cars_in_month(desired_date, starting_amount):
 
 def get_previous_RAs(rac, station, num_of_days):
     
+    connect_to_session(rac)
+    
     months_back = 0
     day = datetime.datetime.now().day
     month = f"{num_to_months[(datetime.datetime.now().month-months_back) % 12]}"
@@ -1107,6 +1131,8 @@ def get_previous_RAs(rac, station, num_of_days):
         
         wztdoc_cont(f"{day:02}{month.upper()}{year}")
         data.append(get_wztdoc_data(f"{day:02}{month.upper()}{year}", station))
+        
+    disconnect_from_session(rac)
     
     return data
 
@@ -1969,13 +1995,12 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
                     next_day.append(customer)
                     
                 else:
-                    if in_station in avis_stations or (len(in_station.strip()) == 0 and out_station in avis_stations) or in_station in budget_stations or (len(in_station.strip()) == 0 and out_station in budget_stations):
-                        if c_group in in_rentals:
-                            in_rentals[c_group] += 1
-                        else:
-                            in_rentals[c_group] = 1
-                        num_car_groups_available[c_group] += 1
-                        
+                    # if in_station in avis_stations or (len(in_station.strip()) == 0 and out_station in avis_stations) or in_station in budget_stations or (len(in_station.strip()) == 0 and out_station in budget_stations):
+                    if c_group in in_rentals:
+                        in_rentals[c_group] += 1
+                    else:
+                        in_rentals[c_group] = 1
+                    num_car_groups_available[c_group] += 1     
                     num_car_groups_on_rent[c_group] -= 1
                     
             out_manifest = next_day
@@ -2018,7 +2043,7 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
         row [f"{dates[i][:5]}"] = sum([car_groups_available[car_group][i] for car_group in car_groups_on_hand])
     data.append(row)
     
-    with open(f"python/data/All_Groups_Availability_TOS.json", "w") as file:
+    with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_OPTIMISTISK.json", "w") as file:
         file.write(json.dumps(data))
             
 def get_current_day_varmenu_report(station, rac):
@@ -2073,18 +2098,30 @@ def see_incomming_out_of_town_rentals():
             file.write(f"{car}\n")
         
     disconnect_from_session("A")
-    
-# get_prices_for_x_days_for_the_whole_month("A", "E", "JUL", "TOS", "TOS", 1)
-# get_previous_RAs("A", "BDU", 7)
 
-# get_prices_for_every_car_group("A", "25JUN24/1000", "TOS", "TOS", ["B", "C", "D", "E", "H", "I", "J", "K", "M", "N"], 5)
+def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups):
+    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 4)
+    print("")
+    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 5)
+    print("")
+    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 14)
+    print("")
+    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 21)
+
+# get_prices_for_x_days_for_the_whole_month("A", "E", "AUG", "TO0", "TO0", 5)
+
+# get_prices_for_all_rates("A", "26AUG24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
+# get_prices_for_all_rates("A", "25JUL24/1500", "TO0", "TO0", ["B", "C", "E", "F"])
+
+get_previous_RAs("A", "TR7", 7)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["JUN", "JUL", "AUG", "SEP"], ["TOS"], ["TOS"])
-# see_incomming_out_of_town_rentals()
+# get_car_group_availability_for_month(["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], ["TOS", "TR7"], ["TOS", "T1Y"])
 
+# see_incomming_out_of_town_rentals()
 # get_number_of_car_groups_in_month("64442", "JUN", 1)
 # get_out_of_town_rentals("SEP")
-# get_all_customers_from_given_months("64442", ["JUN"], res=True)
-# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("JUL", ["TOS", "T1Y"])
+
+# get_all_customers_from_given_months("64442", ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], res=True)
+# find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("AUG", ["TOS", "T1Y"])

@@ -1,13 +1,3 @@
-21JUN - TOS to LKN - 004 - E
-21JUN - TOS to O30 - 011 - C
-22JUN - TOS to SVJ - 009 - B
-22JUN - TOS to SVJ - 008 - E
-22JUN - TOS to BOO - 006 - C
-23JUN - TOS to TRD - 009 - C
-23JUN - TOS to EVE - 007 - C
-24JUN - TOS to SVJ - 006 - E
-24JUN - TOS to LKN - 003 - E
-25JUN - TR7 to SVJ - 007 - C
 29JUN - TOS to SVJ - 005 - E
 30JUN - TOS to BOO - 008 - B
 02JUL - TOS to ALF - 010 - E

@@ -1,0 +1,37 @@
+[
+    {
+        "date": "06AUG",
+        "length": "006",
+        "in_sta": "TOS",
+        "out_sta": "BGO",
+        "car_group": "G"
+    },
+    {
+        "date": "20AUG",
+        "length": "019",
+        "in_sta": "T1Y",
+        "out_sta": "OS9",
+        "car_group": "E"
+    },
+    {
+        "date": "24AUG",
+        "length": "012",
+        "in_sta": "TOS",
+        "out_sta": "OSL",
+        "car_group": "B"
+    },
+    {
+        "date": "24AUG",
+        "length": "013",
+        "in_sta": "TOS",
+        "out_sta": "BGO",
+        "car_group": "H"
+    },
+    {
+        "date": "31AUG",
+        "length": "020",
+        "in_sta": "TOS",
+        "out_sta": "OSL",
+        "car_group": "E"
+    }
+]

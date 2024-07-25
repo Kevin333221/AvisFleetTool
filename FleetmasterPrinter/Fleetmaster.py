@@ -1,6 +1,7 @@
 import pyautogui as py
 import time
 import pygame
+import pygame.freetype
 
 # Set up the screen
 pygame.init()

@@ -251,7 +251,7 @@ export default function App() {
 
     let cars = [];
 
-    const Service_offset = 700;
+    const Service_offset = 1500;
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
