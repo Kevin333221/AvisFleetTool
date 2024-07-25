@@ -553,13 +553,7 @@ export default function App() {
         for (let j = 0; j < temp_cars.length; j++) {
           let car = temp_cars[j];
 
-          if (selector === "VAN") {
-            if (car["Body Type"] === "VAN") {
-              final_cars.push(car);
-            }
-          }
-
-          else if (car["Location Due Mne"] === selector || car["Current Location Mne"] === selector) {
+          if (car["Location Due Mne"] === selector || car["Current Location Mne"] === selector) {
             final_cars.push(car);
           }
         }
@@ -573,6 +567,12 @@ export default function App() {
 
           if (selector === "PERSON") {
             if (car["Body Type"] != "VAN") {
+              deleting = false;
+            }
+          }
+
+          if (selector === "VANS") {
+            if (car["Body Type"] === "VAN") {
               deleting = false;
             }
           }
