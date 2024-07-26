@@ -1584,6 +1584,8 @@ def get_wzttrc_data(MVA):
 
 def get_wzttrc_report(MVAs, date):
     
+    connect_to_session("A")
+    
     wzttrc()
     
     day = int(date[:2])
@@ -1601,6 +1603,8 @@ def get_wzttrc_report(MVAs, date):
             
     with open(f"python/data/WZTTRC_64442.json", "w") as file:
         file.write(json.dumps(all_traces))
+
+    disconnect_from_session("A")
 
 def varmenu():
     send_key_sequence(f'@R@0/FOR VARMENU@E')
@@ -2015,35 +2019,44 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
             print(f"NUM CARS AVAILABLE: {sum([num_car_groups_available[car_group] for car_group in num_car_groups_available])}\n")
                 
     data = []
-    row = {
-        "Status": "On Hand",
-    }
-    for i in range(len(dates)):
-        row [f"{dates[i][:5]}"] = sum([car_groups_on_hand[car_group][i] for car_group in car_groups_on_hand])
-    data.append(row)
+    
+    for car_group in car_groups_on_hand:
+        row = {
+            "Status": car_group,
+        }
+        for i in range(len(dates)):
+            row[f"{dates[i][:5]}"] = car_groups_on_hand[car_group][i]
+        data.append(row)
+        
+    # row = {
+    #     "Status": "On Hand",
+    # }
+    # for i in range(len(dates)):
+    #     row [f"{dates[i][:5]}"] = sum([car_groups_on_hand[car_group][i] for car_group in car_groups_on_hand])
+    # data.append(row)
 
-    row = {
-        "Status": "In Rentals",
-    }
-    for i in range(len(dates)):
-        row [f"{dates[i][:5]}"] = sum([car_groups_in_res[car_group][i] for car_group in car_groups_on_hand])
-    data.append(row)
+    # row = {
+    #     "Status": "In Rentals",
+    # }
+    # for i in range(len(dates)):
+    #     row [f"{dates[i][:5]}"] = sum([car_groups_in_res[car_group][i] for car_group in car_groups_on_hand])
+    # data.append(row)
     
-    row = {
-        "Status": "Out Rentals",
-    }
-    for i in range(len(dates)):
-        row [f"{dates[i][:5]}"] = sum([car_groups_out_res[car_group][i] for car_group in car_groups_on_hand])
-    data.append(row)
+    # row = {
+    #     "Status": "Out Rentals",
+    # }
+    # for i in range(len(dates)):
+    #     row [f"{dates[i][:5]}"] = sum([car_groups_out_res[car_group][i] for car_group in car_groups_on_hand])
+    # data.append(row)
       
-    row = {
-        "Status": "Available",
-    }
-    for i in range(len(dates)):
-        row [f"{dates[i][:5]}"] = sum([car_groups_available[car_group][i] for car_group in car_groups_on_hand])
-    data.append(row)
+    # row = {
+    #     "Status": "Available",
+    # }
+    # for i in range(len(dates)):
+    #     row [f"{dates[i][:5]}"] = sum([car_groups_available[car_group][i] for car_group in car_groups_on_hand])
+    # data.append(row)
     
-    with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_OPTIMISTISK.json", "w") as file:
+    with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_OPPTIMISTISK.json", "w") as file:
         file.write(json.dumps(data))
             
 def get_current_day_varmenu_report(station, rac):
@@ -2110,17 +2123,16 @@ def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups):
 
 # get_prices_for_x_days_for_the_whole_month("A", "E", "AUG", "TO0", "TO0", 5)
 
-# get_prices_for_all_rates("A", "26AUG24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
+# get_prices_for_all_rates("A", "26JUL24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
 # get_prices_for_all_rates("A", "25JUL24/1500", "TO0", "TO0", ["B", "C", "E", "F"])
 
-get_previous_RAs("A", "TR7", 7)
+# get_previous_RAs("A", "TR7", 7)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-# get_car_group_availability_for_month(["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], ["TOS", "TR7"], ["TOS", "T1Y"])
+get_car_group_availability_for_month(["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], ["TOS", "TR7"], ["TOS", "T1Y"])
 
 # see_incomming_out_of_town_rentals()
-# get_number_of_car_groups_in_month("64442", "JUN", 1)
 # get_out_of_town_rentals("SEP")
 
 # get_all_customers_from_given_months("64442", ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], res=True)

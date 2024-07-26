@@ -1,7 +1,3 @@
-24JUL - TR7 - LKN - 008 - E
-24JUL - TR7 - TRD - 007 - E
-24JUL - TR7 - BOO - 015 - E
-25JUL - TR7 - KKN - 024 - E
 26JUL - TOS - OSL - 023 - B
 27JUL - TR7 - SV0 - 013 - C
 27JUL - TR7 - LKN - 008 - B
