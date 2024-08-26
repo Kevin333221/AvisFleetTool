@@ -123,6 +123,7 @@ cursor_locations = {
     
     "x515_ACTION": 89,
     "x515_RPT": 98,
+    "x515_DATE": 133,
     "x515_PAGE_NUM": 474,
     
     "x601_ACTION": 91,
@@ -204,7 +205,7 @@ columns = {
     "Remarks":          (43, 65),
     "Rental Length":    (70, 73),
     "In Station":       (74, 77)
-}   
+}
 
 months = {
     "JAN": 31,

@@ -135,11 +135,7 @@ def xe515(station, rac_code, date="", res=False):
         else:
             send_key_sequence(f'@R@0/FOR e515@E')
         
-        ready = False
-        while not ready:
-            ret = call_hllapi(7, "", 0)[2]
-            if ret == cursor_locations["x515_ACTION"]:
-                ready = True
+        wait_for_ready("x515_ACTION")
         
         if rac_code == "A":
             if res_code == "RES":
@@ -152,12 +148,7 @@ def xe515(station, rac_code, date="", res=False):
             else:
                 send_key_sequence(f'DS{res_code}@T{station}@T{date}@E')
         
-        ready = False
-        while not ready:
-            ret = call_hllapi(7, "", 0)[2]
-            if ret == cursor_locations["x515_ACTION"]:
-                ready = True
-                
+        wait_for_ready("x515_ACTION")
         send_key_sequence(f'@0')
         
     else:
@@ -166,11 +157,7 @@ def xe515(station, rac_code, date="", res=False):
         else:
             send_key_sequence(f'@R@0/FOR e515@E')
         
-        ready = False
-        while not ready:
-            ret = call_hllapi(7, "", 0)[2]
-            if ret == cursor_locations["x515_ACTION"]:
-                ready = True
+        wait_for_ready("x515_ACTION")
         
         if rac_code == "A":
             if res_code == "RES":
@@ -183,11 +170,7 @@ def xe515(station, rac_code, date="", res=False):
             else:
                 send_key_sequence(f'DS{res_code}@T{station}@E')
         
-        ready = False
-        while not ready:
-            ret = call_hllapi(7, "", 0)[2]
-            if ret == cursor_locations["x515_ACTION"]:
-                ready = True
+        wait_for_ready("x515_ACTION")
                 
         send_key_sequence(f'@0')
 
@@ -208,11 +191,12 @@ def xe502(rac):
 
 def xe502_cont(car_group: str, date: str, out_sta: str, in_sta: str, length: int):
     
-    in_date = (f"{int(date[0:2])+length:02}") + date[2:5].upper() + "24" + "/" + date[8:]
+    year = date[5:7]
+    in_date = (f"{int(date[0:2])+length:02}") + date[2:5].upper() + year + "/" + date[8:]
     lor = int(in_date[0:2]) - int(date[0:2])
     if int(in_date[0:2]) > months[date[2:5].upper()]:
         in_day = int(in_date[0:2]) - months[date[2:5].upper()]
-        in_date = f"{in_day:02}" + num_to_months[months_to_num[date[2:5].upper()]+1] + "24" + "/" + date[8:]
+        in_date = f"{in_day:02}" + num_to_months[months_to_num[date[2:5].upper()]+1] + year + "/" + date[8:]
     
     send_key_sequence(f'RS@T{out_sta}@T@T{date}WI@T@T{car_group}@T@T{in_sta}@T@T{in_date}@E')
     
@@ -382,6 +366,7 @@ def x502_get_reservation_info(rac):
         "ADDR1": ADDR1,
         "ADDR2": ADDR2,
         "ADDR3": ADDR3,
+        "ADDR COUNTRY": ADDR3[-2:],
         "LICENSE": LICENSE,
         "SOURCE": SOURCE,
         "CONTACT": CONTACT,
@@ -395,7 +380,8 @@ def x502_get_reservation_info(rac):
         "CDW": CDW,
         "TP": TP,
         "OWF": OWF,
-        "TOUR RATE": TOUR_RATE
+        "TOUR RATE": TOUR_RATE,
+        "RESERVATION COUNTRY": RES[10:12]
     }
 
 def xe601(location, rac):
@@ -759,7 +745,8 @@ def get_out_of_town_rentals_month(month, year, station, rac_code):
                     "Rental Length": customer["Rental Length"],
                     "In Station": customer["In Station"],
                     "Out Station": station,
-                    "Car Group": customer["Car Group"]
+                    "Car Group": customer["Car Group"],
+                    "Customer Name": customer["Customer Name"]
                 }
                 out_of_town_customers.append(new_customer)
     
@@ -886,6 +873,8 @@ def get_prices_for_x_days_for_the_whole_month(rac, car_group, month, out_sta, in
 
 def get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, length):
     
+    data = {}
+    
     if rac == "A":
         session_id = "A"
     else:
@@ -899,9 +888,19 @@ def get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, lengt
     xe502(rac)
     for car_group in car_groups:
         price, rent_days, rate = get_price(car_group, date, out_sta, in_sta, length)
+        
+        data[car_group] = {
+            "Price": price,
+            "Date": date,
+            "Rent Days": rent_days,
+            "Rate": rate
+        }
+        
         print(f"{abs(rent_days)}-day rental - {date} - car group {car_group} is {price} NOK - RATE {rate}")
     
     disconnect_from_session(session_id)
+    
+    return data
 
 def _get_customer_reservations(customers, rac):
     
@@ -946,7 +945,7 @@ def get_all_customers_from_given_months(fleet_code, months, res):
     xe601(fleet_code, "A")
 
     total_customers = []
-
+    
     for station in stations_A:
         for month in months:
             customers = get_all_customers_from_month(station, res, "A", month, year)
@@ -1752,14 +1751,27 @@ def manifest_get_amount_car_group_in():
             
 def get_car_group_availability_for_month(desired_months, avis_stations, budget_stations):
     
+    pessimistisk = False
+    
     connect_to_session("A")
     xe601("64442", "A")
     varmenu()
     
+    curr_year = str(datetime.datetime.now().year)
+
     today = datetime.datetime.now().day
-    dates = [f"{day:02}{desired_months[0].upper()}{year}" for day in range(today, months[desired_months[0]]+1)]
-    dates_cont = [f"{day:02}{month.upper()}{year}" for month in desired_months[1:] for day in range(1, months[month]+1)]
-    dates.extend(dates_cont)
+    dates = []
+    for month in desired_months:
+        if month == desired_months[0]:
+            day_counter = today
+        else:
+            day_counter = 1
+            
+        for day in range(day_counter, months[month]+1):
+            dates.append(f"{day:02}{month.upper()}{curr_year}")
+            
+        if month == "DEC":
+            curr_year = str(int(curr_year) + 1)
     
     car_groups_on_hand = {
         "A": [],
@@ -1886,6 +1898,7 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
         for car_grp in car_group_avail:
             num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
             num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
+
     
     disconnect_from_session("A")
     
@@ -1893,6 +1906,7 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
     xe601("64442", "B")
     disconnect_from_session("B")
     
+    curr_year = str(datetime.datetime.now().year)
     out_manifest = []
     
     for month in desired_months:
@@ -1914,7 +1928,7 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
             
             for station in stations_A:
                 xe515(station, "A")
-                xe515_cont(f"{day:02}{month.upper()}{year}")
+                xe515_cont(f"{day:02}{month.upper()}{curr_year}")
                 customers, _ = get_customers()
                 
                 # Checking out-manifest screen
@@ -1935,11 +1949,11 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
             cars = []
             
             for station in avis_stations:
-                manifest(f"{day:02}{month.upper()}{year}", station, "A")
+                manifest(f"{day:02}{month.upper()}{curr_year}", station, "A")
                 cars += manifest_get_amount_car_group_in()
             
             for station in budget_stations:
-                manifest(f"{day:02}{month.upper()}{year}", station, "B")
+                manifest(f"{day:02}{month.upper()}{curr_year}", station, "B")
                 cars += manifest_get_amount_car_group_in()
             
             for car in cars:
@@ -1966,7 +1980,7 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
             
             for station in stations_B:
                 xe515(station, "B")
-                xe515_cont(f"{day:02}{month.upper()}{year}")
+                xe515_cont(f"{day:02}{month.upper()}{curr_year}")
                 customers, _ = get_customers()
                 
                 # Checking out-manifest screen
@@ -1999,13 +2013,21 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
                     next_day.append(customer)
                     
                 else:
-                    # if in_station in avis_stations or (len(in_station.strip()) == 0 and out_station in avis_stations) or in_station in budget_stations or (len(in_station.strip()) == 0 and out_station in budget_stations):
-                    if c_group in in_rentals:
-                        in_rentals[c_group] += 1
+                    if pessimistisk:
+                        if in_station in avis_stations or (len(in_station.strip()) == 0 and out_station in avis_stations) or in_station in budget_stations or (len(in_station.strip()) == 0 and out_station in budget_stations):
+                            if c_group in in_rentals:
+                                in_rentals[c_group] += 1
+                            else:
+                                in_rentals[c_group] = 1
+                            num_car_groups_available[c_group] += 1     
+                            num_car_groups_on_rent[c_group] -= 1
                     else:
-                        in_rentals[c_group] = 1
-                    num_car_groups_available[c_group] += 1     
-                    num_car_groups_on_rent[c_group] -= 1
+                        if c_group in in_rentals:
+                            in_rentals[c_group] += 1
+                        else:
+                            in_rentals[c_group] = 1
+                        num_car_groups_available[c_group] += 1     
+                        num_car_groups_on_rent[c_group] -= 1
                     
             out_manifest = next_day
             
@@ -2017,6 +2039,9 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
             print(f"NUM CARS IN RENTALS: {sum([in_rentals[car_group] for car_group in in_rentals])}")
             print(f"NUM OUT RENTALS: {sum([out_rentals[car_group] for car_group in out_rentals])}")
             print(f"NUM CARS AVAILABLE: {sum([num_car_groups_available[car_group] for car_group in num_car_groups_available])}\n")
+             
+        if month == "DEC":
+            curr_year = str(int(curr_year) + 1)
                 
     data = []
     
@@ -2055,16 +2080,18 @@ def get_car_group_availability_for_month(desired_months, avis_stations, budget_s
     # for i in range(len(dates)):
     #     row [f"{dates[i][:5]}"] = sum([car_groups_available[car_group][i] for car_group in car_groups_on_hand])
     # data.append(row)
-    
-    with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_OPPTIMISTISK.json", "w") as file:
-        file.write(json.dumps(data))
+    if pessimistisk:
+        with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_PESSIMISTISK.json", "w") as file:
+            file.write(json.dumps(data))
+    else:
+        with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_OPPTIMISTISK.json", "w") as file:
+            file.write(json.dumps(data))
             
 def get_current_day_varmenu_report(station, rac):
     
     send_key_sequence(f'DSSM{station}@F@T{rac}@E')
     wait_for_ready("VARMENU_ACTION")
     
-    data = []
     image = call_hllapi(5, " "*1920, 0)[1]
     data = image.decode('ascii')
     lines = format_data(data)
@@ -2078,14 +2105,23 @@ def get_current_day_varmenu_report(station, rac):
     send_key_sequence(f'@TCZ@T{rac}@E')
     wait_for_ready("VARMENU_ACTION")
     
-    data = []
     image = call_hllapi(5, " "*1920, 0)[1]
     data = image.decode('ascii')
     lines = format_data(data)
+    
     car_groups = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"]
+    cars_available = []
+    for i in range(0, 16):
+        cars_avail = 0
+        if lines[14][i*4 + 14:i*4 + 18].strip()[-1] == "-":
+            cars_avail = int("-" + lines[14][i*4 + 14:i*4 + 18].strip()[:-1])
+            cars_available.append(cars_avail)
+        else:
+            cars_avail = int(lines[14][i*4 + 14:i*4 + 18].strip())
+            cars_available.append(cars_avail)
     
     CAR_GROUP_AVAIL = {
-        car_groups[i] : int(lines[14][i*4 + 14:i*4 + 18].strip()) for i in range(0, 16)
+        car_groups[i] : cars_available[i] for i in range(0, 16)
     }
     
     return [ON_RENT, NUM_CAR_GROUPS_ON_RENT], CAR_GROUP_AVAIL
@@ -2113,27 +2149,74 @@ def see_incomming_out_of_town_rentals():
     disconnect_from_session("A")
 
 def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups):
-    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 4)
-    print("")
-    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 5)
-    print("")
-    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 14)
-    print("")
-    get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 21)
 
-# get_prices_for_x_days_for_the_whole_month("A", "E", "AUG", "TO0", "TO0", 5)
+    data = {}
+    for car_group in car_groups:
+        data[car_group] = []
+    
+    prices = get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 4)
+    for car_group in car_groups:
+        data[car_group].append(prices[car_group])
+    
+    prices = get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 5)
+    for car_group in car_groups:
+        data[car_group].append(prices[car_group])
+        
+    prices = get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 14)
+    for car_group in car_groups:
+        data[car_group].append(prices[car_group])
+        
+    prices = get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 21)
+    for car_group in car_groups:
+        data[car_group].append(prices[car_group])
+   
+    final_data = []
+    final_data.append({
+        "col1": "Rate",
+        "col2": data[car_groups[0]][0]["Rate"],
+        "col3": data[car_groups[0]][1]["Rate"],
+        "col4": data[car_groups[0]][2]["Rate"],
+        "col5": data[car_groups[0]][3]["Rate"]
+    })
+    
+    final_data.append({
+        "col1": "LOR",
+        "col2": data[car_groups[0]][0]["Rent Days"],
+        "col3": data[car_groups[0]][1]["Rent Days"],
+        "col4": data[car_groups[0]][2]["Rent Days"],
+        "col5": data[car_groups[0]][3]["Rent Days"]
+    })
+    for car in car_groups:
+        final_data.append({
+            "col1": car,
+            "col2": data[car][0]["Price"],
+            "col3": data[car][1]["Price"],
+            "col4": data[car][2]["Price"],
+            "col5": data[car][3]["Price"]
+        })
 
-# get_prices_for_all_rates("A", "26JUL24/1200", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
+    with open("python/data/All_Rates_Prices_RAW_DATA.json", "w") as file:
+        file.write(json.dumps(final_data))
+           
+# get_prices_for_x_days_for_the_whole_month("A", "E", "FEB", "TOS", "TOS", 5)
+
+# get_prices_for_all_rates("A", "26AUG24/1500", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
 # get_prices_for_all_rates("A", "25JUL24/1500", "TO0", "TO0", ["B", "C", "E", "F"])
 
 # get_previous_RAs("A", "TR7", 7)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], ["TOS", "TR7"], ["TOS", "T1Y"])
+get_car_group_availability_for_month(["AUG", "SEP", "OCT", "NOV", "DEC"], ["TOS", "TR7"], ["TOS", "T1Y"])
 
 # see_incomming_out_of_town_rentals()
-# get_out_of_town_rentals("SEP")
 
-# get_all_customers_from_given_months("64442", ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], res=True)
+# get_out_of_town_rentals("AUG")
+# get_out_of_town_rentals("SEP")
+# get_out_of_town_rentals("OCT")
+# get_out_of_town_rentals("NOV")
+# get_out_of_town_rentals("DEC")
+
+# get_all_customers_from_given_months("64442", ["AUG", "SEP", "OCT", "NOV", "DEC"], res=True)
+
 # find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("AUG", ["TOS", "T1Y"])

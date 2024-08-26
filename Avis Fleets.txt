@@ -22,7 +22,8 @@ Bodoe Fleet - 07952:
 
 DVT BILUTLEIE AS - 64332:
 - Vestfold District:
-- - S0D  /TRF  /TF0  /TF9
+- - S0D  /TRF  /TF0  /TF9  /Y6R
+- - Y7R
 - Buskerud District:
 - - J58  /J60  /OX5  /J02  /GE9
 - Telemark District:
