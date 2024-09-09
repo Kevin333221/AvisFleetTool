@@ -256,6 +256,10 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
+      if (car["Make / Model"] == "BMWI X3EL") {
+        continue;
+      }
+
       const current_mileage = Number(car["Vehicle Mileage"]) + Service_offset;
       const key_mileage = Number(car["Ignition Key"].substring(3, 8));
 
