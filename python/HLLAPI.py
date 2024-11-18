@@ -13,6 +13,12 @@ hllapi_dll = ctypes.windll.LoadLibrary(r".\python\whlapi32.dll")
 hllapi = hllapi_dll.hllapi
 hllapi.argtypes = [ctypes.POINTER(ctypes.c_short), ctypes.c_char_p, ctypes.POINTER(ctypes.c_short), ctypes.POINTER(ctypes.c_short)]
 
+def convert_date(date):
+    day = int(date[:2])
+    month = date[2:5]
+    year = int("20" + date[5:])
+    return datetime.datetime(year, months_to_num[month], day)
+
 def wait_for_ready(loc):
     ready = False
     while not ready:
@@ -226,6 +232,8 @@ def xe502_cont(car_group: str, date: str, out_sta: str, in_sta: str, length: int
 
 def x502_see_reservation(reservation_number):
     send_key_sequence(f"DR")
+    move_cursor(cursor_locations["x502_LICENSE"])
+    send_key_sequence(f"@F")
     move_cursor(cursor_locations["x502_CUSTOMER_NAME"])
     send_key_sequence(f"R/{reservation_number}@F@E")
     wait_for_ready("x502_PAC")
@@ -254,6 +262,9 @@ def x502_get_reservation_info(rac):
         RATE = RATE[2:]
     SAC = call_hllapi(8, "22", cursor_locations["x502_SAC"])[1].decode('ascii').strip()
     DATE_OF_BIRTH = call_hllapi(8, "7777777", cursor_locations["x502_DATE_OF_BIRTH"])[1].decode('ascii').strip()
+    if len(DATE_OF_BIRTH) != 0:
+        if int(DATE_OF_BIRTH[5:7]) > int(year2D) - 18:
+            DATE_OF_BIRTH = DATE_OF_BIRTH[:5] + "19" + DATE_OF_BIRTH[5:]
     INSURANCE_CODES = call_hllapi(8, "4444", cursor_locations["x502_INSURANCE_CODES"])[1].decode('ascii').strip()
     CCI = call_hllapi(8, "000000000000000", cursor_locations["x502_CCI"])[1].decode('ascii').strip()
     CID = call_hllapi(8, "000000000000000000000000", cursor_locations["x502_CID"])[1].decode('ascii').strip()
@@ -280,6 +291,7 @@ def x502_get_reservation_info(rac):
     PRICE = ""
     BOOKET_AT = ""
     TOUR_RATE = 0
+    IS_CANCELLED = False
     
     isEnd = False
     
@@ -296,6 +308,9 @@ def x502_get_reservation_info(rac):
             
             if curr_line[0:3] == "RES":
                 RES = curr_line[8:22].strip()
+            
+            if curr_line[0:5] == "CNCL/":
+                IS_CANCELLED = True
             
             if curr_line[0:25] == "FIXED VALUE PP AMOUNT IS ":
                 amount = curr_line[25:].strip().split()
@@ -340,6 +355,7 @@ def x502_get_reservation_info(rac):
         "RAC": rac,
         "BOOKET_AT": BOOKET_AT,
         "RES": RES,
+        "IS_CANCELLED": IS_CANCELLED,
         "WIZARD_NR": WIZ,
         "STATION_OUT": STATION_OUT,
         # "CTR": CTR,
@@ -381,8 +397,16 @@ def x502_get_reservation_info(rac):
         "TP": TP,
         "OWF": OWF,
         "TOUR RATE": TOUR_RATE,
-        "RESERVATION COUNTRY": RES[10:12]
+        "RESERVATION COUNTRY": RES[10:12],
     }
+
+def WZTOPN():
+    send_key_sequence(f'@R@0/FOR WZTOPN@E')
+    wait_for_ready("WZTTRC_ACTION")
+    
+def WZTOPN_cont(mva):
+    send_key_sequence(f'DSOP{mva}@E')
+    wait_for_ready("WZTTRC_ACTION")
 
 def xe601(location, rac):
     
@@ -904,12 +928,43 @@ def get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, lengt
 
 def _get_customer_reservations(customers, rac):
     
-    total_customers = []
     xe502(rac)
-    for customer in customers:
-        x502_see_reservation(customer["RES"])
-        total_customers.append(x502_get_reservation_info(rac))
+    with open("python/data/TOTAL_2024_Ny.json", "r") as file:
+        data = json.load(file)
+        old_customers = []
+        
+        # Get all the customers from the same RAC
+        for old_customer in data:
+            if old_customer["RAC"] == rac:
+                old_customers.append(old_customer)
+        
+        print(f"Customers: {len(old_customers)}")
+        
+        # Removing customers that has already been checked out from the past
+        old_customers_removed = old_customers.copy()
+        for old_customer in old_customers_removed:
+            if convert_date(old_customer["DATE_OUT"]) <= datetime.datetime.now():
+                old_customers.remove(old_customer)
+            
+        print(f"Customers (old rentals removed): {len(old_customers)}")
 
+        total_customers = []
+        for customer in customers:
+            for old_customer in old_customers:
+                if customer["RES"] == old_customer["RES"]:
+                    total_customers.append(old_customer)
+                    break
+        
+        new_customers = [customer for customer in customers if customer["RES"] not in [old_customer["RES"] for old_customer in old_customers]]
+        print(f"New Customers: {len(new_customers)}")
+        
+        for customer in new_customers:
+            x502_see_reservation(customer["RES"])
+            new_customer = x502_get_reservation_info(rac)
+            total_customers.append(new_customer)
+        
+        print(f"Total Customers: {len(total_customers)}")
+        
     return total_customers
 
 def get_all_customers_from_month(station, res, rac, month, year):
@@ -947,12 +1002,15 @@ def get_all_customers_from_given_months(fleet_code, months, res):
     total_customers = []
     
     for station in stations_A:
+        curr_year = year
         for month in months:
-            customers = get_all_customers_from_month(station, res, "A", month, year)
+            if month == "JAN":
+                curr_year = str(int(year)+1)
+            customers = get_all_customers_from_month(station, res, "A", month, curr_year)
             total_customers += customers
             
     all_customers = _get_customer_reservations(total_customers, "A")
-
+    xe515("TOS", "A")
     disconnect_from_session(session_id)
 
     session_id = "B"
@@ -963,16 +1021,23 @@ def get_all_customers_from_given_months(fleet_code, months, res):
     total_customers = []
 
     for station in stations_B:
+        curr_year = year
         for month in months:
-            customers = get_all_customers_from_month(station, res, "B", month, year)
+            if month == "JAN":
+                curr_year = str(int(year)+1)
+            customers = get_all_customers_from_month(station, res, "B", month, curr_year)
             total_customers += customers
             
     for x in _get_customer_reservations(total_customers, "B"):
         all_customers.append(x)
 
+    xe515("TOS", "B")
     disconnect_from_session(session_id)
 
-    with open(f"python/data/TOTAL_2024_Ny.json", "w") as file:
+    # with open(f"python/data/TOTAL_2024_Ny.json", "w") as file:
+    #     file.write(json.dumps(all_customers))
+    
+    with open(f"python/data/Ikke_kansellerte_bookinger.json", "w") as file:
         file.write(json.dumps(all_customers))
 
 def save_on_rent_and_available_cars(available_cars, on_rent_cars, day, month):
@@ -1751,341 +1816,319 @@ def manifest_get_amount_car_group_in():
             
 def get_car_group_availability_for_month(desired_months, avis_stations, budget_stations):
     
-    pessimistisk = False
+    pessimistisk = True
     
-    connect_to_session("A")
-    xe601("64442", "A")
-    varmenu()
-    
-    curr_year = str(datetime.datetime.now().year)
-
-    today = datetime.datetime.now().day
-    dates = []
-    for month in desired_months:
-        if month == desired_months[0]:
-            day_counter = today
-        else:
-            day_counter = 1
-            
-        for day in range(day_counter, months[month]+1):
-            dates.append(f"{day:02}{month.upper()}{curr_year}")
-            
-        if month == "DEC":
-            curr_year = str(int(curr_year) + 1)
-    
-    car_groups_on_hand = {
-        "A": [],
-        "B": [],
-        "C": [],
-        "D": [],
-        "E": [],
-        "F": [],
-        "G": [],
-        "H": [],
-        "I": [],
-        "J": [],
-        "K": [],
-        "L": [],
-        "M": [],
-        "N": [],
-        "O": [],
-        "P": []
-    }
-    
-    car_groups_in_res = {
-        "A": [],
-        "B": [],
-        "C": [],
-        "D": [],
-        "E": [],
-        "F": [],
-        "G": [],
-        "H": [],
-        "I": [],
-        "J": [],
-        "K": [],
-        "L": [],
-        "M": [],
-        "N": [],
-        "O": [],
-        "P": []
-    }
-    
-    car_groups_out_res = {
-        "A": [],
-        "B": [],
-        "C": [],
-        "D": [],
-        "E": [],
-        "F": [],
-        "G": [],
-        "H": [],
-        "I": [],
-        "J": [],
-        "K": [],
-        "L": [],
-        "M": [],
-        "N": [],
-        "O": [],
-        "P": []
-    }
-    
-    car_groups_available = {
-        "A": [],
-        "B": [],
-        "C": [],
-        "D": [],
-        "E": [],
-        "F": [],
-        "G": [],
-        "H": [],
-        "I": [],
-        "J": [],
-        "K": [],
-        "L": [],
-        "M": [],
-        "N": [],
-        "O": [],
-        "P": []
-    }
-    
-    num_car_groups_on_rent = {
-        "A": 0,
-        "B": 0,
-        "C": 0,
-        "D": 0,
-        "E": 0,
-        "F": 0,
-        "G": 0,
-        "H": 0,
-        "I": 0,
-        "J": 0,
-        "K": 0,
-        "L": 0,
-        "M": 0,
-        "N": 0,
-        "O": 0,
-        "P": 0
-    }
-    
-    num_car_groups_available = {
-        "A": 0,
-        "B": 0,
-        "C": 0,
-        "D": 0,
-        "E": 0,
-        "F": 0,
-        "G": 0,
-        "H": 0,
-        "I": 0,
-        "J": 0,
-        "K": 0,
-        "L": 0,
-        "M": 0,
-        "N": 0,
-        "O": 0,
-        "P": 0
-    }
-    
-    for station in avis_stations:
-        curr_day, car_group_avail = get_current_day_varmenu_report(station, "A")
-        for car_grp in car_group_avail:
-            num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
-            num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
+    for x in range(2):
         
-    for station in budget_stations:
-        curr_day, car_group_avail = get_current_day_varmenu_report(station, "B")
-        for car_grp in car_group_avail:
-            num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
-            num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
-
+        if x == 1:
+            pessimistisk = False
+            
     
-    disconnect_from_session("A")
-    
-    connect_to_session("B")
-    xe601("64442", "B")
-    disconnect_from_session("B")
-    
-    curr_year = str(datetime.datetime.now().year)
-    out_manifest = []
-    
-    for month in desired_months:
+        connect_to_session("A")
+        xe601("64442", "A")
+        varmenu()
         
-        if month == desired_months[0]:
-            day_counter = today
-        else:
-            day_counter = 1
-            
-        for day in range(day_counter, months[month]+1):
-            for car_grp in car_groups_on_hand:
-                car_groups_on_hand[car_grp].append(num_car_groups_available[car_grp])
-            
-            print(f"Day: {day}")
-            in_rentals = {}
-            out_rentals = {}
-            
-            connect_to_session("A")
-            
-            for station in stations_A:
-                xe515(station, "A")
-                xe515_cont(f"{day:02}{month.upper()}{curr_year}")
-                customers, _ = get_customers()
-                
-                # Checking out-manifest screen
-                for customer in customers:
-                    customer["Out Station"] = station
-                    out_manifest.append(customer)
-                    
-                    if station in avis_stations:
-                        num_car_groups_on_rent[customer["Car Group"]] += 1
-                        num_car_groups_available[customer["Car Group"]] -= 1
-                        if customer["Car Group"] in out_rentals:
-                            out_rentals[customer["Car Group"]] += 1
-                        else:
-                            out_rentals[customer["Car Group"]] = 1
-            
-            # Check in-manifest screen
-            cars_already_in = []
-            cars = []
-            
-            for station in avis_stations:
-                manifest(f"{day:02}{month.upper()}{curr_year}", station, "A")
-                cars += manifest_get_amount_car_group_in()
-            
-            for station in budget_stations:
-                manifest(f"{day:02}{month.upper()}{curr_year}", station, "B")
-                cars += manifest_get_amount_car_group_in()
-            
-            for car in cars:
-                car: Car
-                
-                if car.mva in cars_already_in:
-                    continue
-                
-                cars_already_in.append(car.mva)
-                
-                car_group = car.car_group
-                num_car_groups_on_rent[car_group] -= 1
-                num_car_groups_available[car_group] += 1
-                
-                if car_group in in_rentals:
-                    in_rentals[car_group] += 1
-                else:
-                    in_rentals[car_group] = 1
+        curr_year = str(datetime.datetime.now().year)
 
-            disconnect_from_session("A")
-            
-            # Connecting to Budget
-            connect_to_session("B")
-            
-            for station in stations_B:
-                xe515(station, "B")
-                xe515_cont(f"{day:02}{month.upper()}{curr_year}")
-                customers, _ = get_customers()
+        today = datetime.datetime.now().day
+        dates = []
+        for month in desired_months:
+            if month == desired_months[0]:
+                day_counter = today
+            else:
+                day_counter = 1
                 
-                # Checking out-manifest screen
-                for customer in customers:
-                    customer["Out Station"] = station
-                    out_manifest.append(customer)
+            for day in range(day_counter, months[month]+1):
+                dates.append(f"{day:02}{month.upper()}{curr_year}")
+                
+            if month == "DEC":
+                curr_year = str(int(curr_year) + 1)
+        
+        car_groups_on_hand = {
+            "A": [],
+            "B": [],
+            "C": [],
+            "D": [],
+            "E": [],
+            "F": [],
+            "G": [],
+            "H": [],
+            "I": [],
+            "J": [],
+            "K": [],
+            "L": [],
+            "M": [],
+            "N": [],
+            "O": [],
+            "P": []
+        }
+        
+        car_groups_in_res = {
+            "A": [],
+            "B": [],
+            "C": [],
+            "D": [],
+            "E": [],
+            "F": [],
+            "G": [],
+            "H": [],
+            "I": [],
+            "J": [],
+            "K": [],
+            "L": [],
+            "M": [],
+            "N": [],
+            "O": [],
+            "P": []
+        }
+        
+        car_groups_out_res = {
+            "A": [],
+            "B": [],
+            "C": [],
+            "D": [],
+            "E": [],
+            "F": [],
+            "G": [],
+            "H": [],
+            "I": [],
+            "J": [],
+            "K": [],
+            "L": [],
+            "M": [],
+            "N": [],
+            "O": [],
+            "P": []
+        }
+        
+        car_groups_available = {
+            "A": [],
+            "B": [],
+            "C": [],
+            "D": [],
+            "E": [],
+            "F": [],
+            "G": [],
+            "H": [],
+            "I": [],
+            "J": [],
+            "K": [],
+            "L": [],
+            "M": [],
+            "N": [],
+            "O": [],
+            "P": []
+        }
+        
+        num_car_groups_on_rent = {
+            "A": 0,
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 0,
+            "G": 0,
+            "H": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "M": 0,
+            "N": 0,
+            "O": 0,
+            "P": 0
+        }
+        
+        num_car_groups_available = {
+            "A": 0,
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 0,
+            "G": 0,
+            "H": 0,
+            "I": 0,
+            "J": 0,
+            "K": 0,
+            "L": 0,
+            "M": 0,
+            "N": 0,
+            "O": 0,
+            "P": 0
+        }
+        
+        for station in avis_stations:
+            curr_day, car_group_avail = get_current_day_varmenu_report(station, "A")
+            for car_grp in car_group_avail:
+                num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
+                num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
+            
+        for station in budget_stations:
+            curr_day, car_group_avail = get_current_day_varmenu_report(station, "B")
+            for car_grp in car_group_avail:
+                num_car_groups_available[car_grp] += int(car_group_avail[car_grp])
+                num_car_groups_on_rent[car_grp] += int(curr_day[-1][car_grp])
+
+        disconnect_from_session("A")
+        
+        connect_to_session("B")
+        xe601("64442", "B")
+        disconnect_from_session("B")
+        
+        curr_year = str(datetime.datetime.now().year)
+        out_manifest = []
+        
+        for month in desired_months:
+            
+            if month == desired_months[0]:
+                day_counter = today
+            else:
+                day_counter = 1
+                
+            for day in range(day_counter, months[month]+1):
+                for car_grp in car_groups_on_hand:
+                    car_groups_on_hand[car_grp].append(num_car_groups_available[car_grp])
+                
+                print(f"Day: {day}")
+                in_rentals = {}
+                out_rentals = {}
+                
+                connect_to_session("A")
+                
+                for station in stations_A:
+                    xe515(station, "A")
+                    xe515_cont(f"{day:02}{month.upper()}{curr_year}")
+                    customers, _ = get_customers()
                     
-                    if station in budget_stations:
-                        num_car_groups_on_rent[customer["Car Group"]] += 1
-                        num_car_groups_available[customer["Car Group"]] -= 1
-                        if customer["Car Group"] in out_rentals:
-                            out_rentals[customer["Car Group"]] += 1
+                    # Checking out-manifest screen
+                    for customer in customers:
+                        customer["Out Station"] = station
+                        out_manifest.append(customer)
+                        
+                        if station in avis_stations:
+                            num_car_groups_on_rent[customer["Car Group"]] += 1
+                            num_car_groups_available[customer["Car Group"]] -= 1
+                            if customer["Car Group"] in out_rentals:
+                                out_rentals[customer["Car Group"]] += 1
+                            else:
+                                out_rentals[customer["Car Group"]] = 1
+                
+                # Check in-manifest screen
+                cars_already_in = []
+                cars = []
+                
+                for station in avis_stations:
+                    manifest(f"{day:02}{month.upper()}{curr_year}", station, "A")
+                    cars += manifest_get_amount_car_group_in()
+                
+                for station in budget_stations:
+                    manifest(f"{day:02}{month.upper()}{curr_year}", station, "B")
+                    cars += manifest_get_amount_car_group_in()
+                
+                for car in cars:
+                    car: Car
+                    
+                    if car.mva in cars_already_in:
+                        continue
+                    
+                    cars_already_in.append(car.mva)
+                    
+                    car_group = car.car_group
+                    num_car_groups_on_rent[car_group] -= 1
+                    num_car_groups_available[car_group] += 1
+                    
+                    if car_group in in_rentals:
+                        in_rentals[car_group] += 1
+                    else:
+                        in_rentals[car_group] = 1
+
+                disconnect_from_session("A")
+                
+                # Connecting to Budget
+                connect_to_session("B")
+                
+                for station in stations_B:
+                    xe515(station, "B")
+                    xe515_cont(f"{day:02}{month.upper()}{curr_year}")
+                    customers, _ = get_customers()
+                    
+                    # Checking out-manifest screen
+                    for customer in customers:
+                        customer["Out Station"] = station
+                        out_manifest.append(customer)
+                        
+                        if station in budget_stations:
+                            num_car_groups_on_rent[customer["Car Group"]] += 1
+                            num_car_groups_available[customer["Car Group"]] -= 1
+                            if customer["Car Group"] in out_rentals:
+                                out_rentals[customer["Car Group"]] += 1
+                            else:
+                                out_rentals[customer["Car Group"]] = 1
+                                
+                disconnect_from_session("B")
+                
+                # Check x515 screen, cars in
+                next_day = []
+                for customer in out_manifest:
+                    c_group = customer["Car Group"]
+                    customer["Rental Length"] = int(customer["Rental Length"])
+                    rental = customer["Rental Length"]
+                    
+                    in_station = customer["In Station"]
+                    out_station = customer["Out Station"]
+                    
+                    if rental > 0:
+                        customer["Rental Length"] -= 1
+                        next_day.append(customer)
+                        
+                    else:
+                        if pessimistisk:
+                            if in_station in avis_stations or (len(in_station.strip()) == 0 and out_station in avis_stations) or in_station in budget_stations or (len(in_station.strip()) == 0 and out_station in budget_stations):
+                                if c_group in in_rentals:
+                                    in_rentals[c_group] += 1
+                                else:
+                                    in_rentals[c_group] = 1
+                                num_car_groups_available[c_group] += 1     
+                                num_car_groups_on_rent[c_group] -= 1
                         else:
-                            out_rentals[customer["Car Group"]] = 1
-                            
-            disconnect_from_session("B")
-            
-            # Check x515 screen, cars in
-            next_day = []
-            for customer in out_manifest:
-                c_group = customer["Car Group"]
-                customer["Rental Length"] = int(customer["Rental Length"])
-                rental = customer["Rental Length"]
-                
-                in_station = customer["In Station"]
-                out_station = customer["Out Station"]
-                
-                if rental > 0:
-                    customer["Rental Length"] -= 1
-                    next_day.append(customer)
-                    
-                else:
-                    if pessimistisk:
-                        if in_station in avis_stations or (len(in_station.strip()) == 0 and out_station in avis_stations) or in_station in budget_stations or (len(in_station.strip()) == 0 and out_station in budget_stations):
                             if c_group in in_rentals:
                                 in_rentals[c_group] += 1
                             else:
                                 in_rentals[c_group] = 1
                             num_car_groups_available[c_group] += 1     
                             num_car_groups_on_rent[c_group] -= 1
-                    else:
-                        if c_group in in_rentals:
-                            in_rentals[c_group] += 1
-                        else:
-                            in_rentals[c_group] = 1
-                        num_car_groups_available[c_group] += 1     
-                        num_car_groups_on_rent[c_group] -= 1
+                        
+                out_manifest = next_day
+                
+                for car_group in car_groups_on_hand:
+                    car_groups_in_res[car_group].append(in_rentals[car_group] if car_group in in_rentals else 0)
+                    car_groups_out_res[car_group].append(out_rentals[car_group] if car_group in out_rentals else 0)
+                    car_groups_available[car_group].append(num_car_groups_available[car_group])
                     
-            out_manifest = next_day
-            
-            for car_group in car_groups_on_hand:
-                car_groups_in_res[car_group].append(in_rentals[car_group] if car_group in in_rentals else 0)
-                car_groups_out_res[car_group].append(out_rentals[car_group] if car_group in out_rentals else 0)
-                car_groups_available[car_group].append(num_car_groups_available[car_group])
+                print(f"NUM CARS IN RENTALS: {sum([in_rentals[car_group] for car_group in in_rentals])}")
+                print(f"NUM OUT RENTALS: {sum([out_rentals[car_group] for car_group in out_rentals])}")
+                print(f"NUM CARS AVAILABLE: {sum([num_car_groups_available[car_group] for car_group in num_car_groups_available])}\n")
                 
-            print(f"NUM CARS IN RENTALS: {sum([in_rentals[car_group] for car_group in in_rentals])}")
-            print(f"NUM OUT RENTALS: {sum([out_rentals[car_group] for car_group in out_rentals])}")
-            print(f"NUM CARS AVAILABLE: {sum([num_car_groups_available[car_group] for car_group in num_car_groups_available])}\n")
-             
-        if month == "DEC":
-            curr_year = str(int(curr_year) + 1)
-                
-    data = []
-    
-    for car_group in car_groups_on_hand:
-        row = {
-            "Status": car_group,
-        }
-        for i in range(len(dates)):
-            row[f"{dates[i][:5]}"] = car_groups_on_hand[car_group][i]
-        data.append(row)
+            if month == "DEC":
+                curr_year = str(int(curr_year) + 1)
+                    
+        data = []
         
-    # row = {
-    #     "Status": "On Hand",
-    # }
-    # for i in range(len(dates)):
-    #     row [f"{dates[i][:5]}"] = sum([car_groups_on_hand[car_group][i] for car_group in car_groups_on_hand])
-    # data.append(row)
-
-    # row = {
-    #     "Status": "In Rentals",
-    # }
-    # for i in range(len(dates)):
-    #     row [f"{dates[i][:5]}"] = sum([car_groups_in_res[car_group][i] for car_group in car_groups_on_hand])
-    # data.append(row)
-    
-    # row = {
-    #     "Status": "Out Rentals",
-    # }
-    # for i in range(len(dates)):
-    #     row [f"{dates[i][:5]}"] = sum([car_groups_out_res[car_group][i] for car_group in car_groups_on_hand])
-    # data.append(row)
-      
-    # row = {
-    #     "Status": "Available",
-    # }
-    # for i in range(len(dates)):
-    #     row [f"{dates[i][:5]}"] = sum([car_groups_available[car_group][i] for car_group in car_groups_on_hand])
-    # data.append(row)
-    if pessimistisk:
-        with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_PESSIMISTISK.json", "w") as file:
-            file.write(json.dumps(data))
-    else:
-        with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_OPPTIMISTISK.json", "w") as file:
-            file.write(json.dumps(data))
+        for car_group in car_groups_on_hand:
+            row = {
+                "Status": car_group,
+            }
+            for i in range(len(dates)):
+                row[f"{dates[i][:5]}"] = car_groups_on_hand[car_group][i]
+            data.append(row)
+            
+        if pessimistisk:
+            with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_PESSIMISTISK.json", "w") as file:
+                file.write(json.dumps(data))
+        else:
+            with open(f"python/data/All_Groups_Availability_BEGGE_MED_TILBAKE_OPPTIMISTISK.json", "w") as file:
+                file.write(json.dumps(data))
             
 def get_current_day_varmenu_report(station, rac):
     
@@ -2197,17 +2240,39 @@ def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups):
 
     with open("python/data/All_Rates_Prices_RAW_DATA.json", "w") as file:
         file.write(json.dumps(final_data))
-           
-# get_prices_for_x_days_for_the_whole_month("A", "E", "FEB", "TOS", "TOS", 5)
 
-# get_prices_for_all_rates("A", "26AUG24/1500", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
+def remove_cancelled_key():
+    data = []
+    with open("python/data/TOTAL_2024_Ny.json", "r") as file:
+        data = json.loads(file.read())
+    
+    for customer in data:
+        if "IS_CANCELLED" in customer:
+            del customer["IS_CANCELLED"]
+            
+    with open("python/data/TOTAL_2024_Ny.json", "w") as file:
+        file.write(json.dumps(data))
+
+def check_multiple_rentals_on_same_vehicle():
+    
+    connect_to_session("A")
+    mvas = read_MVAs()
+    
+    for mva in mvas:
+        WZTOPN()
+
+# get_prices_for_x_days_for_the_whole_month("A", "E", "SEP", "TOS", "TOS", 5)
+
+# get_prices_for_all_rates("A", "02JAN25/1000", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
 # get_prices_for_all_rates("A", "25JUL24/1500", "TO0", "TO0", ["B", "C", "E", "F"])
 
 # get_previous_RAs("A", "TR7", 7)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["AUG", "SEP", "OCT", "NOV", "DEC"], ["TOS", "TR7"], ["TOS", "T1Y"])
+get_car_group_availability_for_month(["NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"], ["TOS", "TR7"], ["TOS", "T1Y"])
+
+# check_multiple_rentals_on_same_vehicle()
 
 # see_incomming_out_of_town_rentals()
 
@@ -2217,6 +2282,6 @@ get_car_group_availability_for_month(["AUG", "SEP", "OCT", "NOV", "DEC"], ["TOS"
 # get_out_of_town_rentals("NOV")
 # get_out_of_town_rentals("DEC")
 
-# get_all_customers_from_given_months("64442", ["AUG", "SEP", "OCT", "NOV", "DEC"], res=True)
-
+# get_all_customers_from_given_months("64442", ["NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY"], res=True)
+# remove_cancelled_key()
 # find_all_one_way_rentals_to_TOS_and_T1Y_for_all_of_Norway("AUG", ["TOS", "T1Y"])

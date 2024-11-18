@@ -1,0 +1,91 @@
+Rental dates from 2024-12-02 10:00 to 2024-12-09 10:00
+Vendor: Avis
+-----------------
+SIPP: CDAR
+Car name 1: Toyota Corolla
+Car name 2: Toyota Corolla
+Price 1: (3683, 'Auto Europe')
+Price 2: (3800, 'VIPCars')
+Price 3: (3802, 'StressFreeCarRental')
+Price 4: (3802, 'Avis')
+Price 5: (3802, 'Discover Cars')
+-----------------
+SIPP: CDBR
+Car name 1: Suzuki S-Cross
+Car name 2: Suzuki S-Cross
+Price 1: (4562, 'Discover Cars')
+-----------------
+SIPP: DDAC
+Car name 1: Volkswagen ID.3
+Car name 2: Volkswagen ID.3
+Price 1: (4490, 'VIPCars')
+Price 2: (4492, 'StressFreeCarRental')
+Price 3: (4492, 'Avis')
+Price 4: (4492, 'Discover Cars')
+-----------------
+SIPP: EDAR
+Car name 1: Toyota Yaris
+Car name 2: Toyota Yaris
+Price 1: (3524, 'VIPCars')
+Price 2: (3525, 'StressFreeCarRental')
+Price 3: (3525, 'Avis')
+Price 4: (3416, 'Auto Europe')
+Price 5: (3525, 'Discover Cars')
+-----------------
+SIPP: FFAR
+Car name 1: Volvo XC60
+Car name 2: Volvo Xc60
+Price 1: (10343, 'Auto Europe')
+-----------------
+SIPP: IFAE
+Car name 1: Kia Sportage
+Car name 2: Skoda Enyaq
+Price 1: (4135, 'Auto Europe')
+-----------------
+SIPP: IWAR
+Car name 1: Toyota Corolla
+Car name 2: Toyota Corolla STW
+Price 1: (7919, 'Auto Europe')
+Price 2: (8169, 'VIPCars')
+Price 3: (8172, 'StressFreeCarRental')
+Price 4: (8172, 'Avis')
+Price 5: (8172, 'Discover Cars')
+-----------------
+SIPP: JFBC
+Car name 1: Alfa Romeo Stelvio
+Car name 2: Skoda Enyaq
+Price 1: (4265, 'VIPCars')
+Price 2: (4267, 'StressFreeCarRental')
+Price 3: (4267, 'Avis')
+Price 4: (4267, 'Discover Cars')
+-----------------
+SIPP: PDAE
+Car name 1: Polestar 2
+Car name 2: Polestar 2
+Price 1: (5155, 'Auto Europe')
+-----------------
+SIPP: PFAR
+Car name 1: Volvo XC60
+Car name 2: Volvo XC60
+Price 1: (10674, 'Avis')
+Price 2: (10674, 'Discover Cars')
+Price 3: (11043, 'VIPCars')
+Price 4: (11048, 'StressFreeCarRental')
+-----------------
+SIPP: SGAR
+Car name 1: Toyota RAV4
+Car name 2: Toyota RAV4
+Price 1: (5341, 'Auto Europe')
+Price 2: (5510, 'VIPCars')
+Price 3: (5512, 'StressFreeCarRental')
+Price 4: (5512, 'Avis')
+Price 5: (5512, 'Discover Cars')
+-----------------
+SIPP: UDAC
+Car name 1: Polestar 2
+Car name 2: Polestar 2
+Price 1: (5320, 'Avis')
+Price 2: (5320, 'Discover Cars')
+Price 3: (5504, 'VIPCars')
+Price 4: (5506, 'StressFreeCarRental')
+

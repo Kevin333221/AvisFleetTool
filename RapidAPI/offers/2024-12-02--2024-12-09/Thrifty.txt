@@ -1,0 +1,122 @@
+Rental dates from 2024-12-02 10:00 to 2024-12-09 10:00
+Vendor: Thrifty
+-----------------
+SIPP: CDAE
+Car name 1: Volkswagen Golf
+Car name 2: Volkswagen ID.3
+Price 1: (2388, 'Travellink')
+Price 2: (2388, 'Holiday Autos')
+-----------------
+SIPP: CDBR
+Car name 1: Toyota Yaris
+Car name 2: Toyota Yaris Cross
+Price 1: (5214, 'Discover Cars')
+-----------------
+SIPP: CFBR
+Car name 1: Toyota Yaris
+Car name 2: Toyota Yaris Cross 4x4
+Price 1: (5236, 'Travellink')
+Price 2: (5236, 'Holiday Autos')
+-----------------
+SIPP: DDAC
+Car name 1: Volkswagen ID.3
+Car name 2: C5 VOLKSWAGEN ID.3
+Price 1: (2378, 'Discover Cars')
+Price 2: (2111, 'VIPCars')
+Price 3: (2380, 'Economy Bookings')
+-----------------
+SIPP: DDAE
+Car name 1: Volkswagen Golf
+Car name 2: Vw Id 3
+Price 1: (2039, 'Auto Europe')
+-----------------
+SIPP: ECAE
+Car name 1: Peugeot 208
+Car name 2: Peugeot 208 Electric
+Price 1: (2954, 'Travellink')
+Price 2: (2954, 'Holiday Autos')
+-----------------
+SIPP: ECMR
+Car name 1: Toyota Yaris
+Car name 2: Toyota Yaris
+Price 1: (3029, 'VIPCars')
+Price 2: (3599, 'Travellink')
+Price 3: (3599, 'Holiday Autos')
+-----------------
+SIPP: EDAE
+Car name 1: Peugeot e-208
+Car name 2: Peugeot E-208
+Price 1: (2943, 'Economy Bookings')
+Price 2: (2941, 'Discover Cars')
+-----------------
+SIPP: EDMR
+Car name 1: Toyota Yaris
+Car name 2: Toyota Yaris
+Price 1: (2926, 'Auto Europe')
+Price 2: (3584, 'Discover Cars')
+Price 3: (3586, 'Economy Bookings')
+-----------------
+SIPP: IDAH
+Car name 1: Toyota C-HR
+Car name 2: Toyotachr
+Price 1: (3167, 'Auto Europe')
+-----------------
+SIPP: IDAR
+Car name 1: Volkswagen Jetta
+Car name 2: Volvo V40
+Price 1: (3278, 'VIPCars')
+Price 2: (3893, 'Discover Cars')
+Price 3: (3896, 'Economy Bookings')
+-----------------
+SIPP: IFBR
+Car name 1: Suzuki S-Cross
+Car name 2: Suzuki S-Cross
+Price 1: (3556, 'Auto Europe')
+Price 2: (3680, 'VIPCars')
+Price 3: (4394, 'Discover Cars')
+Price 4: (4397, 'Economy Bookings')
+Price 5: (4413, 'Travellink')
+Price 6: (4413, 'Holiday Autos')
+-----------------
+SIPP: IGAH
+Car name 1: Toyota C-HR
+Car name 2: Toyota C-HR Hybrid
+Price 1: (3910, 'Travellink')
+Price 2: (3910, 'Holiday Autos')
+-----------------
+SIPP: IGBC
+Car name 1: Volkswagen ID.4
+Car name 2: Volkswagen ID.4
+Price 1: (3939, 'Discover Cars')
+-----------------
+SIPP: IWAR
+Car name 1: Toyota Corolla
+Car name 2: Toyota Corolla Estate
+Price 1: (5227, 'Auto Europe')
+Price 2: (5408, 'VIPCars')
+Price 3: (6546, 'Discover Cars')
+Price 4: (6550, 'Economy Bookings')
+Price 5: (6574, 'Travellink')
+Price 6: (6574, 'Holiday Autos')
+-----------------
+SIPP: JGAC
+Car name 1: Volkswagen ID.4
+Car name 2: P5 VOLKSWAGEN ID.4
+Price 1: (3315, 'VIPCars')
+Price 2: (3942, 'Economy Bookings')
+-----------------
+SIPP: JGAE
+Car name 1: Volkswagen Touran
+Car name 2: Volkswagen Id4 Electric
+Price 1: (3203, 'Auto Europe')
+-----------------
+SIPP: MCMR
+Car name 1: Toyota Aygo
+Car name 2: Toyota Aygo
+Price 1: (2606, 'Auto Europe')
+Price 2: (2697, 'VIPCars')
+Price 3: (3170, 'Discover Cars')
+Price 4: (3172, 'Economy Bookings')
+Price 5: (3184, 'Travellink')
+Price 6: (3184, 'Holiday Autos')
+
