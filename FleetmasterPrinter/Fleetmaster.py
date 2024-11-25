@@ -3,6 +3,8 @@ import pyscreeze as ps
 import time
 import pygame
 
+# Install opencv_python
+
 # Set up the screen
 pygame.init()
 pygame.display.set_caption("Fleetmaster PDF Printer")
@@ -113,7 +115,7 @@ def func(arr_of_regs):
         found = False
         while not found:
             try:
-                box = py.locateOnScreen("FleetmasterPrinter/img/Fleetmaster_white.png", confidence=0.5)
+                box = ps.locateOnScreen("FleetmasterPrinter/img/Fleetmaster_white.png", confidence=0.7)
                 center = py.center(box)
                 py.moveTo(center.x, center.y)
                 py.click()

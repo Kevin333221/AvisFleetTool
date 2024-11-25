@@ -1,0 +1,77 @@
+Rental dates from 2024-12-23 10:00 to 2024-12-31 10:00
+Vendor: Sixt
+-----------------
+SIPP: FVAR
+Car name 1: Ford Transit Passenger
+Car name 2: Toyota ProAce 9 seater
+Price 1: (30177, 'VIPCars')
+Price 2: (30508, 'Economy Bookings')
+Price 3: (31108, 'Discover Cars')
+-----------------
+SIPP: LDAR
+Car name 1: Audi A6
+Car name 2: Audi A6
+Price 1: (22994, 'Holiday Autos')
+Price 2: (22994, 'Travellink')
+-----------------
+SIPP: LGAE
+Car name 1: Audi e-tron
+Car name 2: Audi Q6 e-tron
+Price 1: (19486, 'VIPCars')
+-----------------
+SIPP: PDAE
+Car name 1: Mercedes C-Class
+Car name 2: Mercedes EQE
+Price 1: (17501, 'Holiday Autos')
+Price 2: (17501, 'Travellink')
+Price 3: (16177, 'VIPCars')
+Price 4: (16355, 'Economy Bookings')
+Price 5: (16702, 'Discover Cars')
+-----------------
+SIPP: PDBR
+Car name 1: Volvo V90
+Car name 2: Volvo V90 4WD
+Price 1: (21831, 'Discover Cars')
+-----------------
+SIPP: PFAE
+Car name 1: BMW iX
+Car name 2: BMW iX
+Price 1: (17191, 'Economy Bookings')
+Price 2: (17554, 'Discover Cars')
+Price 3: (18412, 'Holiday Autos')
+Price 4: (18412, 'Travellink')
+-----------------
+SIPP: PWBR
+Car name 1: Volvo V90
+Car name 2: Volvo V90
+Price 1: (21162, 'VIPCars')
+-----------------
+SIPP: RVAR
+Car name 1: Mercedes C-Class
+Car name 2: Toyota Proace
+Price 1: (29688, 'Holiday Autos')
+Price 2: (29688, 'Travellink')
+-----------------
+SIPP: SGAE
+Car name 1: BMW X1
+Car name 2: BMW iX1
+Price 1: (17005, 'VIPCars')
+-----------------
+SIPP: SVAR
+Car name 1: Ford Transit
+Car name 2: Ford Tourneo
+Price 1: (32930, 'Holiday Autos')
+Price 2: (32930, 'Travellink')
+-----------------
+SIPP: SVAX
+Car name 1: Ford E-150
+Car name 2: Toyota ProAce 8 seater
+Price 1: (27534, 'Economy Bookings')
+Price 2: (28081, 'Discover Cars')
+-----------------
+SIPP: WFAR
+Car name 1: BMW X5
+Car name 2: BMW X5
+Price 1: (24725, 'VIPCars')
+Price 2: (25892, 'Wisecars')
+

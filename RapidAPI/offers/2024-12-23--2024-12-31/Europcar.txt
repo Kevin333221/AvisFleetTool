@@ -1,0 +1,17 @@
+Rental dates from 2024-12-23 10:00 to 2024-12-31 10:00
+Vendor: Europcar
+-----------------
+SIPP: CWAH
+Car name 1: Toyota Corolla
+Car name 2: Toyota Corolla Touring Sports
+Price 1: (14532, 'Economy Bookings')
+Price 2: (16252, 'Discover Cars')
+Price 3: (16398, 'VIPCars')
+-----------------
+SIPP: IDAR
+Car name 1: Toyota C-HR
+Car name 2: Toyota C-HR
+Price 1: (13008, 'Economy Bookings')
+Price 2: (14598, 'Discover Cars')
+Price 3: (14701, 'VIPCars')
+
