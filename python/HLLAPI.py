@@ -2268,14 +2268,14 @@ def check_multiple_rentals_on_same_vehicle():
 
 # get_prices_for_x_days_for_the_whole_month("A", "E", "SEP", "TOS", "TOS", 5)
 
-get_prices_for_all_rates("A", "16DEC24/1000", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
+# get_prices_for_all_rates("A", "16DEC24/1000", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
 # get_prices_for_all_rates("A", "25JUL24/1500", "TO0", "TO0", ["B", "C", "E", "F"])
 
 # get_previous_RAs("A", "TR7", 7)
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-# get_car_group_availability_for_month(["NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"], ["TOS", "TR7"], ["TOS", "T1Y"])
+get_car_group_availability_for_month(["NOV", "DEC", "JAN"], ["TOS", "TR7"], ["TOS", "T1Y"])
 
 # check_multiple_rentals_on_same_vehicle()
 

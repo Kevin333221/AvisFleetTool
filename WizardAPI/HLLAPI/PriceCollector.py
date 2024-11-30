@@ -85,7 +85,7 @@ def getData(data, clicked_out, clicked_in):
     progress_title_label = tk.Label(progress_frame, text="Progress:", font=("Helvetica", 12), fg="blue", bg="white", padx=10, pady=10)
     progress_title_label.grid(row=0, column=0, padx=10, pady=10)
     
-    progress_label = tk.Label(progress_frame, text="00/40", font=("Helvetica", 12), fg="green", bg="white", padx=10, pady=10)
+    progress_label = tk.Label(progress_frame, text="00/50", font=("Helvetica", 12), fg="green", bg="white", padx=10, pady=10)
     progress_label.grid(row=0, column=1, padx=10, pady=10)
     
     progress_frame.update()

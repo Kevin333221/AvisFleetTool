@@ -6,13 +6,17 @@ from coreFunctions import *
 from config import *
 
 # TKinter progress bar
-Total_data_to_collect = 40
+Total_data_to_collect = 50
 
 def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups, progress_label=None):
 
     data = {}
     for car_group in car_groups:
         data[car_group] = []
+    
+    prices = get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 1, progress_label)
+    for car_group in car_groups:
+        data[car_group].append(prices[car_group])
     
     prices = get_prices_for_every_car_group(rac, date, out_sta, in_sta, car_groups, 4, progress_label)
     for car_group in car_groups:
@@ -37,7 +41,8 @@ def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups, progress_la
         "col2": data[car_groups[0]][0]["Rent Days"],
         "col3": data[car_groups[0]][1]["Rent Days"],
         "col4": data[car_groups[0]][2]["Rent Days"],
-        "col5": data[car_groups[0]][3]["Rent Days"]
+        "col5": data[car_groups[0]][3]["Rent Days"],
+        "col6": data[car_groups[0]][4]["Rent Days"]
     })
     for car in car_groups:
         final_data.append({
@@ -45,7 +50,8 @@ def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups, progress_la
             "col2": data[car][0]["Price"],
             "col3": data[car][1]["Price"],
             "col4": data[car][2]["Price"],
-            "col5": data[car][3]["Price"]
+            "col5": data[car][3]["Price"],
+            "col6": data[car][4]["Price"]
         })
     
     filename = Path(f"./Price/Updated_Data.csv")
@@ -53,7 +59,12 @@ def get_prices_for_all_rates(rac, date, out_sta, in_sta, car_groups, progress_la
     
     with open(filename, "w") as file:
         for item in final_data:
-            file.write(f"{item['col1']},{item['col2']},{item['col3']},{item['col4']},{item['col5']}\n")
+            file.write(f"{item['col1']},{item['col2']},{item['col3']},{item['col4']},{item['col5']},{item['col6']}\n")
+            
+    filename = Path(f"./Price/Date.txt")
+    with open(filename, "w") as file:
+        file.write(date)
+        
          
 def get_price(car_group, date, out_sta, in_sta, length):
     return xe502_cont(car_group, date, out_sta, in_sta, length)
