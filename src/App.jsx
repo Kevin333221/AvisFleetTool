@@ -420,7 +420,7 @@ export default function App() {
 
   function get_RA(length) {
 
-    const forsikringsleie = ["VK", "FS", "CZ", "2J", "S2", "86", "VR", "VC", "UK", "J5", "S3", "6Y", "ER", "RH", "CL", "9S", "FH", "O1", "TA"]
+    const forsikringsleie = ["VK", "FS", "CZ", "2J", "S2", "86", "VR", "VC", "UK", "J5", "S3", "6Y", "ER", "RH", "CL", "9S", "FH", "O1", "TA", "T3"]
 
     let cars = [];
 
