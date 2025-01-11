@@ -1448,7 +1448,7 @@ def remove_cancelled_key():
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-# get_car_group_availability_for_month(["NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"], ["TOS", "TR7"], ["TOS", "T1Y"])
+get_car_group_availability_for_month(["DEC", "JAN"], ["TOS", "TR7"], ["TOS", "T1Y"])
 
 # check_multiple_rentals_on_same_vehicle()
 

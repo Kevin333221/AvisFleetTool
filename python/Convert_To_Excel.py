@@ -10,7 +10,7 @@ def convert_to_excel(data, output_file):
     df.to_excel(output_file, index=False)
 
 def main():
-    name = "All_Rates_Prices_RAW_DATA"
+    name = "All_Groups_Availability_BEGGE_MED_TILBAKE_OPPTIMISTISK"
     file_path = f'python/data/{name}.json'
     output_file = f'python/data/Excel/{name}.xlsx'
     

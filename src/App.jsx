@@ -388,11 +388,12 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      let found = false;
       
+      let found = false;
       if (check_owner(car, owner)) {
-        for (let j = 1; j < 10; j++) {
-          if ((car["Accessory 0" + j.toString()] === accessory || accessory === "All") && !found) {
+        for (let j = 1; j <= 10; j++) {
+          const accessoryKey = `Accessory ${j.toString().padStart(2, '0')}`;
+          if ((car[accessoryKey] === accessory || accessory === "All") && !found) {
             cars.push(data[i]);
             found = true;
           }
@@ -658,7 +659,7 @@ export default function App() {
       {data.length > 0 &&
         <div className="main-container">
           <section className="top-area">
-            {typeFetch === 0 && <Selection title="Owner"              func={get_owner} owner={owner} setOwner={setOwner}/>}
+            {/* {typeFetch === 0 && <Selection title="Owner"              func={get_owner} owner={owner} setOwner={setOwner}/>} */}
             <Selection title="Station"            func={get_all} owner={owner} setOwner={setOwner} stations={stations}/>
             <Selection title="Service"            func={get_serivce} owner={owner} setOwner={setOwner}/>
             <Selection title="Overdue RA/VTC"     func={get_overdue_RA} owner={owner} setOwner={setOwner}/>

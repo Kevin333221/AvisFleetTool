@@ -2266,6 +2266,85 @@ def check_multiple_rentals_on_same_vehicle():
     for mva in mvas:
         WZTOPN()
 
+def get_car_manifest(station, date):
+    
+    CAR_GROUP_FILL_ORDER = ["B", "C", "D", "H", "E", "M"]
+    EL_CAR_GROUP_FILL_ORDER = ["I", "G", "K"]
+    
+    RLW = 1
+    PTW = 1
+    UP = 1
+    
+    SCORE_PER_RENTAL_LENGTH = 1
+    
+    # Score = (RLW * Rental Length) + (PTW * Pickup Time) − (UP * Upgrade Level)
+    
+    onHand = input("Enter car amount on hand (each car group) (Example: 3C,2D,5E,2H...): ")
+    
+    total_customers = []
+    connect_to_session("A")
+    xe515(station, "A")
+    xe515_cont(date)
+    total_customers += get_customers()[0]
+    disconnect_from_session("A")
+    
+    connect_to_session("B")
+    xe515(station, "B")
+    xe515_cont(date)
+    total_customers += get_customers()[0]
+    disconnect_from_session("B")
+    
+    # Clean up the customer data to only have an array with tuples with the following format:
+    # (Time out, Car Group)
+
+    class Customer:
+        def __init__(self, pickup_time, car_group, rental_length):
+            self.pickup_time = pickup_time
+            self.car_group = car_group
+            self.rental_length = rental_length
+            self.assignment = None
+            self.score = None
+            
+        def __repr__(self):
+            return f"{self.pickup_time} - Req: {self.car_group} - {self.rental_length} - Got: {self.assignment}"
+
+    cleaned_customers = []
+    for customer in total_customers:
+        cleaned_customers.append(Customer(customer["Pickup time"], customer["Car Group"], customer["Rental Length"]))
+        
+    # Sort the cleaned customers by time out
+    cleaned_customers.sort(key=lambda x: x.pickup_time)
+    
+    # Get the car groups on hand
+    car_groups_on_hand = {}
+    for car_group in onHand.split(","):
+        car_groups_on_hand[car_group[1].upper()] = int(car_group[0])
+    
+    def convert_time(time):
+        return int(time[0:2]) + int(time[2:4])/60
+    
+    # RULES
+    # 1. If a customer has requested a car group that is not on hand, the customer will be assigned to the next available car group in the fill order 
+    #    IF AND ONLY IF the customer has a pickup time that is 2 hours until the next customer of that next available car group.
+    # 2. If a customer has requested a car group that is not on hand, the customer will be assigned to the next available car group in the fill order
+    #    IF AND ONLY IF the customer has a rental length that is less that 7 days.
+    # 3. If a customer has requested a car group that is not on hand, the customer will be assigned to the next available car group in the fill order
+    #    IF AND ONLY IF the customer has the same car group as the a next customer within 2 hours, if that next customer also needs a upgrade, it is better to 
+    #    upgrade each once instead of upgrading one customer twice.
+    
+    for car_group, count in car_groups_on_hand.items():
+        for _ in range(count):
+            for customer in cleaned_customers:
+                if customer.assignment is not None:
+                    continue
+                if customer.car_group == car_group:
+                    customer.assignment = car_group
+                    break
+                
+    print(f"Time - Car Group - Rental Length - Score - Assignment")
+    for customer in cleaned_customers:
+        print(customer)
+    
 # get_prices_for_x_days_for_the_whole_month("A", "E", "SEP", "TOS", "TOS", 5)
 
 # get_prices_for_all_rates("A", "16DEC24/1000", "TOS", "TOS", ["B", "C", "D", "E", "H", "G", "I", "K", "M", "N"])
@@ -2275,7 +2354,9 @@ def check_multiple_rentals_on_same_vehicle():
 # get_wzttrc_report(read_MVAs(), "01JAN2022")
 # get_all_x606_cars()
 
-get_car_group_availability_for_month(["NOV", "DEC", "JAN"], ["TOS", "TR7"], ["TOS", "T1Y"])
+# get_car_group_availability_for_month(["DEC", "JAN"], ["TOS", "TR7"], ["TOS", "T1Y"])
+
+get_car_manifest("TOS", "13JAN2025")
 
 # check_multiple_rentals_on_same_vehicle()
 

@@ -189,6 +189,8 @@ def func(arr_of_regs):
             except:
                 continue
             
+        time.sleep(2)
+        
         # Click PDF Icon
         found = False
         while not found:
@@ -205,10 +207,10 @@ def func(arr_of_regs):
         py.hotkey('ctrl', 'p')
         time.sleep(2)
         py.press('enter')
-        time.sleep(2)
-        py.hotkey('ctrl', 'p')
-        time.sleep(2)
-        py.press('enter')
+        # time.sleep(2)
+        # py.hotkey('ctrl', 'p')
+        # time.sleep(2)
+        # py.press('enter')
         time.sleep(2)
 
 main()
