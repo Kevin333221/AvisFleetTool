@@ -137,64 +137,67 @@ export default function App() {
 
       xlData.pop(); // Remove the last row in the sheet
 
-      setData(xlData);
+      // Remove the car with the registration number "DL80552"
+      let xlData_filtered = xlData.filter((car) => car["Registration Number"] !== "DL80552");
+
+      setData(xlData_filtered);
 
       let cars = [];
-      for (let i = 0; i < xlData.length; i++) {
+      for (let i = 0; i < xlData_filtered.length; i++) {
 
         // Check if the json has the "Checkin Datetime" key
-        if (xlData[i]["Checkin Datetime"] !== undefined && xlData[i].hasOwnProperty("Checkin Datetime") && typeof xlData[i]["Checkin Datetime"] === "number") {          
+        if (xlData_filtered[i]["Checkin Datetime"] !== undefined && xlData_filtered[i].hasOwnProperty("Checkin Datetime") && typeof xlData_filtered[i]["Checkin Datetime"] === "number") {          
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Checkin Datetime"] - 1);
-          xlData[i]["Checkin Datetime"] = newDate;
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Checkin Datetime"] - 1);
+          xlData_filtered[i]["Checkin Datetime"] = newDate;
         }
 
         // Check if the json has the "Checkin Datetime" key
-        if (xlData[i]["Checkout Datetime"] !== undefined && xlData[i].hasOwnProperty("Checkout Datetime") && typeof xlData[i]["Checkout Datetime"] === "number") {          
+        if (xlData_filtered[i]["Checkout Datetime"] !== undefined && xlData_filtered[i].hasOwnProperty("Checkout Datetime") && typeof xlData_filtered[i]["Checkout Datetime"] === "number") {          
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Checkout Datetime"]);
-          xlData[i]["Checkout Datetime"] = newDate;
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Checkout Datetime"]);
+          xlData_filtered[i]["Checkout Datetime"] = newDate;
         }
 
         // Fix conversion of "Vehicle Mileage" to number
-        if (typeof xlData[i]["Vehicle Mileage"] !== "number") {
-          xlData[i]["Vehicle Mileage"] = String(dateToExcelSerialNumber(xlData[i]["Vehicle Mileage"]));
+        if (typeof xlData_filtered[i]["Vehicle Mileage"] !== "number") {
+          xlData_filtered[i]["Vehicle Mileage"] = String(dateToExcelSerialNumber(xlData_filtered[i]["Vehicle Mileage"]));
         }
 
         // Fix conversion of "Registration Date", "Inspection Date", "Disposal Date", "Last Movement" and "Delivery Date" to "Date
-        if (typeof xlData[i]["Registration Date"] === "number") {
+        if (typeof xlData_filtered[i]["Registration Date"] === "number") {
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Registration Date"]);
-          xlData[i]["Registration Date"] = newDate;
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Registration Date"]);
+          xlData_filtered[i]["Registration Date"] = newDate;
         }
 
-        if (typeof xlData[i]["Inspection Date"] === "number") {
+        if (typeof xlData_filtered[i]["Inspection Date"] === "number") {
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Inspection Date"]);
-          xlData[i]["Inspection Date"] = newDate;
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Inspection Date"]);
+          xlData_filtered[i]["Inspection Date"] = newDate;
         }
 
-        if (typeof xlData[i]["Disposal Date"] === "number") {
+        if (typeof xlData_filtered[i]["Disposal Date"] === "number") {
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Disposal Date"]);
-          xlData[i]["Disposal Date"] = newDate;
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Disposal Date"]);
+          xlData_filtered[i]["Disposal Date"] = newDate;
         }
 
-        if (typeof xlData[i]["Last Movement"] === "number") {
+        if (typeof xlData_filtered[i]["Last Movement"] === "number") {
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Last Movement"]);
-          xlData[i]["Last Movement"] = newDate;
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Last Movement"]);
+          xlData_filtered[i]["Last Movement"] = newDate;
         }
 
-        if (typeof xlData[i]["Delivery Date"] === "number") {
+        if (typeof xlData_filtered[i]["Delivery Date"] === "number") {
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData[i]["Delivery Date"]);
-          xlData[i]["Delivery Date"] = newDate;
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Delivery Date"]);
+          xlData_filtered[i]["Delivery Date"] = newDate;
         }
 
-        cars.push(xlData[i]);
+        cars.push(xlData_filtered[i]);
       }
-
+      
       sortCars(cars, "ASC", "Car Group");
       get_stations()
     }
@@ -581,6 +584,28 @@ export default function App() {
               deleting = false;
             }
           }
+
+          if (selector === "YARIS" && car["Make / Model"] === "TYAR ISGH") { deleting = false; }
+
+          if (selector === "SCROSS" && car["Make / Model"] === "SSCR OS4H") { deleting = false; }
+
+          if (selector === "RAV4" && car["Make / Model"] === "TR4G 4PIH") { deleting = false; }
+
+          if (selector === "ACROSS" && car["Make / Model"] === "SACR 4PIH") { deleting = false; }
+
+          if (selector === "OCTAVIA" && car["Make / Model"] === "OCTR SWDA") { deleting = false; }
+
+          if (selector === "COROLLA" && car["Make / Model"] === "TCTS GAH") { deleting = false; }
+
+          if ((selector === "MAZDA" || selector === "CX60") && car["Make / Model"] === "MCX6 04GH") { deleting = false; }
+
+          if ((selector === "LEXUS" || selector === "NX450") && car["Make / Model"] === "LNX4 50H4") { deleting = false; }
+
+          // if (selector === "ID4" && car["Make / Model"] === "VWID 4GTX") { deleting = false; }
+
+          // if (selector === "ID3" && car["Make / Model"] === "VWID 3ELA") { deleting = false; }
+
+          // if (selector === "EC4" && car["Make / Model"] === "CITR EC4E") { deleting = false; }
 
           for (const [key, value] of Object.entries(car)) {
             if (typeof value === 'string' && value.includes(selector)) {
