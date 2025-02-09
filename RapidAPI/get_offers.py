@@ -2,9 +2,9 @@ import requests
 
 url = "https://sky-scrapper.p.rapidapi.com/api/v1/cars/searchCars"
 
-pickup_date = "2024-12-23"
+pickup_date = "2025-01-13"
 pickup_time = "10:00"
-dropoff_date = "2024-12-31"
+dropoff_date = "2025-01-20"
 dropoff_time = "10:00"
 
 querystring = {
