@@ -682,7 +682,7 @@ export default function App() {
             <button className='log-in-button' onClick={() => {credidentials();}}>Log in</button>
           </div>
         </div>}
-      {loggedIn &&
+      {loggedIn && data.length == 0 &&
         <div className='start'>
           <label htmlFor="file-input" className='file-label'>Choose a file</label>
           <p>File must be in .xlsx format</p>
