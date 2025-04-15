@@ -1,1 +1,0 @@
-start C:/Users/Kevin/AppData/Local/Programs/Python/Python312-32/pythonw.exe PriceCollector.py
