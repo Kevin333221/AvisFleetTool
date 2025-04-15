@@ -29,6 +29,10 @@ export default function App() {
   const [previewStation, setPreviewStation] = useState(null);
   const [previewCar, setPreviewCar] = useState(null);
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
   useEffect(() => {
     get_stations();
   }, [owner, data]);
@@ -637,10 +641,48 @@ export default function App() {
     sortCars(cars, "ASC", "Car Group");
   }
 
+  function check_credentials(username, password) {
+    if (username === "QWEASD" && password === "potet") {
+      setLoggedIn(true);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function credidentials() {
+    if (!check_credentials(username, password)) {
+      alert("Wrong credentials")
+    } 
+  }
+
   return (
     <>
       {/* Before giving file */}
-      {data.length === 0 && 
+      {!loggedIn &&
+        <div className='log-in-container'>
+          <div className='log-in'>
+            <h1 className='log-in-title'>Log in</h1>
+              <div className='log-in-inputs'>
+                <input 
+                type="text" 
+                placeholder="Username" 
+                className='log-in-input' 
+                onChange={(e) => setUsername(e.target.value)} 
+                onKeyDown={(e) => { if (e.key === 'Enter') credidentials(); }}
+                />
+                <input 
+                type="password" 
+                placeholder="Password" 
+                className='log-in-input' 
+                onChange={(e) => setPassword(e.target.value)} 
+                onKeyDown={(e) => { if (e.key === 'Enter') credidentials(); }}
+                />
+              </div>
+            <button className='log-in-button' onClick={() => {credidentials();}}>Log in</button>
+          </div>
+        </div>}
+      {loggedIn &&
         <div className='start'>
           <label htmlFor="file-input" className='file-label'>Choose a file</label>
           <p>File must be in .xlsx format</p>
@@ -652,8 +694,7 @@ export default function App() {
             className='file-input'
             accept='.xlsx'
           />
-        </div>
-      }
+        </div>}
 
       {/* Header */}
       {data.length > 0 &&
