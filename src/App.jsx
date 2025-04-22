@@ -642,7 +642,7 @@ export default function App() {
   }
 
   function check_credentials(username, password) {
-    if (username === "QWEASD" && password === "potet") {
+    if (username === "Kevinapp" && password === "Pixmamp500123!") {
       setLoggedIn(true);
       return true;
     } else {
