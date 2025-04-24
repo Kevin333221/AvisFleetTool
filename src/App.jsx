@@ -659,7 +659,7 @@ export default function App() {
   return (
     <>
       {/* Before giving file */}
-      {!loggedIn &&
+      {/* {!loggedIn &&
         <div className='log-in-container'>
           <div className='log-in'>
             <h1 className='log-in-title'>Log in</h1>
@@ -681,8 +681,8 @@ export default function App() {
               </div>
             <button className='log-in-button' onClick={() => {credidentials();}}>Log in</button>
           </div>
-        </div>}
-      {loggedIn && data.length == 0 &&
+        </div>} */}
+      {data.length == 0 &&
         <div className='start'>
           <label htmlFor="file-input" className='file-label'>Choose a file</label>
           <p>File must be in .xlsx format</p>
