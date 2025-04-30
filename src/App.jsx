@@ -20,22 +20,14 @@ import { motion, AnimatePresence } from "framer-motion"
 
 export default function App() {
   
-  const [typeFetch, setTypeFetch] = useState(0);
   const [data, setData] = useState([]);
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
-  const [owner, setOwner] = useState("64442");
-  const [stations, setStations] = useState([]);
   const [previewStation, setPreviewStation] = useState(null);
   const [previewCar, setPreviewCar] = useState(null);
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-
   useEffect(() => {
-    get_stations();
-  }, [owner, data]);
+  }, [data]);
 
   function dateToExcelSerialNumber(date) {
     const excelEpoch = new Date(Date.UTC(1900, 1, 1)); // January 1, 1900
@@ -203,39 +195,9 @@ export default function App() {
       }
       
       sortCars(cars, "ASC", "Car Group");
-      get_stations()
     }
 
     reader.readAsArrayBuffer(file);
-  }
-
-  function check_owner(car, owner) {
-    return car["Fleet Owner Code"] === owner || owner === "All" || owner === "";
-  }
-
-  function get_stations() {
-    let stations = [];
-
-    for (let i = 0; i < data.length; i++) {
-      let car = data[i]
-
-      if (check_owner(car, owner)) {
-        if (stations.indexOf(car["Location Due Mne"]) === -1) {
-          stations.push(car["Location Due Mne"]);
-        }
-        if (stations.indexOf(car["Current Location Mne"]) === -1) {
-          stations.push(car["Current Location Mne"]);
-        }
-      }
-    }
-    stations.sort();
-
-    {/* If station is "Unknow" delete it */}
-    if (stations.indexOf("Unknow") !== -1) {
-      stations.splice(stations.indexOf("Unknow"), 1);
-    }
-
-    setStations(stations);
   }
 
   function fix_duplicate_status(status) {
@@ -271,10 +233,8 @@ export default function App() {
       const key_mileage = Number(car["Ignition Key"].substring(3, 8));
 
       if (current_mileage > key_mileage) {
-        if (check_owner(car, owner)) {
-          if (car["STATUS3"].indexOf("BB") === -1 && car["Checkout Location Mne"] !== "E9Z" && car["Checkout Location Mne"] !== "R4S") {
-            cars.push(data[i]);
-          }
+        if (car["STATUS3"].indexOf("BB") === -1 && car["Checkout Location Mne"] !== "E9Z" && car["Checkout Location Mne"] !== "R4S") {
+          cars.push(data[i]);
         }
       }
     }
@@ -300,16 +260,15 @@ export default function App() {
       let checkinMonth = car["Checkin Datetime"].getMonth();
       let checkinYear = car["Checkin Datetime"].getFullYear();
       
-      if (car["Fleet Owner Code"] === owner) {
-        if (car["Current Status"] === "ON RENT,OVDU" || car["Current Status"] === "OVERDUE" || car["Current Status"] === "ON MOVE,OVDU") {
+      if (car["Current Status"] === "ON RENT,OVDU" || car["Current Status"] === "OVERDUE" || car["Current Status"] === "ON MOVE,OVDU") {
+        cars.push(data[i]);
+      }
+      else if (car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) {
+        if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
           cars.push(data[i]);
         }
-        else if (car["Rental Agreement Num"].length === 10 || car["Rental Agreement Num"].length === 9) {
-          if (curYear > checkinYear || (curYear === checkinYear && curMonth > checkinMonth) || (curYear === checkinYear && curMonth === checkinMonth && curDate > checkinDate)) {
-            cars.push(data[i]);
-          }
-        }
       }
+      
     }
     sortCars(cars, "ASC", "Car Group");
   }
@@ -322,55 +281,8 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (car["Fleet Owner Code"] === owner) {
-        if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && ((Number(car["Vehicle Mileage"]) + BB_number_offset) >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString()))) {
-          cars.push(data[i]);
-        }
-      }
-    }
-    sortCars(cars, "ASC", "Car Group");
-  }
-
-  function get_all(station) {
-
-    let cars = [];
-
-    for (let i = 0; i < data.length; i++) {
-      let car = data[i]
-
-      if (owner.toUpperCase() === "ALL" || owner === "") {
-        if (station === "All") {
-          cars.push(data[i]);
-        }
-      } else if (car["Fleet Owner Code"] === owner) {
-        if (station === "All") {
-            cars.push(data[i]);
-        } else {
-          if (car["Location Due Mne"] === station || car["Current Location Mne"] === station) {
-            cars.push(data[i]);
-          }
-        }
-      }
-    }
-    sortCars(cars, "ASC", "Car Group");
-  }
-
-  function get_owner(owner) {
-    let cars = [];
-
-    // If owner is not defined, then set it to "None"
-    if (owner === undefined) {
-      owner = "None";
-    }
-
-    for (let i = 0; i < data.length; i++) {
-      let car = data[i]
-      if (owner.toUpperCase() === "ALL" || owner === "") {
+      if (car["STATUS3"].indexOf("BB") !== -1 || ((car["Ignition Key"].substring(3, 8) >= Number(car["Ignition Key"].substring(0, 2))*1000) && ((Number(car["Vehicle Mileage"]) + BB_number_offset) >= (Number(car["Ignition Key"].substring(0, 2))*1000).toString()))) {
         cars.push(data[i]);
-      } else if (car["Fleet Owner Code"] === owner) {
-        cars.push(data[i]);
-      } else {
-        continue;
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -381,10 +293,8 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (check_owner(car, owner)) {
-        if (car["Trunk Key"].substring(0, 1) === tyre || tyre === "All") {
-          cars.push(data[i]);
-        }
+      if (car["Trunk Key"].substring(0, 1) === tyre || tyre === "All") {
+        cars.push(data[i]);
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -395,15 +305,12 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      
       let found = false;
-      if (check_owner(car, owner)) {
-        for (let j = 1; j <= 10; j++) {
-          const accessoryKey = `Accessory ${j.toString().padStart(2, '0')}`;
-          if ((car[accessoryKey] === accessory || accessory === "All") && !found) {
-            cars.push(data[i]);
-            found = true;
-          }
+      for (let j = 1; j <= 10; j++) {
+        const accessoryKey = `Accessory ${j.toString().padStart(2, '0')}`;
+        if ((car[accessoryKey] === accessory || accessory === "All") && !found) {
+          cars.push(data[i]);
+          found = true;
         }
       }
     }
@@ -415,12 +322,10 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (car["Fleet Owner Code"] === owner) {
-        if (Method === "All") {
-          cars.push(data[i]);
-        } else if (car["Creditclub Code"] === Method && (car["Current Status"] !== "ON HAND" && car["Current Status"] !== "UNAVAILABLE")) {
-          cars.push(data[i]);
-        }
+      if (Method === "All") {
+        cars.push(data[i]);
+      } else if (car["Creditclub Code"] === Method && (car["Current Status"] !== "ON HAND" && car["Current Status"] !== "UNAVAILABLE")) {
+        cars.push(data[i]);
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -435,45 +340,43 @@ export default function App() {
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
 
-      if (car["Fleet Owner Code"] === owner) {
-        if (length === "All") {
+      if (length === "All") {
+        cars.push(data[i]);
+
+      // Check if it is not a RA or VTC
+      } else if (length === "NaN") {
+        if (car["Rental Agreement Num"].length !== 10 && car["Rental Agreement Num"].length !== 9) {
           cars.push(data[i]);
+        }
 
-        // Check if it is not a RA or VTC
-        } else if (length === "NaN") {
-          if (car["Rental Agreement Num"].length !== 10 && car["Rental Agreement Num"].length !== 9) {
+      // Check if it is a Forsikringsleie
+      } else if (length === "Forsikringsleie") {
+        
+        if (car["Rental Agreement Num"].length === 10 && (forsikringsleie.includes(car["Checkout Rate Code"]))) 
+        {
+          cars.push(data[i]);
+        }
+      } else {
+
+        // Check if it is a AVIS rental
+        if (length === "10A") {
+          if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "A") {
             cars.push(data[i]);
           }
 
-        // Check if it is a Forsikringsleie
-        } else if (length === "Forsikringsleie") {
-          
-          if (car["Rental Agreement Num"].length === 10 && (forsikringsleie.includes(car["Checkout Rate Code"]))) 
-          {
+        // Check if it is a Budget rental
+        } else if (length === "10B") {
+          if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "B") {
             cars.push(data[i]);
           }
-        } else {
-
-          // Check if it is a AVIS rental
-          if (length === "10A") {
-            if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "A") {
-              cars.push(data[i]);
-            }
-
-          // Check if it is a Budget rental
-          } else if (length === "10B") {
-            if (car["Rental Agreement Num"].length === Number(10) && car["Checkout Location"].slice(-1) === "B") {
-              cars.push(data[i]);
-            }
-          
-          // Check if it is a VTC
-          } else if (length === "9") {
-            if (car["Rental Agreement Num"].length === Number(9)) {
-              cars.push(data[i]);
-            }
+        
+        // Check if it is a VTC
+        } else if (length === "9") {
+          if (car["Rental Agreement Num"].length === Number(9)) {
+            cars.push(data[i]);
           }
-        } 
-      } 
+        }
+      }
     }
     sortCars(cars, "ASC", "Car Group");
   }
@@ -483,21 +386,19 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-    
-      if (car["Fleet Owner Code"] === owner) {
-        if (car["Location Due Mne"] !== "TOS" && 
-            car["Location Due Mne"] !== "TO0" && 
-            car["Location Due Mne"] !== "T1Y" && 
-            car["Location Due Mne"] !== "T6O" && 
-            car["Location Due Mne"] !== "TR7" && 
-            car["Location Due Mne"] !== "TO7" && 
-            car["Location Due Mne"] !== "E9Z" &&
-            car["Location Due Mne"] !== "R4S" &&
-            car["Location Due Mne"] !== "") 
-        {
-          cars.push(data[i]);
-        }
+      if (car["Location Due Mne"] !== "TOS" && 
+          car["Location Due Mne"] !== "TO0" && 
+          car["Location Due Mne"] !== "T1Y" && 
+          car["Location Due Mne"] !== "T6O" && 
+          car["Location Due Mne"] !== "TR7" && 
+          car["Location Due Mne"] !== "TO7" && 
+          car["Location Due Mne"] !== "E9Z" &&
+          car["Location Due Mne"] !== "R4S" &&
+          car["Location Due Mne"] !== "") 
+      {
+        cars.push(data[i]);
       }
+      
     }
     sortCars(cars, "ASC", "Car Group");
   }
@@ -507,11 +408,8 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-
-      if (car["Fleet Owner Code"] === owner) {
-        if (car["STATUS3"].length > 0) {
-          cars.push(data[i]);
-        }
+      if (car["STATUS3"].length > 0) {
+        cars.push(data[i]);
       }
     }
     sortCars(cars, "ASC", "Car Group");
@@ -659,7 +557,7 @@ export default function App() {
   return (
     <>
       {/* Before giving file */}
-      {/* {!loggedIn &&
+      {!loggedIn &&
         <div className='log-in-container'>
           <div className='log-in'>
             <h1 className='log-in-title'>Log in</h1>
@@ -681,8 +579,8 @@ export default function App() {
               </div>
             <button className='log-in-button' onClick={() => {credidentials();}}>Log in</button>
           </div>
-        </div>} */}
-      {data.length == 0 &&
+        </div>}
+      {loggedIn && data.length == 0 &&
         <div className='start'>
           <label htmlFor="file-input" className='file-label'>Choose a file</label>
           <p>File must be in .xlsx format</p>
@@ -725,17 +623,15 @@ export default function App() {
       {data.length > 0 &&
         <div className="main-container">
           <section className="top-area">
-            {/* {typeFetch === 0 && <Selection title="Owner"              func={get_owner} owner={owner} setOwner={setOwner}/>} */}
-            <Selection title="Station"            func={get_all} owner={owner} setOwner={setOwner} stations={stations}/>
-            <Selection title="Service"            func={get_serivce} owner={owner} setOwner={setOwner}/>
-            <Selection title="Overdue RA/VTC"     func={get_overdue_RA} owner={owner} setOwner={setOwner}/>
-            <Selection title="In Hold"            func={get_hold_cards} owner={owner} setOwner={setOwner}/>
-            <Selection title="Buy Back"           func={get_buy_back} owner={owner} setOwner={setOwner}/>
-            <Selection title="Tyres"              func={get_tyres} owner={owner} setOwner={setOwner}/>
-            <Selection title="Accessory"          func={get_accessory} owner={owner} setOwner={setOwner}/>
-            {typeFetch === 0 && <Selection title="Credentials"        func={get_payment_method} owner={owner} setOwner={setOwner}/>}
-            {typeFetch === 0 && <Selection title="RA/VTC"             func={get_RA} owner={owner} setOwner={setOwner}/>}
-            <Selection title="Out of Town"        func={get_out_of_town_cars} owner={owner} setOwner={setOwner}/>
+            <Selection title="Service"            func={get_serivce}/>
+            <Selection title="Overdue RA/VTC"     func={get_overdue_RA}/>
+            <Selection title="In Hold"            func={get_hold_cards}/>
+            <Selection title="Buy Back"           func={get_buy_back}/>
+            <Selection title="Tyres"              func={get_tyres}/>
+            <Selection title="Accessory"          func={get_accessory}/>
+            <Selection title="Credentials"        func={get_payment_method}/>
+            <Selection title="RA/VTC"             func={get_RA}/>
+            <Selection title="Out of Town"        func={get_out_of_town_cars}/>
           </section>
 
           <section className="bottom-area">
@@ -1342,7 +1238,7 @@ function Table_Summary({ cars }) {
   )
 }
 
-function Selection({ title, func, owner, setOwner, stations }) {
+function Selection({ title, func, stations }) {
 
   if (title === "Credentials") {
 
@@ -1430,28 +1326,6 @@ function Selection({ title, func, owner, setOwner, stations }) {
           ))}
         </select>
         <SearchButton func={func} param={param} />
-      </div>
-    )
-  } else if (title === "Owner") {
-
-    return (
-      <div className="selection">
-        <p>{title}</p>
-        
-        <form className="owner-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setOwner(e.target.value);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Owner"
-            onBlur={(e) => setOwner(e.target.value)}
-            className="owner-bar"
-          />
-        </form>
-        <SearchButton func={func} param={owner} />
       </div>
     )
   }
