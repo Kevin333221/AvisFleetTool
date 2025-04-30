@@ -557,30 +557,7 @@ export default function App() {
   return (
     <>
       {/* Before giving file */}
-      {!loggedIn &&
-        <div className='log-in-container'>
-          <div className='log-in'>
-            <h1 className='log-in-title'>Log in</h1>
-              <div className='log-in-inputs'>
-                <input 
-                type="text" 
-                placeholder="Username" 
-                className='log-in-input' 
-                onChange={(e) => setUsername(e.target.value)} 
-                onKeyDown={(e) => { if (e.key === 'Enter') credidentials(); }}
-                />
-                <input 
-                type="password" 
-                placeholder="Password" 
-                className='log-in-input' 
-                onChange={(e) => setPassword(e.target.value)} 
-                onKeyDown={(e) => { if (e.key === 'Enter') credidentials(); }}
-                />
-              </div>
-            <button className='log-in-button' onClick={() => {credidentials();}}>Log in</button>
-          </div>
-        </div>}
-      {loggedIn && data.length == 0 &&
+      {data.length == 0 &&
         <div className='start'>
           <label htmlFor="file-input" className='file-label'>Choose a file</label>
           <p>File must be in .xlsx format</p>
