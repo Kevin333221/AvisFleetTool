@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import AvisFleets from '../data/AvisFleets.json';
 import BudgetFleets from '../data/BudgetFleets.json';
 import Stations from '../data/Stations.json';
-import Avislogo from "../public/Avis.png"
+import Avislogo from "/Avis.png"
 
 import B_WF_P from "../public/B_Wireframe_PersonT.png"
 import C_WF_P from "../public/C_Wireframe_PersonT.png"
@@ -25,6 +25,8 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [previewStation, setPreviewStation] = useState(null);
   const [previewCar, setPreviewCar] = useState(null);
+
+  const current_stations = ["TOS", "TO0", "T1Y", "T6O", "TR7", "TO7", "E9Z", "R4S"];
 
   useEffect(() => {
   }, [data]);
@@ -106,7 +108,8 @@ export default function App() {
     setCars(sortedCars);
   }
 
-  async function fetch_data(fetching=false) {
+  async function fetch_data(fetching) {
+
     const baseDate = new Date(1900, 0, 1);
     const input = document.getElementById('file-input'); // Assuming your input element has id="file-input"
 
@@ -319,7 +322,6 @@ export default function App() {
 
   function get_payment_method(Method) {
     let cars = [];
-
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
       if (Method === "All") {
@@ -386,15 +388,7 @@ export default function App() {
 
     for (let i = 0; i < data.length; i++) {
       let car = data[i]
-      if (car["Location Due Mne"] !== "TOS" && 
-          car["Location Due Mne"] !== "TO0" && 
-          car["Location Due Mne"] !== "T1Y" && 
-          car["Location Due Mne"] !== "T6O" && 
-          car["Location Due Mne"] !== "TR7" && 
-          car["Location Due Mne"] !== "TO7" && 
-          car["Location Due Mne"] !== "E9Z" &&
-          car["Location Due Mne"] !== "R4S" &&
-          car["Location Due Mne"] !== "") 
+      if (!current_stations.includes(car["Location Due Mne"]) && car["Location Due Mne"] !== "") 
       {
         cars.push(data[i]);
       }
@@ -537,21 +531,6 @@ export default function App() {
       }
     }
     sortCars(cars, "ASC", "Car Group");
-  }
-
-  function check_credentials(username, password) {
-    if (username === "Kevinapp" && password === "Pixmamp500123!") {
-      setLoggedIn(true);
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  function credidentials() {
-    if (!check_credentials(username, password)) {
-      alert("Wrong credentials")
-    } 
   }
 
   return (
