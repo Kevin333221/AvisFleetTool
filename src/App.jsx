@@ -137,7 +137,7 @@ export default function App() {
       xlData.pop(); // Remove the last row in the sheet
 
       // Remove the car with the registration number "DL80552"
-      let xlData_filtered = xlData.filter((car) => (car["Registration Number"] !== "DL80552" && car["Registration Number"] !== "ZH22397"));
+      let xlData_filtered = xlData.filter((car) => (car["Registration Number"] !== "DL80552" && car["Registration Number"] !== "ZH22397" && car["Registration Number"] !== "PP64292"));
 
       setData(xlData_filtered);
 
