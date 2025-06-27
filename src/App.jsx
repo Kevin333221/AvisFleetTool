@@ -136,7 +136,7 @@ export default function App() {
 
       xlData.pop(); // Remove the last row in the sheet
 
-      // Remove the car with the registration number "DL80552"
+      // Remove cars with specific registration numbers
       let xlData_filtered = xlData.filter((car) => (car["Registration Number"] !== "DL80552" && car["Registration Number"] !== "ZH22397" && car["Registration Number"] !== "PP64292"));
 
       setData(xlData_filtered);
@@ -154,7 +154,7 @@ export default function App() {
         // Check if the json has the "Checkin Datetime" key
         if (xlData_filtered[i]["Checkout Datetime"] !== undefined && xlData_filtered[i].hasOwnProperty("Checkout Datetime") && typeof xlData_filtered[i]["Checkout Datetime"] === "number") {          
           let newDate = new Date(baseDate);
-          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Checkout Datetime"]);
+          newDate.setDate(baseDate.getDate() + xlData_filtered[i]["Checkout Datetime"] - 1);
           xlData_filtered[i]["Checkout Datetime"] = newDate;
         }
 
@@ -902,20 +902,21 @@ function Table_Head({ cars, sortCars }) {
   return (
     <thead className="table-head">
       <tr className="table-head-row">
-        <th onClick={() => {sortCars(cars, sortDirection, "Body Type"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>BODY</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Make / Model"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MODEL</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "MVA"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MVA</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Registration Number"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>REG</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Current Status"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>STATUS</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Body Type"           ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>BODY</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Make / Model"        ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MODEL</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "MVA"                 ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MVA</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Registration Number" ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>REG</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Current Status"      ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>STATUS</th>
         <th onClick={() => {sortCars(cars, sortDirection, "Current Location Mne"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>CUR STA</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Location Due Mne"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>IN STA</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Checkin Datetime"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>CHECKIN</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Car Group"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>GROUP</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Vehicle Mileage"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>KM</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Ignition Key"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>IGNIT KEY</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Location Due Mne"    ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>IN STA</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Checkout Datetime"   ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>CHECKOUT</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Checkin Datetime"    ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>CHECKIN</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Car Group"           ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>GROUP</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Vehicle Mileage"     ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>KM</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Ignition Key"        ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>IGNIT KEY</th>
         <th onClick={() => {sortCars(cars, sortDirection, "Rental Agreement Num"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>MOVEMENT</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "Trunk Key"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>TRUNK KEY</th>
-        <th onClick={() => {sortCars(cars, sortDirection, "STATUS3"); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>STATUS</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "Trunk Key"           ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>TRUNK KEY</th>
+        <th onClick={() => {sortCars(cars, sortDirection, "STATUS3"             ); setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC")}}>STATUS</th>
       </tr>
     </thead>
   )
@@ -1026,6 +1027,7 @@ function Table_Body({ cars, fix_duplicate_status, setPreviewStation, setPreviewC
           <td style={{ backgroundColor: Colors[car["Current Status"]]}}>{car["Current Status"]}</td>
           <td onClick={() => setPreviewStation([car["Current Location Mne"] , car["Current Location"].slice(-1)]) }>{car["Current Location Mne"]}</td>
           <td onClick={() => setPreviewStation([car["Location Due Mne"]     , car["Checkout Location"].slice(-1)])}>{displayLoc(car)}</td>
+          <td>{car["Current Status"] == "ON HAND" ? "" : format_time(car["Checkout Datetime"])}</td>
           <td>{format_time(car["Checkin Datetime"])}</td>
           <td>{car["Car Group"]}</td>
           <td>{car["Vehicle Mileage"]}</td>
